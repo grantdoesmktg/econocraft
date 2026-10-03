@@ -28,5 +28,7 @@
   "command.economy_core.reset_all": "Reset all market prices to fair value",
   "command.economy_core.reset_item": "Reset market price of %s",
   "command.economy_core.tier_set": "Set market tier of %s player(s) to %s",
-  "gui.economy_core.recover_short": "Needs %s more goods"
+  "gui.economy_core.recover_short": "Needs %s more goods",
+  "command.economy_core.celebrate": "Previewing a %s coin sale (celebration tier %s)",
+  "message.economy_core.deposited": "Deposited %s coins"
 }

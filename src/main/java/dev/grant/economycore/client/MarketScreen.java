@@ -4,7 +4,6 @@ import dev.grant.economycore.menu.MarketMenu;
 import dev.grant.economycore.network.MarketActionPayload;
 import dev.grant.economycore.network.MarketSyncPayload;
 import net.minecraft.ChatFormatting;
-import net.minecraft.Util;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -106,14 +105,6 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
         g.drawString(font, fmt(ClientMarketCache.balance), x + 19, 10, MONEY, false);
         g.drawString(font, Component.translatable("gui.economy_core.tier", ClientMarketCache.tier), x, 28, TEXT, false);
 
-        // Floating "+N" after a sale.
-        long age = Util.getMillis() - ClientMarketCache.lastGainAtMs;
-        if (ClientMarketCache.lastGain > 0 && age < 1800) {
-            float t = age / 1800f;
-            int alpha = (int) (255 * (1 - t)) << 24;
-            g.drawString(font, "+" + fmt(ClientMarketCache.lastGain), x + 19, (int) (0 - t * 8), alpha | 0x1E9E1E, false);
-        }
-
         // Sell slot and its info.
         g.drawString(font, Component.translatable("gui.economy_core.sell_slot"), x, 42, TEXT, false);
         ItemStack sel = menu.sellSlot().getItem();
@@ -143,6 +134,8 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
     public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
         super.render(g, mouseX, mouseY, partialTick);
         renderTooltip(g, mouseX, mouseY);
+        // Sale celebrations: small ones float up from the balance, big ones take over the screen.
+        SaleCelebrations.render(g, leftPos + PANEL_X + 40, topPos + 2);
         // Balance tooltip: breakdown into coins.
         int bx = leftPos + PANEL_X + 4, by = topPos + 4;
         if (mouseX >= bx && mouseX < bx + PANEL_W - 8 && mouseY >= by && mouseY < by + 20) {

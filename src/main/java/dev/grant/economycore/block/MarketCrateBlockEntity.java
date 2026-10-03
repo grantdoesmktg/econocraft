@@ -4,6 +4,8 @@ import dev.grant.economycore.ModRegistry;
 import dev.grant.economycore.market.MarketPrices;
 import dev.grant.economycore.market.MarketService;
 import dev.grant.economycore.menu.MarketMenu;
+import dev.grant.economycore.network.MarketFxPayload;
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -39,13 +41,14 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
+            depositPending = true;
         }
 
         @Override
         public boolean isItemValid(int slot, ItemStack stack) {
             // Prices are only known on the server; the client trusts the server's decision.
             if (level != null && level.isClientSide) return true;
-            return MarketPrices.isSellable(stack);
+            return MarketPrices.isAccepted(stack);
         }
     };
 
@@ -54,12 +57,13 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
+            depositPending = true;
         }
 
         @Override
         public boolean isItemValid(int slot, ItemStack stack) {
             if (level != null && level.isClientSide) return true;
-            return MarketPrices.isSellable(stack);
+            return MarketPrices.isAccepted(stack);
         }
     };
 
@@ -77,6 +81,8 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
     private String ownerName = "";
     private boolean autoSell;
     private int tickCounter;
+    /** Set when contents change; the next tick turns any coin items into balance. */
+    private boolean depositPending;
 
     public MarketCrateBlockEntity(BlockPos pos, BlockState state) {
         super(ModRegistry.MARKET_CRATE_BE.get(), pos, state);
@@ -163,11 +169,54 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, MarketCrateBlockEntity be) {
-        if (!be.autoSell || !(level instanceof ServerLevel server)) return;
+        if (!(level instanceof ServerLevel server)) return;
+        if (be.depositPending) {
+            be.depositPending = false;
+            be.depositCoins(server);
+        }
+        if (!be.autoSell) return;
         int interval = Math.max(20, MarketPrices.config().autosellIntervalTicks);
         if (++be.tickCounter < interval) return;
         be.tickCounter = 0;
-        be.sellEverything(server);
+        // One celebration per auto-sell cycle, for the whole batch.
+        long coins = be.sellEverything(server);
+        if (coins > 0) be.notifyOwner(server, MarketFxPayload.KIND_AUTOSELL, coins);
+    }
+
+    /** Remove coin items from storage and the sell slot and add their value to the owner's balance. */
+    private void depositCoins(ServerLevel level) {
+        if (owner == null) return;
+        long total = 0;
+        total += takeCoins(items);
+        total += takeCoins(sellSlot);
+        if (total <= 0) return;
+        MarketService.deposit(level.getServer(), owner, total);
+        notifyOwner(level, MarketFxPayload.KIND_DEPOSIT, total);
+    }
+
+    private static long takeCoins(ItemStackHandler handler) {
+        long total = 0;
+        for (int i = 0; i < handler.getSlots(); i++) {
+            ItemStack s = handler.getStackInSlot(i);
+            long value = MarketPrices.coinValue(s);
+            if (value > 0) {
+                total += value * s.getCount();
+                handler.setStackInSlot(i, ItemStack.EMPTY);
+            }
+        }
+        return total;
+    }
+
+    /** Tell the owner (if online and nearby, or viewing this crate) about a sale or deposit. */
+    public void notifyOwner(ServerLevel level, int kind, long coins) {
+        if (owner == null) return;
+        ServerPlayer p = level.getServer().getPlayerList().getPlayer(owner);
+        if (p == null) return;
+        boolean viewing = p.containerMenu instanceof MarketMenu m && m.getCrate() == this;
+        boolean nearby = p.level() == level && p.blockPosition().closerThan(worldPosition, 32);
+        if (!viewing && !nearby) return;
+        int tier = kind == MarketFxPayload.KIND_DEPOSIT ? 0 : MarketService.celebrationTier(coins);
+        PacketDistributor.sendToPlayer(p, new MarketFxPayload(kind, coins, tier, worldPosition));
     }
 
     // ------------------------------------------------------------ menu

@@ -1,7 +1,6 @@
 package dev.grant.economycore.client;
 
 import dev.grant.economycore.network.MarketSyncPayload;
-import net.minecraft.Util;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 import java.util.HashMap;
@@ -18,19 +17,10 @@ public final class ClientMarketCache {
     public static long sellStackValue, sellAllValue;
     public static int sellAllUnits;
 
-    /** Last balance increase, for the floating "+N" in the screen. */
-    public static long lastGain;
-    public static long lastGainAtMs;
-    private static boolean initialized;
 
     private ClientMarketCache() {}
 
     public static void handle(MarketSyncPayload msg, IPayloadContext ctx) {
-        if (initialized && msg.balance() > balance) {
-            lastGain = msg.balance() - balance;
-            lastGainAtMs = Util.getMillis();
-        }
-        initialized = true;
         balance = msg.balance();
         earned = msg.earned();
         tier = msg.tier();

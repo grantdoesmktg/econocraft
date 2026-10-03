@@ -28,6 +28,16 @@ public class MarketConfig {
     @SerializedName("autosell_interval_ticks")
     public int autosellIntervalTicks = 100;
 
+    /** Turn the sale celebration effects on or off. */
+    @SerializedName("celebrations_enabled")
+    public boolean celebrationsEnabled = true;
+
+    /**
+     * Minimum coins in one sell action for celebration tiers 2..8 (tier 1 is anything below the first).
+     * Small gaps early so new players see them often, wider gaps later, last one is the MEGA tier.
+     */
+    public List<Long> celebrations = new ArrayList<>(List.of(50L, 200L, 600L, 2000L, 7500L, 30000L, 150000L));
+
     /** Index = tier number (read from the market_tier scoreboard objective). */
     public List<Tier> tiers = new ArrayList<>();
 

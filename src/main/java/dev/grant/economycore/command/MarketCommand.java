@@ -2,6 +2,9 @@ package dev.grant.economycore.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.arguments.LongArgumentType;
+import dev.grant.economycore.network.MarketFxPayload;
+import net.neoforged.neoforge.network.PacketDistributor;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import dev.grant.economycore.market.MarketData;
@@ -55,6 +58,15 @@ public final class MarketCommand {
                             Item item = ItemArgument.getItem(c, "item").getItem();
                             MarketData.get(c.getSource().getServer()).resetItem(MarketData.GLOBAL_SCOPE, MarketService.itemId(item));
                             c.getSource().sendSuccess(() -> Component.translatable("command.economy_core.reset_item", item.getDescription()), true);
+                            return 1;
+                        })))
+                .then(Commands.literal("celebrate").requires(s -> s.hasPermission(2))
+                        .then(Commands.argument("amount", LongArgumentType.longArg(1)).executes(c -> {
+                            ServerPlayer p = c.getSource().getPlayerOrException();
+                            long amount = LongArgumentType.getLong(c, "amount");
+                            int tier = MarketService.celebrationTier(amount);
+                            PacketDistributor.sendToPlayer(p, new MarketFxPayload(MarketFxPayload.KIND_PREVIEW, amount, tier, p.blockPosition()));
+                            c.getSource().sendSuccess(() -> Component.translatable("command.economy_core.celebrate", amount, tier), false);
                             return 1;
                         })))
                 .then(Commands.literal("tier").requires(s -> s.hasPermission(2))

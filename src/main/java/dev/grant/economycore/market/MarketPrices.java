@@ -27,6 +27,7 @@ public final class MarketPrices {
 
     private static MarketConfig config = MarketConfig.defaults();
     private static Map<Item, Pricing> prices = new HashMap<>();
+    private static Map<Item, Long> coinValues = new HashMap<>();
 
     private MarketPrices() {}
 
@@ -69,6 +70,16 @@ public final class MarketPrices {
         fromTags.putAll(explicit);
         fromTags.remove(Items.AIR);
         prices = fromTags;
+
+        Map<Item, Long> coins = new HashMap<>();
+        for (var e : config.coins.entrySet()) {
+            ResourceLocation id = ResourceLocation.tryParse(e.getKey());
+            if (id != null && BuiltInRegistries.ITEM.containsKey(id) && e.getValue() != null && e.getValue() > 0) {
+                coins.put(BuiltInRegistries.ITEM.get(id), e.getValue());
+            }
+        }
+        coins.remove(Items.AIR);
+        coinValues = coins;
         String msg = "Market prices loaded: " + prices.size() + " sellable items"
                 + (unknown > 0 ? " (" + unknown + " config entries skipped: unknown item/tag or mod not installed)" : "");
         LOG.info("[Economy Core] {}", msg);
@@ -83,6 +94,18 @@ public final class MarketPrices {
 
     public static Pricing get(Item item) {
         return prices.get(item);
+    }
+
+    /** Value of one coin item, or 0 if the item isn't a configured coin. */
+    public static long coinValue(ItemStack stack) {
+        if (stack.isEmpty()) return 0;
+        Long v = coinValues.get(stack.getItem());
+        return v == null ? 0 : v;
+    }
+
+    /** Coins can be put into the crate too: they're deposited into the owner's balance. */
+    public static boolean isAccepted(ItemStack stack) {
+        return isSellable(stack) || coinValue(stack) > 0;
     }
 
     public static boolean isSellable(ItemStack stack) {

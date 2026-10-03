@@ -5,6 +5,7 @@ import dev.grant.economycore.command.MarketCommand;
 import dev.grant.economycore.market.MarketPrices;
 import dev.grant.economycore.market.MarketService;
 import dev.grant.economycore.network.MarketActionPayload;
+import dev.grant.economycore.network.MarketFxPayload;
 import dev.grant.economycore.network.MarketSyncPayload;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
@@ -46,6 +47,9 @@ public class EconomyCore {
         PayloadRegistrar r = event.registrar("1");
         r.playToServer(MarketActionPayload.TYPE, MarketActionPayload.CODEC, MarketActionPayload::handle);
         r.playToClient(MarketSyncPayload.TYPE, MarketSyncPayload.CODEC, ClientMarketCache::handle);
+        // Lambda body keeps client-only classes from loading on a dedicated server.
+        r.playToClient(MarketFxPayload.TYPE, MarketFxPayload.CODEC,
+                (msg, ctx) -> dev.grant.economycore.client.SaleCelebrations.onPayload(msg));
     }
 
     private void addToCreativeTab(BuildCreativeModeTabContentsEvent event) {

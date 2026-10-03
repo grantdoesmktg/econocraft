@@ -40,12 +40,15 @@ public record MarketActionPayload(int action, int slot) implements CustomPacketP
         if (!crate.isOwner(player) || !(crate.getLevel() instanceof ServerLevel level)) return;
 
         switch (msg.action()) {
-            case SELL_STACK -> report(player, crate.sellSelectedStack(level));
-            case SELL_ALL_OF_ITEM -> report(player, crate.sellAllOfSelected(level));
+            case SELL_STACK -> report(player, crate, level, crate.sellSelectedStack(level));
+            case SELL_ALL_OF_ITEM -> report(player, crate, level, crate.sellAllOfSelected(level));
             case SELL_EVERYTHING -> {
                 long coins = crate.sellEverything(level);
-                player.displayClientMessage(Component.translatable("message.economy_core.sold_everything",
-                        String.format("%,d", coins)).withStyle(ChatFormatting.GOLD), true);
+                if (coins > 0) {
+                    player.displayClientMessage(Component.translatable("message.economy_core.sold_everything",
+                            String.format("%,d", coins)).withStyle(ChatFormatting.GOLD), true);
+                    crate.notifyOwner(level, MarketFxPayload.KIND_SALE, coins);
+                }
             }
             case TOGGLE_AUTOSELL -> crate.setAutoSell(!crate.isAutoSell());
             case WITHDRAW -> {
@@ -58,9 +61,10 @@ public record MarketActionPayload(int action, int slot) implements CustomPacketP
         menu.sendSync(player);
     }
 
-    private static void report(ServerPlayer player, MarketService.Sale sale) {
+    private static void report(ServerPlayer player, MarketCrateBlockEntity crate, ServerLevel level, MarketService.Sale sale) {
         if (sale == null || sale.units() == 0) return;
         player.displayClientMessage(Component.translatable("message.economy_core.sold",
                 String.format("%,d", sale.coins()), sale.units(), sale.item().getDescription()).withStyle(ChatFormatting.GOLD), true);
+        crate.notifyOwner(level, MarketFxPayload.KIND_SALE, sale.coins());
     }
 }

@@ -121,6 +121,27 @@ public final class MarketService {
         return max <= 0 ? 10 : max;
     }
 
+    // ---------------------------------------------------------------- deposit
+
+    /** Coins put back into a crate: straight to the balance. Not a sale (no earnings, no price effects). */
+    public static void deposit(MinecraftServer server, UUID owner, long amount) {
+        if (amount <= 0) return;
+        MarketData data = MarketData.get(server);
+        data.account(owner).balance += amount;
+        data.setDirty();
+    }
+
+    // ---------------------------------------------------------------- celebrations
+
+    /** 1..8 for a sale of this size, or 0 if celebrations are switched off. */
+    public static int celebrationTier(long coins) {
+        MarketConfig cfg = MarketPrices.config();
+        if (!cfg.celebrationsEnabled || coins <= 0) return 0;
+        int tier = 1;
+        for (Long t : cfg.celebrations) if (t != null && coins >= t) tier++;
+        return Math.min(tier, 8);
+    }
+
     // ---------------------------------------------------------------- withdraw
 
     /** Pay out the player's balance in coin items, largest denominations first. Remainder stays. */

@@ -79,6 +79,7 @@ public class MarketCrateBlock extends BaseEntityBlock {
             for (int i = 0; i < be.getItems().getSlots(); i++) {
                 Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), be.getItems().getStackInSlot(i));
             }
+            Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), be.getSellSlot().getStackInSlot(0));
         }
         super.onRemove(state, level, pos, newState, movedByPiston);
     }

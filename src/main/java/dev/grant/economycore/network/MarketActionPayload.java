@@ -5,6 +5,7 @@ import dev.grant.economycore.block.MarketCrateBlockEntity;
 import dev.grant.economycore.market.MarketService;
 import dev.grant.economycore.menu.MarketMenu;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -12,10 +13,9 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-/** Client -> server: a button press in the Market Crate screen. */
+/** Client -> server: a button press in the Market Crate screen. The slot field is unused (kept for compatibility). */
 public record MarketActionPayload(int action, int slot) implements CustomPacketPayload {
     public static final int SELL_STACK = 0, SELL_ALL_OF_ITEM = 1, SELL_EVERYTHING = 2, TOGGLE_AUTOSELL = 3, WITHDRAW = 4;
 
@@ -40,21 +40,18 @@ public record MarketActionPayload(int action, int slot) implements CustomPacketP
         if (!crate.isOwner(player) || !(crate.getLevel() instanceof ServerLevel level)) return;
 
         switch (msg.action()) {
-            case SELL_STACK -> report(player, crate.sellSlot(level, msg.slot()));
-            case SELL_ALL_OF_ITEM -> {
-                if (msg.slot() >= 0 && msg.slot() < MarketCrateBlockEntity.SLOTS) {
-                    ItemStack s = crate.getItems().getStackInSlot(msg.slot());
-                    if (!s.isEmpty()) report(player, crate.sellAllOf(level, s.getItem()));
-                }
-            }
+            case SELL_STACK -> report(player, crate.sellSelectedStack(level));
+            case SELL_ALL_OF_ITEM -> report(player, crate.sellAllOfSelected(level));
             case SELL_EVERYTHING -> {
                 long coins = crate.sellEverything(level);
-                player.displayClientMessage(Component.translatable("message.economy_core.sold_everything", coins), true);
+                player.displayClientMessage(Component.translatable("message.economy_core.sold_everything",
+                        String.format("%,d", coins)).withStyle(ChatFormatting.GOLD), true);
             }
             case TOGGLE_AUTOSELL -> crate.setAutoSell(!crate.isAutoSell());
             case WITHDRAW -> {
                 long paid = MarketService.withdraw(player);
-                player.displayClientMessage(Component.translatable("message.economy_core.withdrew", paid), true);
+                player.displayClientMessage(Component.translatable("message.economy_core.withdrew",
+                        String.format("%,d", paid)).withStyle(ChatFormatting.GOLD), true);
             }
             default -> { }
         }
@@ -64,6 +61,6 @@ public record MarketActionPayload(int action, int slot) implements CustomPacketP
     private static void report(ServerPlayer player, MarketService.Sale sale) {
         if (sale == null || sale.units() == 0) return;
         player.displayClientMessage(Component.translatable("message.economy_core.sold",
-                sale.units(), sale.item().getDescription(), sale.coins()), true);
+                String.format("%,d", sale.coins()), sale.units(), sale.item().getDescription()).withStyle(ChatFormatting.GOLD), true);
     }
 }

@@ -49,6 +49,20 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
         }
     };
 
+    /** The "item to sell" slot in the side panel. Not reachable by automation. */
+    private final ItemStackHandler sellSlot = new ItemStackHandler(1) {
+        @Override
+        protected void onContentsChanged(int slot) {
+            setChanged();
+        }
+
+        @Override
+        public boolean isItemValid(int slot, ItemStack stack) {
+            if (level != null && level.isClientSide) return true;
+            return MarketPrices.isSellable(stack);
+        }
+    };
+
     /** What pipes/hoppers see: insert only, so automation can't pull goods back out. */
     private final IItemHandler automationHandler = new IItemHandler() {
         @Override public int getSlots() { return items.getSlots(); }
@@ -69,6 +83,7 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     public ItemStackHandler getItems() { return items; }
+    public ItemStackHandler getSellSlot() { return sellSlot; }
     public IItemHandler getAutomationHandler() { return automationHandler; }
     public boolean isAutoSell() { return autoSell; }
     @Nullable public UUID getOwner() { return owner; }
@@ -92,21 +107,33 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
 
     // ------------------------------------------------------------ selling
 
-    /** Sell the stack in one slot as a single action. */
-    public MarketService.Sale sellSlot(ServerLevel level, int slot) {
-        if (owner == null || slot < 0 || slot >= SLOTS) return null;
-        ItemStack stack = items.getStackInSlot(slot);
+    /** Sell just the stack in the panel's "item to sell" slot. */
+    public MarketService.Sale sellSelectedStack(ServerLevel level) {
+        if (owner == null) return null;
+        ItemStack stack = sellSlot.getStackInSlot(0);
         if (!MarketPrices.isSellable(stack)) return null;
         Item item = stack.getItem();
         int count = stack.getCount();
-        items.setStackInSlot(slot, ItemStack.EMPTY);
+        sellSlot.setStackInSlot(0, ItemStack.EMPTY);
         return MarketService.sell(level.getServer(), owner, ownerName, item, count);
+    }
+
+    /** Sell the panel stack plus every matching unit in the crate, as one action. */
+    public MarketService.Sale sellAllOfSelected(ServerLevel level) {
+        ItemStack stack = sellSlot.getStackInSlot(0);
+        if (stack.isEmpty()) return null;
+        return sellAllOf(level, stack.getItem());
     }
 
     /** Sell every unit of one item in the crate as a single action. */
     public MarketService.Sale sellAllOf(ServerLevel level, Item item) {
         if (owner == null) return null;
         int count = 0;
+        ItemStack sel = sellSlot.getStackInSlot(0);
+        if (!sel.isEmpty() && sel.getItem() == item && MarketPrices.isSellable(sel)) {
+            count += sel.getCount();
+            sellSlot.setStackInSlot(0, ItemStack.EMPTY);
+        }
         for (int i = 0; i < SLOTS; i++) {
             ItemStack s = items.getStackInSlot(i);
             if (!s.isEmpty() && s.getItem() == item && MarketPrices.isSellable(s)) {
@@ -166,6 +193,7 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         tag.put("Items", items.serializeNBT(registries));
+        tag.put("SellSlot", sellSlot.serializeNBT(registries));
         if (owner != null) tag.putUUID("Owner", owner);
         tag.putString("OwnerName", ownerName);
         tag.putBoolean("AutoSell", autoSell);
@@ -175,6 +203,7 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         items.deserializeNBT(registries, tag.getCompound("Items"));
+        if (tag.contains("SellSlot")) sellSlot.deserializeNBT(registries, tag.getCompound("SellSlot"));
         owner = tag.hasUUID("Owner") ? tag.getUUID("Owner") : null;
         ownerName = tag.getString("OwnerName");
         autoSell = tag.getBoolean("AutoSell");

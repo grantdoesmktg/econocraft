@@ -16,9 +16,15 @@ import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-/** 6x9 crate slots on top, player inventory below (same layout as a large chest). */
+/**
+ * 6x9 crate slots on top, player inventory below (same layout as a large chest), plus one
+ * "item to sell" slot in the side panel. Slot order: 0-53 crate, 54 sell slot, 55-90 player.
+ */
 public class MarketMenu extends AbstractContainerMenu {
     public static final int ROWS = 6;
+    public static final int SELL_SLOT_INDEX = MarketCrateBlockEntity.SLOTS;
+    /** Position of the sell slot inside the (widened) screen. */
+    public static final int SELL_SLOT_X = 188, SELL_SLOT_Y = 66;
 
     private final MarketCrateBlockEntity crate;
     private final Player player;
@@ -40,6 +46,9 @@ public class MarketMenu extends AbstractContainerMenu {
             for (int col = 0; col < 9; col++)
                 addSlot(new SlotItemHandler(items, col + row * 9, 8 + col * 18, 18 + row * 18));
 
+        ItemStackHandler sell = crate != null ? crate.getSellSlot() : new ItemStackHandler(1);
+        addSlot(new SlotItemHandler(sell, 0, SELL_SLOT_X, SELL_SLOT_Y));
+
         int yOffset = (ROWS - 4) * 18;
         for (int row = 0; row < 3; row++)
             for (int col = 0; col < 9; col++)
@@ -54,6 +63,7 @@ public class MarketMenu extends AbstractContainerMenu {
     public MarketCrateBlockEntity getCrate() { return crate; }
     public boolean isAutoSell() { return autoSell.get() != 0; }
     public boolean isCrateSlot(Slot slot) { return slot.index < MarketCrateBlockEntity.SLOTS; }
+    public Slot sellSlot() { return slots.get(SELL_SLOT_INDEX); }
 
     @Override
     public void broadcastChanges() {
@@ -77,9 +87,12 @@ public class MarketMenu extends AbstractContainerMenu {
         ItemStack stack = slot.getItem();
         ItemStack copy = stack.copy();
         int crateEnd = MarketCrateBlockEntity.SLOTS;
-        if (index < crateEnd) {
-            if (!moveItemStackTo(stack, crateEnd, slots.size(), true)) return ItemStack.EMPTY;
+        int playerStart = SELL_SLOT_INDEX + 1;
+        if (index <= SELL_SLOT_INDEX) {
+            // Crate or sell slot -> player inventory.
+            if (!moveItemStackTo(stack, playerStart, slots.size(), true)) return ItemStack.EMPTY;
         } else if (!moveItemStackTo(stack, 0, crateEnd, false)) {
+            // Player -> crate storage (never auto-filled into the sell slot).
             return ItemStack.EMPTY;
         }
         if (stack.isEmpty()) slot.set(ItemStack.EMPTY);

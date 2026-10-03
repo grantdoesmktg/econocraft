@@ -55,6 +55,16 @@ public final class MarketService {
                 PriceMath.distinctRemaining(saved, since, tier.variety));
     }
 
+    /** Coins that selling {@code units} right now would pay, without changing anything. */
+    public static long preview(MinecraftServer server, UUID seller, String sellerName, Item item, int units) {
+        MarketPrices.Pricing p = MarketPrices.get(item);
+        if (p == null || units <= 0) return 0;
+        MarketConfig.Tier tier = MarketPrices.config().tier(getTier(server, sellerName));
+        MarketData.ItemState st = MarketData.get(server).peek(scopeFor(seller), itemId(item));
+        double start = st == null ? 0 : PriceMath.effectiveSaturation(st.saturation, st.distinctSince.size(), tier.variety);
+        return (long) Math.floor(PriceMath.sell(p.base(), p.maxDrop(), p.softCap(), start, units).total());
+    }
+
     // ---------------------------------------------------------------- selling
 
     /** Result of one sell action. */

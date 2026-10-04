@@ -107,7 +107,8 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
 
     public void setAutoSell(boolean value) {
         autoSell = value;
-        tickCounter = 0;
+        tickCounter = AUTOSELL_PERIOD; // start selling right away
+        autosellRun.clear();
         setChanged();
     }
 
@@ -168,22 +169,67 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
         return total;
     }
 
+    /** Ticks between auto-sell chunks (10 ticks = half a second). */
+    public static final int AUTOSELL_PERIOD = 10;
+    /** Celebrations for auto-sell are pooled and shown at most this often, so chunks don't spam effects. */
+    private static final int FX_PERIOD = 100;
+
+    private long pendingFxCoins;
+    private int fxCounter;
+    private int nextSlot;
+    /** Units of each item auto-sold in the current run, so small chunks still count toward price recovery. */
+    private final java.util.Map<Item, Integer> autosellRun = new java.util.HashMap<>();
+
     public static void serverTick(Level level, BlockPos pos, BlockState state, MarketCrateBlockEntity be) {
         if (!(level instanceof ServerLevel server)) return;
         if (be.depositPending) {
             be.depositPending = false;
             be.depositCoins(server);
         }
-        if (!be.autoSell) return;
-        int interval = Math.max(20, MarketPrices.config().autosellIntervalTicks);
-        if (++be.tickCounter < interval) return;
-        be.tickCounter = 0;
-        // One celebration per auto-sell cycle, for the whole batch.
-        long coins = be.sellEverything(server);
-        if (coins > 0) {
-            be.notifyOwner(server, MarketFxPayload.KIND_AUTOSELL, coins);
-            ServerPlayer owner = be.owner == null ? null : server.getServer().getPlayerList().getPlayer(be.owner);
-            if (owner != null) MarketService.award(owner, "autosell");
+        if (!be.autoSell || be.owner == null) {
+            be.flushFx(server);
+            return;
+        }
+        if (++be.tickCounter >= AUTOSELL_PERIOD) {
+            be.tickCounter = 0;
+            be.sellChunk(server);
+        }
+        if (++be.fxCounter >= FX_PERIOD) {
+            be.fxCounter = 0;
+            be.flushFx(server);
+        }
+    }
+
+    /**
+     * Sell one chunk: up to N units of the next item in the crate, round-robin across slots so a mix of goods
+     * gets sold (and recovers prices) instead of draining one item first. N = 4 at tier 0, x2 per tier, max 64.
+     */
+    private void sellChunk(ServerLevel level) {
+        int tier = MarketService.getTier(level.getServer(), ownerName);
+        int chunk = MarketService.autosellChunk(tier);
+        for (int tries = 0; tries < SLOTS; tries++) {
+            int slot = (nextSlot + tries) % SLOTS;
+            ItemStack s = items.getStackInSlot(slot);
+            if (!MarketPrices.isSellable(s)) continue;
+            Item item = s.getItem();
+            int units = Math.min(chunk, s.getCount());
+            items.extractItem(slot, units, false);
+            int run = autosellRun.merge(item, units, Integer::sum);
+            MarketService.Sale sale = MarketService.sell(level.getServer(), owner, ownerName, item, units, run);
+            if (run >= 64) autosellRun.remove(item);
+            pendingFxCoins += sale.coins();
+            nextSlot = items.getStackInSlot(slot).isEmpty() ? slot + 1 : slot + 1;
+            ServerPlayer p = level.getServer().getPlayerList().getPlayer(owner);
+            if (p != null) MarketService.award(p, "autosell");
+            return;
+        }
+        autosellRun.clear(); // crate empty: the next delivery starts a fresh run
+    }
+
+    private void flushFx(ServerLevel level) {
+        if (pendingFxCoins > 0) {
+            notifyOwner(level, MarketFxPayload.KIND_AUTOSELL, pendingFxCoins);
+            pendingFxCoins = 0;
         }
     }
 

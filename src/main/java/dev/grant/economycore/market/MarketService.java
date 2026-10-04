@@ -76,6 +76,14 @@ public final class MarketService {
      * Returns coins credited (rounded down; at least 0).
      */
     public static Sale sell(MinecraftServer server, UUID seller, String sellerName, Item item, int units) {
+        return sell(server, seller, sellerName, item, units, units);
+    }
+
+    /**
+     * @param qualifyingUnits units to use for the variety check. Auto-sell sells in small chunks, so it passes
+     *                        the running total for that item, letting a stream of chunks count like one batch.
+     */
+    public static Sale sell(MinecraftServer server, UUID seller, String sellerName, Item item, int units, int qualifyingUnits) {
         MarketPrices.Pricing p = MarketPrices.get(item);
         if (p == null || units <= 0) return new Sale(item, 0, 0);
 
@@ -95,7 +103,7 @@ public final class MarketService {
         st.distinctSince.clear();
 
         // A big enough sale counts as "variety" for every other depressed item.
-        boolean qualifies = units >= tier.minUnits || coins >= tier.minValue;
+        boolean qualifies = Math.max(units, qualifyingUnits) >= tier.minUnits || coins >= tier.minValue;
         if (qualifies) {
             var it = data.scope(scope).entrySet().iterator();
             while (it.hasNext()) {
@@ -154,6 +162,11 @@ public final class MarketService {
         var progress = player.getAdvancements().getOrStartProgress(adv);
         if (progress.isDone()) return;
         for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(adv, criterion);
+    }
+
+    /** Auto-sell chunk size for a market tier: 4 units at tier 0, doubling per tier, capped at a full stack. */
+    public static int autosellChunk(int tier) {
+        return (int) Math.min(64, 4L << Math.min(tier, 4));
     }
 
     // ---------------------------------------------------------------- deposit

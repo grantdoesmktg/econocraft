@@ -116,6 +116,9 @@ configurations {
 }
 
 dependencies {
+    // FTB Teams API (compile only; the real mod is in the pack). Download into libs/ (see README in libs).
+    compileOnly files('libs/ftb-teams-neoforge-2101.1.11.jar', 'libs/ftb-library-neoforge-2101.1.37.jar')
+
     // Unit tests for the pure pricing math (no Minecraft classes needed).
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

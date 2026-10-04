@@ -36,13 +36,13 @@ public final class MarketCommand {
                         }))
                 .then(Commands.literal("balance").executes(c -> {
                     ServerPlayer p = c.getSource().getPlayerOrException();
-                    long bal = MarketData.get(p.server).account(p.getUUID()).balance;
+                    long bal = MarketData.get(p.server).accountFor(p.getUUID()).balance;
                     c.getSource().sendSuccess(() -> Component.translatable("command.economy_core.balance", bal), false);
                     return 1;
                 }))
                 .then(Commands.literal("earnings").executes(c -> {
                     ServerPlayer p = c.getSource().getPlayerOrException();
-                    long earned = MarketData.get(p.server).account(p.getUUID()).earned;
+                    long earned = MarketData.get(p.server).accountFor(p.getUUID()).earned;
                     c.getSource().sendSuccess(() -> Component.translatable("command.economy_core.earnings", earned), false);
                     return 1;
                 }))

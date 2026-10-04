@@ -60,6 +60,25 @@ public class MarketData extends SavedData {
         return m == null ? null : m.get(itemId);
     }
 
+    /**
+     * The shared account for a player's FTB team (see {@link TeamHelper}). Money a player earned before
+     * joining the team (stored under their own UUID) is merged in the first time it's looked up.
+     */
+    public Account accountFor(UUID player) {
+        UUID id = TeamHelper.accountId(player);
+        Account acc = account(id);
+        if (!id.equals(player)) {
+            Account old = accounts.remove(player);
+            if (old != null) {
+                acc.balance += old.balance;
+                acc.earned += old.earned;
+                acc.sold.addAll(old.sold);
+                setDirty();
+            }
+        }
+        return acc;
+    }
+
     public Account account(UUID player) {
         return accounts.computeIfAbsent(player, k -> new Account());
     }

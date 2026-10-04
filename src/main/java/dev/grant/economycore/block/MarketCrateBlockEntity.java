@@ -3,6 +3,7 @@ package dev.grant.economycore.block;
 import dev.grant.economycore.ModRegistry;
 import dev.grant.economycore.market.MarketPrices;
 import dev.grant.economycore.market.MarketService;
+import dev.grant.economycore.market.TeamHelper;
 import dev.grant.economycore.menu.MarketMenu;
 import dev.grant.economycore.network.MarketFxPayload;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -101,8 +102,9 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
         setChanged();
     }
 
+    /** The placer and anyone on their FTB team can use the crate; proceeds go to the shared team account. */
     public boolean isOwner(Player player) {
-        return owner == null || owner.equals(player.getUUID());
+        return owner == null || owner.equals(player.getUUID()) || TeamHelper.sameTeam(owner, player.getUUID());
     }
 
     public void setAutoSell(boolean value) {
@@ -205,7 +207,7 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
      * gets sold (and recovers prices) instead of draining one item first. N = 2 at tier 0, x2 per tier, max 64.
      */
     private void sellChunk(ServerLevel level) {
-        int tier = MarketService.getTier(level.getServer(), ownerName);
+        int tier = MarketService.getTier(level.getServer(), owner);
         int chunk = MarketService.autosellChunk(tier);
         for (int tries = 0; tries < SLOTS; tries++) {
             int slot = (nextSlot + tries) % SLOTS;
@@ -219,8 +221,10 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
             if (run >= 64) autosellRun.remove(item);
             pendingFxCoins += sale.coins();
             nextSlot = items.getStackInSlot(slot).isEmpty() ? slot + 1 : slot + 1;
-            ServerPlayer p = level.getServer().getPlayerList().getPlayer(owner);
-            if (p != null) MarketService.award(p, "autosell");
+            for (UUID member : TeamHelper.members(owner)) {
+                ServerPlayer p = level.getServer().getPlayerList().getPlayer(member);
+                if (p != null) MarketService.award(p, "autosell");
+            }
             return;
         }
         autosellRun.clear(); // crate empty: the next delivery starts a fresh run
@@ -260,14 +264,16 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
     /** Tell the owner (if online and nearby, or viewing this crate) about a sale or deposit. */
     public void notifyOwner(ServerLevel level, int kind, long coins) {
         if (owner == null) return;
-        ServerPlayer p = level.getServer().getPlayerList().getPlayer(owner);
-        if (p == null) return;
-        boolean viewing = p.containerMenu instanceof MarketMenu m && m.getCrate() == this;
-        boolean nearby = p.level() == level && p.blockPosition().closerThan(worldPosition, 32);
-        if (!viewing && !nearby) return;
         int tier = kind == MarketFxPayload.KIND_DEPOSIT ? 0 : MarketService.celebrationTier(coins);
-        PacketDistributor.sendToPlayer(p, new MarketFxPayload(kind, coins, tier, worldPosition));
+        for (UUID member : TeamHelper.members(owner)) {
+            ServerPlayer p = level.getServer().getPlayerList().getPlayer(member);
+            if (p == null) continue;
+            boolean viewing = p.containerMenu instanceof MarketMenu m && m.getCrate() == this;
+            boolean nearby = p.level() == level && p.blockPosition().closerThan(worldPosition, 32);
+            if (viewing || nearby) PacketDistributor.sendToPlayer(p, new MarketFxPayload(kind, coins, tier, worldPosition));
+        }
     }
+
 
     // ------------------------------------------------------------ menu
 

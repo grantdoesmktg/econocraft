@@ -47,7 +47,7 @@ public final class MarketService {
     public static Quote quote(MinecraftServer server, UUID seller, String sellerName, Item item) {
         MarketPrices.Pricing p = MarketPrices.get(item);
         if (p == null) return null;
-        MarketConfig.Tier tier = MarketPrices.config().tier(getTier(server, sellerName));
+        MarketConfig.Tier tier = MarketPrices.config().tier(getTier(server, seller));
         MarketData.ItemState st = MarketData.get(server).peek(scopeFor(seller), itemId(item));
         double saved = st == null ? 0 : st.saturation;
         int since = st == null ? 0 : st.distinctSince.size();
@@ -60,7 +60,7 @@ public final class MarketService {
     public static long preview(MinecraftServer server, UUID seller, String sellerName, Item item, int units) {
         MarketPrices.Pricing p = MarketPrices.get(item);
         if (p == null || units <= 0) return 0;
-        MarketConfig.Tier tier = MarketPrices.config().tier(getTier(server, sellerName));
+        MarketConfig.Tier tier = MarketPrices.config().tier(getTier(server, seller));
         MarketData.ItemState st = MarketData.get(server).peek(scopeFor(seller), itemId(item));
         double start = st == null ? 0 : PriceMath.effectiveSaturation(st.saturation, st.distinctSince.size(), tier.variety);
         return (long) Math.floor(PriceMath.sell(p.base(), p.maxDrop(), p.softCap(), start, units).total());
@@ -90,7 +90,7 @@ public final class MarketService {
         MarketData data = MarketData.get(server);
         String scope = scopeFor(seller);
         String id = itemId(item);
-        MarketConfig.Tier tier = MarketPrices.config().tier(getTier(server, sellerName));
+        MarketConfig.Tier tier = MarketPrices.config().tier(getTier(server, seller));
 
         // Start from the recovered (effective) saturation, then sell unit by unit.
         MarketData.ItemState st = data.state(scope, id);
@@ -116,15 +116,19 @@ public final class MarketService {
             }
         }
 
-        MarketData.Account acc = data.account(seller);
+        MarketData.Account acc = data.accountFor(seller);
         acc.balance += coins;
         acc.earned += coins;
         acc.sold.add(id);
         boolean diminished = PriceMath.unitPrice(p.base(), p.maxDrop(), start) < 0.9 * p.base();
         data.setDirty();
-        setScore(server, sellerName, EARNED_OBJECTIVE, (int) Math.min(Integer.MAX_VALUE, acc.earned));
-        ServerPlayer online = server.getPlayerList().getPlayer(seller);
-        if (online != null) {
+        for (UUID member : TeamHelper.members(seller)) {
+            setScore(server, TeamHelper.nameOf(server, member), EARNED_OBJECTIVE, (int) Math.min(Integer.MAX_VALUE, acc.earned));
+        }
+        // Milestones go to every online member of the team (quest progress is shared per team too).
+        for (UUID member : TeamHelper.members(seller)) {
+            ServerPlayer online = server.getPlayerList().getPlayer(member);
+            if (online == null) continue;
             awardMilestones(online, acc.earned, coins);
             if (acc.sold.size() >= 5) award(online, "distinct/5");
             if (diminished) award(online, "diminished");
@@ -175,7 +179,7 @@ public final class MarketService {
     public static void deposit(MinecraftServer server, UUID owner, long amount) {
         if (amount <= 0) return;
         MarketData data = MarketData.get(server);
-        data.account(owner).balance += amount;
+        data.accountFor(owner).balance += amount;
         data.setDirty();
     }
 
@@ -202,7 +206,7 @@ public final class MarketService {
     public static long withdraw(ServerPlayer player, int coinIndex) {
         if (coinIndex < 0) return withdraw(player);
         MarketData data = MarketData.get(player.server);
-        MarketData.Account acc = data.account(player.getUUID());
+        MarketData.Account acc = data.accountFor(player.getUUID());
         List<Map.Entry<Item, Long>> coins = sortedCoins();
         if (coinIndex >= coins.size()) return 0;
         var c = coins.get(coinIndex);
@@ -237,7 +241,7 @@ public final class MarketService {
     /** Pay out the player's balance in coin items, largest denominations first. Remainder stays. */
     public static long withdraw(ServerPlayer player) {
         MarketData data = MarketData.get(player.server);
-        MarketData.Account acc = data.account(player.getUUID());
+        MarketData.Account acc = data.accountFor(player.getUUID());
         List<Map.Entry<Item, Long>> coins = new ArrayList<>();
         for (var e : MarketPrices.config().coins.entrySet()) {
             ResourceLocation id = ResourceLocation.tryParse(e.getKey());
@@ -278,6 +282,15 @@ public final class MarketService {
                     ObjectiveCriteria.RenderType.INTEGER, false, null);
         }
         return o;
+    }
+
+    /** Market tier of a player's team: the highest market_tier score among its members. */
+    public static int getTier(MinecraftServer server, UUID player) {
+        int best = 0;
+        for (UUID member : TeamHelper.members(player)) {
+            best = Math.max(best, getTier(server, TeamHelper.nameOf(server, member)));
+        }
+        return best;
     }
 
     public static int getTier(MinecraftServer server, String playerName) {

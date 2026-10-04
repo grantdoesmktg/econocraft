@@ -73,7 +73,7 @@ public class EconomyCore {
     /** Catch up on earnings milestones reached while offline (auto-sell keeps earning). */
     private void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof ServerPlayer sp) {
-            MarketService.awardMilestones(sp, MarketData.get(sp.server).account(sp.getUUID()).earned, 0);
+            MarketService.awardMilestones(sp, MarketData.get(sp.server).accountFor(sp.getUUID()).earned, 0);
         }
     }
 

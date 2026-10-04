@@ -108,8 +108,8 @@ public record MarketSyncPayload(long balance, long earned, int tier, List<Entry>
             allValue = MarketService.preview(player.server, player.getUUID(), name, sel.getItem(), allUnits);
         }
 
-        MarketData.Account acc = MarketData.get(player.server).account(player.getUUID());
-        int tier = MarketService.getTier(player.server, name);
+        MarketData.Account acc = MarketData.get(player.server).accountFor(player.getUUID());
+        int tier = MarketService.getTier(player.server, player.getUUID());
         return new MarketSyncPayload(acc.balance, acc.earned, tier, entries, coins, stackValue, allValue, allUnits);
     }
 

@@ -30,5 +30,8 @@
   "command.economy_core.tier_set": "Set market tier of %s player(s) to %s",
   "gui.economy_core.recover_short": "Needs %s more goods",
   "command.economy_core.celebrate": "Previewing a %s coin sale (celebration tier %s)",
-  "message.economy_core.deposited": "Deposited %s coins"
+  "message.economy_core.deposited": "Deposited %s coins",
+  "gui.economy_core.withdraw_as": "Withdraw as %s",
+  "gui.economy_core.withdraw_count": "%s coins (%s value)",
+  "gui.economy_core.withdraw_mix": "Shift-click: withdraw a mix, largest coins first"
 }

@@ -50,8 +50,41 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
                 b -> send(MarketActionPayload.SELL_EVERYTHING)).bounds(x, topPos + 162, w, 18).build());
         autoSell = addRenderableWidget(Button.builder(autoSellLabel(),
                 b -> send(MarketActionPayload.TOGGLE_AUTOSELL)).bounds(x, topPos + 182, w, 18).build());
-        addRenderableWidget(Button.builder(Component.translatable("gui.economy_core.withdraw"),
-                b -> send(MarketActionPayload.WITHDRAW)).bounds(x, topPos + 200, w, 18).build());
+    }
+
+    // ------------------------------------------------------------ coin picker (withdraw as a chosen coin)
+
+    private static final int COIN_ROW_Y = 202, COIN_STEP = 17;
+
+    /** Coins smallest to largest, left to right, with the index the server expects (largest first). */
+    private List<int[]> coinSlots() {
+        List<int[]> out = new ArrayList<>();
+        int n = ClientMarketCache.coins.size();
+        for (int col = 0; col < n && col < 6; col++) {
+            int serverIndex = n - 1 - col;
+            out.add(new int[]{leftPos + PANEL_X + 5 + col * COIN_STEP, topPos + COIN_ROW_Y, serverIndex});
+        }
+        return out;
+    }
+
+    private int[] coinSlotAt(double mx, double my) {
+        for (int[] c : coinSlots()) {
+            if (mx >= c[0] && mx < c[0] + 16 && my >= c[1] && my < c[1] + 16) return c;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        int[] c = coinSlotAt(mouseX, mouseY);
+        if (c != null) {
+            // Click: withdraw as this coin. Shift-click: a mix, largest coins first.
+            PacketDistributor.sendToServer(new MarketActionPayload(MarketActionPayload.WITHDRAW, hasShiftDown() ? -1 : c[2]));
+            minecraft.getSoundManager().play(net.minecraft.client.resources.sounds.SimpleSoundInstance.forUI(
+                    net.minecraft.sounds.SoundEvents.UI_BUTTON_CLICK, 1.2f));
+            return true;
+        }
+        return super.mouseClicked(mouseX, mouseY, button);
     }
 
     private Component autoSellLabel() {
@@ -136,6 +169,24 @@ public class MarketScreen extends AbstractContainerScreen<MarketMenu> {
         renderTooltip(g, mouseX, mouseY);
         // Sale celebrations: small ones float up from the balance, big ones take over the screen.
         SaleCelebrations.render(g, leftPos + PANEL_X + 40, topPos + 2);
+        // Coin picker: icons, plus a tooltip saying what a click would withdraw.
+        int[] hovered = null;
+        for (int[] c : coinSlots()) {
+            MarketSyncPayload.Coin coin = ClientMarketCache.coins.get(c[2]);
+            boolean affordable = ClientMarketCache.balance >= coin.value();
+            g.fill(c[0] - 1, c[1] - 1, c[0] + 17, c[1] + 17, affordable ? 0xFF8B8B8B : 0xFF555555);
+            g.renderItem(new ItemStack(coinItem(coin)), c[0], c[1]);
+            if (!affordable) g.fill(c[0], c[1], c[0] + 16, c[1] + 16, 0x99303030);
+            if (mouseX >= c[0] && mouseX < c[0] + 16 && mouseY >= c[1] && mouseY < c[1] + 16) hovered = c;
+        }
+        if (hovered != null) {
+            MarketSyncPayload.Coin coin = ClientMarketCache.coins.get(hovered[2]);
+            long n = Math.min(ClientMarketCache.balance / coin.value(), 576);
+            g.renderComponentTooltip(font, List.of(
+                    Component.translatable("gui.economy_core.withdraw_as", coinItem(coin).getDescription()).withStyle(ChatFormatting.GOLD),
+                    Component.translatable("gui.economy_core.withdraw_count", fmt(n), fmt(n * coin.value())).withStyle(ChatFormatting.GRAY),
+                    Component.translatable("gui.economy_core.withdraw_mix").withStyle(ChatFormatting.DARK_GRAY)), mouseX, mouseY);
+        }
         // Balance tooltip: breakdown into coins.
         int bx = leftPos + PANEL_X + 4, by = topPos + 4;
         if (mouseX >= bx && mouseX < bx + PANEL_W - 8 && mouseY >= by && mouseY < by + 20) {

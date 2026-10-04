@@ -180,7 +180,11 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
         be.tickCounter = 0;
         // One celebration per auto-sell cycle, for the whole batch.
         long coins = be.sellEverything(server);
-        if (coins > 0) be.notifyOwner(server, MarketFxPayload.KIND_AUTOSELL, coins);
+        if (coins > 0) {
+            be.notifyOwner(server, MarketFxPayload.KIND_AUTOSELL, coins);
+            ServerPlayer owner = be.owner == null ? null : server.getServer().getPlayerList().getPlayer(be.owner);
+            if (owner != null) MarketService.award(owner, "autosell");
+        }
     }
 
     /** Remove coin items from storage and the sell slot and add their value to the owner's balance. */

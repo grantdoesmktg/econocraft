@@ -111,10 +111,16 @@ public final class MarketService {
         MarketData.Account acc = data.account(seller);
         acc.balance += coins;
         acc.earned += coins;
+        acc.sold.add(id);
+        boolean diminished = PriceMath.unitPrice(p.base(), p.maxDrop(), start) < 0.9 * p.base();
         data.setDirty();
         setScore(server, sellerName, EARNED_OBJECTIVE, (int) Math.min(Integer.MAX_VALUE, acc.earned));
         ServerPlayer online = server.getPlayerList().getPlayer(seller);
-        if (online != null) awardMilestones(online, acc.earned, coins);
+        if (online != null) {
+            awardMilestones(online, acc.earned, coins);
+            if (acc.sold.size() >= 5) award(online, "distinct/5");
+            if (diminished) award(online, "diminished");
+        }
         return new Sale(item, units, coins);
     }
 
@@ -140,7 +146,8 @@ public final class MarketService {
         }
     }
 
-    private static void award(ServerPlayer player, String path) {
+    /** Grant economy_core:<path> if it exists and isn't done yet. */
+    public static void award(ServerPlayer player, String path) {
         AdvancementHolder adv = player.server.getAdvancements()
                 .get(ResourceLocation.fromNamespaceAndPath("economy_core", path));
         if (adv == null) return;
@@ -171,6 +178,48 @@ public final class MarketService {
     }
 
     // ---------------------------------------------------------------- withdraw
+
+    /** At most this many coins of one kind per click, so a huge balance doesn't flood the floor. */
+    private static final int MAX_COINS_PER_WITHDRAW = 576;
+
+    /**
+     * Pay out the player's balance as coin items. coinIndex = position in the configured coins sorted
+     * largest first; -1 = mix of denominations, largest first. Whatever can't be paid exactly stays.
+     */
+    public static long withdraw(ServerPlayer player, int coinIndex) {
+        if (coinIndex < 0) return withdraw(player);
+        MarketData data = MarketData.get(player.server);
+        MarketData.Account acc = data.account(player.getUUID());
+        List<Map.Entry<Item, Long>> coins = sortedCoins();
+        if (coinIndex >= coins.size()) return 0;
+        var c = coins.get(coinIndex);
+        long n = Math.min(acc.balance / c.getValue(), MAX_COINS_PER_WITHDRAW);
+        if (n <= 0) return 0;
+        acc.balance -= n * c.getValue();
+        give(player, c.getKey(), n);
+        data.setDirty();
+        return n * c.getValue();
+    }
+
+    private static List<Map.Entry<Item, Long>> sortedCoins() {
+        List<Map.Entry<Item, Long>> coins = new ArrayList<>();
+        for (var e : MarketPrices.config().coins.entrySet()) {
+            ResourceLocation id = ResourceLocation.tryParse(e.getKey());
+            if (id == null || !BuiltInRegistries.ITEM.containsKey(id) || e.getValue() == null || e.getValue() <= 0) continue;
+            coins.add(Map.entry(BuiltInRegistries.ITEM.get(id), e.getValue()));
+        }
+        coins.sort((a, b) -> Long.compare(b.getValue(), a.getValue()));
+        return coins;
+    }
+
+    private static void give(ServerPlayer player, Item item, long n) {
+        int max = new ItemStack(item).getMaxStackSize();
+        while (n > 0) {
+            int g = (int) Math.min(n, max);
+            ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(item, g));
+            n -= g;
+        }
+    }
 
     /** Pay out the player's balance in coin items, largest denominations first. Remainder stays. */
     public static long withdraw(ServerPlayer player) {

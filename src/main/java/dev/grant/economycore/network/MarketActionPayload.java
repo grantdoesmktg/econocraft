@@ -15,7 +15,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-/** Client -> server: a button press in the Market Crate screen. The slot field is unused (kept for compatibility). */
+/** Client -> server: a button press in the Market Crate screen. For WITHDRAW, slot = coin index (largest first), -1 = mixed. */
 public record MarketActionPayload(int action, int slot) implements CustomPacketPayload {
     public static final int SELL_STACK = 0, SELL_ALL_OF_ITEM = 1, SELL_EVERYTHING = 2, TOGGLE_AUTOSELL = 3, WITHDRAW = 4;
 
@@ -52,7 +52,7 @@ public record MarketActionPayload(int action, int slot) implements CustomPacketP
             }
             case TOGGLE_AUTOSELL -> crate.setAutoSell(!crate.isAutoSell());
             case WITHDRAW -> {
-                long paid = MarketService.withdraw(player);
+                long paid = MarketService.withdraw(player, msg.slot());
                 player.displayClientMessage(Component.translatable("message.economy_core.withdrew",
                         String.format("%,d", paid)).withStyle(ChatFormatting.GOLD), true);
             }

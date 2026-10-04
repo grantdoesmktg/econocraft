@@ -34,6 +34,8 @@ public class MarketData extends SavedData {
     public static class Account {
         public long balance;
         public long earned;
+        /** Distinct items this player has ever sold (for the "five streams" quest). */
+        public final Set<String> sold = new HashSet<>();
     }
 
     private final Map<String, Map<String, ItemState>> scopes = new HashMap<>();
@@ -95,6 +97,9 @@ public class MarketData extends SavedData {
             CompoundTag t = new CompoundTag();
             t.putLong("Balance", a.balance);
             t.putLong("Earned", a.earned);
+            ListTag sold = new ListTag();
+            a.sold.forEach(x -> sold.add(StringTag.valueOf(x)));
+            t.put("Sold", sold);
             acc.put(uuid.toString(), t);
         });
         tag.put("Accounts", acc);
@@ -123,6 +128,8 @@ public class MarketData extends SavedData {
                 Account a = new Account();
                 a.balance = t.getLong("Balance");
                 a.earned = t.getLong("Earned");
+                ListTag sold = t.getList("Sold", Tag.TAG_STRING);
+                for (int i = 0; i < sold.size(); i++) a.sold.add(sold.getString(i));
                 data.accounts.put(UUID.fromString(key), a);
             } catch (IllegalArgumentException ignored) {
                 // skip malformed uuid

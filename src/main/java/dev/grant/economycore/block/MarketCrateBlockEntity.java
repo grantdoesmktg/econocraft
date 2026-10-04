@@ -202,7 +202,7 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
 
     /**
      * Sell one chunk: up to N units of the next item in the crate, round-robin across slots so a mix of goods
-     * gets sold (and recovers prices) instead of draining one item first. N = 4 at tier 0, x2 per tier, max 64.
+     * gets sold (and recovers prices) instead of draining one item first. N = 2 at tier 0, x2 per tier, max 64.
      */
     private void sellChunk(ServerLevel level) {
         int tier = MarketService.getTier(level.getServer(), ownerName);

@@ -164,9 +164,9 @@ public final class MarketService {
         for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(adv, criterion);
     }
 
-    /** Auto-sell chunk size for a market tier: 4 units at tier 0, doubling per tier, capped at a full stack. */
+    /** Auto-sell chunk size for a market tier: 2 units at tier 0, doubling per tier, capped at a full stack. */
     public static int autosellChunk(int tier) {
-        return (int) Math.min(64, 4L << Math.min(tier, 4));
+        return (int) Math.min(64, 2L << Math.min(tier, 5));
     }
 
     // ---------------------------------------------------------------- deposit

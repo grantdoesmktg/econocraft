@@ -173,6 +173,28 @@ public final class MarketService {
         return (int) Math.min(64, 2L << Math.min(tier, 5));
     }
 
+    // ---------------------------------------------------------------- shop buy-back
+
+    /** Buy-back value per item stamped by the Supply Market, or 0 if the item wasn't bought there. */
+    public static long priceTag(ItemStack stack) {
+        if (stack.isEmpty()) return 0;
+        Long v = stack.get(dev.grant.economycore.ModRegistry.PRICE_TAG.get());
+        return v == null ? 0 : v;
+    }
+
+    /**
+     * Sell shop-bought machines back at their stamped value: flat (no price drop), no effect on other prices,
+     * and no lifetime-earnings credit, so buying and reselling can't farm tier progress.
+     */
+    public static Sale sellBack(MinecraftServer server, UUID seller, ItemStack stack) {
+        long coins = priceTag(stack) * stack.getCount();
+        if (coins <= 0) return new Sale(stack.getItem(), 0, 0);
+        MarketData data = MarketData.get(server);
+        data.accountFor(seller).balance += coins;
+        data.setDirty();
+        return new Sale(stack.getItem(), stack.getCount(), coins);
+    }
+
     // ---------------------------------------------------------------- deposit
 
     /** Coins put back into a crate: straight to the balance. Not a sale (no earnings, no price effects). */

@@ -49,7 +49,7 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
         public boolean isItemValid(int slot, ItemStack stack) {
             // Prices are only known on the server; the client trusts the server's decision.
             if (level != null && level.isClientSide) return true;
-            return MarketPrices.isAccepted(stack);
+            return MarketPrices.isAccepted(stack) || MarketService.priceTag(stack) > 0;
         }
     };
 
@@ -64,7 +64,7 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
         @Override
         public boolean isItemValid(int slot, ItemStack stack) {
             if (level != null && level.isClientSide) return true;
-            return MarketPrices.isAccepted(stack);
+            return MarketPrices.isAccepted(stack) || MarketService.priceTag(stack) > 0;
         }
     };
 
@@ -120,6 +120,10 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
     public MarketService.Sale sellSelectedStack(ServerLevel level) {
         if (owner == null) return null;
         ItemStack stack = sellSlot.getStackInSlot(0);
+        if (MarketService.priceTag(stack) > 0) {
+            sellSlot.setStackInSlot(0, ItemStack.EMPTY);
+            return MarketService.sellBack(level.getServer(), owner, stack);
+        }
         if (!MarketPrices.isSellable(stack)) return null;
         Item item = stack.getItem();
         int count = stack.getCount();
@@ -139,13 +143,14 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
         if (owner == null) return null;
         int count = 0;
         ItemStack sel = sellSlot.getStackInSlot(0);
+        if (MarketService.priceTag(sel) > 0) return sellSelectedStack(level);
         if (!sel.isEmpty() && sel.getItem() == item && MarketPrices.isSellable(sel)) {
             count += sel.getCount();
             sellSlot.setStackInSlot(0, ItemStack.EMPTY);
         }
         for (int i = 0; i < SLOTS; i++) {
             ItemStack s = items.getStackInSlot(i);
-            if (!s.isEmpty() && s.getItem() == item && MarketPrices.isSellable(s)) {
+            if (!s.isEmpty() && s.getItem() == item && MarketPrices.isSellable(s) && MarketService.priceTag(s) == 0) {
                 count += s.getCount();
                 items.setStackInSlot(i, ItemStack.EMPTY);
             }
@@ -157,14 +162,20 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
     public long sellEverything(ServerLevel level) {
         if (owner == null) return 0;
         Map<Item, Integer> counts = new LinkedHashMap<>();
+        long backTotal = 0;
         for (int i = 0; i < SLOTS; i++) {
             ItemStack s = items.getStackInSlot(i);
+            if (MarketService.priceTag(s) > 0) {
+                backTotal += MarketService.sellBack(level.getServer(), owner, s).coins();
+                items.setStackInSlot(i, ItemStack.EMPTY);
+                continue;
+            }
             if (MarketPrices.isSellable(s)) {
                 counts.merge(s.getItem(), s.getCount(), Integer::sum);
                 items.setStackInSlot(i, ItemStack.EMPTY);
             }
         }
-        long total = 0;
+        long total = backTotal;
         for (var e : counts.entrySet()) {
             total += MarketService.sell(level.getServer(), owner, ownerName, e.getKey(), e.getValue()).coins();
         }
@@ -212,6 +223,12 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
         for (int tries = 0; tries < SLOTS; tries++) {
             int slot = (nextSlot + tries) % SLOTS;
             ItemStack s = items.getStackInSlot(slot);
+            if (MarketService.priceTag(s) > 0) {
+                ItemStack taken = items.extractItem(slot, s.getCount(), false);
+                pendingFxCoins += MarketService.sellBack(level.getServer(), owner, taken).coins();
+                nextSlot = slot + 1;
+                return;
+            }
             if (!MarketPrices.isSellable(s)) continue;
             Item item = s.getItem();
             int units = Math.min(chunk, s.getCount());

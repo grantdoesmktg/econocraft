@@ -7,6 +7,10 @@ import dev.grant.economycore.market.MarketService;
 import dev.grant.economycore.network.MarketActionPayload;
 import dev.grant.economycore.network.MarketFxPayload;
 import dev.grant.economycore.network.MarketSyncPayload;
+import dev.grant.economycore.network.ShopBuyPayload;
+import dev.grant.economycore.network.ShopSyncPayload;
+import dev.grant.economycore.shop.ShopCatalog;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import dev.grant.economycore.market.MarketData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -39,6 +43,7 @@ public class EconomyCore {
         NeoForge.EVENT_BUS.addListener(this::onTagsUpdated);
         NeoForge.EVENT_BUS.addListener(this::onRegisterCommands);
         NeoForge.EVENT_BUS.addListener(this::onPlayerLogin);
+        NeoForge.EVENT_BUS.addListener(this::onTooltip);
     }
 
     private void registerCapabilities(RegisterCapabilitiesEvent event) {
@@ -52,6 +57,9 @@ public class EconomyCore {
         r.playToServer(MarketActionPayload.TYPE, MarketActionPayload.CODEC, MarketActionPayload::handle);
         r.playToClient(MarketSyncPayload.TYPE, MarketSyncPayload.CODEC, ClientMarketCache::handle);
         // Lambda body keeps client-only classes from loading on a dedicated server.
+        r.playToServer(ShopBuyPayload.TYPE, ShopBuyPayload.CODEC, ShopBuyPayload::handle);
+        r.playToClient(ShopSyncPayload.TYPE, ShopSyncPayload.CODEC,
+                (msg, ctx) -> dev.grant.economycore.client.ClientShopCache.handle(msg, ctx));
         r.playToClient(MarketFxPayload.TYPE, MarketFxPayload.CODEC,
                 (msg, ctx) -> dev.grant.economycore.client.SaleCelebrations.onPayload(msg));
     }
@@ -60,11 +68,13 @@ public class EconomyCore {
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             event.accept(ModRegistry.MARKET_CRATE_ITEM);
             event.accept(ModRegistry.FRONTIER_GATEWAY_ITEM);
+            event.accept(ModRegistry.SUPPLY_MARKET_ITEM);
         }
     }
 
     private void onServerStarted(ServerStartedEvent event) {
         MarketPrices.reload();
+        ShopCatalog.reload();
         MarketService.ensureObjectives(event.getServer());
     }
 
@@ -77,6 +87,15 @@ public class EconomyCore {
     private void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof ServerPlayer sp) {
             MarketService.awardMilestones(sp, MarketData.get(sp.server).accountFor(sp.getUUID()).earned, 0);
+        }
+    }
+
+    /** Shop-bought machines show what they sell back for. */
+    private void onTooltip(ItemTooltipEvent event) {
+        Long tag = event.getItemStack().get(ModRegistry.PRICE_TAG.get());
+        if (tag != null) {
+            event.getToolTip().add(net.minecraft.network.chat.Component.translatable("tooltip.economy_core.price_tag",
+                    String.format("%,d", tag)).withStyle(net.minecraft.ChatFormatting.GOLD));
         }
     }
 

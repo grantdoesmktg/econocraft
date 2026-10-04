@@ -38,5 +38,20 @@
   "message.economy_core.frontier_locked": "The Frontier isn't yours yet. Buy it with the tier 3 gate in the quest book.",
   "message.economy_core.frontier_first": "Welcome to the Frontier! This gateway takes you home; place another gateway anywhere out here to move your landing spot.",
   "message.economy_core.frontier_moved": "Your team's Frontier landing spot is now here.",
-  "message.economy_core.frontier_blocked": "The trip was blocked: your team doesn't have the Frontier unlocked yet (stage economy:tier_3). Complete the tier 3 gate quest."
+  "message.economy_core.frontier_blocked": "The trip was blocked: your team doesn't have the Frontier unlocked yet (stage economy:tier_3). Complete the tier 3 gate quest.",
+  "block.economy_core.supply_market": "Supply Market",
+  "gui.economy_core.shop_title": "Supply Market",
+  "gui.economy_core.shop_search": "Search...",
+  "gui.economy_core.shop_tab_machines": "Machines",
+  "gui.economy_core.shop_tab_supplies": "Supplies",
+  "gui.economy_core.shop_buy": "Buy",
+  "gui.economy_core.shop_pick": "Pick something from the shelves. Greyed-out goods unlock at a later tier.",
+  "gui.economy_core.shop_tier": "Unlocks at tier %s",
+  "gui.economy_core.shop_price": "Price: %s",
+  "gui.economy_core.shop_buyback": "Sells back: %s each",
+  "gui.economy_core.shop_no_buyback": "Can't be sold back",
+  "message.economy_core.shop_locked": "That unlocks at market tier %s.",
+  "message.economy_core.shop_broke": "That costs %s, you have %s. Sell something!",
+  "message.economy_core.shop_bought": "Bought %s %s for %s coins",
+  "tooltip.economy_core.price_tag": "Shop-bought: sells back for %s coins each"
 }

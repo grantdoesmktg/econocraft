@@ -30,7 +30,7 @@ public final class MarketCommand {
         d.register(Commands.literal("market")
                 .then(Commands.literal("reload").requires(s -> s.hasPermission(2))
                         .executes(c -> {
-                            String msg = MarketPrices.reload();
+                            String msg = MarketPrices.reload() + " / " + dev.grant.economycore.shop.ShopCatalog.reload();
                             c.getSource().sendSuccess(() -> Component.literal(msg), true);
                             return 1;
                         }))

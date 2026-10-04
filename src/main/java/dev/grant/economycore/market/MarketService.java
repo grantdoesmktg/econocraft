@@ -1,5 +1,6 @@
 package dev.grant.economycore.market;
 
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -112,6 +113,8 @@ public final class MarketService {
         acc.earned += coins;
         data.setDirty();
         setScore(server, sellerName, EARNED_OBJECTIVE, (int) Math.min(Integer.MAX_VALUE, acc.earned));
+        ServerPlayer online = server.getPlayerList().getPlayer(seller);
+        if (online != null) awardMilestones(online, acc.earned, coins);
         return new Sale(item, units, coins);
     }
 
@@ -119,6 +122,31 @@ public final class MarketService {
         int max = 0;
         for (MarketConfig.Tier t : MarketPrices.config().tiers) max = Math.max(max, t.variety);
         return max <= 0 ? 10 : max;
+    }
+
+    // ---------------------------------------------------------------- milestones (read by quest gates)
+
+    /**
+     * Grant the earnings advancements the player has reached, plus any single-sale advancements for this sale.
+     * Pass saleCoins = 0 to only check lifetime earnings (e.g. on login, after offline auto-selling).
+     */
+    public static void awardMilestones(ServerPlayer player, long lifetimeEarned, long saleCoins) {
+        MarketConfig cfg = MarketPrices.config();
+        for (Long m : cfg.earningsMilestones) {
+            if (m != null && lifetimeEarned >= m) award(player, "earned/" + m);
+        }
+        for (Long m : cfg.saleMilestones) {
+            if (m != null && saleCoins >= m) award(player, "sale/" + m);
+        }
+    }
+
+    private static void award(ServerPlayer player, String path) {
+        AdvancementHolder adv = player.server.getAdvancements()
+                .get(ResourceLocation.fromNamespaceAndPath("economy_core", path));
+        if (adv == null) return;
+        var progress = player.getAdvancements().getOrStartProgress(adv);
+        if (progress.isDone()) return;
+        for (String criterion : progress.getRemainingCriteria()) player.getAdvancements().award(adv, criterion);
     }
 
     // ---------------------------------------------------------------- deposit

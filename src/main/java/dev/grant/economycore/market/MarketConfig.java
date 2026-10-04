@@ -38,6 +38,17 @@ public class MarketConfig {
      */
     public List<Long> celebrations = new ArrayList<>(List.of(50L, 200L, 600L, 2000L, 7500L, 30000L, 150000L));
 
+    /**
+     * Lifetime earnings milestones. Crossing one grants the advancement economy_core:earned/<amount>,
+     * which quest gates check. Keep in sync with data/economy_core/advancement/earned/.
+     */
+    @SerializedName("earnings_milestones")
+    public List<Long> earningsMilestones = new ArrayList<>(List.of(1L, 2000L, 12000L, 48000L, 175000L, 525000L, 1400000L, 4000000L));
+
+    /** Single-sale milestones: a sale worth at least this grants economy_core:sale/<amount>. */
+    @SerializedName("sale_milestones")
+    public List<Long> saleMilestones = new ArrayList<>(List.of(1000L, 150000L));
+
     /** Index = tier number (read from the market_tier scoreboard objective). */
     public List<Tier> tiers = new ArrayList<>();
 

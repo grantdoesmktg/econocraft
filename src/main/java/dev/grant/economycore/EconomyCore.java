@@ -48,6 +48,8 @@ public class EconomyCore {
         NeoForge.EVENT_BUS.addListener(this::onPlayerLogin);
         NeoForge.EVENT_BUS.addListener(this::onTooltip);
         NeoForge.EVENT_BUS.addListener(this::onPlayerTick);
+        NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.tick.ServerTickEvent.Post e) ->
+                dev.grant.economycore.market.IslandPartyLink.tick(e.getServer()));
     }
 
     private void registerCapabilities(RegisterCapabilitiesEvent event) {

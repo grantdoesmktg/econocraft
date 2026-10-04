@@ -57,7 +57,10 @@ public class EconomyCore {
     }
 
     private void addToCreativeTab(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) event.accept(ModRegistry.MARKET_CRATE_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            event.accept(ModRegistry.MARKET_CRATE_ITEM);
+            event.accept(ModRegistry.FRONTIER_GATEWAY_ITEM);
+        }
     }
 
     private void onServerStarted(ServerStartedEvent event) {

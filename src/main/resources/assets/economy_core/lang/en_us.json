@@ -33,5 +33,9 @@
   "message.economy_core.deposited": "Deposited %s coins",
   "gui.economy_core.withdraw_as": "Withdraw as %s",
   "gui.economy_core.withdraw_count": "%s coins (%s value)",
-  "gui.economy_core.withdraw_mix": "Shift-click: withdraw a mix, largest coins first"
+  "gui.economy_core.withdraw_mix": "Shift-click: withdraw a mix, largest coins first",
+  "block.economy_core.frontier_gateway": "Frontier Gateway",
+  "message.economy_core.frontier_locked": "The Frontier isn't yours yet. Buy it with the tier 3 gate in the quest book.",
+  "message.economy_core.frontier_first": "Welcome to the Frontier! This gateway takes you home; place another gateway anywhere out here to move your landing spot.",
+  "message.economy_core.frontier_moved": "Your team's Frontier landing spot is now here."
 }

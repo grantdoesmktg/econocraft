@@ -2,6 +2,7 @@ package dev.grant.economycore;
 
 import dev.grant.economycore.block.MarketCrateBlock;
 import dev.grant.economycore.block.MarketCrateBlockEntity;
+import dev.grant.economycore.frontier.FrontierGatewayBlock;
 import dev.grant.economycore.menu.MarketMenu;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
@@ -29,6 +30,12 @@ public final class ModRegistry {
                     .mapColor(MapColor.WOOD).strength(2.5f).sound(SoundType.WOOD)));
 
     public static final DeferredItem<BlockItem> MARKET_CRATE_ITEM = ITEMS.registerSimpleBlockItem(MARKET_CRATE);
+
+    public static final DeferredBlock<FrontierGatewayBlock> FRONTIER_GATEWAY = BLOCKS.register("frontier_gateway",
+            () -> new FrontierGatewayBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_PURPLE).strength(3.0f, 1200f).sound(SoundType.AMETHYST).lightLevel(s -> 10)));
+
+    public static final DeferredItem<BlockItem> FRONTIER_GATEWAY_ITEM = ITEMS.registerSimpleBlockItem(FRONTIER_GATEWAY);
 
     @SuppressWarnings("DataFlowIssue")
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MarketCrateBlockEntity>> MARKET_CRATE_BE =

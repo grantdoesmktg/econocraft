@@ -37,5 +37,6 @@
   "block.economy_core.frontier_gateway": "Frontier Gateway",
   "message.economy_core.frontier_locked": "The Frontier isn't yours yet. Buy it with the tier 3 gate in the quest book.",
   "message.economy_core.frontier_first": "Welcome to the Frontier! This gateway takes you home; place another gateway anywhere out here to move your landing spot.",
-  "message.economy_core.frontier_moved": "Your team's Frontier landing spot is now here."
+  "message.economy_core.frontier_moved": "Your team's Frontier landing spot is now here.",
+  "message.economy_core.frontier_blocked": "The trip was blocked: your team doesn't have the Frontier unlocked yet (stage economy:tier_3). Complete the tier 3 gate quest."
 }

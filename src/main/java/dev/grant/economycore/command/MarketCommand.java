@@ -93,7 +93,15 @@ public final class MarketCommand {
 
     private static int setTier(CommandContext<CommandSourceStack> c, java.util.Collection<ServerPlayer> players) {
         int tier = IntegerArgumentType.getInteger(c, "tier");
-        for (ServerPlayer p : players) MarketService.setTier(c.getSource().getServer(), p.getGameProfile().getName(), tier);
+        var server = c.getSource().getServer();
+        for (ServerPlayer p : players) {
+            MarketService.setTier(server, p.getGameProfile().getName(), tier);
+            // Keep the ProgressiveStages unlocks in step (in order, so each stage's dependency is met).
+            for (int t = 1; t <= tier; t++) {
+                server.getCommands().performPrefixedCommand(server.createCommandSourceStack().withSuppressedOutput(),
+                        "stage grant " + p.getGameProfile().getName() + " economy:tier_" + t);
+            }
+        }
         c.getSource().sendSuccess(() -> Component.translatable("command.economy_core.tier_set", players.size(), tier), true);
         return players.size();
     }

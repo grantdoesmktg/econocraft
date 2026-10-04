@@ -75,6 +75,11 @@ public class FrontierGatewayBlock extends Block {
         if (!frontier.getBlockState(landing).is(ModRegistry.FRONTIER_GATEWAY.get())) buildLanding(frontier, landing);
         data.setReturn(player.getUUID(), from.dimension(), gateway);
         teleport(player, frontier, landing.east());
+        if (player.level() != frontier) {
+            // Something (normally the tier 3 stage lock) cancelled the trip.
+            player.displayClientMessage(Component.translatable("message.economy_core.frontier_blocked").withStyle(ChatFormatting.RED), false);
+            return;
+        }
         if (firstVisit) {
             player.displayClientMessage(Component.translatable("message.economy_core.frontier_first").withStyle(ChatFormatting.GREEN), false);
         }
@@ -106,23 +111,31 @@ public class FrontierGatewayBlock extends Block {
         level.playSound(null, feet, SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 1f, 0.8f);
     }
 
-    /** A dry, solid surface spot 500-1,500 blocks from world spawn, so teams don't land on each other. */
+    /**
+     * A dry land spot 500-1,500 blocks from world spawn, so teams don't land on each other.
+     * Candidates are checked with the noise generator's height estimate (cheap, no chunk generation);
+     * only the chosen chunk is actually generated.
+     */
     static BlockPos findLanding(ServerLevel level, RandomSource rng) {
         BlockPos spawn = level.getSharedSpawnPos();
-        for (int i = 0; i < 64; i++) {
+        var source = level.getChunkSource();
+        var generator = source.getGenerator();
+        var randomState = source.randomState();
+        int sea = level.getSeaLevel();
+        for (int i = 0; i < 200; i++) {
             float angle = rng.nextFloat() * Mth.TWO_PI;
             int dist = MIN_DIST + rng.nextInt(MAX_DIST - MIN_DIST);
             int x = spawn.getX() + (int) (Mth.cos(angle) * dist);
             int z = spawn.getZ() + (int) (Mth.sin(angle) * dist);
-            level.getChunk(x >> 4, z >> 4);
+            int estimate = generator.getBaseHeight(x, z, Heightmap.Types.OCEAN_FLOOR_WG, level, randomState);
+            if (estimate <= sea + 2) continue; // water or beach
+            level.getChunk(x >> 4, z >> 4);    // generate just this one
             int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
-            BlockPos ground = new BlockPos(x, y - 1, z);
-            BlockState below = level.getBlockState(ground);
-            if (below.getFluidState().isEmpty() && below.isSolid() && y > level.getSeaLevel()) {
-                return new BlockPos(x, y, z);
-            }
+            BlockState below = level.getBlockState(new BlockPos(x, y - 1, z));
+            if (below.getFluidState().isEmpty() && y > sea) return new BlockPos(x, y, z);
         }
-        return level.getSharedSpawnPos();
+        BlockPos s = level.getSharedSpawnPos();
+        return new BlockPos(s.getX(), level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, s.getX(), s.getZ()), s.getZ());
     }
 
     /** 3x3 stone platform with the gateway in the middle and headroom above. */

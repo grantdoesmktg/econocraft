@@ -53,5 +53,8 @@
   "message.economy_core.shop_locked": "That unlocks at market tier %s.",
   "message.economy_core.shop_broke": "That costs %s, you have %s. Sell something!",
   "message.economy_core.shop_bought": "Bought %s %s for %s coins",
-  "tooltip.economy_core.price_tag": "Shop-bought: sells back for %s coins each"
+  "tooltip.economy_core.price_tag": "Shop-bought: sells back for %s coins each",
+  "gui.economy_core.shop_tier_tab": "Tier %s",
+  "gui.economy_core.shop_empty": "Nothing on this shelf",
+  "gui.economy_core.shop_shelf_locked": "This shelf opens at tier %s. Have a look, start saving!"
 }

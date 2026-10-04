@@ -20,6 +20,9 @@ public final class ClientSetup {
         event.registerAboveAll(ResourceLocation.fromNamespaceAndPath(EconomyCore.MODID, "sale_celebrations"), (g, delta) -> {
             if (!(Minecraft.getInstance().screen instanceof MarketScreen)) SaleCelebrations.render(g, -1, -1);
         });
+        event.registerAboveAll(ResourceLocation.fromNamespaceAndPath(EconomyCore.MODID, "balance"), (g, delta) -> {
+            if (Minecraft.getInstance().screen == null) BalanceHud.render(g);
+        });
     }
 
     @SubscribeEvent

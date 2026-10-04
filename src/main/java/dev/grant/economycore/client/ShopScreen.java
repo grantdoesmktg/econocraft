@@ -21,25 +21,28 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * The Supply Market screen: category tabs, search, a scrolling grid of listings, and a detail panel
- * with price, buy-back value, quantity and Buy. Styled like a wooden market stall.
+ * The Supply Market screen, styled like a wooden market stall.
+ * Tier tabs across the top (one shelf per market tier, so new players aren't buried), a Machines/Supplies toggle,
+ * search (searches every tier), a scrolling grid, and a detail panel with price, buy-back, quantity and Buy.
  */
 public class ShopScreen extends Screen {
-    private static final int W = 300, H = 206;
+    private static final int W = 300, H = 210;
     private static final int COLS = 9, ROWS = 6, CELL = 18;
-    private static final int GRID_X = 10, GRID_Y = 52;
+    private static final int GRID_X = 10, GRID_Y = 54;
     private static final int PANEL_X = 182;
-    private static final String[] TABS = {"machines", "supplies"};
+    private static final int TIERS = 7;
+    private static final String[] CATS = {"machines", "supplies"};
 
     // Wood-and-canvas palette.
-    private static final int WOOD_DARK = 0xFF3B2716, WOOD = 0xFF6B4A2B, WOOD_LIGHT = 0xFF8A6239;
+    private static final int WOOD_DARK = 0xFF3B2716, WOOD = 0xFF6B4A2B;
     private static final int CANVAS = 0xFFE8D9B5, CANVAS_DARK = 0xFFC9B48A, INK = 0xFF3B2716;
-    private static final int GOLD = 0xFFFFC94A, RED = 0xFFC0392B, GREEN = 0xFF2E7D32;
+    private static final int GOLD = 0xFFFFC94A, RED = 0xFFC0392B, GREEN = 0xFF2E7D32, MUTED = 0xFF8C7B5A;
 
     private int left, top;
-    private String tab = "machines";
+    private int tier = -1;          // which tier shelf is shown
+    private String cat = "machines";
     private int scroll;
-    private int selected = -1;     // index into ClientShopCache.entries
+    private int selected = -1;      // index into ClientShopCache.entries
     private int lots = 1;
     private EditBox search;
     private Button buy;
@@ -53,19 +56,20 @@ public class ShopScreen extends Screen {
     protected void init() {
         left = (width - W) / 2;
         top = (height - H) / 2;
-        search = new EditBox(font, left + GRID_X, top + 34, COLS * CELL, 12, Component.translatable("gui.economy_core.shop_search"));
+        if (tier < 0) tier = Mth.clamp(ClientShopCache.tier, 0, TIERS - 1); // open on your current tier
+        search = new EditBox(font, left + GRID_X + 110, top + 37, COLS * CELL - 110, 12, Component.translatable("gui.economy_core.shop_search"));
         search.setHint(Component.translatable("gui.economy_core.shop_search").withStyle(ChatFormatting.GRAY));
         search.setResponder(s -> { scroll = 0; refilter(); });
         addRenderableWidget(search);
 
         int px = left + PANEL_X;
-        addRenderableWidget(Button.builder(Component.literal("-"), b -> setLots(lots - 1)).bounds(px + 8, top + 136, 16, 16).build());
-        addRenderableWidget(Button.builder(Component.literal("+"), b -> setLots(lots + 1)).bounds(px + 84, top + 136, 16, 16).build());
-        addRenderableWidget(Button.builder(Component.literal("x8"), b -> setLots(lots == 1 ? 8 : lots + 8)).bounds(px + 8, top + 156, 30, 14).build());
-        addRenderableWidget(Button.builder(Component.literal("x64"), b -> setLots(64)).bounds(px + 40, top + 156, 30, 14).build());
-        addRenderableWidget(Button.builder(Component.literal("1"), b -> setLots(1)).bounds(px + 72, top + 156, 28, 14).build());
+        addRenderableWidget(Button.builder(Component.literal("-"), b -> setLots(lots - 1)).bounds(px + 8, top + 138, 16, 16).build());
+        addRenderableWidget(Button.builder(Component.literal("+"), b -> setLots(lots + 1)).bounds(px + 84, top + 138, 16, 16).build());
+        addRenderableWidget(Button.builder(Component.literal("x8"), b -> setLots(lots == 1 ? 8 : lots + 8)).bounds(px + 8, top + 157, 30, 14).build());
+        addRenderableWidget(Button.builder(Component.literal("x64"), b -> setLots(64)).bounds(px + 40, top + 157, 30, 14).build());
+        addRenderableWidget(Button.builder(Component.literal("1"), b -> setLots(1)).bounds(px + 72, top + 157, 28, 14).build());
         buy = addRenderableWidget(Button.builder(Component.translatable("gui.economy_core.shop_buy"), b -> doBuy())
-                .bounds(px + 8, top + 174, 92, 20).build());
+                .bounds(px + 8, top + 176, 92, 20).build());
         refilter();
     }
 
@@ -82,21 +86,26 @@ public class ShopScreen extends Screen {
         if (selected >= 0) PacketDistributor.sendToServer(new ShopBuyPayload(selected, lots));
     }
 
+    private boolean searching() {
+        return search != null && !search.getValue().isBlank();
+    }
+
     private void refilter() {
         visible.clear();
-        String q = search == null ? "" : search.getValue().toLowerCase(Locale.ROOT);
+        String q = search == null ? "" : search.getValue().toLowerCase(Locale.ROOT).trim();
         List<ShopSyncPayload.Entry> all = ClientShopCache.entries;
         for (int i = 0; i < all.size(); i++) {
             ShopSyncPayload.Entry e = all.get(i);
-            if (!e.category().equals(tab)) continue;
-            if (!q.isEmpty() && !stackOf(e).getHoverName().getString().toLowerCase(Locale.ROOT).contains(q)) continue;
+            if (!e.category().equals(cat)) continue;
+            if (q.isEmpty()) {
+                if (e.tier() != tier) continue;   // one shelf per tier
+            } else if (!stackOf(e).getHoverName().getString().toLowerCase(Locale.ROOT).contains(q)) {
+                continue;                         // search looks across every tier
+            }
             visible.add(i);
         }
-        // Unlocked first, then by tier and price.
         visible.sort((a, b) -> {
             var x = all.get(a); var y = all.get(b);
-            boolean la = x.tier() > ClientShopCache.tier, lb = y.tier() > ClientShopCache.tier;
-            if (la != lb) return la ? 1 : -1;
             if (x.tier() != y.tier()) return Integer.compare(x.tier(), y.tier());
             return Long.compare(x.price(), y.price());
         });
@@ -108,14 +117,28 @@ public class ShopScreen extends Screen {
         return new ItemStack(item, Math.max(1, e.count()));
     }
 
+    private int tierTabWidth() {
+        return (W - 20) / TIERS;
+    }
+
     // ------------------------------------------------------------ input
 
     @Override
     public boolean mouseClicked(double mx, double my, int button) {
-        for (int t = 0; t < TABS.length; t++) {
-            int tx = left + GRID_X + t * 82, ty = top + 18;
-            if (mx >= tx && mx < tx + 80 && my >= ty && my < ty + 13) {
-                tab = TABS[t]; scroll = 0; selected = -1; refilter();
+        int tw = tierTabWidth();
+        for (int t = 0; t < TIERS; t++) {
+            int tx = left + 10 + t * tw, ty = top + 19;
+            if (mx >= tx && mx < tx + tw - 2 && my >= ty && my < ty + 14) {
+                tier = t; scroll = 0; selected = -1;
+                if (search != null) search.setValue("");
+                refilter();
+                return true;
+            }
+        }
+        for (int c = 0; c < CATS.length; c++) {
+            int cx = left + GRID_X + c * 54, cy = top + 37;
+            if (mx >= cx && mx < cx + 52 && my >= cy && my < cy + 12) {
+                cat = CATS[c]; scroll = 0; selected = -1; refilter();
                 return true;
             }
         }
@@ -142,12 +165,8 @@ public class ShopScreen extends Screen {
         return idx < visible.size() ? idx : -1;
     }
 
-    // ------------------------------------------------------------ drawing
-
     @Override
     public void tick() {
-        // Keep the list fresh after purchases / tier changes.
-        if (visible.isEmpty() && !ClientShopCache.entries.isEmpty()) refilter();
         if (buy != null) {
             ShopSyncPayload.Entry e = selectedEntry();
             buy.active = e != null && e.tier() <= ClientShopCache.tier && ClientShopCache.balance >= e.price() * lots;
@@ -158,41 +177,65 @@ public class ShopScreen extends Screen {
         return selected >= 0 && selected < ClientShopCache.entries.size() ? ClientShopCache.entries.get(selected) : null;
     }
 
+    // ------------------------------------------------------------ drawing
+
+    /**
+     * Screen.render() calls this before the widgets. The blur and the stall artwork both go here, so nothing we
+     * draw ends up underneath the blur (that is what smeared the title and tabs before).
+     */
+    @Override
+    public void renderBackground(GuiGraphics g, int mx, int my, float pt) {
+        super.renderBackground(g, mx, my, pt);
+        drawFrame(g);
+    }
+
     @Override
     public void render(GuiGraphics g, int mx, int my, float pt) {
-        renderBackground(g, mx, my, pt);
-        drawFrame(g);
-        super.render(g, mx, my, pt);
-        drawGrid(g, mx, my);
+        super.render(g, mx, my, pt); // background + frame, then widgets
+        drawGrid(g);
         drawPanel(g);
         drawTooltip(g, mx, my);
     }
 
     private void drawFrame(GuiGraphics g) {
-        // Wooden frame, canvas body, striped awning across the top.
         g.fill(left - 4, top - 4, left + W + 4, top + H + 4, WOOD_DARK);
         g.fill(left - 2, top - 2, left + W + 2, top + H + 2, WOOD);
         g.fill(left, top, left + W, top + H, CANVAS);
+        // Striped awning with a scalloped edge.
         for (int x = 0; x < W; x += 20) {
             g.fill(left + x, top, left + Math.min(W, x + 10), top + 14, 0xFFB03A2E);
             g.fill(left + x + 10, top, left + Math.min(W, x + 20), top + 14, 0xFFF4EBD0);
         }
         for (int x = 0; x < W; x += 10) g.fill(left + x + 2, top + 14, left + x + 8, top + 16, (x / 10) % 2 == 0 ? 0xFFB03A2E : 0xFFF4EBD0);
-        g.drawCenteredString(font, Component.translatable("gui.economy_core.shop_title").withStyle(ChatFormatting.BOLD), left + W / 2, top + 3, 0xFFFFFF);
+        // Title on a wooden sign so it reads over the stripes.
+        Component title = Component.translatable("gui.economy_core.shop_title").withStyle(ChatFormatting.BOLD);
+        int tw = font.width(title) + 12;
+        g.fill(left + (W - tw) / 2, top + 1, left + (W + tw) / 2, top + 13, WOOD_DARK);
+        g.drawCenteredString(font, title, left + W / 2, top + 3, GOLD);
 
-        // Tabs.
-        for (int t = 0; t < TABS.length; t++) {
-            int tx = left + GRID_X + t * 82, ty = top + 18;
-            boolean on = TABS[t].equals(tab);
-            g.fill(tx, ty, tx + 80, ty + 13, on ? WOOD : CANVAS_DARK);
-            g.drawCenteredString(font, Component.translatable("gui.economy_core.shop_tab_" + TABS[t]), tx + 40, ty + 3, on ? GOLD : INK);
+        // Tier tabs.
+        int tabW = tierTabWidth();
+        for (int t = 0; t < TIERS; t++) {
+            int tx = left + 10 + t * tabW, ty = top + 19;
+            boolean on = t == tier && !searching();
+            boolean locked = t > ClientShopCache.tier;
+            g.fill(tx, ty, tx + tabW - 2, ty + 14, on ? WOOD : (locked ? 0xFFB8A57E : CANVAS_DARK));
+            String label = (locked ? "§o" : "") + Component.translatable("gui.economy_core.shop_tier_tab", t).getString();
+            g.drawCenteredString(font, label, tx + (tabW - 2) / 2, ty + 3, on ? GOLD : (locked ? MUTED : INK));
+        }
+        // Machines / Supplies toggle.
+        for (int c = 0; c < CATS.length; c++) {
+            int cx = left + GRID_X + c * 54, cy = top + 37;
+            boolean on = CATS[c].equals(cat);
+            g.fill(cx, cy, cx + 52, cy + 12, on ? WOOD : CANVAS_DARK);
+            g.drawCenteredString(font, Component.translatable("gui.economy_core.shop_tab_" + CATS[c]), cx + 26, cy + 2, on ? GOLD : INK);
         }
         // Grid well and detail panel.
         g.fill(left + GRID_X - 2, top + GRID_Y - 2, left + GRID_X + COLS * CELL + 2, top + GRID_Y + ROWS * CELL + 2, WOOD);
-        g.fill(left + PANEL_X, top + 18, left + W - 8, top + H - 8, CANVAS_DARK);
+        g.fill(left + PANEL_X, top + 37, left + W - 8, top + H - 8, CANVAS_DARK);
     }
 
-    private void drawGrid(GuiGraphics g, int mx, int my) {
+    private void drawGrid(GuiGraphics g) {
         int gx = left + GRID_X, gy = top + GRID_Y;
         for (int r = 0; r < ROWS; r++) {
             for (int c = 0; c < COLS; c++) {
@@ -207,12 +250,12 @@ public class ShopScreen extends Screen {
                 g.renderItem(stack, x + 1, y + 1);
                 g.renderItemDecorations(font, stack, x + 1, y + 1);
                 if (e.tier() > ClientShopCache.tier) g.fill(x + 1, y + 1, x + CELL - 1, y + CELL - 1, 0xAA2B2B2B);
-                if (entry == selected) {
-                    g.renderOutline(x, y, CELL - 1, CELL - 1, GOLD);
-                }
+                if (entry == selected) g.renderOutline(x, y, CELL - 1, CELL - 1, GOLD);
             }
         }
-        // Scroll hint.
+        if (visible.isEmpty()) {
+            g.drawCenteredString(font, Component.translatable("gui.economy_core.shop_empty"), gx + COLS * CELL / 2, gy + ROWS * CELL / 2 - 4, 0xFFF4EBD0);
+        }
         int rows = (visible.size() + COLS - 1) / COLS;
         if (rows > ROWS) {
             int barH = ROWS * CELL * ROWS / rows;
@@ -222,28 +265,25 @@ public class ShopScreen extends Screen {
     }
 
     private void drawPanel(GuiGraphics g) {
-        int px = left + PANEL_X + 8, py = top + 22;
-        // Balance (always shown).
-        g.renderItem(new ItemStack(coin("coin_gold")), px - 2, top + H - 26);
-        g.drawString(font, fmt(ClientShopCache.balance), px + 16, top + H - 22, INK, false);
-
+        int px = left + PANEL_X + 8, py = top + 41;
         ShopSyncPayload.Entry e = selectedEntry();
         if (e == null) {
-            g.drawWordWrap(font, Component.translatable("gui.economy_core.shop_pick"), px, py + 4, 92, INK);
+            boolean locked = tier > ClientShopCache.tier && !searching();
+            g.drawWordWrap(font, Component.translatable(locked ? "gui.economy_core.shop_shelf_locked" : "gui.economy_core.shop_pick", tier),
+                    px, py + 2, 94, INK);
             return;
         }
         ItemStack stack = stackOf(e);
         var pose = g.pose();
         pose.pushPose();
-        pose.translate(px + 30, py, 0);
+        pose.translate(px + 31, py, 0);
         pose.scale(2f, 2f, 1f);
         g.renderItem(stack, 0, 0);
         pose.popPose();
-        g.drawWordWrap(font, stack.getHoverName(), px, py + 36, 92, INK);
+        g.drawWordWrap(font, stack.getHoverName(), px, py + 36, 94, INK);
 
-        boolean locked = e.tier() > ClientShopCache.tier;
-        int y = py + 58;
-        if (locked) {
+        int y = py + 60;
+        if (e.tier() > ClientShopCache.tier) {
             g.drawString(font, Component.translatable("gui.economy_core.shop_tier", e.tier()), px, y, RED, false);
         } else {
             long cost = e.price() * lots;
@@ -252,30 +292,30 @@ public class ShopScreen extends Screen {
             if (e.buyback() > 0) {
                 g.drawString(font, Component.translatable("gui.economy_core.shop_buyback", fmt(e.buyback())), px, y + 11, INK, false);
             } else {
-                g.drawString(font, Component.translatable("gui.economy_core.shop_no_buyback"), px, y + 11, 0xFF7A6A4A, false);
+                g.drawString(font, Component.translatable("gui.economy_core.shop_no_buyback"), px, y + 11, MUTED, false);
             }
         }
         // Quantity readout between the - and + buttons.
-        g.drawCenteredString(font, "x" + lots + (e.count() > 1 ? " (" + e.count() * lots + ")" : ""), left + PANEL_X + 54, top + 140, 0xFFFFFF);
+        g.drawCenteredString(font, "x" + lots + (e.count() > 1 ? " (" + e.count() * lots + ")" : ""), left + PANEL_X + 54, top + 142, 0xFFFFFF);
     }
 
     private void drawTooltip(GuiGraphics g, int mx, int my) {
         int cell = cellAt(mx, my);
         if (cell < 0) return;
         ShopSyncPayload.Entry e = ClientShopCache.entries.get(visible.get(cell));
-        ItemStack stack = stackOf(e);
         List<Component> lines = new ArrayList<>();
-        lines.add(stack.getHoverName());
+        lines.add(stackOf(e).getHoverName());
         if (e.tier() > ClientShopCache.tier) {
             lines.add(Component.translatable("gui.economy_core.shop_tier", e.tier()).withStyle(ChatFormatting.RED));
         } else {
             lines.add(Component.translatable("gui.economy_core.shop_price", fmt(e.price())).withStyle(ChatFormatting.GOLD));
             if (e.buyback() > 0) lines.add(Component.translatable("gui.economy_core.shop_buyback", fmt(e.buyback())).withStyle(ChatFormatting.GRAY));
         }
+        if (searching()) lines.add(Component.translatable("gui.economy_core.shop_tier_tab", e.tier()).withStyle(ChatFormatting.DARK_GRAY));
         g.renderComponentTooltip(font, lines, mx, my);
     }
 
-    private static Item coin(String path) {
+    static Item coin(String path) {
         Item i = BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath("lightmanscurrency", path));
         return i == Items.AIR ? Items.GOLD_NUGGET : i;
     }

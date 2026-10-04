@@ -8,6 +8,9 @@ import dev.grant.economycore.network.MarketActionPayload;
 import dev.grant.economycore.network.MarketFxPayload;
 import dev.grant.economycore.network.MarketSyncPayload;
 import dev.grant.economycore.network.ShopBuyPayload;
+import dev.grant.economycore.network.BalancePayload;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
 import dev.grant.economycore.network.ShopSyncPayload;
 import dev.grant.economycore.shop.ShopCatalog;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
@@ -44,6 +47,7 @@ public class EconomyCore {
         NeoForge.EVENT_BUS.addListener(this::onRegisterCommands);
         NeoForge.EVENT_BUS.addListener(this::onPlayerLogin);
         NeoForge.EVENT_BUS.addListener(this::onTooltip);
+        NeoForge.EVENT_BUS.addListener(this::onPlayerTick);
     }
 
     private void registerCapabilities(RegisterCapabilitiesEvent event) {
@@ -58,6 +62,8 @@ public class EconomyCore {
         r.playToClient(MarketSyncPayload.TYPE, MarketSyncPayload.CODEC, ClientMarketCache::handle);
         // Lambda body keeps client-only classes from loading on a dedicated server.
         r.playToServer(ShopBuyPayload.TYPE, ShopBuyPayload.CODEC, ShopBuyPayload::handle);
+        r.playToClient(BalancePayload.TYPE, BalancePayload.CODEC,
+                (msg, ctx) -> dev.grant.economycore.client.BalanceHud.set(msg.balance()));
         r.playToClient(ShopSyncPayload.TYPE, ShopSyncPayload.CODEC,
                 (msg, ctx) -> dev.grant.economycore.client.ClientShopCache.handle(msg, ctx));
         r.playToClient(MarketFxPayload.TYPE, MarketFxPayload.CODEC,
@@ -86,8 +92,19 @@ public class EconomyCore {
     /** Catch up on earnings milestones reached while offline (auto-sell keeps earning). */
     private void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof ServerPlayer sp) {
+            lastBalanceSent.remove(sp.getUUID()); // resend on next tick
             MarketService.awardMilestones(sp, MarketData.get(sp.server).accountFor(sp.getUUID()).earned, 0);
         }
+    }
+
+    private final java.util.Map<java.util.UUID, Long> lastBalanceSent = new java.util.HashMap<>();
+
+    /** Push the team balance to each player's balance counter once a second, when it has changed. */
+    private void onPlayerTick(PlayerTickEvent.Post event) {
+        if (!(event.getEntity() instanceof ServerPlayer sp) || sp.tickCount % 20 != 0) return;
+        long bal = MarketData.get(sp.server).accountFor(sp.getUUID()).balance;
+        Long last = lastBalanceSent.put(sp.getUUID(), bal);
+        if (last == null || last != bal) PacketDistributor.sendToPlayer(sp, new BalancePayload(bal));
     }
 
     /** Shop-bought machines show what they sell back for. */

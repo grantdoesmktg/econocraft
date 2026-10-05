@@ -3,6 +3,8 @@ package dev.grant.economycore;
 import dev.grant.economycore.block.MarketCrateBlock;
 import dev.grant.economycore.block.MarketCrateBlockEntity;
 import dev.grant.economycore.frontier.FrontierGatewayBlock;
+import dev.grant.economycore.power.PowerExchangeBlock;
+import dev.grant.economycore.power.PowerExchangeBlockEntity;
 import dev.grant.economycore.shop.SupplyMarketBlock;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.component.DataComponentType;
@@ -47,6 +49,13 @@ public final class ModRegistry {
 
     public static final DeferredItem<BlockItem> SUPPLY_MARKET_ITEM = ITEMS.registerSimpleBlockItem(SUPPLY_MARKET);
 
+    public static final DeferredBlock<PowerExchangeBlock> POWER_EXCHANGE = BLOCKS.register("power_exchange",
+            () -> new PowerExchangeBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL).strength(3.5f).sound(SoundType.METAL).lightLevel(s -> 7)
+                    .requiresCorrectToolForDrops()));
+
+    public static final DeferredItem<BlockItem> POWER_EXCHANGE_ITEM = ITEMS.registerSimpleBlockItem(POWER_EXCHANGE);
+
     public static final DeferredRegister.DataComponents COMPONENTS =
             DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, EconomyCore.MODID);
 
@@ -59,6 +68,11 @@ public final class ModRegistry {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MarketCrateBlockEntity>> MARKET_CRATE_BE =
             BLOCK_ENTITIES.register("market_crate",
                     () -> BlockEntityType.Builder.of(MarketCrateBlockEntity::new, MARKET_CRATE.get()).build(null));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PowerExchangeBlockEntity>> POWER_EXCHANGE_BE =
+            BLOCK_ENTITIES.register("power_exchange",
+                    () -> BlockEntityType.Builder.of(PowerExchangeBlockEntity::new, POWER_EXCHANGE.get()).build(null));
 
     public static final DeferredHolder<MenuType<?>, MenuType<MarketMenu>> MARKET_MENU =
             MENUS.register("market_crate", () -> IMenuTypeExtension.create(MarketMenu::new));

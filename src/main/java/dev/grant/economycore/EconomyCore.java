@@ -50,12 +50,17 @@ public class EconomyCore {
         NeoForge.EVENT_BUS.addListener(this::onPlayerTick);
         NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.tick.ServerTickEvent.Post e) ->
                 dev.grant.economycore.market.IslandPartyLink.tick(e.getServer()));
+        NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.tick.ServerTickEvent.Post e) ->
+                dev.grant.economycore.power.PowerExchangeService.tick(e.getServer()));
     }
 
     private void registerCapabilities(RegisterCapabilitiesEvent event) {
         // Pipes and hoppers can insert into the crate from any side (insert only).
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ModRegistry.MARKET_CRATE_BE.get(),
                 (be, side) -> be.getAutomationHandler());
+        // Any mod's cables can push FE into the Power Exchange from any side.
+        event.registerBlockEntity(Capabilities.EnergyStorage.BLOCK, ModRegistry.POWER_EXCHANGE_BE.get(),
+                (be, side) -> be.getEnergy());
     }
 
     private void registerPayloads(RegisterPayloadHandlersEvent event) {
@@ -77,6 +82,7 @@ public class EconomyCore {
             event.accept(ModRegistry.MARKET_CRATE_ITEM);
             event.accept(ModRegistry.FRONTIER_GATEWAY_ITEM);
             event.accept(ModRegistry.SUPPLY_MARKET_ITEM);
+            event.accept(ModRegistry.POWER_EXCHANGE_ITEM);
         }
     }
 

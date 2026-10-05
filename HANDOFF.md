@@ -5,24 +5,33 @@ Related docs: DESIGN-NOTES.md (decisions), MARKET.md (prices, generated), QUEST-
 MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
 
 ## Working agreement with Grant
-- Run terminal steps myself. Don't hand Grant commands to run (see memory).
-- Ask before anything destructive, any sudo, or edits outside ~/Modpacks and the Prism instance folder.
-- economy-pack is a git repo pushed to https://github.com/grantdoesmktg/econocraft (public, branch main). Grant shared it
-  2026-10-05 for releases. The mod source is in the repo as `economy-core/` (git subtree, history kept, packwizignored).
-  ~/Modpacks/economy-core stays the dev repo (branch master). After committing there, sync with
-  `git subtree pull --prefix=economy-core ~/Modpacks/economy-core master` in economy-pack, then push.
-- Report back to Grant through the project thread when a request is done.
+- Run commands myself; don't hand Grant terminal steps. Show the plan before big builds. Give full, exact in-game commands.
+- Ask before anything destructive or hard to undo.
+- Report back through the project thread when a request is done.
+- **Since 2026-10-05 work happens mostly in cloud sessions** (Grant doesn't leave the Mac on). No Minecraft there:
+  change generators/mod code, verify with the tools and a build, push, and list what Grant should check in game
+  (section "Needs an in-game check" below). See CLAUDE.md for the cloud workflow.
 
 ## Layout
-- `~/Modpacks/economy-pack`: the packwiz pack (MC 1.21.1, NeoForge 21.1.252, about 133 mods).
-  - Served with `packwiz serve` at http://localhost:8080/pack.toml.
-  - Prism instance "Economy Test" runs packwiz-installer as a pre-launch step, so relaunching Prism updates it.
-  - After changing files: `packwiz refresh`.
-- `~/Modpacks/economy-core`: our NeoForge mod (Economy Core), currently **0.9.6**.
-  - Build: `./gradlew build`. Bump `mod_version` in gradle.properties first.
-  - Ship: delete the old `economy-pack/mods/economy_core-*.jar` (use `setopt nullglob` in zsh), copy in
-    `build/libs/economy_core-<ver>.jar`, run `packwiz refresh`, and commit in economy-core.
-  - `libs/` (gitignored) holds compileOnly jars: FTB Teams, FTB Library, SkyblockBuilder and LibX.
+- GitHub: https://github.com/grantdoesmktg/econocraft (public, branch `main`). **This repo is the source of truth**
+  for both the pack and the mod. Pushing `main` updates Grant's Prism instance (and any player) on next launch.
+- Repo root: the packwiz pack (MC 1.21.1, NeoForge 21.1.252, about 135 mods). After changing files: `packwiz refresh`.
+- `economy-core/`: our NeoForge mod (Economy Core), currently **0.9.6**. Edit it here.
+  - Build: `./fetch_libs.sh` once (compile-only jars into libs/), bump `mod_version` in gradle.properties, `./gradlew build`.
+  - Ship: delete the old `mods/economy_core-*.jar`, copy in `economy-core/build/libs/economy_core-<ver>.jar`,
+    `packwiz refresh`, commit, push.
+- `tools/`: Python generators. They read game data from the live Prism instance on the Mac, or from the committed
+  snapshots in tools/data/ (kubejs-export.tar.gz, item_ids.txt) anywhere else (tools/paths.py).
+- On Grant's Mac: ~/Modpacks/economy-pack is a clone of the repo. ~/Modpacks/economy-core is the old standalone mod
+  repo, retired 2026-10-05 (history lives on in the subtree). Prism instance "Economy Test" pre-launch now pulls
+  https://raw.githubusercontent.com/grantdoesmktg/econocraft/main/pack.toml (was localhost:8080).
+  ~/Modpacks/server-test is a local dedicated server for boot tests.
+
+## Needs an in-game check (Grant)
+- Power Exchange (0.9.6): pipe a Cyclic generator in; label shows coins/min; balance rises; works for a teammate.
+- Sieve odds (beta.3): sifting gravel feels noticeably leaner on ore; auto-sieves still worth placing.
+- Gate quests show the doubled numbers; shop tier tabs show the same gate costs.
+- After the check, run `/kubejs export debug`, then on the Mac `python3 tools/paths.py --snapshot`, commit, push.
 
 ## What exists and works
 - **Start:** a 5x5x3 grass island with a spruce tree in the void dimension `economy_core:isles` ("The Isles").

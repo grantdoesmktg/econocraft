@@ -137,6 +137,10 @@ MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
    tools/sieve_base_odds.json (never rescale from a fresh export, it's already scaled). Sim now: tier 6 ~19 h, ~23 h with
    slower hands; tier 1 ~30 min. Server log: "Added 132 recipes ... 0 failed". Removed cyclic:planter from the shop
    (not a registered item). Grant should rerun /kubejs export debug so analyze_progression sees the new recipes.
-11. Ideas not started:
+11. 2026-10-05: pacing_sim.py now models travel (per-activity travel ratio, one-off trips when the Frontier, Nether
+   and Twilight/End open) and three profiles: Rusher 19.9 h, Typical 25.3 h, Explorer 29.3 h to tier 6.
+   Tier 4 -> 5 is the longest stretch for everyone (6-8 h). Explorer's 40% non-earning play only adds ~50% time
+   because machines keep running.
+12. Ideas not started:
    - balancing pass after real playtesting
    - pack version bump and release workflow (Grant said skip GitHub for now)

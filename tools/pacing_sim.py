@@ -116,34 +116,55 @@ COBBLE_GEN = 60            # FTB stone cobblestone generator: 1 per 20 ticks
 AUTO_HAMMER = 60 * 20 / 50  # FTB iron auto-hammer: 50 ticks per block = 24/min
 SETUP_MIN = 4              # play minutes spent placing and wiring each purchased line
 
-# Active play at each tier: {item: units per minute}. The player spends every free minute on the best one.
+# Active play at each tier: (tier, {item: units per minute while actually doing it}, travel minutes per active minute).
+# Travel is getting there and back: walking to ore, finding structures, crossing the Nether, locating the next boss.
+# The player spends every free minute on whichever activity pays best once travel is included.
+TWILIGHT_KILL = {  # one Twilight boss kill (bosses come in order; trophy prices differ, so average over the eight)
+    **{f'twilightforest:{b}_trophy': 1 / 8 for b in ('naga', 'lich', 'minoshroom', 'hydra', 'knight_phantom', 'ur_ghast',
+                                                      'alpha_yeti', 'snow_queen')},
+    'twilightforest:naga_scale': 1.5, 'twilightforest:steeleaf_ingot': 6, 'twilightforest:ironwood_ingot': 4,
+    'twilightforest:knightmetal_ingot': 3, 'twilightforest:carminite': 1, 'twilightforest:fiery_ingot': 0.5}
+BOSS_FIGHT_MIN = 10
+
 ACTIVITIES = {
     'farm crops by hand': (0, {'minecraft:wheat': 6, 'minecraft:potato': 6, 'minecraft:carrot': 6, 'minecraft:sugar_cane': 6,
-                               'minecraft:pumpkin': 1, 'minecraft:melon_slice': 6}),
-    'chop trees': (0, {'minecraft:oak_log': 10}),
-    'cook food': (1, {'farmersdelight:beef_stew': 0.6, 'farmersdelight:pasta_with_meatballs': 0.4}),
-    'mine the Frontier': (3, {'minecraft:diamond': 0.35, 'minecraft:emerald': 0.08, 'minecraft:iron_ingot': 2,
-                              'minecraft:gold_ingot': 0.5, 'minecraft:redstone': 4, 'minecraft:lapis_lazuli': 2}),
-    'explore Frontier structures': (3, {'minecraft:rabbit_foot': 0.08, 'minecraft:iron_horse_armor': 0.03,
-                                        'minecraft:golden_horse_armor': 0.02, 'minecraft:diamond_horse_armor': 0.01,
-                                        'minecraft:heart_of_the_sea': 0.006, 'minecraft:totem_of_undying': 0.004,
-                                        'minecraft:trident': 0.004, 'minecraft:echo_shard': 0.02, 'minecraft:sniffer_egg': 0.003,
-                                        'minecraft:heavy_core': 0.002, 'minecraft:breeze_rod': 0.3, 'minecraft:goat_horn': 0.01,
-                                        'minecraft:wet_sponge': 0.02, 'minecraft:turtle_scute': 0.02, 'minecraft:diamond': 0.1}),
+                               'minecraft:pumpkin': 1, 'minecraft:melon_slice': 6}, 0),
+    'chop trees': (0, {'minecraft:oak_log': 10}, 0),
+    'cook food': (1, {'farmersdelight:beef_stew': 0.6, 'farmersdelight:pasta_with_meatballs': 0.4}, 0),
+    'mine the Frontier': (3, {'minecraft:diamond': 0.4, 'minecraft:emerald': 0.08, 'minecraft:iron_ingot': 2.2,
+                              'minecraft:gold_ingot': 0.5, 'minecraft:redstone': 4, 'minecraft:lapis_lazuli': 2}, 0.15),
+    'explore Frontier structures': (3, {'minecraft:rabbit_foot': 0.15, 'minecraft:iron_horse_armor': 0.05,
+                                        'minecraft:golden_horse_armor': 0.03, 'minecraft:diamond_horse_armor': 0.015,
+                                        'minecraft:heart_of_the_sea': 0.01, 'minecraft:totem_of_undying': 0.006,
+                                        'minecraft:trident': 0.006, 'minecraft:echo_shard': 0.03, 'minecraft:sniffer_egg': 0.005,
+                                        'minecraft:heavy_core': 0.003, 'minecraft:breeze_rod': 0.5, 'minecraft:goat_horn': 0.015,
+                                        'minecraft:wet_sponge': 0.03, 'minecraft:turtle_scute': 0.03, 'minecraft:diamond': 0.15}, 0.6),
     'fish the Frontier (Aquaculture)': (3, {'aquaculture:tuna': 0.3, 'aquaculture:atlantic_halibut': 0.3, 'aquaculture:arapaima': 0.2,
-                                            'aquaculture:catfish': 0.3, 'aquaculture:smallmouth_bass': 0.3, 'minecraft:heart_of_the_sea': 0.002}),
-    'raid the Nether': (4, {'minecraft:netherite_scrap': 0.1, 'minecraft:blaze_rod': 1.2, 'minecraft:ghast_tear': 0.15,
-                            'minecraft:wither_skeleton_skull': 0.04, 'minecraft:quartz': 6}),
-    'hunt Twilight bosses': (5, {'twilightforest:naga_trophy': 0.004, 'twilightforest:lich_trophy': 0.004,
-                                 'twilightforest:minoshroom_trophy': 0.003, 'twilightforest:hydra_trophy': 0.003,
-                                 'twilightforest:knight_phantom_trophy': 0.003, 'twilightforest:ur_ghast_trophy': 0.002,
-                                 'twilightforest:alpha_yeti_trophy': 0.003, 'twilightforest:snow_queen_trophy': 0.002,
-                                 'twilightforest:naga_scale': 0.05, 'twilightforest:steeleaf_ingot': 0.5,
-                                 'twilightforest:ironwood_ingot': 0.3, 'twilightforest:knightmetal_ingot': 0.2,
-                                 'twilightforest:carminite': 0.1, 'twilightforest:fiery_ingot': 0.03}),
-    'fight the Wither': (4, {'minecraft:nether_star': 0.008}),
-    'raid the End': (5, {'minecraft:shulker_shell': 0.3, 'minecraft:elytra': 0.01, 'minecraft:dragon_head': 0.005,
-                         'minecraft:dragon_breath': 0.2}),
+                                            'aquaculture:catfish': 0.3, 'aquaculture:smallmouth_bass': 0.3,
+                                            'minecraft:heart_of_the_sea': 0.002}, 0.1),
+    # wither skulls get turned into Wither fights: 3 skulls -> 1 nether star (fight time folded into the rate)
+    'raid the Nether': (4, {'minecraft:netherite_scrap': 0.12, 'minecraft:blaze_rod': 1.5, 'minecraft:ghast_tear': 0.2,
+                            'minecraft:nether_star': 0.012, 'minecraft:quartz': 6}, 0.5),
+    'hunt Twilight bosses': (5, {i: n / BOSS_FIGHT_MIN for i, n in TWILIGHT_KILL.items()}, 2.5),
+    'raid the End': (5, {'minecraft:shulker_shell': 0.4, 'minecraft:elytra': 0.015, 'minecraft:dragon_head': 0.008,
+                         'minecraft:dragon_breath': 0.2}, 1.0),
+}
+
+# One-off trips when a tier opens, in play minutes with no hand income (machines keep running):
+# finding a village and biomes, building a Nether portal and finding a fortress, the Twilight portal and the End.
+TRIPS = {3: ('scouting the Frontier', 20), 4: ('Nether portal and finding a fortress', 40),
+         5: ('Twilight portal, stronghold and the Ender Dragon', 60)}
+
+# Player profiles. hand: speed at hand work; travel: multiplier on travel and trips; roses: share of play time spent
+# on things that don't earn (exploring mods, building, decorating); setup: minutes per machine bought; payback: how
+# patient they are about buying machines (minutes).
+PROFILES = {
+    'Rusher': dict(hand=1.0, travel=1.0, roses=0.0, setup=4, payback=180,
+                   desc='Only progression. Knows the pack, optimal routes, no detours.'),
+    'Typical': dict(hand=0.75, travel=1.5, roses=0.2, setup=8, payback=180,
+                    desc='Plays for progress but builds a base and tries things; a fifth of the time goes to non-earning play.'),
+    'Explorer': dict(hand=0.6, travel=2.0, roses=0.4, setup=12, payback=180,
+                     desc='Smells the roses: explores mods, builds, wanders. 40% of play time earns nothing directly.'),
 }
 
 # Machine lines the player can buy: name -> (tier, coin cost, max copies, {item: units/min}; negative = consumes).
@@ -175,7 +196,8 @@ PAYBACK_LIMIT = 180   # only buy a line that pays for itself within this many mi
 
 # ------------------------------------------------------------------ simulation
 
-def run(hours, hand=1.0):
+def run(hours, hand=1.0, travel=1.0, roses=0.0, setup=SETUP_MIN, payback=None, **_):
+    payback = payback or PAYBACK_LIMIT
     mk = Market()
     tier, balance, earned = 0, 250.0, 0.0   # starter kit: Market Crate + Supply Market + Time in a Bottle
     mesh = None
@@ -183,6 +205,8 @@ def run(hours, hand=1.0):
     owned = {k: 0 for k in LINES}
     one_offs = set()
     busy = 0
+    busy_trip = [0]
+    roses_acc = 0.0
     log, tier_times, sources = [], {0: 0}, {}
     window = []
     by_item = {}
@@ -206,9 +230,10 @@ def run(hours, hand=1.0):
         options = {}
         if mesh:
             options['sieve by hand'] = sieve_yield(HAND_SIEVE_OPS * hand)
-        for name, (t, flow) in ACTIVITIES.items():
+        for name, (t, flow, trav) in ACTIVITIES.items():
             if t <= tier:
-                options[name] = {i: n * hand for i, n in flow.items()}
+                share = 1 / (1 + trav * travel)   # fraction of the time spent actually doing it
+                options[name] = {i: n * hand * share for i, n in flow.items()}
         return max(options.items(), key=lambda kv: value(kv[1]))
 
     for minute in range(int(hours * 60)):
@@ -219,6 +244,10 @@ def run(hours, hand=1.0):
             tier = nxt
             tier_times[tier] = minute
             log.append((minute, f'**Tier {tier} ({M.TIERS[tier][0]})** reached; paid {GATES[tier][1]:,} gate fee'))
+            if tier in TRIPS:
+                trip = round(TRIPS[tier][1] * travel)
+                busy_trip[0] += trip
+                log.append((minute, f'{TRIPS[tier][0]} ({trip} min)'))
         saving_for_gate = nxt in GATES and earned >= GATES[nxt][0]
 
         # 2. Purchases: mesh upgrades, one-offs, then the best-payback line.
@@ -233,10 +262,10 @@ def run(hours, hand=1.0):
                 balance -= cost
                 one_offs.add(name)
                 ore_mult = max(ore_mult, mult)
-                busy += SETUP_MIN
+                busy += setup
                 log.append((minute, f'Bought {name} ({cost:,})'))
         if not saving_for_gate:
-            best, best_payback = None, PAYBACK_LIMIT
+            best, best_payback = None, payback
             for name, (t, cost, cap, flow) in LINES.items():
                 if t > tier or owned[name] >= cap or cost > balance:
                     continue
@@ -246,7 +275,7 @@ def run(hours, hand=1.0):
             if best:
                 balance -= LINES[best][1]
                 owned[best] += 1
-                busy += SETUP_MIN
+                busy += setup
                 if owned[best] in (1, 2, 4, 8, 12, 16):
                     log.append((minute, f'Bought {best} #{owned[best]} ({LINES[best][1]:,}, pays back in {best_payback:.0f} min)'))
 
@@ -260,9 +289,16 @@ def run(hours, hand=1.0):
             if n and not is_converter(name):
                 for item, rate in LINES[name][3].items():
                     pool[item] = pool.get(item, 0) + rate * n
-        if busy > 0:
+        roses_acc += roses
+        if busy_trip[0] > 0:
+            busy_trip[0] -= 1
+            activity = 'travel: opening a new area'
+        elif busy > 0:
             busy -= 1
             activity = 'setting up machines'
+        elif roses_acc >= 1:
+            roses_acc -= 1
+            activity = 'exploring and building (no income)'
         else:
             activity, flow = best_activity()
             for item, n in flow.items():
@@ -316,57 +352,54 @@ ODDS = {}
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--hours', type=float, default=40)
+    ap.add_argument('--hours', type=float, default=100)
     args = ap.parse_args()
     for m, _, _ in MESHES:
         ODDS[m] = sieve_odds('gravel', m)
     if not ODDS['string']:
         sys.exit(f'No sieve recipes found under {EXPORT}. Run /kubejs export debug in game first.')
-    r = run(args.hours)
-    write_report(r, args.hours)
+    results = {name: run(args.hours, **prof) for name, prof in PROFILES.items()}
+    write_report(results, args.hours)
 
 
-def write_report(r, hours):
-    tt = r['tier_times']
+def fmt_h(m):
+    return f'{m / 60:.1f} h'
+
+
+def write_report(results, hours):
     L = ['# Economy Pack: Pacing Report', '',
-         'Generated by `tools/pacing_sim.py`: an efficient player simulated minute by minute against the real prices,',
-         'price drop-off, shop costs and tier gates. Hand speeds and machine outputs are estimates (tables at the top',
-         'of the script). Play time only; machines are assumed off while nobody is online.', '',
-         '## Time to each tier', '',
-         '| Tier | Reached at (play hours) | Time in previous tier | Target | Verdict |', '|---|---|---|---|---|']
-    prev = 0
+         'Generated by `tools/pacing_sim.py`: players simulated minute by minute against the real prices, price',
+         'drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine outputs are estimates',
+         '(tables at the top of the script). Play time only; machines are assumed off while nobody is online.', '',
+         '## Profiles', '']
+    for name, prof in PROFILES.items():
+        L.append(f'- **{name}**: {prof["desc"]} (hand speed x{prof["hand"]}, travel x{prof["travel"]}, '
+                 f'{int(prof["roses"] * 100)}% non-earning play)')
+    L += ['', '## Play hours to reach each tier', '',
+          '| Tier | ' + ' | '.join(results) + ' | Target |', '|---|' + '---|' * len(results) + '---|']
     for t in range(1, 7):
+        cells = [fmt_h(r['tier_times'][t]) if t in r['tier_times'] else f'>{hours:.0f} h' for r in results.values()]
         lo, hi = TARGET_HOURS[t]
-        if t in tt:
-            h = tt[t] / 60
-            verdict = 'too fast' if h < lo else ('too slow' if h > hi else 'on target')
-            L.append(f'| {t} {M.TIERS[t][0]} | {h:.1f} | {(tt[t] - prev) / 60:.1f} h | {lo}-{hi} h | {verdict} |')
-            prev = tt[t]
-        else:
-            L.append(f'| {t} {M.TIERS[t][0]} | not reached in {hours:.0f} h | | {lo}-{hi} h | **too slow** |')
-    L += ['', '## Income rate', '', '| Play hour | Coins earned that hour |', '|---|---|']
-    w = r['window']
-    for h in range(0, len(w) // 60 + 1, max(1, len(w) // 60 // 20 or 1)):
-        L.append(f'| {h} | {sum(w[h * 60:(h + 1) * 60]):,.0f} |')
-    L += ['', '## Where the money came from (top 5 goods per tier)', '', '| Tier | Good | Coins | Share |', '|---|---|---|---|']
-    for t in range(7):
-        rows = sorted(((c, i) for (tt_, i), c in r['by_item'].items() if tt_ == t), reverse=True)
-        total = sum(c for c, _ in rows) or 1
-        for c, i in rows[:5]:
-            L.append(f'| {t} | {SELL[i][1]} | {c:,.0f} | {100 * c / total:.0f}% |')
-    L += ['', '## What the player spent time on', '', '| Tier | Activity | Minutes |', '|---|---|---|']
-    for (t, a), n in sorted(r['sources'].items()):
-        L.append(f'| {t} | {a} | {n} |')
-    L += ['', '## Machines owned at the end', '']
-    L += [f'- {n}x {name}' for name, n in r['owned'].items() if n] or ['None']
-    L += ['', '## Timeline', '']
-    L += [f'- {m // 60}h{m % 60:02d}: {e}' for m, e in r['log']]
+        L.append(f'| {t} {M.TIERS[t][0]} | ' + ' | '.join(cells) + f' | {lo}-{hi} h |')
+    for name, r in results.items():
+        tt = r['tier_times']
+        L += ['', f'## {name}', '', '### Where the time went', '', '| Tier | Activity | Minutes |', '|---|---|---|']
+        for (t, a), n in sorted(r['sources'].items()):
+            L.append(f'| {t} | {a} | {n} |')
+        L += ['', '### Where the money came from (top 5 per tier)', '', '| Tier | Good | Coins | Share |', '|---|---|---|---|']
+        for t in range(7):
+            rows = sorted(((c, i) for (tt_, i), c in r['by_item'].items() if tt_ == t), reverse=True)
+            total = sum(c for c, _ in rows) or 1
+            for c, i in rows[:5]:
+                L.append(f'| {t} | {SELL[i][1]} | {c:,.0f} | {100 * c / total:.0f}% |')
+        L += ['', '### Timeline', '']
+        L += [f'- {m // 60}h{m % 60:02d}: {e}' for m, e in r['log']]
     L.append('')
     out = os.path.join(PACK, 'PACING-REPORT.md')
     open(out, 'w').write('\n'.join(L))
     print(f'Wrote {out}')
-    for t in range(1, 7):
-        print(f'  tier {t}: ' + (f'{tt[t] / 60:.1f} h' if t in tt else 'not reached'))
+    for name, r in results.items():
+        print(f'  {name:9s}', ' '.join(f't{t}:{v / 60:.1f}' for t, v in r['tier_times'].items() if t))
 
 
 if __name__ == '__main__':

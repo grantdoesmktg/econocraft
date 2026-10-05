@@ -1,0 +1,102 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_exdeorum"
+	group: "133B4BC19096A30B"
+	icon: { count: 1, id: "exdeorum:oak_sieve" }
+	id: "25B94658CA739208"
+	images: [ { x: 5.625d, y: -2.600d, width: 6.242d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_exdeorum.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 7
+	quest_links: [ ]
+	quests: [
+		{
+			id: "422302878B5F8E13"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "exdeorum:oak_sieve" }
+			tasks: [
+				{ id: "151788EBEED5B3AC", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "43F95612BF16B751", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "12A8B9B863C17E87"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "exdeorum:crook" }
+			dependencies: ["422302878B5F8E13"]
+			tasks: [
+				{ id: "7F4B40426785005A", type: "item", item: { count: 1, id: "exdeorum:crook" }, count: 1L }
+			]
+			rewards: [
+				{ id: "4ACF910203AF9096", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "14593F31797545AB"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "exdeorum:silkworm" }
+			dependencies: ["12A8B9B863C17E87"]
+			tasks: [
+				{ id: "61C2D89A9F6FC105", type: "item", item: { count: 1, id: "minecraft:string" }, count: 4L }
+			]
+			rewards: [
+				{ id: "1A2ECB855491C3EB", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "256C238F2A2D8A95"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "exdeorum:oak_barrel" }
+			dependencies: ["14593F31797545AB"]
+			tasks: [
+				{ id: "6D910473D6735DE2", type: "item", item: { count: 1, id: "exdeorum:oak_barrel" }, count: 1L }
+			]
+			rewards: [
+				{ id: "39E6D4132191AB1B", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "5DDF27AB13470988"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "exdeorum:porcelain_crucible" }
+			dependencies: ["256C238F2A2D8A95"]
+			tasks: [
+				{ id: "2EB077F2CF3C8338", type: "item", item: { count: 1, id: "exdeorum:porcelain_crucible" }, count: 1L }
+			]
+			rewards: [
+				{ id: "1E82516324193D00", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "2D75D8EC1EE30D23"
+			x: 11.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "exdeorum:diamond_mesh" }
+			dependencies: ["5DDF27AB13470988"]
+			tasks: [
+				{ id: "40B9C410F0D70C63", type: "item", item: { count: 1, id: "exdeorum:diamond_mesh" }, count: 1L }
+			]
+			rewards: [
+				{ id: "20C12497EE7E5F44", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

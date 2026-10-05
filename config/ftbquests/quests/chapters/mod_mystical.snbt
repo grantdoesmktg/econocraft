@@ -1,0 +1,72 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_mystical"
+	group: "7CB9FD9528918760"
+	icon: { count: 1, id: "mysticalagriculture:inferium_essence" }
+	id: "2F800B19C9CC7D19"
+	images: [ { x: 3.375d, y: -2.600d, width: 11.710d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_mystical.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 18
+	quest_links: [ ]
+	quests: [
+		{
+			id: "734277D468797D1D"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "mysticalagriculture:inferium_seeds" }
+			tasks: [
+				{ id: "705A718FB73C3FCC", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "25839BE8C780E9D7", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "4FB345AAF653C80B"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mysticalagriculture:prudentium_essence" }
+			dependencies: ["734277D468797D1D"]
+			tasks: [
+				{ id: "35587F8DD567ED5F", type: "item", item: { count: 1, id: "mysticalagriculture:prudentium_essence" }, count: 1L }
+			]
+			rewards: [
+				{ id: "495F7D06D097F939", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "67BE9DF8476427A4"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mysticalagriculture:infusion_altar" }
+			dependencies: ["4FB345AAF653C80B"]
+			tasks: [
+				{ id: "11405987E326DABF", type: "item", item: { count: 1, id: "mysticalagriculture:infusion_altar" }, count: 1L }
+			]
+			rewards: [
+				{ id: "61EA9C6EBD5F2521", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "19ABC0A9545A6274"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:iron_ingot" }
+			dependencies: ["67BE9DF8476427A4"]
+			tasks: [
+				{ id: "6850D033D3EA42CA", type: "item", item: { count: 1, id: "minecraft:iron_ingot" }, count: 1L }
+			]
+			rewards: [
+				{ id: "1C1E9F0B1A693090", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

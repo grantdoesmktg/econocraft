@@ -1,0 +1,102 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_tools"
+	group: "133B4BC19096A30B"
+	icon: { count: 1, id: "mekanismtools:osmium_paxel" }
+	id: "1EBB76E9FEF8C8AB"
+	images: [ { x: 5.625d, y: -2.326d, width: 10.452d, height: 1.452d, rotation: 0.0d, image: "economypack:textures/quests/mod_tools.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 20
+	quest_links: [ ]
+	quests: [
+		{
+			id: "2019B207C520D8F6"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "constructionstick:iron_stick" }
+			tasks: [
+				{ id: "26A77A26CD5C30B2", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "79AFE735D0136C66", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "5718462D41DA7181"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "buildinggadgets2:gadget_building" }
+			dependencies: ["2019B207C520D8F6"]
+			tasks: [
+				{ id: "690ED6E7CB75FE78", type: "item", item: { count: 1, id: "buildinggadgets2:gadget_building" }, count: 1L }
+			]
+			rewards: [
+				{ id: "797FF11772004B0B", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "4DF463ABDFACCAB3"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:bricks" }
+			dependencies: ["5718462D41DA7181"]
+			tasks: [
+				{ id: "2E29E901171C3531", type: "item", item: { count: 1, id: "minecraft:bricks" }, count: 1L }
+			]
+			rewards: [
+				{ id: "70D5E0E005304705", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "3D5D3A1203A6AE2A"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mekanismtools:osmium_paxel" }
+			dependencies: ["4DF463ABDFACCAB3"]
+			tasks: [
+				{ id: "2B61A1ADBA869A8C", type: "item", item: { count: 1, id: "mekanismtools:osmium_paxel" }, count: 1L }
+			]
+			rewards: [
+				{ id: "4F124ACB80B5DD4D", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "1B05A9E7CF8C016D"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "silentgear:blueprint_paper" }
+			dependencies: ["3D5D3A1203A6AE2A"]
+			tasks: [
+				{ id: "703670213FECFFD8", type: "item", item: { count: 1, id: "silentgear:blueprint_paper" }, count: 1L }
+			]
+			rewards: [
+				{ id: "63F2E060D9CD033C", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "5674443441305EAF"
+			x: 11.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "tiab:time_in_a_bottle" }
+			dependencies: ["1B05A9E7CF8C016D"]
+			tasks: [
+				{ id: "10C4A671B3079567", type: "item", item: { count: 1, id: "tiab:time_in_a_bottle" }, count: 1L }
+			]
+			rewards: [
+				{ id: "11AB1B9F15933E2B", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

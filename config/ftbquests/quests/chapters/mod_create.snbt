@@ -1,0 +1,102 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_create"
+	group: "133B4BC19096A30B"
+	icon: { count: 1, id: "create:cogwheel" }
+	id: "5562AB94B4CF9626"
+	images: [ { x: 5.625d, y: -2.600d, width: 5.274d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_create.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 9
+	quest_links: [ ]
+	quests: [
+		{
+			id: "25CD4840FAA75503"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "create:cogwheel" }
+			tasks: [
+				{ id: "2309A858BA67162C", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "782AB17FEC8F2D3C", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "3A75CA079B8F7C68"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "create:water_wheel" }
+			dependencies: ["25CD4840FAA75503"]
+			tasks: [
+				{ id: "5D2BAA88CAD36FB8", type: "item", item: { count: 1, id: "create:water_wheel" }, count: 1L }
+			]
+			rewards: [
+				{ id: "43D902BDDB627939", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "231F5198868CDBE2"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "create:crushing_wheel" }
+			dependencies: ["3A75CA079B8F7C68"]
+			tasks: [
+				{ id: "1980DB57AE94D572", type: "item", item: { count: 1, id: "create:crushing_wheel" }, count: 1L }
+			]
+			rewards: [
+				{ id: "72B0DB194FA053A0", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "208BAA9311E30052"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "create:shaft" }
+			dependencies: ["231F5198868CDBE2"]
+			tasks: [
+				{ id: "615395DB1C5C24E0", type: "item", item: { count: 1, id: "create:shaft" }, count: 1L }
+			]
+			rewards: [
+				{ id: "3DA324C1EFE5DC21", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "289E267DFE719C5B"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "create:brass_ingot" }
+			dependencies: ["208BAA9311E30052"]
+			tasks: [
+				{ id: "10F022C644AF3FAE", type: "item", item: { count: 1, id: "create:brass_ingot" }, count: 4L }
+			]
+			rewards: [
+				{ id: "3060BF21F50FCDE1", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "3636DCCA57FC86CA"
+			x: 11.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "create:precision_mechanism" }
+			dependencies: ["289E267DFE719C5B"]
+			tasks: [
+				{ id: "7A859955F48B31BA", type: "item", item: { count: 1, id: "create:precision_mechanism" }, count: 1L }
+			]
+			rewards: [
+				{ id: "23C00A4D096BAEF3", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

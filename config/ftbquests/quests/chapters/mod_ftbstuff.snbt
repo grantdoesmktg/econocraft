@@ -1,0 +1,57 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_ftbstuff"
+	group: "133B4BC19096A30B"
+	icon: { count: 1, id: "ftbstuff:iron_cobblestone_generator" }
+	id: "58F9319F9EFF8E74"
+	images: [ { x: 2.250d, y: -2.600d, width: 10.548d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_ftbstuff.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 8
+	quest_links: [ ]
+	quests: [
+		{
+			id: "3FE08F871E5FCD72"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "ftbstuff:stone_cobblestone_generator" }
+			tasks: [
+				{ id: "2FC0950A33698CB8", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "207AC7B18C7B53B4", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "310D0607234471D3"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "ftbstuff:gold_auto_hammer" }
+			dependencies: ["3FE08F871E5FCD72"]
+			tasks: [
+				{ id: "1DF875C2ADA24275", type: "item", item: { count: 1, id: "ftbstuff:gold_auto_hammer" }, count: 1L }
+			]
+			rewards: [
+				{ id: "55B41D74C931F8D0", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "1A841BCE25FAF528"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "ftbstuff:stone_basalt_generator" }
+			dependencies: ["310D0607234471D3"]
+			tasks: [
+				{ id: "1984EEE6DB5D2E31", type: "item", item: { count: 1, id: "ftbstuff:stone_basalt_generator" }, count: 1L }
+			]
+			rewards: [
+				{ id: "2A843E0BF9BB57ED", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

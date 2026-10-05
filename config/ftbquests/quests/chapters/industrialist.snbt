@@ -1,0 +1,182 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "industrialist"
+	group: "7CFA42324A508511"
+	icon: { count: 1, id: "twilightforest:naga_trophy" }
+	id: "4516A4B196CFC245"
+	images: [ { x: 5.625d, y: -2.600d, width: 8.323d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/industrialist.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 5
+	quest_links: [ ]
+	quests: [
+		{
+			id: "7CC5B483B331C906"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "twilightforest:twilight_portal_miniature_structure" }
+			dependencies: ["66E945EC5518C5FE"]
+			tasks: [
+				{ id: "704E48EF628C19F3", type: "dimension", dimension: "twilightforest:twilight_forest" }
+			]
+			rewards: [
+				{ id: "20AA9890545E13AD", type: "item", item: { count: 3, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "2AA146F1ACBD9BF7"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "twilightforest:naga_trophy" }
+			dependencies: ["7CC5B483B331C906"]
+			tasks: [
+				{ id: "19C8235DBC8C0841", type: "item", item: { count: 1, id: "twilightforest:naga_trophy" }, count: 1L }
+			]
+			rewards: [
+				{ id: "70B57A792275F461", type: "item", item: { count: 3, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "37D89225FC6F4CBD"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "twilightforest:lich_trophy" }
+			dependencies: ["2AA146F1ACBD9BF7"]
+			tasks: [
+				{ id: "744F8A9F0E81B3A0", type: "item", item: { count: 1, id: "twilightforest:lich_trophy" }, count: 1L }
+			]
+			rewards: [
+				{ id: "5B4629059106A547", type: "item", item: { count: 4, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "1675E20F2C39CE0B"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "twilightforest:minoshroom_trophy" }
+			dependencies: ["37D89225FC6F4CBD"]
+			tasks: [
+				{ id: "10F555965B1BA8FF", type: "item", item: { count: 1, id: "twilightforest:minoshroom_trophy" }, count: 1L }
+			]
+			rewards: [
+				{ id: "7E95D42FF8F54CDC", type: "item", item: { count: 5, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "7097D01D8B731A5A"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "twilightforest:hydra_trophy" }
+			dependencies: ["1675E20F2C39CE0B"]
+			tasks: [
+				{ id: "27F5ECAEA3D34FEE", type: "item", item: { count: 1, id: "twilightforest:hydra_trophy" }, count: 1L }
+			]
+			rewards: [
+				{ id: "276D22F0BE1BCD44", type: "item", item: { count: 8, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "6256DD4687E59E59"
+			x: 11.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "twilightforest:knight_phantom_trophy" }
+			dependencies: ["7097D01D8B731A5A"]
+			tasks: [
+				{ id: "17754383D7CDAC71", type: "item", item: { count: 1, id: "twilightforest:knight_phantom_trophy" }, count: 1L }
+			]
+			rewards: [
+				{ id: "2ACBF6DA4FC19479", type: "item", item: { count: 7, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "67CF11AA3759F948"
+			x: 11.25d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "twilightforest:ur_ghast_trophy" }
+			dependencies: ["6256DD4687E59E59"]
+			tasks: [
+				{ id: "592A69D289A67919", type: "item", item: { count: 1, id: "twilightforest:ur_ghast_trophy" }, count: 1L }
+			]
+			rewards: [
+				{ id: "284BDE849EC15529", type: "item", item: { count: 9, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "7AA89BA3879D3897"
+			x: 9.0d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "twilightforest:snow_queen_trophy" }
+			dependencies: ["67CF11AA3759F948"]
+			tasks: [
+				{ id: "5DD20C21E54A7C6F", type: "item", item: { count: 1, id: "twilightforest:alpha_yeti_trophy" }, count: 1L }
+				{ id: "4FEE3799D73DF53F", type: "item", item: { count: 1, id: "twilightforest:snow_queen_trophy" }, count: 1L }
+			]
+			rewards: [
+				{ id: "28858D4BD0CF734D", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" } }
+			]
+		}
+		{
+			id: "6E3B112364B7FFEA"
+			x: 6.75d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mekanism:purification_chamber" }
+			dependencies: ["7AA89BA3879D3897"]
+			tasks: [
+				{ id: "3323C9A6752B6200", type: "item", item: { count: 1, id: "mekanism:purification_chamber" }, count: 1L }
+			]
+			rewards: [
+				{ id: "4135943B9A5B1379", type: "item", item: { count: 6, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "3890FF46E9FF9439"
+			x: 4.5d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:dragon_egg" }
+			dependencies: ["6E3B112364B7FFEA"]
+			tasks: [
+				{ id: "7CC7A7B5613942EA", type: "kill", entity: "minecraft:ender_dragon", value: 1L }
+			]
+			rewards: [
+				{ id: "2D2E8CE122DBBB49", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" } }
+			]
+		}
+		{
+			id: "35CD2BEB74D76338"
+			x: 2.25d
+			y: 4.0d
+			shape: "gear"
+			size: 2.25d
+			icon: { count: 1, id: "minecraft:nether_star" }
+			dependencies: ["3890FF46E9FF9439"]
+			tasks: [
+				{ id: "568710BC4139A32F", type: "advancement", advancement: "economy_core:earned/1400000", criterion: "" }
+				{ id: "2D5F678818C1F2E8", type: "item", item: { count: 1, id: "lightmanscurrency:coin_netherite" }, count: 1L consume_items: true }
+				{ id: "381ECCA368A0517D", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" }, count: 5L consume_items: true }
+			]
+			rewards: [
+				{ id: "77CCF089C0E413DC", type: "gamestage", stage: "economy:tier_6" }
+				{ id: "539A244CE3C04169", type: "command", command: "/market tier set 6 @p", elevate_perms: true, silent: true }
+			]
+		}
+	]
+}

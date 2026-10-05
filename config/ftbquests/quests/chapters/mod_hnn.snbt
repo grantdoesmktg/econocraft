@@ -1,0 +1,57 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_hnn"
+	group: "7CB9FD9528918760"
+	icon: { count: 1, id: "hostilenetworks:sim_chamber" }
+	id: "2EF95F2E0585556A"
+	images: [ { x: 2.250d, y: -2.486d, width: 12.000d, height: 1.771d, rotation: 0.0d, image: "economypack:textures/quests/mod_hnn.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 23
+	quest_links: [ ]
+	quests: [
+		{
+			id: "11A67565C5BB2E70"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "hostilenetworks:deep_learner" }
+			tasks: [
+				{ id: "22AE10A107322F97", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "4D3E88A0C64F9F42", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "6D9D06EA37FE1327"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "hostilenetworks:sim_chamber" }
+			dependencies: ["11A67565C5BB2E70"]
+			tasks: [
+				{ id: "2F2D8A06B01A511D", type: "item", item: { count: 1, id: "hostilenetworks:sim_chamber" }, count: 1L }
+			]
+			rewards: [
+				{ id: "219552E658EA8D2F", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "318F141B1F728971"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "hostilenetworks:loot_fabricator" }
+			dependencies: ["6D9D06EA37FE1327"]
+			tasks: [
+				{ id: "19C4A9142E19A50C", type: "item", item: { count: 1, id: "hostilenetworks:loot_fabricator" }, count: 1L }
+			]
+			rewards: [
+				{ id: "205B79BCED3B3212", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

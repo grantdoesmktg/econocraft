@@ -1,0 +1,87 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_storage"
+	group: "133B4BC19096A30B"
+	icon: { count: 1, id: "storagedrawers:oak_full_drawers_1" }
+	id: "4E5558CA73CE8820"
+	images: [ { x: 4.500d, y: -2.326d, width: 4.645d, height: 1.452d, rotation: 0.0d, image: "economypack:textures/quests/mod_storage.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 17
+	quest_links: [ ]
+	quests: [
+		{
+			id: "6CDE88A366AFB696"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "minecraft:chest" }
+			tasks: [
+				{ id: "311064A868B873DD", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "1B5010AEA9A661C6", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "6BE90770024B8DFE"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "storagedrawers:oak_full_drawers_1" }
+			dependencies: ["6CDE88A366AFB696"]
+			tasks: [
+				{ id: "5894740836DBED50", type: "item", item: { count: 1, id: "storagedrawers:oak_full_drawers_1" }, count: 1L }
+			]
+			rewards: [
+				{ id: "6268119229DF6B16", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "21F3AD41F3FBF2E6"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "sophisticatedbackpacks:backpack" }
+			dependencies: ["6BE90770024B8DFE"]
+			tasks: [
+				{ id: "2F1DB05352F92656", type: "item", item: { count: 1, id: "sophisticatedbackpacks:backpack" }, count: 1L }
+			]
+			rewards: [
+				{ id: "47FAEE342E053E43", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "2E64E9B886DCAA5E"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "toms_storage:storage_terminal" }
+			dependencies: ["21F3AD41F3FBF2E6"]
+			tasks: [
+				{ id: "14A7F0CF3D98CE63", type: "item", item: { count: 1, id: "toms_storage:storage_terminal" }, count: 1L }
+			]
+			rewards: [
+				{ id: "1A8C6865EFFFA323", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "7CE1F65FC3DBAEAD"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "refinedstorage:controller" }
+			dependencies: ["2E64E9B886DCAA5E"]
+			tasks: [
+				{ id: "1C047C8204A3D25A", type: "item", item: { count: 1, id: "refinedstorage:controller" }, count: 1L }
+			]
+			rewards: [
+				{ id: "4A5C6E406E313EC7", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

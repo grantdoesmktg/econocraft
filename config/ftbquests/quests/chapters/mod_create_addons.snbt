@@ -1,0 +1,72 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_create_addons"
+	group: "133B4BC19096A30B"
+	icon: { count: 1, id: "createaddition:electric_motor" }
+	id: "26D2BD3DF8A4E2C3"
+	images: [ { x: 3.375d, y: -2.326d, width: 8.613d, height: 1.452d, rotation: 0.0d, image: "economypack:textures/quests/mod_create_addons.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 10
+	quest_links: [ ]
+	quests: [
+		{
+			id: "527D26AF7A5474E0"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "createaddition:alternator" }
+			tasks: [
+				{ id: "278B3B195C4219BC", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "68193D91316F9446", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "1288E89C275AD9C2"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "create_new_age:basic_energiser" }
+			dependencies: ["527D26AF7A5474E0"]
+			tasks: [
+				{ id: "4D05BFD4335F7ED7", type: "item", item: { count: 1, id: "create_new_age:basic_energiser" }, count: 1L }
+			]
+			rewards: [
+				{ id: "65BA21285F1B5B2A", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "7FF46E1EA7B710A2"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "createdieselgenerators:diesel_engine" }
+			dependencies: ["1288E89C275AD9C2"]
+			tasks: [
+				{ id: "289FF5E24F70FA14", type: "item", item: { count: 1, id: "createdieselgenerators:diesel_engine" }, count: 1L }
+			]
+			rewards: [
+				{ id: "437EC9FFBB35F98F", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "4C6E2DA5847186FD"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "create_enchantment_industry:blaze_enchanter" }
+			dependencies: ["7FF46E1EA7B710A2"]
+			tasks: [
+				{ id: "7DE326FFDBC9894C", type: "item", item: { count: 1, id: "create_enchantment_industry:blaze_enchanter" }, count: 1L }
+			]
+			rewards: [
+				{ id: "5DCFABE9CFF3E42E", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

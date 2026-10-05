@@ -1,0 +1,27 @@
+# Economy Pack market tier 3. Granted by the tier 3 gate quest in the FTB Quests book.
+# Item, recipe and dimension locks for this tier go in rules.toml (gating pass).
+[schema]
+version = 4
+
+[stage]
+id = "economy:tier_3"
+display_name = "Tier 3: Pioneer"
+description = "The Frontier is yours: exploration and Mystical Agriculture"
+icon = "minecraft:filled_map"
+dependencies = ["economy:tier_2"]
+dependency_mode = "all"
+dependency_count = 1
+category = "Market tiers"
+color = "#d4a017"
+slot_group = ""
+slot_limit = 0
+slot_policy = "deny"
+duration = ""
+hidden = false
+scope = "team"
+tags = ["economy", "tier"]
+
+[display]
+frame = "goal"
+reveal = "always"
+background = "minecraft:textures/gui/advancements/backgrounds/stone.png"

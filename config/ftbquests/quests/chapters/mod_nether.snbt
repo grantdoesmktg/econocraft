@@ -1,0 +1,57 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_nether"
+	group: "7CB9FD9528918760"
+	icon: { count: 1, id: "minecraft:netherrack" }
+	id: "7AC0D7B5325E30BC"
+	images: [ { x: 2.250d, y: -2.600d, width: 6.290d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_nether.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 24
+	quest_links: [ ]
+	quests: [
+		{
+			id: "12BEB3B3620D648D"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "minecraft:potion" }
+			tasks: [
+				{ id: "37E39304473337B3", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "197CA73DF4BFA208", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "12788911B8967E86"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:nether_bricks" }
+			dependencies: ["12BEB3B3620D648D"]
+			tasks: [
+				{ id: "50C1D0F272AF8F09", type: "item", item: { count: 1, id: "minecraft:nether_bricks" }, count: 1L }
+			]
+			rewards: [
+				{ id: "22A2A0AF58306334", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "5B8CE251C4CAB843"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:ancient_debris" }
+			dependencies: ["12788911B8967E86"]
+			tasks: [
+				{ id: "1D95372C87BC7B1B", type: "item", item: { count: 1, id: "minecraft:ancient_debris" }, count: 1L }
+			]
+			rewards: [
+				{ id: "76D2BB9B6F13B1AF", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

@@ -1,0 +1,24 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "ref_tiers"
+	group: "59BE11F6B5214E2E"
+	icon: { count: 1, id: "minecraft:filled_map" }
+	id: "6CACEC9A476C61F3"
+	images: [ { x: 0.000d, y: -2.600d, width: 9.532d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/ref_tiers.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 32
+	quest_links: [ ]
+	quests: [
+		{
+			id: "144B790722CDC294"
+			x: 0.0d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "minecraft:filled_map" }
+			tasks: [
+				{ id: "13A7615C7827FE56", type: "checkmark" }
+			]
+		}
+	]
+}

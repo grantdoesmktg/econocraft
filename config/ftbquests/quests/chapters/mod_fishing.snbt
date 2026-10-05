@@ -1,0 +1,57 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_fishing"
+	group: "133B4BC19096A30B"
+	icon: { count: 1, id: "fishermens_trap:fishtrap" }
+	id: "12608768EF0006A4"
+	images: [ { x: 2.250d, y: -2.600d, width: 5.274d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_fishing.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 13
+	quest_links: [ ]
+	quests: [
+		{
+			id: "5872A58B37E1776B"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "fishermens_trap:fishtrap" }
+			tasks: [
+				{ id: "215B0CC9027F7AFD", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "4E6B8717E0EABD9E", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "2417462566415E50"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "aquaculture:iron_fishing_rod" }
+			dependencies: ["5872A58B37E1776B"]
+			tasks: [
+				{ id: "2222552C9DCB52E9", type: "item", item: { count: 1, id: "aquaculture:iron_fishing_rod" }, count: 1L }
+			]
+			rewards: [
+				{ id: "7275FD8AB6BA1060", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "4F4B28FDC52E4DBC"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:lava_bucket" }
+			dependencies: ["2417462566415E50"]
+			tasks: [
+				{ id: "6B414D66CBF234F8", type: "item", item: { count: 1, id: "minecraft:lava_bucket" }, count: 1L }
+			]
+			rewards: [
+				{ id: "381B7BE0D5595788", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

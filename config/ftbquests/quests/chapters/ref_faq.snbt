@@ -1,0 +1,72 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "ref_faq"
+	group: "59BE11F6B5214E2E"
+	icon: { count: 1, id: "minecraft:book" }
+	id: "57768E0CA966298E"
+	images: [ { x: 4.500d, y: -2.326d, width: 2.323d, height: 1.452d, rotation: 0.0d, image: "economypack:textures/quests/ref_faq.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 33
+	quest_links: [ ]
+	quests: [
+		{
+			id: "1B3CAFD693A9220D"
+			x: 0.0d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "minecraft:crafting_table" }
+			tasks: [
+				{ id: "122962587A20F4D6", type: "checkmark" }
+			]
+		}
+		{
+			id: "20EA56DB5FCF10A3"
+			x: 2.25d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "economy_core:market_crate" }
+			dependencies: ["1B3CAFD693A9220D"]
+			tasks: [
+				{ id: "3584A91E164794B6", type: "checkmark" }
+			]
+		}
+		{
+			id: "248E2B8FEDEBECFF"
+			x: 4.5d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "exdeorum:porcelain_crucible" }
+			dependencies: ["20EA56DB5FCF10A3"]
+			tasks: [
+				{ id: "1C3EE706B9A4EEC0", type: "checkmark" }
+			]
+		}
+		{
+			id: "103A23948724B8C6"
+			x: 6.75d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "minecraft:cobblestone" }
+			dependencies: ["248E2B8FEDEBECFF"]
+			tasks: [
+				{ id: "31D152E19F5C1784", type: "checkmark" }
+			]
+		}
+		{
+			id: "2E31BB9DBC378597"
+			x: 9.0d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "minecraft:command_block" }
+			dependencies: ["103A23948724B8C6"]
+			tasks: [
+				{ id: "681DBE181D43A0B9", type: "checkmark" }
+			]
+		}
+	]
+}

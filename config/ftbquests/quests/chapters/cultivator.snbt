@@ -1,0 +1,217 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "cultivator"
+	group: "7CFA42324A508511"
+	icon: { count: 1, id: "minecraft:blaze_rod" }
+	id: "7EEB67E9BB744EF0"
+	images: [ { x: 5.625d, y: -2.600d, width: 9.194d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/cultivator.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 4
+	quest_links: [ ]
+	quests: [
+		{
+			id: "4EFC3E92A9F5AAB1"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "minecraft:obsidian" }
+			dependencies: ["246398E6FB2DF2C8"]
+			tasks: [
+				{ id: "190893077DD40887", type: "dimension", dimension: "minecraft:the_nether" }
+			]
+			rewards: [
+				{ id: "6241D2740D268ACC", type: "item", item: { count: 2, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "10A255ADD2447C05"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:blaze_rod" }
+			dependencies: ["4EFC3E92A9F5AAB1"]
+			tasks: [
+				{ id: "44EC6486B92834CC", type: "item", item: { count: 1, id: "minecraft:blaze_rod" }, count: 4L }
+			]
+			rewards: [
+				{ id: "5226325AA7E00541", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" } }
+				{ id: "5F7C9BC169AB86C2", type: "item", item: { count: 5, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "31285E6B3FD096C1"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mekanism:enrichment_chamber" }
+			dependencies: ["10A255ADD2447C05"]
+			tasks: [
+				{ id: "202FE5AABE5388F5", type: "item", item: { count: 1, id: "mekanism:enrichment_chamber" }, count: 1L }
+			]
+			rewards: [
+				{ id: "4B511FA538F86EF8", type: "item", item: { count: 3, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "168EA2133AEE807C"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "powah:furnator_starter" }
+			dependencies: ["31285E6B3FD096C1"]
+			tasks: [
+				{ id: "304CA1B2E1B1AECD", type: "item", item: { count: 1, id: "powah:furnator_starter" }, count: 1L }
+			]
+			rewards: [
+				{ id: "6AB468E8B5E67BB4", type: "item", item: { count: 2, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "66BD31AD41FC1FC1"
+			x: 6.75d
+			y: 2.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "createaddition:alternator" }
+			dependencies: ["31285E6B3FD096C1"]
+			tasks: [
+				{ id: "5EBC772FF7E7BF8A", type: "item", item: { count: 1, id: "createaddition:alternator" }, count: 1L }
+			]
+			rewards: [
+				{ id: "7190E43A48BD666E", type: "item", item: { count: 2, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "16A45E48052DF3E2"
+			x: 8.25d
+			y: 2.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "mekanismgenerators:heat_generator" }
+			dependencies: ["31285E6B3FD096C1"]
+			tasks: [
+				{ id: "3DF456D3CEF9A8FC", type: "item", item: { count: 1, id: "mekanismgenerators:heat_generator" }, count: 1L }
+			]
+			rewards: [
+				{ id: "7D51B14FEAFBDC83", type: "item", item: { count: 2, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "64F9E0371997622E"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:nether_star" }
+			dependencies: ["168EA2133AEE807C" "66BD31AD41FC1FC1" "16A45E48052DF3E2"]
+			dependency_requirement: "one_completed"
+			tasks: [
+				{ id: "5E0B934D6CC82046", type: "item", item: { count: 1, id: "minecraft:nether_star" }, count: 1L }
+			]
+			rewards: [
+				{ id: "33AC7949B5AA3AB6", type: "item", item: { count: 5, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "7FF7F556E2B98C6C"
+			x: 11.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "hostilenetworks:sim_chamber" }
+			dependencies: ["64F9E0371997622E"]
+			tasks: [
+				{ id: "1A24820CEEF4DE9C", type: "item", item: { count: 1, id: "hostilenetworks:deep_learner" }, count: 1L }
+				{ id: "72296CD16EC3276E", type: "item", item: { count: 1, id: "hostilenetworks:sim_chamber" }, count: 1L }
+			]
+			rewards: [
+				{ id: "691B802717ECDB15", type: "item", item: { count: 3, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "27FB1D314CFC5BD1"
+			x: 11.25d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "farmersdelight:roast_chicken_block" }
+			dependencies: ["7FF7F556E2B98C6C"]
+			tasks: [
+				{ id: "4880A3D1CF0D11F2", type: "item", item: { count: 1, id: "farmersdelight:roast_chicken_block" }, count: 1L }
+			]
+			rewards: [
+				{ id: "123532D6A75BC5FC", type: "item", item: { count: 2, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "70261257E54A7DB1"
+			x: 9.0d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:netherite_scrap" }
+			dependencies: ["27FB1D314CFC5BD1"]
+			tasks: [
+				{ id: "4EFE4187D44C5C2C", type: "item", item: { count: 1, id: "minecraft:netherite_scrap" }, count: 1L }
+			]
+			rewards: [
+				{ id: "16E615C12B691DE9", type: "item", item: { count: 3, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "22980A4EFA005F20"
+			x: 4.5d
+			y: 2.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "mekanismtools:osmium_paxel" }
+			dependencies: ["31285E6B3FD096C1"]
+			optional: true
+			tasks: [
+				{ id: "38B39394585A9CC3", type: "item", item: { count: 1, id: "mekanismtools:osmium_paxel" }, count: 1L }
+			]
+			rewards: [
+				{ id: "6C364C281415AEEC", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "5B9BDCB343656BA3"
+			x: 9.75d
+			y: 2.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "mininggadgets:mininggadget" }
+			dependencies: ["168EA2133AEE807C"]
+			optional: true
+			tasks: [
+				{ id: "59C4C2561AD3A8EE", type: "item", item: { count: 1, id: "mininggadgets:mininggadget" }, count: 1L }
+			]
+			rewards: [
+				{ id: "6200EA32E24E79C8", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" } }
+				{ id: "27049EBA29D949AB", type: "item", item: { count: 5, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "66E945EC5518C5FE"
+			x: 6.75d
+			y: 4.0d
+			shape: "gear"
+			size: 2.25d
+			icon: { count: 1, id: "twilightforest:naga_trophy" }
+			dependencies: ["70261257E54A7DB1"]
+			tasks: [
+				{ id: "1B82A96133D0FAA3", type: "advancement", advancement: "economy_core:earned/525000", criterion: "" }
+				{ id: "422BCAD86E4B743E", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" }, count: 7L consume_items: true }
+				{ id: "6325D43F8C51EC26", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" }, count: 5L consume_items: true }
+			]
+			rewards: [
+				{ id: "66D95F4DC8439D7C", type: "gamestage", stage: "economy:tier_5" }
+				{ id: "247CC2615DC2986B", type: "command", command: "/market tier set 5 @p", elevate_perms: true, silent: true }
+			]
+		}
+	]
+}

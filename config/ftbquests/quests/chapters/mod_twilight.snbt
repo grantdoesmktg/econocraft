@@ -1,0 +1,57 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_twilight"
+	group: "2D854B5F0194BFDC"
+	icon: { count: 1, id: "twilightforest:naga_trophy" }
+	id: "186D71D69AE7AE9D"
+	images: [ { x: 2.250d, y: -2.600d, width: 8.806d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_twilight.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 25
+	quest_links: [ ]
+	quests: [
+		{
+			id: "107EFB203D98DEE6"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "minecraft:poppy" }
+			tasks: [
+				{ id: "5EDA0888607A01E8", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "5D39CBFBEAA10C00", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "362D612DF05A211B"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "twilightforest:lich_trophy" }
+			dependencies: ["107EFB203D98DEE6"]
+			tasks: [
+				{ id: "2A40399AA736370F", type: "item", item: { count: 1, id: "twilightforest:lich_trophy" }, count: 1L }
+			]
+			rewards: [
+				{ id: "4E3365EC46C48079", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "643EBBB0A64D7485"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "twilightforest:snow_queen_trophy" }
+			dependencies: ["362D612DF05A211B"]
+			tasks: [
+				{ id: "4617EC16889602D4", type: "item", item: { count: 1, id: "twilightforest:snow_queen_trophy" }, count: 1L }
+			]
+			rewards: [
+				{ id: "5B6031C5CD3B223C", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

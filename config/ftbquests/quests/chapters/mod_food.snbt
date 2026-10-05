@@ -1,0 +1,102 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_food"
+	group: "133B4BC19096A30B"
+	icon: { count: 1, id: "farmersdelight:cooking_pot" }
+	id: "41E6D165AD939264"
+	images: [ { x: 5.625d, y: -2.361d, width: 12.000d, height: 1.521d, rotation: 0.0d, image: "economypack:textures/quests/mod_food.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 12
+	quest_links: [ ]
+	quests: [
+		{
+			id: "2E96A232FC5E16F2"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "farmersdelight:cooking_pot" }
+			tasks: [
+				{ id: "5616E438E8073850", type: "item", item: { count: 1, id: "farmersdelight:cooking_pot" }, count: 1L }
+			]
+			rewards: [
+				{ id: "3D82AA2B6C0D5533", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "50EBD80F77BB8369"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "farmersdelight:tomato" }
+			dependencies: ["2E96A232FC5E16F2"]
+			tasks: [
+				{ id: "469D21596BC88449", type: "item", item: { count: 1, id: "farmersdelight:tomato" }, count: 1L }
+			]
+			rewards: [
+				{ id: "2E8881358BEDA091", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "6FE19C917F0D21C6"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "farmersdelight:beef_stew" }
+			dependencies: ["50EBD80F77BB8369"]
+			tasks: [
+				{ id: "404B09E7301B10F4", type: "item", item: { count: 1, id: "farmersdelight:beef_stew" }, count: 1L }
+			]
+			rewards: [
+				{ id: "7B4C3D1C9830C40D", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "1CCAE43CE6F2D284"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "farmersdelight:roast_chicken_block" }
+			dependencies: ["6FE19C917F0D21C6"]
+			tasks: [
+				{ id: "53DFE60D2AFE25EC", type: "item", item: { count: 1, id: "farmersdelight:roast_chicken_block" }, count: 1L }
+			]
+			rewards: [
+				{ id: "43E4519CF18CF530", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "67FEB3D4ACC04EA5"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "cookingforblockheads:cooking_table" }
+			dependencies: ["1CCAE43CE6F2D284"]
+			tasks: [
+				{ id: "19538E5ED7BD5C50", type: "item", item: { count: 1, id: "cookingforblockheads:cooking_table" }, count: 1L }
+			]
+			rewards: [
+				{ id: "245C18342CAFA4F9", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "4B2C8AE385B3CF5A"
+			x: 11.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:golden_carrot" }
+			dependencies: ["67FEB3D4ACC04EA5"]
+			tasks: [
+				{ id: "7B76FF99FB7727B2", type: "item", item: { count: 1, id: "minecraft:golden_carrot" }, count: 1L }
+			]
+			rewards: [
+				{ id: "58F24824901317C7", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

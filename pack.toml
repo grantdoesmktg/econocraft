@@ -1,0 +1,13 @@
+name = "Economy Pack"
+author = "Grant"
+version = "1.0.0-beta.1"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "1129334adc119dccc9076821de9ff74ed3bb2ac9b14fcf33690e8627e26f9625"
+
+[versions]
+minecraft = "1.21.1"
+neoforge = "21.1.252"

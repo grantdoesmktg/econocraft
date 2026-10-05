@@ -1,0 +1,119 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "tycoon"
+	group: "7CFA42324A508511"
+	icon: { count: 1, id: "minecraft:nether_star" }
+	id: "5A69EBF254A59778"
+	images: [ { x: 5.625d, y: -2.600d, width: 10.548d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/tycoon.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 6
+	quest_links: [ ]
+	quests: [
+		{
+			id: "25FCFF4816A1AC62"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "lightmanscurrency:coin_netherite" }
+			dependencies: ["35CD2BEB74D76338"]
+			tasks: [
+				{ id: "460E6B88B7A9009C", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "6052193A763AE258", type: "item", item: { count: 5, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "676F7C4D0115F6AA"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "ae2:controller" }
+			dependencies: ["25FCFF4816A1AC62"]
+			tasks: [
+				{ id: "55E60FD1B53135B2", type: "item", item: { count: 1, id: "ae2:controller" }, count: 1L }
+			]
+			rewards: [
+				{ id: "48EA83B2136C8BB1", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" } }
+			]
+		}
+		{
+			id: "618ACF60878617D3"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "industrialforegoing:plant_gatherer" }
+			dependencies: ["676F7C4D0115F6AA"]
+			tasks: [
+				{ id: "4491F2037747FC40", type: "item", item: { count: 1, id: "industrialforegoing:plant_gatherer" }, count: 1L }
+			]
+			rewards: [
+				{ id: "5890249621A7BBB0", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" } }
+			]
+		}
+		{
+			id: "3476691DDD2F3C94"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "angelring:angel_ring" }
+			dependencies: ["618ACF60878617D3"]
+			tasks: [
+				{ id: "3FBE13488F74900E", type: "item", item: { count: 1, id: "angelring:angel_ring" }, count: 1L }
+			]
+			rewards: [
+				{ id: "15E12E0658C432AD", type: "item", item: { count: 8, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "64C8D3D9B5B3B1C3"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "draconicevolution:draconium_core" }
+			dependencies: ["3476691DDD2F3C94"]
+			tasks: [
+				{ id: "63F29EC2CDEE98D6", type: "item", item: { count: 1, id: "draconicevolution:draconium_core" }, count: 1L }
+			]
+			rewards: [
+				{ id: "728016EC106C5E68", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" } }
+				{ id: "47F45144B76ECB8B", type: "item", item: { count: 5, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "44523AC427BA2D71"
+			x: 11.25d
+			y: 0.0d
+			shape: "diamond"
+			size: 1.5d
+			icon: { count: 1, id: "minecraft:dragon_egg" }
+			dependencies: ["64C8D3D9B5B3B1C3"]
+			tasks: [
+				{ id: "1C5414A0A8C343D8", type: "advancement", advancement: "economy_core:sale/150000", criterion: "" }
+			]
+			rewards: [
+				{ id: "574F748F64F58153", type: "item", item: { count: 2, id: "lightmanscurrency:coin_diamond" } }
+			]
+		}
+		{
+			id: "2BC16691343EE39D"
+			x: 11.25d
+			y: 4.0d
+			shape: "diamond"
+			size: 1.5d
+			icon: { count: 1, id: "lightmanscurrency:coin_netherite" }
+			dependencies: ["44523AC427BA2D71"]
+			tasks: [
+				{ id: "1487511BEA7B8B31", type: "advancement", advancement: "economy_core:earned/4000000", criterion: "" }
+			]
+			rewards: [
+				{ id: "2CE41DF63AF0311C", type: "item", item: { count: 5, id: "lightmanscurrency:coin_diamond" } }
+			]
+		}
+	]
+}

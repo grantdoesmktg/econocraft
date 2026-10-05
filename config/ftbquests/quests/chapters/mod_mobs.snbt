@@ -1,0 +1,87 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_mobs"
+	group: "133B4BC19096A30B"
+	icon: { count: 1, id: "mob_grinding_utils:dreadful_dirt" }
+	id: "3FFE388DF23CCBA2"
+	images: [ { x: 4.500d, y: -2.600d, width: 10.258d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_mobs.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 16
+	quest_links: [ ]
+	quests: [
+		{
+			id: "33BC8686D7745290"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "mob_grinding_utils:dreadful_dirt" }
+			tasks: [
+				{ id: "778AF86EB45882AC", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "2EEA1654FDC2D1BB", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "128FA837A5C182BE"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mob_grinding_utils:saw" }
+			dependencies: ["33BC8686D7745290"]
+			tasks: [
+				{ id: "344741F7355FD271", type: "item", item: { count: 1, id: "mob_grinding_utils:saw" }, count: 1L }
+			]
+			rewards: [
+				{ id: "5797EF17FEA49A60", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "7CA0E0F8F4299B9F"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mob_grinding_utils:fan" }
+			dependencies: ["128FA837A5C182BE"]
+			tasks: [
+				{ id: "5278C379EF01B87A", type: "item", item: { count: 1, id: "mob_grinding_utils:fan" }, count: 1L }
+			]
+			rewards: [
+				{ id: "4F3798BD7FC465B5", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "1D3D9C41FF30E1FD"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mob_grinding_utils:absorption_hopper" }
+			dependencies: ["7CA0E0F8F4299B9F"]
+			tasks: [
+				{ id: "34C33514EA70AC3E", type: "item", item: { count: 1, id: "mob_grinding_utils:absorption_hopper" }, count: 1L }
+			]
+			rewards: [
+				{ id: "4C6863A108F19639", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "79E04966B57DAEC8"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mob_grinding_utils:xpsolidifier" }
+			dependencies: ["1D3D9C41FF30E1FD"]
+			tasks: [
+				{ id: "3F6A45448250B063", type: "item", item: { count: 1, id: "mob_grinding_utils:xpsolidifier" }, count: 1L }
+			]
+			rewards: [
+				{ id: "2ED867F6950DD4C5", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

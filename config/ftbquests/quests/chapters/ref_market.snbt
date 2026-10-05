@@ -1,0 +1,60 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "ref_market"
+	group: "59BE11F6B5214E2E"
+	icon: { count: 1, id: "economy_core:market_crate" }
+	id: "3E61167BE0C765ED"
+	images: [ { x: 3.375d, y: -2.326d, width: 6.290d, height: 1.452d, rotation: 0.0d, image: "economypack:textures/quests/ref_market.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 30
+	quest_links: [ ]
+	quests: [
+		{
+			id: "1C042D7CD598C7E2"
+			x: 0.0d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "economy_core:market_crate" }
+			tasks: [
+				{ id: "63A933F4A2ADF024", type: "checkmark" }
+			]
+		}
+		{
+			id: "3DBF1A4FA0E105D5"
+			x: 2.25d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "minecraft:cobblestone" }
+			dependencies: ["1C042D7CD598C7E2"]
+			tasks: [
+				{ id: "3BB5C3550D8FBD1F", type: "checkmark" }
+			]
+		}
+		{
+			id: "32C4357E433329F2"
+			x: 4.5d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "lightmanscurrency:coin_gold" }
+			dependencies: ["3DBF1A4FA0E105D5"]
+			tasks: [
+				{ id: "44A2F53E3CF93723", type: "checkmark" }
+			]
+		}
+		{
+			id: "393337C441566A91"
+			x: 6.75d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "minecraft:firework_rocket" }
+			dependencies: ["32C4357E433329F2"]
+			tasks: [
+				{ id: "6A0BD0CFF53A1375", type: "checkmark" }
+			]
+		}
+	]
+}

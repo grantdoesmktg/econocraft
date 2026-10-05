@@ -1,0 +1,87 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_cyclic"
+	group: "133B4BC19096A30B"
+	icon: { count: 1, id: "cyclic:user" }
+	id: "6C9F3FDF42CD5B46"
+	images: [ { x: 4.500d, y: -2.600d, width: 5.274d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_cyclic.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 14
+	quest_links: [ ]
+	quests: [
+		{
+			id: "7FF3754AC5F51DB3"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "cyclic:user" }
+			tasks: [
+				{ id: "21543D719A6AFBDD", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "16E94FDB9138F707", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "1DB276AC59936321"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "cyclic:user" }
+			dependencies: ["7FF3754AC5F51DB3"]
+			tasks: [
+				{ id: "7F78DA8BB4579D67", type: "item", item: { count: 1, id: "cyclic:user" }, count: 1L }
+			]
+			rewards: [
+				{ id: "2629822F4B9676D1", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "5F5FF9B0444CCF9B"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "cyclic:collector" }
+			dependencies: ["1DB276AC59936321"]
+			tasks: [
+				{ id: "65BA6110EC76CA41", type: "item", item: { count: 1, id: "cyclic:collector" }, count: 1L }
+			]
+			rewards: [
+				{ id: "107C1FCCA7E27FC1", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "39001848C6FD7FB9"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "cyclic:harvester" }
+			dependencies: ["5F5FF9B0444CCF9B"]
+			tasks: [
+				{ id: "5FB0944E19C743A9", type: "item", item: { count: 1, id: "cyclic:harvester" }, count: 1L }
+			]
+			rewards: [
+				{ id: "648A33FFD2DF3EDA", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "54ACF22A72E9DB18"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "cyclic:breaker" }
+			dependencies: ["39001848C6FD7FB9"]
+			tasks: [
+				{ id: "4D7966F0CD708061", type: "item", item: { count: 1, id: "cyclic:breaker" }, count: 1L }
+			]
+			rewards: [
+				{ id: "77874DFE4F9B11E5", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

@@ -1,0 +1,42 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_endgame"
+	group: "2D854B5F0194BFDC"
+	icon: { count: 1, id: "draconicevolution:draconium_core" }
+	id: "51F3A87E203E04B3"
+	images: [ { x: 1.125d, y: -2.129d, width: 12.000d, height: 1.059d, rotation: 0.0d, image: "economypack:textures/quests/mod_endgame.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 27
+	quest_links: [ ]
+	quests: [
+		{
+			id: "603113435CE4342C"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "justdirethings:ferricore_ingot" }
+			tasks: [
+				{ id: "6DE560850C8ADF10", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "4AEB77E4A08475AD", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "367AB6551AB9C6EF"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "draconicevolution:draconium_core" }
+			dependencies: ["603113435CE4342C"]
+			tasks: [
+				{ id: "622DAA85BCEB6499", type: "item", item: { count: 1, id: "draconicevolution:draconium_core" }, count: 1L }
+			]
+			rewards: [
+				{ id: "20891EA7AD41CE7F", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

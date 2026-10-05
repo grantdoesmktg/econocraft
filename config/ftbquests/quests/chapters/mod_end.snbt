@@ -1,0 +1,42 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_end"
+	group: "2D854B5F0194BFDC"
+	icon: { count: 1, id: "minecraft:end_stone" }
+	id: "5457ED308F6B7E63"
+	images: [ { x: 1.125d, y: -2.600d, width: 5.274d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_end.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 26
+	quest_links: [ ]
+	quests: [
+		{
+			id: "49534C124BED9C6F"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "minecraft:dragon_egg" }
+			tasks: [
+				{ id: "688A591BFA7FD621", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "28B0C8880F3AA05B", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "22774CD8C61EE116"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:shulker_shell" }
+			dependencies: ["49534C124BED9C6F"]
+			tasks: [
+				{ id: "507028F7FFCFE139", type: "item", item: { count: 1, id: "minecraft:shulker_shell" }, count: 1L }
+			]
+			rewards: [
+				{ id: "4D9775F7F13C4562", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

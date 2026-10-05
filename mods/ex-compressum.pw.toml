@@ -1,0 +1,13 @@
+name = "Ex Compressum"
+filename = "excompressum-neoforge-1.21.1-21.1.15.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/mwfOGtr1/versions/q5OzDxdJ/excompressum-neoforge-1.21.1-21.1.15.0.jar"
+hash-format = "sha512"
+hash = "50a4eface919a9cdaab9299d61fc0a18c219b259db057fdc374bbe6d93e0a38595d42dd5600b919ae1ae2d0c11e3b36766ca93a092c8033953fb3f0255f96e57"
+
+[update]
+[update.modrinth]
+mod-id = "mwfOGtr1"
+version = "q5OzDxdJ"

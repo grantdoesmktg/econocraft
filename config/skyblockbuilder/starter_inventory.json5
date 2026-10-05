@@ -1,0 +1,6 @@
+// Economy Pack: the starter kit (Time in a Bottle + Market Crate) is a reward of the first quest in the
+// FTB Quests book instead, so it also works in creative. Skyblock Builder gives nothing extra.
+// Each entry would look like: { "Item": { "id": ..., "count": ... }, "Slot": "mainhand" (optional) }
+{
+  "items": []
+}

@@ -1,0 +1,72 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_explore"
+	group: "7CB9FD9528918760"
+	icon: { count: 1, id: "naturescompass:naturescompass" }
+	id: "13975BEE90993639"
+	images: [ { x: 3.375d, y: -2.385d, width: 12.000d, height: 1.570d, rotation: 0.0d, image: "economypack:textures/quests/mod_explore.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 19
+	quest_links: [ ]
+	quests: [
+		{
+			id: "183EEDDE54636D21"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "explorerscompass:explorerscompass" }
+			tasks: [
+				{ id: "29768122865EFC5F", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "4EA6C8F4DAFE52C5", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "7EE1B3B5AADF2A51"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:chest" }
+			dependencies: ["183EEDDE54636D21"]
+			tasks: [
+				{ id: "60F65B1A466A25BD", type: "item", item: { count: 1, id: "minecraft:chest" }, count: 1L }
+			]
+			rewards: [
+				{ id: "17A8E4A06302B4AD", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "5F2A1D6DBB77A8D8"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:heart_of_the_sea" }
+			dependencies: ["7EE1B3B5AADF2A51"]
+			tasks: [
+				{ id: "15C103D5AC68BFDB", type: "item", item: { count: 1, id: "minecraft:heart_of_the_sea" }, count: 1L }
+			]
+			rewards: [
+				{ id: "190A55BA8319A8F2", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "7719ECC70630A302"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "waystones:waystone" }
+			dependencies: ["5F2A1D6DBB77A8D8"]
+			tasks: [
+				{ id: "1F199BDDDE6B2B64", type: "item", item: { count: 1, id: "waystones:waystone" }, count: 1L }
+			]
+			rewards: [
+				{ id: "1C751663EC8A8589", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

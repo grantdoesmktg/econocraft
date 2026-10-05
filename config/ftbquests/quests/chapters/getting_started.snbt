@@ -1,0 +1,227 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "getting_started"
+	group: "7CFA42324A508511"
+	icon: { count: 1, id: "economy_core:market_crate" }
+	id: "7556FECB89D4939B"
+	images: [ { x: 5.625d, y: -2.600d, width: 8.613d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/getting_started.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			id: "7EBCC26E8097F15D"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "tiab:time_in_a_bottle" }
+			tasks: [
+				{ id: "521B9452F7C1B5A0", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "44B06105501BC72C", type: "item", item: { count: 1, id: "tiab:time_in_a_bottle" } team_reward: false }
+				{ id: "5B0EB7A60105A7D5", type: "item", item: { count: 1, id: "economy_core:market_crate" } team_reward: false }
+				{ id: "7B67130CF86C18B9", type: "item", item: { count: 1, id: "economy_core:supply_market" } team_reward: false }
+			]
+		}
+		{
+			id: "3FA82395C9BB57F1"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:spruce_log" }
+			dependencies: ["7EBCC26E8097F15D"]
+			tasks: [
+				{ id: "45E253FD603DF9DB", type: "item", item: { count: 1, id: "minecraft:spruce_log" }, count: 8L }
+			]
+			rewards: [
+				{ id: "7791BB9ED8143CBD", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "3271F04B6112FE02"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "exdeorum:crook" }
+			dependencies: ["3FA82395C9BB57F1"]
+			tasks: [
+				{ id: "2DD26BE117E50B8D", type: "item", item: { count: 1, id: "exdeorum:crook" }, count: 1L }
+			]
+			rewards: [
+				{ id: "1082C42A2F11C218", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "2E50E09A88CE9441"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:spruce_sapling" }
+			dependencies: ["3271F04B6112FE02"]
+			tasks: [
+				{ id: "1A94F40D67AD6896", type: "item", item: { count: 1, id: "minecraft:spruce_sapling" }, count: 4L }
+			]
+			rewards: [
+				{ id: "32DE3C6CF71686BE", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "6E91DDD3A8FF3942"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "exdeorum:silkworm" }
+			dependencies: ["2E50E09A88CE9441"]
+			tasks: [
+				{ id: "5DB92C0688CAAAB8", type: "item", item: { count: 1, id: "exdeorum:silkworm" }, count: 1L }
+			]
+			rewards: [
+				{ id: "2E20A70CB0DB5764", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "79C9C13F40F1AEDE"
+			x: 11.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "exdeorum:spruce_barrel" }
+			dependencies: ["6E91DDD3A8FF3942"]
+			tasks: [
+				{ id: "33293EED8BC9C4C4", type: "item", item: { count: 1, id: "exdeorum:spruce_barrel" }, count: 1L }
+			]
+			rewards: [
+				{ id: "7D209C21980243B3", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "7CF251D95A29FD4D"
+			x: 11.25d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "ftbstuff:stone_cobblestone_generator" }
+			dependencies: ["79C9C13F40F1AEDE"]
+			tasks: [
+				{ id: "5EF42EB6132D7AA9", type: "item", item: { count: 1, id: "ftbstuff:stone_cobblestone_generator" }, count: 1L }
+			]
+			rewards: [
+				{ id: "41DB06E383D94378", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "27396F2F49E79713"
+			x: 9.0d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "exdeorum:stone_hammer" }
+			dependencies: ["7CF251D95A29FD4D"]
+			tasks: [
+				{ id: "106DF77A61F134FF", type: "item", item: { count: 1, id: "minecraft:gravel" }, count: 16L }
+			]
+			rewards: [
+				{ id: "51DE8886F8A39173", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "1A573F74C828B425"
+			x: 6.75d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "exdeorum:spruce_sieve" }
+			dependencies: ["27396F2F49E79713"]
+			tasks: [
+				{ id: "409D0D2EEA02077E", type: "item", item: { count: 1, id: "exdeorum:iron_ore_chunk" }, count: 4L }
+			]
+			rewards: [
+				{ id: "6EC5CBD28B50F747", type: "item", item: { count: 6, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "7C049BDCEBFD44F3"
+			x: 4.5d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "lightmanscurrency:coin_copper" }
+			dependencies: ["1A573F74C828B425"]
+			tasks: [
+				{ id: "15094BF10FDFD2CE", type: "advancement", advancement: "economy_core:earned/1", criterion: "" }
+			]
+			rewards: [
+				{ id: "7F8E27B36A550CED", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "7634D6A6290AB83D"
+			x: 2.25d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:cobblestone" }
+			dependencies: ["7C049BDCEBFD44F3"]
+			tasks: [
+				{ id: "312234B47729B279", type: "advancement", advancement: "economy_core:diminished", criterion: "" }
+			]
+			rewards: [
+				{ id: "327D1B1844EA8AC0", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "7CFB75310BA4E29E"
+			x: 0.0d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:iron_ingot" }
+			dependencies: ["7634D6A6290AB83D"]
+			tasks: [
+				{ id: "7909F9EF87A3F62E", type: "item", item: { count: 1, id: "minecraft:iron_ingot" }, count: 1L }
+			]
+			rewards: [
+				{ id: "217F51072286A36B", type: "item", item: { count: 8, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "16423084F3EBDCB6"
+			x: 0.0d
+			y: 6.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "tiab:time_in_a_bottle" }
+			dependencies: ["7CFB75310BA4E29E"]
+			optional: true
+			tasks: [
+				{ id: "2221A49B70656F92", type: "item", item: { count: 1, id: "tiab:time_in_a_bottle" }, count: 1L }
+			]
+			rewards: [
+				{ id: "68D223D48DDFBE20", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "5462EBF165FFB8C4"
+			x: 0.0d
+			y: 8.0d
+			shape: "gear"
+			size: 2.25d
+			icon: { count: 1, id: "create:cogwheel" }
+			dependencies: ["7CFB75310BA4E29E"]
+			tasks: [
+				{ id: "299CB567D63D390E", type: "advancement", advancement: "economy_core:earned/2000", criterion: "" }
+				{ id: "5FAD1A7E7634B87C", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" }, count: 1L consume_items: true }
+			]
+			rewards: [
+				{ id: "1B8F4EDCDF70E1EE", type: "gamestage", stage: "economy:tier_1" }
+				{ id: "17AB248F599EB8E5", type: "command", command: "/market tier set 1 @p", elevate_perms: true, silent: true }
+			]
+		}
+	]
+}

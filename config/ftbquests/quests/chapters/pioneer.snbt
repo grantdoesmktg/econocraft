@@ -1,0 +1,167 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "pioneer"
+	group: "7CFA42324A508511"
+	icon: { count: 1, id: "minecraft:filled_map" }
+	id: "2D97A85C448D4FA3"
+	images: [ { x: 5.625d, y: -2.600d, width: 4.887d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/pioneer.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 3
+	quest_links: [ ]
+	quests: [
+		{
+			id: "6FB151DBFB3F7144"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "economy_core:frontier_gateway" }
+			dependencies: ["1AF0F9EA0014BD83"]
+			tasks: [
+				{ id: "145E9926EE8DA4C4", type: "dimension", dimension: "minecraft:overworld" }
+			]
+			rewards: [
+				{ id: "128F11C4B7C67D13", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "1435C555CC8C9BC0"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "waystones:waystone" }
+			dependencies: ["6FB151DBFB3F7144"]
+			tasks: [
+				{ id: "47A3B99FBF870999", type: "item", item: { count: 1, id: "waystones:waystone" }, count: 1L }
+			]
+			rewards: [
+				{ id: "1839FA1170E7A607", type: "item", item: { count: 5, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "317BC50076DFB4D7"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:diamond" }
+			dependencies: ["1435C555CC8C9BC0"]
+			tasks: [
+				{ id: "39D1408E406913F4", type: "item", item: { count: 1, id: "minecraft:diamond" }, count: 1L }
+			]
+			rewards: [
+				{ id: "58459FBBCD1CCD9E", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" } }
+			]
+		}
+		{
+			id: "6D88D34CC4D9F012"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "naturescompass:naturescompass" }
+			dependencies: ["317BC50076DFB4D7"]
+			tasks: [
+				{ id: "50F086DDE79A21CB", type: "item", item: { count: 1, id: "naturescompass:naturescompass" }, count: 1L }
+			]
+			rewards: [
+				{ id: "11D8D12D1856A2DC", type: "item", item: { count: 5, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "64A8D93AA4E75440"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:name_tag" }
+			dependencies: ["6D88D34CC4D9F012"]
+			tasks: [
+				{ id: "3C0C3FEE6EFCD0E4", type: "item", item: { count: 1, id: "minecraft:name_tag" }, count: 1L }
+			]
+			rewards: [
+				{ id: "4AF9711E55EFA371", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" } }
+				{ id: "5E50312C6BDF3CBE", type: "item", item: { count: 5, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "493452A181390423"
+			x: 11.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mysticalagriculture:infusion_altar" }
+			dependencies: ["64A8D93AA4E75440"]
+			tasks: [
+				{ id: "76E7D469B506535E", type: "item", item: { count: 1, id: "mysticalagriculture:infusion_altar" }, count: 1L }
+			]
+			rewards: [
+				{ id: "28D80D2F27437B31", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" } }
+				{ id: "48CA8C10D1362579", type: "item", item: { count: 5, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "7114B2213459A9C3"
+			x: 11.25d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mysticalagriculture:inferium_essence" }
+			dependencies: ["493452A181390423"]
+			tasks: [
+				{ id: "2FA341F8CF9CD687", type: "item", item: { count: 1, id: "mysticalagriculture:inferium_essence" }, count: 16L }
+			]
+			rewards: [
+				{ id: "5204114FC494357E", type: "item", item: { count: 8, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "2FCCB4B22E493225"
+			x: 9.0d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "aquaculture:tuna" }
+			dependencies: ["7114B2213459A9C3"]
+			tasks: [
+				{ id: "44294582D8D8010E", type: "item", item: { count: 1, id: "aquaculture:tuna" }, count: 1L }
+			]
+			rewards: [
+				{ id: "5230E9B7A1FD168C", type: "item", item: { count: 8, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "248EC1599BDB1540"
+			x: 6.75d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:emerald" }
+			dependencies: ["2FCCB4B22E493225"]
+			tasks: [
+				{ id: "70AB9D250C9C0266", type: "item", item: { count: 1, id: "minecraft:emerald" }, count: 4L }
+			]
+			rewards: [
+				{ id: "11A07AC809F16AA6", type: "item", item: { count: 5, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "246398E6FB2DF2C8"
+			x: 4.5d
+			y: 4.0d
+			shape: "gear"
+			size: 2.25d
+			icon: { count: 1, id: "minecraft:blaze_rod" }
+			dependencies: ["248EC1599BDB1540"]
+			tasks: [
+				{ id: "5A678604C6C07E32", type: "advancement", advancement: "economy_core:earned/175000", criterion: "" }
+				{ id: "3C048B9F059B2F19", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" }, count: 4L consume_items: true }
+			]
+			rewards: [
+				{ id: "42D63F4DFDD601A9", type: "gamestage", stage: "economy:tier_4" }
+				{ id: "5918AFE63AA23060", type: "command", command: "/market tier set 4 @p", elevate_perms: true, silent: true }
+			]
+		}
+	]
+}

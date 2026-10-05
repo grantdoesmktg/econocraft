@@ -1,0 +1,13 @@
+name = "FTB Stuff & Things"
+filename = "ftb-stuff-things-21.1.19.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "4d3ba732bbdc6af5bca477b49633ec9345a17bd0"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8478945
+project-id = 1197860

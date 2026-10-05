@@ -1,0 +1,1038 @@
+{
+	chapter.7556FECB89D4939B.title: "&a&lTier 0&r &8» &fWelcome Ashore"
+	chapter.7556FECB89D4939B.chapter_subtitle: [
+		"&7Tier 0, Castaway. One tree, one island, zero coins. Let us fix that."
+	]
+	quest.7EBCC26E8097F15D.title: "&a&lWelcome to the Economy Pack"
+	quest.7EBCC26E8097F15D.quest_subtitle: "&7Tick the checkmark to claim your starter kit"
+	quest.7EBCC26E8097F15D.quest_desc: [
+		"&aTiny island, one tree, no chest. Rude, I know."
+		""
+		"Here is the deal: almost everything in this pack can be bought, and I am going to show you how to afford it. You sell what you make, and the coins buy machines, tiers and eventually a whole overworld."
+		""
+		"Starter kit: a &6Time in a Bottle&r, a &6Market Crate&r (you sell here) and a &6Supply Market&r (you buy here: machines, seeds, meshes). Do not sell the crate. I will know."
+	]
+	quest.3FA82395C9BB57F1.title: "&aTimber!"
+	quest.3FA82395C9BB57F1.quest_desc: [
+		"&aPunch the tree. Yes, really. We have all been there."
+		""
+		"Leave a few leaves for the next quest. Trust me on this one."
+	]
+	quest.3271F04B6112FE02.title: "&aHooked"
+	quest.3271F04B6112FE02.quest_desc: [
+		"&aBreak leaves with a &6crook&r and you get double the saplings, plus a 1 in 100 shot at a &6silkworm&r."
+		""
+		"Keep every sapling. Trees are your whole economy right now."
+	]
+	quest.2E50E09A88CE9441.title: "&aPlant Everything"
+	quest.2E50E09A88CE9441.quest_desc: [
+		"&aSpruce stays small unless you plant four in a square. Unless you want a skyscraper, plant them apart."
+		""
+		"&6Squat Grow&r is installed: crouch next to saplings and crops and they grow faster. Go on, nobody is watching."
+	]
+	quest.6E91DDD3A8FF3942.title: "&aWorm Farm"
+	quest.6E91DDD3A8FF3942.quest_desc: [
+		"&aUse the silkworm on a tree's leaves. It slowly infests the whole tree, and fully infested leaves drop &6string&r."
+		""
+		"String means sieve meshes. Sieve meshes mean ore. Ore means money. You see the plan."
+	]
+	quest.79C9C13F40F1AEDE.title: "&aDirt From Nothing"
+	quest.79C9C13F40F1AEDE.quest_desc: [
+		"&aSaplings, leaves and old food go into a &6barrel&r and come out as dirt."
+		""
+		"More dirt, more island. More island, more trees."
+	]
+	quest.7CF251D95A29FD4D.title: "&aCobble, Please"
+	quest.7CF251D95A29FD4D.quest_desc: [
+		"&aThe shop sells a &6stone cobblestone generator&r for 300. Infinite rock, no lava needed."
+		""
+		"Speaking of lava: you will not find a lava bucket for sale. A &6crucible&r melts cobblestone into lava. That is the only lava you get. Treat it with respect."
+	]
+	quest.27396F2F49E79713.title: "&aSmash It"
+	quest.27396F2F49E79713.quest_desc: [
+		"&aHammer cobble into gravel, gravel into sand, sand into dust."
+		""
+		"Each one sieves into different goodies. Gravel is the ore one."
+	]
+	quest.1A573F74C828B425.title: "&aSift Through Your Problems"
+	quest.1A573F74C828B425.quest_desc: [
+		"&aPut a &6string mesh&r in a &6sieve&r and feed it gravel. Out come iron, copper and gold chunks."
+		""
+		"Press &6U&r on the sieve in JEI to see every possible drop."
+	]
+	quest.7C049BDCEBFD44F3.title: "&aYour First Sale"
+	quest.7C049BDCEBFD44F3.quest_desc: [
+		"&aDrop goods in the &6Market Crate&r, put a stack in the side slot and hit &6Sell this stack&r."
+		""
+		"That little \"+12\" was your first paycheck. Frame it."
+	]
+	quest.7634D6A6290AB83D.title: "&aDiminishing Returns 101"
+	quest.7634D6A6290AB83D.quest_desc: [
+		"&aCompletes the first time you sell something below 90% of its fair price."
+		""
+		"Sell 64 of the same thing and the price slides toward half. It never goes below half."
+		""
+		"Sell a &6variety&r of other goods and the price climbs back. The crate's tooltips tell you how many different goods you still need to sell."
+		""
+		"Rotate, do not dump. Your wallet will thank you."
+	]
+	quest.7CFB75310BA4E29E.title: "&aProcessing Pays"
+	quest.7CFB75310BA4E29E.quest_desc: [
+		"&aFour iron chunks are worth about 48. Smelt them into an ingot and it is worth 100."
+		""
+		"Processing roughly doubles value. Remember that. It never stops being true in this pack."
+	]
+	quest.16423084F3EBDCB6.title: "&7Time Is Money"
+	quest.16423084F3EBDCB6.quest_desc: [
+		"&aYour &6Time in a Bottle&r banks time while you play. Right-click a furnace, sapling or machine to speed it up."
+		""
+		"It is there so you never grind for something you have already earned. Spend it on slow things."
+	]
+	quest.5462EBF165FFB8C4.title: "&6&lGate: Tinkerer"
+	quest.5462EBF165FFB8C4.quest_subtitle: "&7Earn 2,000 lifetime, hand in 1,000 in coins"
+	quest.5462EBF165FFB8C4.quest_desc: [
+		"&aYou need &62,000 lifetime earnings&r, and you hand in &61,000 in coins&r as the fee."
+		""
+		"Withdraw coins from the Market Crate and submit them here (it wants one &6emerald coin&r). Yes, it is a fee. Welcome to capitalism."
+		""
+		"Unlocks tier 1: iron cobble line, Create, Botany Pots and fish traps."
+	]
+	chapter.29AEF0C2ECF02A94.title: "&e&lTier 1&r &8» &fGears and Greens"
+	chapter.29AEF0C2ECF02A94.chapter_subtitle: [
+		"&7Tier 1, Tinkerer. Your first real production lines."
+	]
+	quest.38FBAC987499104A.title: "&e&lUpgrade the Rock Pile"
+	quest.38FBAC987499104A.quest_desc: [
+		"&eUpgrade your stone generator: the iron one is &6crafted from it&r (check JEI). Faster cobble. Feed it into everything."
+	]
+	quest.40E07552C343F9AB.title: "&eHands Off the Hammer"
+	quest.40E07552C343F9AB.quest_desc: [
+		"&eGenerator into &6auto-hammer&r into sieve. Your first production line."
+		""
+		"Admire it. Then make it bigger. See Mods: FTB Stuff \\& Things for the upgrade ladder."
+	]
+	quest.3D80E183ED9378BD.title: "&eBetter Meshes"
+	quest.3D80E183ED9378BD.quest_desc: [
+		"&eFlint mesh, then iron mesh. Better mesh, better drops."
+		""
+		"The iron mesh is where sieving starts paying properly."
+	]
+	quest.68A0689763177667.title: "&eSpin Me Right Round"
+	quest.68A0689763177667.quest_desc: [
+		"&e&6Create&r runs on rotation, and a water wheel is free rotation forever."
+		""
+		"If gears scare you, peek at Mods: Create. If they do not, carry on, genius."
+	]
+	quest.29742D2519A79C04.title: "&eCrush It"
+	quest.29742D2519A79C04.quest_desc: [
+		"&eCrushing ore chunks gives bonus output: more ingots per chunk, more coins per hour."
+		""
+		"Math! The fun kind."
+	]
+	quest.448EAEDEF88457A4.title: "&ePot Plants"
+	quest.448EAEDEF88457A4.quest_desc: [
+		"&eCrops in a box that empties itself into a hopper."
+		""
+		"Put a row of these over a chest and you are a farmer now. Congratulations, farmer."
+	]
+	quest.5DF2C3DF9A2283FC.title: "&eGone Fishin'"
+	quest.5DF2C3DF9A2283FC.quest_desc: [
+		"&eBait it, drop it in water, pipe it into the crate."
+		""
+		"Fish sell steadily and you did not even hold a rod."
+	]
+	quest.56A431162A3C835B.title: "&eFancy Food"
+	quest.56A431162A3C835B.quest_desc: [
+		"&eA raw potato sells for 3. A bowl of stew sells for 60."
+		""
+		"You see where I am going with this. Mods: Farmer's Delight has the recipes worth making."
+	]
+	quest.2F71D538F5173387.title: "&eZinc and Brass Dreams"
+	quest.2F71D538F5173387.quest_desc: [
+		"&eZinc chunks come out of sieves. Smelt and save some."
+		""
+		"Brass is next tier's best friend."
+	]
+	quest.62BA48700B324D75.title: "&eHands-Free Selling"
+	quest.62BA48700B324D75.quest_desc: [
+		"&eHopper into crate, flip &6Auto-sell&r on, walk away. Passive income!"
+		""
+		"One warning: auto-selling a single item all day caps out fast. Feed the crate a mix."
+	]
+	quest.38340EB5D5690B5B.title: "&eFive Streams"
+	quest.38340EB5D5690B5B.quest_desc: [
+		"&eOre, crops, fish, food, wood. The market rewards variety."
+		""
+		"Five steady streams beat one giant one, every time. Completes once you have sold five different goods."
+	]
+	quest.2C6E63373539679D.title: "&6&lGate: Engineer"
+	quest.2C6E63373539679D.quest_subtitle: "&7Earn 12,000 lifetime, hand in 5,000 in coins"
+	quest.2C6E63373539679D.quest_desc: [
+		"&eYou built a factory out of gears and a fish trap. That is basically engineering."
+		""
+		"Hand in &65 emerald coins&r and have &612,000 lifetime earnings&r."
+		""
+		"Unlocks tier 2: auto-sieves, Cyclic, mob farms and better storage."
+	]
+	chapter.6FA59F9CF29F754E.title: "&b&lTier 2&r &8» &fLet the Machines Do It"
+	chapter.6FA59F9CF29F754E.chapter_subtitle: [
+		"&7Tier 2, Engineer. The island runs itself. Start saving for the Frontier."
+	]
+	quest.4CDB00FE96F950B5.title: "&b&lGold Standard"
+	quest.4CDB00FE96F950B5.quest_desc: [
+		"&bCraft the gold upgrades from your iron generator and auto-hammer. Faster everything. Now your sieves are the bottleneck, which is a good problem to have."
+	]
+	quest.12D9689424BF6DD6.title: "&bSieve Squad"
+	quest.12D9689424BF6DD6.quest_desc: [
+		"&bSieving by hand was character building. You have enough character now."
+	]
+	quest.7A1020DA0CA9CB24.title: "&bClick Click Click"
+	quest.7A1020DA0CA9CB24.quest_desc: [
+		"&bI would consider looking into &6Cyclic&r about now, just saying."
+		""
+		"The &6User&r clicks things for you: harvest, place, use items. Mods: Cyclic has the useful tricks."
+	]
+	quest.661A41BF11DA0D42.title: "&bVacuum Cleaner"
+	quest.661A41BF11DA0D42.quest_desc: [
+		"&bSucks up items in an area. Pair it with anything that drops stuff on the floor."
+	]
+	quest.6FB650D14A0AC3E7.title: "&bReap and Sow"
+	quest.6FB650D14A0AC3E7.quest_desc: [
+		"&bHarvester plus planter, or Create's mechanical harvester: full crop automation."
+		""
+		"Plant, grow, harvest, sell, repeat. You are now a farming conglomerate."
+	]
+	quest.4C5D5E7F3D865B96.title: "&bBrass Tacks"
+	quest.4C5D5E7F3D865B96.quest_desc: [
+		"&bMix copper and zinc into brass, then build a &6precision mechanism&r."
+		""
+		"They sell for 900 and unlock fancier Create machines. Worth the sequenced-assembly headache. Probably."
+	]
+	quest.28F8AAA5DE0289BE.title: "&bMob Squad"
+	quest.28F8AAA5DE0289BE.quest_desc: [
+		"&bHostile mobs spawn on &6dreadful dirt&r even in daylight. Add spikes, a fan and an absorption hopper and you have a mob farm."
+		""
+		"Bones, string, gunpowder, ender pearls: all sellable. See Mods: Mob Grinding Utils."
+	]
+	quest.660B50601FE9FE58.title: "&7Bottled Experience"
+	quest.660B50601FE9FE58.quest_desc: [
+		"&bMob farms make XP too. Store it. Enchanting gets important soon."
+	]
+	quest.6FAECB8B694590C0.title: "&bStorage Wars"
+	quest.6FAECB8B694590C0.quest_desc: [
+		"&bYou are drowning in cobble. It happens to the best of us."
+		""
+		"Mods: Storage compares drawers, Sophisticated Storage and Tom's storage. Hint: Tom's is the easy one."
+	]
+	quest.23CD4CA68E0FE96F.title: "&d&lThe Big Picture"
+	quest.23CD4CA68E0FE96F.quest_desc: [
+		"&bMake a single sale worth 1,000 or more."
+		""
+		"Feel the sparkle? That is a tier 4 celebration. They get much, much bigger."
+	]
+	quest.1AF0F9EA0014BD83.title: "&6&lGate: Buy the Frontier"
+	quest.1AF0F9EA0014BD83.quest_subtitle: "&7Earn 48,000 lifetime, hand in 20,000 in coins"
+	quest.1AF0F9EA0014BD83.quest_desc: [
+		"&bOut there is a whole overworld: villages, diamonds, dungeons and Mystical Agriculture. The best purchase you will ever make. Pack a lunch."
+		""
+		"Hand in &62 diamond coins&r and have &648,000 lifetime earnings&r."
+		""
+		"Unlocks tier 3: the Frontier, Mystical Agriculture, villages, diamonds and structures. Everyone on the team gets a &6Frontier Gateway&r."
+	]
+	chapter.2D97A85C448D4FA3.title: "&2&lTier 3&r &8» &fLand Ho!"
+	chapter.2D97A85C448D4FA3.chapter_subtitle: [
+		"&7Tier 3, Pioneer. A whole world to explore and sell."
+	]
+	quest.6FB151DBFB3F7144.title: "&2&lThrough the Gateway"
+	quest.6FB151DBFB3F7144.quest_desc: [
+		"&2Place your &6Frontier Gateway&r on the island and right-click it."
+		""
+		"Real ground! Trees that are not yours!"
+		""
+		"Watch out for creepers. You forgot about those, did you not?"
+		""
+		"The gateway you land next to takes you home. Place another gateway anywhere out here to move your landing spot."
+	]
+	quest.1435C555CC8C9BC0.title: "&2Set Up Camp"
+	quest.1435C555CC8C9BC0.quest_desc: [
+		"&2Place a &6waystone&r and type &6/sethome&r."
+		""
+		"&6/home&r, &6/warp&r and &6/back&r mean you never get lost. &6/setwarp name&r saves a spot."
+	]
+	quest.317BC50076DFB4D7.title: "&2Shiny"
+	quest.317BC50076DFB4D7.quest_desc: [
+		"&2Diamonds only exist out here. They sell for 800 each."
+		""
+		"The price drops fast though, so sell a few at a time between other goods."
+	]
+	quest.6D88D34CC4D9F012.title: "&2Compass Points"
+	quest.6D88D34CC4D9F012.quest_desc: [
+		"&2Find biomes and structures without wandering for an hour. There is an &6Explorer's Compass&r for structures too."
+	]
+	quest.64A8D93AA4E75440.title: "&2Dungeon Crawl"
+	quest.64A8D93AA4E75440.quest_desc: [
+		"&2Structures hide treasure: hearts of the sea, totems, enchanted books."
+		""
+		"Sell the shiny stuff, keep the useful stuff. Name tags only come from loot chests, so bring one back to prove you went."
+	]
+	quest.493452A181390423.title: "&2Mystical Beginnings"
+	quest.493452A181390423.quest_desc: [
+		"&2Mystical Agriculture finally unlocks! Grow resources as crops."
+		""
+		"Mods: Mystical Agriculture walks you through it."
+	]
+	quest.7114B2213459A9C3.title: "&2Inferium Farmer"
+	quest.7114B2213459A9C3.quest_desc: [
+		"&2Essence sells cheaply on purpose. It is worth far more turned into resource seeds."
+	]
+	quest.2FCCB4B22E493225.title: "&2Fish of the Frontier"
+	quest.2FCCB4B22E493225.quest_desc: [
+		"&2Different biomes, different fish. Some sell for 60 each. Tuna lives in the ocean."
+	]
+	quest.248EC1599BDB1540.title: "&2Village People"
+	quest.248EC1599BDB1540.quest_desc: [
+		"&2Villagers trade emeralds, and emeralds sell."
+		""
+		"&6Easy Villagers&r puts them in a block if you would rather not deal with their attitude."
+	]
+	quest.246398E6FB2DF2C8.title: "&6&lGate: Cultivator"
+	quest.246398E6FB2DF2C8.quest_subtitle: "&7Earn 175,000 lifetime, hand in 40,000 in coins"
+	quest.246398E6FB2DF2C8.quest_desc: [
+		"&2Turn the heat up."
+		""
+		"Hand in &64 diamond coins&r and have &6175,000 lifetime earnings&r."
+		""
+		"Unlocks tier 4: the Nether, Mekanism, power and Hostile Neural Networks."
+	]
+	chapter.7EEB67E9BB744EF0.title: "&c&lTier 4&r &8» &fSome Like It Hot"
+	chapter.7EEB67E9BB744EF0.chapter_subtitle: [
+		"&7Tier 4, Cultivator. The Nether, real machines and your first boss."
+	]
+	quest.4EFC3E92A9F5AAB1.title: "&c&lPortal Party"
+	quest.4EFC3E92A9F5AAB1.quest_desc: [
+		"&cAmplified Nether is tall. Very tall. Bring blocks."
+	]
+	quest.10A255ADD2447C05.title: "&cFortress of Blaze"
+	quest.10A255ADD2447C05.quest_desc: [
+		"&cBlaze rods sell for 60 and fuel half the mods in the pack. YUNG's fortresses are bigger than you remember."
+	]
+	quest.31285E6B3FD096C1.title: "&cDoubling Down"
+	quest.31285E6B3FD096C1.quest_desc: [
+		"&cTwo dusts per ore. Mods: Mekanism if you have never touched it."
+		""
+		"If you have, you know the drill. Literally."
+	]
+	quest.168EA2133AEE807C.title: "&cUnlimited Power: Powah"
+	quest.168EA2133AEE807C.quest_desc: [
+		"&cMachines want electricity now. Pick ONE of the three power quests: any of them unlocks the next step."
+		""
+		"&6Powah&r is the simple option: a Furnator burns fuel into power."
+	]
+	quest.66BD31AD41FC1FC1.title: "&7Unlimited Power: Alternator"
+	quest.66BD31AD41FC1FC1.quest_desc: [
+		"&cAlready deep into Create? &6Create Crafts \\& Additions&r turns your gears into electricity with an alternator."
+		""
+		"Any one of the three power quests unlocks the next step."
+	]
+	quest.16A45E48052DF3E2.title: "&7Unlimited Power: Heat Generator"
+	quest.16A45E48052DF3E2.quest_desc: [
+		"&cMekanism fan? A &6heat generator&r next to lava is cheap, reliable power."
+		""
+		"Any one of the three power quests unlocks the next step."
+	]
+	quest.64F9E0371997622E.title: "&cThe Wither"
+	quest.64F9E0371997622E.quest_desc: [
+		"&cForty thousand coins for one star."
+		""
+		"Bring a bow, a sword and a healthy disrespect for skeletons."
+	]
+	quest.7FF7F556E2B98C6C.title: "&cNeural Networks"
+	quest.7FF7F556E2B98C6C.quest_desc: [
+		"&cTrain a data model on a mob, then farm it without the mob. Science!"
+		""
+		"Mods: Hostile Neural Networks explains the setup."
+	]
+	quest.27FB1D314CFC5BD1.title: "&cFeast Mode"
+	quest.27FB1D314CFC5BD1.quest_desc: [
+		"&cFeasts sell for 400. Create mechanical crafters can make them for you."
+	]
+	quest.70261257E54A7DB1.title: "&cAncient Debris"
+	quest.70261257E54A7DB1.quest_desc: [
+		"&cScrap sells for 2,500. Or keep it. Netherite gear is nice."
+	]
+	quest.22980A4EFA005F20.title: "&7Paxel Power"
+	quest.22980A4EFA005F20.quest_desc: [
+		"&cPickaxe, axe and shovel in one. Your hotbar thanks you."
+	]
+	quest.5B9BDCB343656BA3.title: "&7Gotta Go Fast"
+	quest.5B9BDCB343656BA3.quest_desc: [
+		"&cPower-hungry toys that save hours. Charge them."
+	]
+	quest.66E945EC5518C5FE.title: "&6&lGate: Industrialist"
+	quest.66E945EC5518C5FE.quest_subtitle: "&7Earn 525,000 lifetime, hand in 75,000 in coins"
+	quest.66E945EC5518C5FE.quest_desc: [
+		"&cFrom fish traps to factories. Look at you."
+		""
+		"Hand in &67 diamond and 5 emerald coins&r and have &6525,000 lifetime earnings&r."
+		""
+		"Unlocks tier 5: the Twilight Forest, the End and the Mekanism ore ladder."
+	]
+	chapter.4516A4B196CFC245.title: "&5&lTier 5&r &8» &fInto the Woods"
+	chapter.4516A4B196CFC245.chapter_subtitle: [
+		"&7Tier 5, Industrialist. Bosses are the payday."
+	]
+	quest.7CC5B483B331C906.title: "&5&lTwilight Zone"
+	quest.7CC5B483B331C906.quest_desc: [
+		"&5Dig a 2x2 pool of water, ring it with flowers, throw in a diamond."
+		""
+		"Mods: Twilight Forest has the boss order and what each trophy sells for."
+	]
+	quest.2AA146F1ACBD9BF7.title: "&5Snake Charmer"
+	quest.2AA146F1ACBD9BF7.quest_desc: [
+		"&5Trophies sell big: 15,000 for this one. Every boss has one."
+	]
+	quest.37D89225FC6F4CBD.title: "&5Lich, Please"
+	quest.37D89225FC6F4CBD.quest_desc: [
+		"&5Keep a scepter or sell it for 8,000. Your call."
+	]
+	quest.1675E20F2C39CE0B.title: "&5Maze Runner"
+	quest.1675E20F2C39CE0B.quest_desc: [
+		"&5The maze is the hard part. The bull is the fun part."
+	]
+	quest.7097D01D8B731A5A.title: "&5Three Heads Are Better"
+	quest.7097D01D8B731A5A.quest_desc: [
+		"&560,000 coins of angry dragon. Fire resistance recommended."
+	]
+	quest.6256DD4687E59E59.title: "&5Knights to Remember"
+	quest.6256DD4687E59E59.quest_desc: [
+		"&5Six ghost knights, one trophy. Worth 50,000."
+	]
+	quest.67CF11AA3759F948.title: "&5Ghastly"
+	quest.67CF11AA3759F948.quest_desc: [
+		"&5The Dark Tower is a climb. The view (and the 75,000) is worth it."
+	]
+	quest.7AA89BA3879D3897.title: "&5Ice Ice Baby"
+	quest.7AA89BA3879D3897.quest_desc: [
+		"&5The Snow Queen pays 90,000."
+		""
+		"Sell her trophy with the Yeti's in one go and you are in MEGA SALE territory."
+	]
+	quest.6E3B112364B7FFEA.title: "&5Ore Factory"
+	quest.6E3B112364B7FFEA.quest_desc: [
+		"&5Craft a purification chamber from your enrichment chamber: triple ore, then quadruple. Mekanism's ore ladder is the best money machine in the pack."
+	]
+	quest.3890FF46E9FF9439.title: "&5The End"
+	quest.3890FF46E9FF9439.quest_desc: [
+		"&5The egg sells for 150,000. Yes, really."
+		""
+		"Elytra from end ships sell for 50,000 each. Nullscape makes the End much prettier."
+	]
+	quest.35CD2BEB74D76338.title: "&6&lGate: Tycoon"
+	quest.35CD2BEB74D76338.quest_subtitle: "&7Earn 1,400,000 lifetime, hand in 150,000 in coins"
+	quest.35CD2BEB74D76338.quest_desc: [
+		"&5You are rich. Let us make you lazy."
+		""
+		"Hand in &61 netherite and 5 diamond coins&r and have &61,400,000 lifetime earnings&r."
+		""
+		"Unlocks tier 6: AE2, Industrial Foregoing and the endgame toys."
+	]
+	chapter.5A69EBF254A59778.title: "&6&lTier 6&r &8» &fMoney Is No Object"
+	chapter.5A69EBF254A59778.chapter_subtitle: [
+		"&7Tier 6, Tycoon. Everything is unlocked. Go wild."
+	]
+	quest.25FCFF4816A1AC62.title: "&6&lWelcome to the Top"
+	quest.25FCFF4816A1AC62.quest_desc: [
+		"&6Everything is unlocked. From here on, this chapter is a list of toys."
+	]
+	quest.676F7C4D0115F6AA.title: "&6Me, Myself and AE"
+	quest.676F7C4D0115F6AA.quest_desc: [
+		"&6Applied Energistics: storage that thinks."
+		""
+		"If it looks like a lot, it is. Mods: Storage has the gentle version."
+	]
+	quest.618ACF60878617D3.title: "&6Industrial Strength"
+	quest.618ACF60878617D3.quest_desc: [
+		"&6Pure convenience. You have earned it."
+	]
+	quest.3476691DDD2F3C94.title: "&6Fly Away"
+	quest.3476691DDD2F3C94.quest_desc: [
+		"&6Creative flight. Your knees thank you."
+	]
+	quest.64C8D3D9B5B3B1C3.title: "&6Draconic"
+	quest.64C8D3D9B5B3B1C3.quest_desc: [
+		"&6Here be overpowered things. You are allowed now."
+	]
+	quest.44523AC427BA2D71.title: "&d&lMEGA SALE"
+	quest.44523AC427BA2D71.quest_desc: [
+		"&6Make a single sale worth 150,000 or more."
+		""
+		"Fireworks, the totem animation, the works. You did it."
+	]
+	quest.2BC16691343EE39D.title: "&d&lFour Million"
+	quest.2BC16691343EE39D.quest_desc: [
+		"&6Reach 4,000,000 lifetime earnings. The end goal."
+		""
+		"Congratulations, Tycoon. Now go build something ridiculous."
+	]
+	chapter.25B94658CA739208.title: "&bEx Deorum"
+	chapter.25B94658CA739208.chapter_subtitle: [
+		"&7Sieves, barrels, crucibles and crooks. Unlocks at the start."
+	]
+	quest.422302878B5F8E13.title: "&b&lDirt Into Riches"
+	quest.422302878B5F8E13.quest_desc: [
+		"&bThe ancient art of turning dirt into diamonds. Well, into iron. Diamonds are Frontier-only here."
+		""
+		"Skip this tab if you have played Ex Nihilo before."
+	]
+	quest.12A8B9B863C17E87.title: "&bCrooks"
+	quest.12A8B9B863C17E87.quest_desc: [
+		"&bDouble saplings from leaves, and a small silkworm chance. The bone crook is sturdier."
+	]
+	quest.14593F31797545AB.title: "&bSilkworms and String"
+	quest.14593F31797545AB.quest_desc: [
+		"&bUse a silkworm on leaves, wait for the whole tree to go white, break it for string."
+		""
+		"Cooked silkworms are a snack. Questionable, but a snack."
+	]
+	quest.256C238F2A2D8A95.title: "&bBarrels"
+	quest.256C238F2A2D8A95.quest_desc: [
+		"&bCompost organic stuff into dirt. Fill with water and add dust for clay. Experiment!"
+	]
+	quest.5DDF27AB13470988.title: "&bCrucibles"
+	quest.5DDF27AB13470988.quest_desc: [
+		"&bMelts cobblestone into lava. It needs heat underneath: a torch works, lava works better."
+		""
+		"This is the only source of lava in the pack."
+	]
+	quest.2D75D8EC1EE30D23.title: "&bMesh Ladder"
+	quest.2D75D8EC1EE30D23.quest_desc: [
+		"&bString, flint, iron, diamond, netherite. Each mesh finds more and better stuff."
+		""
+		"Press U on a mesh in JEI for its drop table."
+	]
+	chapter.58F9319F9EFF8E74.title: "&bFTB Stuff \\& Things"
+	chapter.58F9319F9EFF8E74.chapter_subtitle: [
+		"&7Cobble generators and auto-hammers. Unlocks at the start."
+	]
+	quest.3FE08F871E5FCD72.title: "&b&lInfinite Rocks"
+	quest.3FE08F871E5FCD72.quest_desc: [
+		"&bGenerators make cobble, auto-hammers crush it. Buy the first one of each from the shop, then &6craft each upgrade from the one below&r. Each tier is faster."
+	]
+	quest.310D0607234471D3.title: "&bThe Upgrade Ladder"
+	quest.310D0607234471D3.quest_desc: [
+		"&bStone (tier 0), iron (tier 1), gold (tier 2), diamond (tier 4), netherite (tier 5)."
+		""
+		"Match your hammer speed to your generator speed, or one of them sits idle."
+	]
+	quest.1A841BCE25FAF528.title: "&bBasalt Generators"
+	quest.1A841BCE25FAF528.quest_desc: [
+		"&bFrom tier 4: basalt for Nether-style sieving."
+	]
+	chapter.5562AB94B4CF9626.title: "&bCreate"
+	chapter.5562AB94B4CF9626.chapter_subtitle: [
+		"&7Rotation, processing and contraptions. Unlocks at tier 1."
+	]
+	quest.25CD4840FAA75503.title: "&b&lThe Rabbit Hole"
+	quest.25CD4840FAA75503.quest_desc: [
+		"&bIf you know Create, skip this. If you do not, welcome to the best rabbit hole in Minecraft."
+		""
+		"Hold &6W&r over any Create block for a Ponder animation that explains it. Seriously, use Ponder."
+	]
+	quest.3A75CA079B8F7C68.title: "&bRotation and Stress"
+	quest.3A75CA079B8F7C68.quest_desc: [
+		"&bSources (water wheels, windmills) make rotation. Machines use stress. Too much stress and everything stops."
+		""
+		"Goggles show the numbers."
+	]
+	quest.231F5198868CDBE2.title: "&bCrushing and Washing"
+	quest.231F5198868CDBE2.quest_desc: [
+		"&bCrushing wheels turn ore chunks into crushed ore plus bonus. An encased fan over water washes it into more nuggets."
+		""
+		"This is your first ore-multiplying line."
+	]
+	quest.208BAA9311E30052.title: "&bBelts and Funnels"
+	quest.208BAA9311E30052.quest_desc: [
+		"&bBelts move items, funnels pull them on and off, chutes drop them down. Pipe everything to a Market Crate at the end."
+	]
+	quest.289E267DFE719C5B.title: "&bBrass"
+	quest.289E267DFE719C5B.quest_desc: [
+		"&bCopper plus zinc in a mixer (needs heat from a blaze burner). Brass makes the smart machines."
+	]
+	quest.3636DCCA57FC86CA.title: "&bSequenced Assembly"
+	quest.3636DCCA57FC86CA.quest_desc: [
+		"&bMulti-step recipes on a belt. Precision mechanisms are the first, and they sell for 900."
+	]
+	chapter.26D2BD3DF8A4E2C3.title: "&bCreate Add-ons"
+	chapter.26D2BD3DF8A4E2C3.chapter_subtitle: [
+		"&7Electricity, engines and enchanting for Create. Tier 1 to 4."
+	]
+	quest.527D26AF7A5474E0.title: "&b&lCrafts \\& Additions"
+	quest.527D26AF7A5474E0.quest_desc: [
+		"&bAlternators turn rotation into power, electric motors turn power into rotation. The bridge between Create and every power mod."
+	]
+	quest.1288E89C275AD9C2.title: "&bCreate: New Age"
+	quest.1288E89C275AD9C2.quest_desc: [
+		"&bAnother flavor of electricity for Create, with magnetic generators and reactors later on."
+	]
+	quest.7FF46E1EA7B710A2.title: "&bDiesel Generators"
+	quest.7FF46E1EA7B710A2.quest_desc: [
+		"&bBurn fuel for big rotation. Oil comes from the Frontier."
+	]
+	quest.4C6E2DA5847186FD.title: "&bEnchantment Industry"
+	quest.4C6E2DA5847186FD.quest_desc: [
+		"&bTurns XP from your mob farm into enchanted books automatically. Pairs beautifully with Mob Grinding Utils."
+	]
+	chapter.3E27F5AF74DFE5F4.title: "&bBotany Pots"
+	chapter.3E27F5AF74DFE5F4.chapter_subtitle: [
+		"&7Farming without the walking. Unlocks at tier 1."
+	]
+	quest.31BF4998C410FAA0.title: "&b&lPots 101"
+	quest.31BF4998C410FAA0.quest_desc: [
+		"&bPut soil in the pot, then a seed. It grows and you collect."
+		""
+		"The &6hopper botany pot&r outputs into whatever is below it."
+	]
+	quest.75B69F9074FA7080.title: "&bBetter Soil"
+	quest.75B69F9074FA7080.quest_desc: [
+		"&bSome soils grow faster. JEI shows growth times for every crop and soil combo."
+	]
+	quest.6DF01E38175631DE.title: "&bMystical Pots"
+	quest.6DF01E38175631DE.quest_desc: [
+		"&bFrom tier 4, Mystical Agriculture seeds grow in pots too. Compact resource farms!"
+	]
+	chapter.41E6D165AD939264.title: "&bFarmer's Delight and Cooking"
+	chapter.41E6D165AD939264.chapter_subtitle: [
+		"&7Cook stuff, sell it for more. Unlocks at tier 1."
+	]
+	quest.2E96A232FC5E16F2.title: "&b&lCook, Sell, Repeat"
+	quest.2E96A232FC5E16F2.quest_desc: [
+		"&bCook stuff. Sell stuff. Cook fancier stuff. Sell it for more."
+		""
+		"The cooking pot needs heat underneath."
+	]
+	quest.50EBD80F77BB8369.title: "&bNew Crops"
+	quest.50EBD80F77BB8369.quest_desc: [
+		"&bTomatoes, cabbages, onions and rice. Seeds are in the shop."
+	]
+	quest.6FE19C917F0D21C6.title: "&bMeals That Pay"
+	quest.6FE19C917F0D21C6.quest_desc: [
+		"&bStews and pasta sell for 60 to 80. That is twenty potatoes' worth of profit in one bowl."
+	]
+	quest.1CCAE43CE6F2D284.title: "&bFeasts"
+	quest.1CCAE43CE6F2D284.quest_desc: [
+		"&bFeasts sell for 400 each from tier 4. Create mechanical crafters can make them for you."
+	]
+	quest.67FEB3D4ACC04EA5.title: "&bCooking for Blockheads"
+	quest.67FEB3D4ACC04EA5.quest_desc: [
+		"&bA kitchen multiblock that shows every recipe you can make from what you have. Great for lazy chefs."
+	]
+	quest.4B2C8AE385B3CF5A.title: "&bSpice of Life"
+	quest.4B2C8AE385B3CF5A.quest_desc: [
+		"&bEating a variety of foods gives you bonus hearts. The theme of this pack is variety, in case you had not noticed."
+	]
+	chapter.12608768EF0006A4.title: "&bFishing"
+	chapter.12608768EF0006A4.chapter_subtitle: [
+		"&7Traps, rods and lava fishing. Unlocks at tier 1."
+	]
+	quest.5872A58B37E1776B.title: "&b&lFishermen's Trap"
+	quest.5872A58B37E1776B.quest_desc: [
+		"&bBait it, put it in water, empty it with a hopper. Fish while you sleep."
+	]
+	quest.2417462566415E50.title: "&bAquaculture"
+	quest.2417462566415E50.quest_desc: [
+		"&bBetter rods, hooks and bait. From the Frontier on, every biome has its own fish, and some sell for 60."
+	]
+	quest.4F4B28FDC52E4DBC.title: "&bLava Fishing"
+	quest.4F4B28FDC52E4DBC.quest_desc: [
+		"&bNether Depths Upgrade adds fish to Nether lava from tier 4. Bring fire resistance. Obviously."
+	]
+	chapter.6C9F3FDF42CD5B46.title: "&bCyclic"
+	chapter.6C9F3FDF42CD5B46.chapter_subtitle: [
+		"&7A toolbox of automation blocks. Unlocks at tier 2."
+	]
+	quest.7FF3754AC5F51DB3.title: "&b&lThe Five That Matter"
+	quest.7FF3754AC5F51DB3.quest_desc: [
+		"&bCyclic is a huge toolbox. For making money, five tools matter: User, Collector, Harvester, Planter and Breaker."
+	]
+	quest.1DB276AC59936321.title: "&bUser"
+	quest.1DB276AC59936321.quest_desc: [
+		"&bA fake player that right or left clicks. Give it shears for wool, a sword for mobs, bone meal for crops. Get creative."
+	]
+	quest.5F5FF9B0444CCF9B.title: "&bItem Collector"
+	quest.5F5FF9B0444CCF9B.quest_desc: [
+		"&bA vacuum hopper with an adjustable area. Put it next to anything that drops items."
+	]
+	quest.39001848C6FD7FB9.title: "&bHarvester and Planter"
+	quest.39001848C6FD7FB9.quest_desc: [
+		"&bHarvests ripe crops in an area. The planter replants. Together: an infinite farm."
+	]
+	quest.54ACF22A72E9DB18.title: "&bBreaker and Placer"
+	quest.54ACF22A72E9DB18.quest_desc: [
+		"&bBreak and place blocks automatically. Pair with a cobble generator if you are feeling retro."
+	]
+	chapter.468CF9BBA1B80535.title: "&bEx Compressum"
+	chapter.468CF9BBA1B80535.chapter_subtitle: [
+		"&7Auto-sieves. Unlocks at tier 2."
+	]
+	quest.7F6684E88B57ADE3.title: "&b&lAuto-Sieve"
+	quest.7F6684E88B57ADE3.quest_desc: [
+		"&bSieves for you. Feed it with a hopper, empty it with another. Add a mesh first, obviously."
+	]
+	chapter.3FFE388DF23CCBA2.title: "&bMob Grinding Utils"
+	chapter.3FFE388DF23CCBA2.chapter_subtitle: [
+		"&7A mob farm in a kit. Unlocks at tier 2."
+	]
+	quest.33BC8686D7745290.title: "&b&lDreadful and Delightful"
+	quest.33BC8686D7745290.quest_desc: [
+		"&bDreadful dirt spawns hostile mobs even in daylight. Delightful dirt spawns passive ones. Both are bought from the shop."
+	]
+	quest.128FA837A5C182BE.title: "&bSpikes and Saws"
+	quest.128FA837A5C182BE.quest_desc: [
+		"&bSpikes hurt mobs that walk on them. The mob masher (saw) kills with looting upgrades. Players do not get the drops from spikes, so use the saw for good loot."
+	]
+	quest.7CA0E0F8F4299B9F.title: "&bFans and Conveyors"
+	quest.7CA0E0F8F4299B9F.quest_desc: [
+		"&bPush mobs into a killing spot with fans and entity conveyors."
+	]
+	quest.1D3D9C41FF30E1FD.title: "&bAbsorption Hopper"
+	quest.1D3D9C41FF30E1FD.quest_desc: [
+		"&bCollects drops and XP. Filter what goes where, then pipe the loot to a Market Crate."
+	]
+	quest.79E04966B57DAEC8.title: "&bXP Storage"
+	quest.79E04966B57DAEC8.quest_desc: [
+		"&bTanks and taps store XP, the solidifier turns it into items. Save it for enchanting."
+	]
+	chapter.4E5558CA73CE8820.title: "&bStorage"
+	chapter.4E5558CA73CE8820.chapter_subtitle: [
+		"&7Drawers, chests, networks. Pick what suits you."
+	]
+	quest.6CDE88A366AFB696.title: "&b&lPick Your Poison"
+	quest.6CDE88A366AFB696.quest_desc: [
+		"&bOh, so you do not like AE, so you came to the storage page instead. Smart. Here is the cheat sheet:"
+		""
+		"&6Drawers&r: lots of one item. &6Sophisticated Storage&r: upgradable chests. &6Tom's&r: a simple early network. &6Refined Storage&r: mid-game network. &6AE2&r: endgame, at tier 6."
+	]
+	quest.6BE90770024B8DFE.title: "&bStorage Drawers"
+	quest.6BE90770024B8DFE.quest_desc: [
+		"&bGreat for cobble, dirt and the other stuff you have 40,000 of."
+	]
+	quest.21F3AD41F3FBF2E6.title: "&bSophisticated Storage and Backpacks"
+	quest.21F3AD41F3FBF2E6.quest_desc: [
+		"&bChests and backpacks you can upgrade: bigger, magnets, auto-pickup, filters. The backpack magnet upgrade is a lifesaver."
+	]
+	quest.2E64E9B886DCAA5E.title: "&bTom's Simple Storage"
+	quest.2E64E9B886DCAA5E.quest_desc: [
+		"&bA terminal that sees every connected chest. Cheap, simple and very good. Most players never need more."
+	]
+	quest.7CE1F65FC3DBAEAD.title: "&bRefined Storage"
+	quest.7CE1F65FC3DBAEAD.quest_desc: [
+		"&bA real storage network with autocrafting, for when Tom's is not enough."
+	]
+	chapter.2F800B19C9CC7D19.title: "&aMystical Agriculture"
+	chapter.2F800B19C9CC7D19.chapter_subtitle: [
+		"&7Grow ores on plants. Unlocks at tier 3 (the Frontier)."
+	]
+	quest.734277D468797D1D.title: "&a&lGrow Ores on Plants"
+	quest.734277D468797D1D.quest_desc: [
+		"&aGrow ores. On plants. Do not think about it too hard."
+		""
+		"Locked until you buy the Frontier."
+	]
+	quest.4FB345AAF653C80B.title: "&aEssence Tiers"
+	quest.4FB345AAF653C80B.quest_desc: [
+		"&aInferium, prudentium, tertium, imperium, supremium. Each tier crafts the next and unlocks better seeds."
+	]
+	quest.67BE9DF8476427A4.title: "&aThe Infusion Altar"
+	quest.67BE9DF8476427A4.quest_desc: [
+		"&aCrafts resource seeds from essence and the resource itself. Put pedestals around it."
+	]
+	quest.19ABC0A9545A6274.title: "&aSell Smart"
+	quest.19ABC0A9545A6274.quest_desc: [
+		"&aEssence sells for about a fifth of what it crafts on purpose. Grow resource crops and sell the resources instead."
+	]
+	chapter.13975BEE90993639.title: "&aExploration and Structures"
+	chapter.13975BEE90993639.chapter_subtitle: [
+		"&7Where the loot is. Unlocks at tier 3."
+	]
+	quest.183EEDDE54636D21.title: "&a&lCompasses"
+	quest.183EEDDE54636D21.quest_desc: [
+		"&aNature's Compass finds biomes, Explorer's Compass finds structures. Both are in the shop."
+	]
+	quest.7EE1B3B5AADF2A51.title: "&aWhat Is Out There"
+	quest.7EE1B3B5AADF2A51.quest_desc: [
+		"&aBetter dungeons, mineshafts, strongholds and fortresses, plus towns, towers, taverns and huge When Dungeons Arise structures."
+	]
+	quest.5F2A1D6DBB77A8D8.title: "&aLoot Worth Selling"
+	quest.5F2A1D6DBB77A8D8.quest_desc: [
+		"&aHearts of the sea 5,000, totems 2,500, tridents 4,000, echo shards 1,500. Enchanted books: keep the good ones."
+	]
+	quest.7719ECC70630A302.title: "&aGetting Around"
+	quest.7719ECC70630A302.quest_desc: [
+		"&aWaystones for fast travel, /home and /warp for everything else, FTB Chunks map to see where you have been."
+	]
+	chapter.1EBB76E9FEF8C8AB.title: "&bTools and Building"
+	chapter.1EBB76E9FEF8C8AB.chapter_subtitle: [
+		"&7Work smarter, or at least faster."
+	]
+	quest.2019B207C520D8F6.title: "&b&lConstruction Sticks"
+	quest.2019B207C520D8F6.quest_desc: [
+		"&bExtend a row or wall of blocks in one click. Better sticks place more."
+	]
+	quest.5718462D41DA7181.title: "&bBuilding and Mining Gadgets"
+	quest.5718462D41DA7181.quest_desc: [
+		"&bBuilding gadgets copy, paste and fill. Mining gadgets laser through stone. Both need power."
+	]
+	quest.4DF463ABDFACCAB3.title: "&bEffortless Building"
+	quest.4DF463ABDFACCAB3.quest_desc: [
+		"&bBuild modes for lines, walls, floors and mirrored builds. Check the keybinds."
+	]
+	quest.3D5D3A1203A6AE2A.title: "&bPaxels"
+	quest.3D5D3A1203A6AE2A.quest_desc: [
+		"&bMekanism Tools makes paxels (pickaxe, axe and shovel in one) from every Mekanism metal."
+	]
+	quest.1B05A9E7CF8C016D.title: "&bSilent Gear"
+	quest.1B05A9E7CF8C016D.quest_desc: [
+		"&bBuild tools from parts and materials. Deep if you want it, ignorable if you do not."
+	]
+	quest.5674443441305EAF.title: "&bTime in a Bottle Tips"
+	quest.5674443441305EAF.quest_desc: [
+		"&bEach use speeds a block up more but costs more banked time. Best on slow single machines and growing saplings."
+	]
+	chapter.3EB271D014BD1F67.title: "&aMekanism"
+	chapter.3EB271D014BD1F67.chapter_subtitle: [
+		"&7Ore multiplication and serious machines. Unlocks at tier 4."
+	]
+	quest.232E63BC706F9E3A.title: "&a&lOne Machine at a Time"
+	quest.232E63BC706F9E3A.quest_desc: [
+		"&aSkip this if you know Mekanism. If you do not: it is a lot, so we will go one machine at a time."
+	]
+	quest.7B6843CBE75EACCC.title: "&a2x: Enrichment Chamber"
+	quest.7B6843CBE75EACCC.quest_desc: [
+		"&aOre into two dusts. Smelt the dusts. Double ingots. Start here."
+	]
+	quest.16658E9A1C410C45.title: "&a3x: Purification Chamber"
+	quest.16658E9A1C410C45.quest_desc: [
+		"&aOre plus oxygen into clumps. Three per ore. Crafted from an enrichment chamber. Tier 5."
+	]
+	quest.321D9D10F7E9EEF0.title: "&a4x: Chemical Injection"
+	quest.321D9D10F7E9EEF0.quest_desc: [
+		"&aShards from hydrogen chloride. Four per ore. Crafted from a purification chamber. Tier 5, and it pays for itself fast."
+	]
+	quest.78B7A60BA71DA798.title: "&aGenerators"
+	quest.78B7A60BA71DA798.quest_desc: [
+		"&aHeat generators near lava early, wind and solar later, gas-burning for serious power."
+	]
+	chapter.299B8171F67050BC.title: "&aPower"
+	chapter.299B8171F67050BC.chapter_subtitle: [
+		"&7Electricity: the stuff that makes the other stuff go. Unlocks at tier 4."
+	]
+	quest.4967784DBBC6EE5D.title: "&a&lPowah"
+	quest.4967784DBBC6EE5D.quest_desc: [
+		"&aSimple tiered generators, cells and cables. Buy a starter Furnator and Energy Cell, then craft each upgrade from the tier below (hardened at tier 5, the fancy ones at tier 6)."
+	]
+	quest.6BB18B2DA89DCC11.title: "&aFlux Networks"
+	quest.6BB18B2DA89DCC11.quest_desc: [
+		"&aWireless power. Plugs and points instead of cables everywhere."
+	]
+	quest.3D4C9D2706683005.title: "&aExtreme Reactors"
+	quest.3D4C9D2706683005.quest_desc: [
+		"&aBig multiblock reactors for big power. Late game, very satisfying."
+	]
+	chapter.2EF95F2E0585556A.title: "&aHostile Neural Networks"
+	chapter.2EF95F2E0585556A.chapter_subtitle: [
+		"&7Farm mobs without the mobs. Unlocks at tier 4."
+	]
+	quest.11A67565C5BB2E70.title: "&a&lDeep Learner"
+	quest.11A67565C5BB2E70.quest_desc: [
+		"&aPut data models in the deep learner and kill mobs to train them."
+	]
+	quest.6D9D06EA37FE1327.title: "&aSimulation Chamber"
+	quest.6D9D06EA37FE1327.quest_desc: [
+		"&aTrained models plus power plus prediction matrices make predictions. Predictions sell, or turn into loot."
+	]
+	quest.318F141B1F728971.title: "&aLoot Fabricator"
+	quest.318F141B1F728971.quest_desc: [
+		"&aTurns predictions into the mob's drops. Pick whichever sells better."
+	]
+	chapter.7AC0D7B5325E30BC.title: "&aThe Nether"
+	chapter.7AC0D7B5325E30BC.chapter_subtitle: [
+		"&7Taller, meaner, more profitable. Unlocks at tier 4."
+	]
+	quest.12BEB3B3620D648D.title: "&a&lSurvival Tips"
+	quest.12BEB3B3620D648D.quest_desc: [
+		"&aAmplified Nether is very tall. Fire resistance, blocks to bridge with and a waystone at the portal."
+	]
+	quest.12788911B8967E86.title: "&aFortresses"
+	quest.12788911B8967E86.quest_desc: [
+		"&aYUNG's fortresses are huge. Blazes for rods, wither skeletons for skulls (3,000 each, or summon the Wither)."
+	]
+	quest.5B8CE251C4CAB843.title: "&aAncient Debris"
+	quest.5B8CE251C4CAB843.quest_desc: [
+		"&aLow down, rare and worth 2,500 per scrap."
+	]
+	chapter.186D71D69AE7AE9D.title: "&dTwilight Forest"
+	chapter.186D71D69AE7AE9D.chapter_subtitle: [
+		"&7Eight bosses, eight trophies, a lot of coins. Unlocks at tier 5."
+	]
+	quest.107EFB203D98DEE6.title: "&d&lGetting There"
+	quest.107EFB203D98DEE6.quest_desc: [
+		"&d2x2 water pool, flowers all around, throw a diamond in. Stand back."
+	]
+	quest.362D612DF05A211B.title: "&dBoss Order"
+	quest.362D612DF05A211B.quest_desc: [
+		"&dNaga, Lich, Minoshroom, Hydra, Knight Phantoms, Ur-Ghast, Alpha Yeti, Snow Queen."
+		""
+		"Each one unlocks the next area. Skipping ahead gets you weather and darkness."
+	]
+	quest.643EBBB0A64D7485.title: "&dTrophy Prices"
+	quest.643EBBB0A64D7485.quest_desc: [
+		"&dNaga 15,000, Lich 25,000, Minoshroom 30,000, Knight Phantom 50,000, Hydra 60,000, Alpha Yeti 60,000, Ur-Ghast 75,000, Snow Queen 90,000."
+		""
+		"Boss drops sell too: fiery blood and tears 6,000, scepters 8,000."
+	]
+	chapter.5457ED308F6B7E63.title: "&dThe End"
+	chapter.5457ED308F6B7E63.chapter_subtitle: [
+		"&7Dragon, cities and elytra. Unlocks at tier 5."
+	]
+	quest.49534C124BED9C6F.title: "&d&lThe Dragon"
+	quest.49534C124BED9C6F.quest_desc: [
+		"&dKill it, sell the egg for 150,000. Dragon's breath sells too."
+	]
+	quest.22774CD8C61EE116.title: "&dEnd Cities"
+	quest.22774CD8C61EE116.quest_desc: [
+		"&dShulker shells 1,500, elytra 50,000, dragon heads 25,000. Nullscape makes the islands far more interesting."
+	]
+	chapter.51F3A87E203E04B3.title: "&dJust Dire Things and Draconic"
+	chapter.51F3A87E203E04B3.chapter_subtitle: [
+		"&7Here be overpowered things. Tier 5 to 6."
+	]
+	quest.603113435CE4342C.title: "&d&lJust Dire Things"
+	quest.603113435CE4342C.quest_desc: [
+		"&dTiered gadgets and goo that transforms blocks. Very strong, so it sits late."
+	]
+	quest.367AB6551AB9C6EF.title: "&dDraconic Evolution"
+	quest.367AB6551AB9C6EF.quest_desc: [
+		"&dEndgame tools, armor and absurd power storage. The final flex."
+	]
+	chapter.3C97CBA24C1BE224.title: "&dAE2 and Industrial Foregoing"
+	chapter.3C97CBA24C1BE224.chapter_subtitle: [
+		"&7The deep end. Tier 6."
+	]
+	quest.5166671028875B2E.title: "&d&lAE2 Basics"
+	quest.5166671028875B2E.quest_desc: [
+		"&dThe deep end. Bring floaties."
+		""
+		"Controller, drive, terminal and some storage cells. Autocrafting comes later. There is a guide book in the mod (press G over AE2 items)."
+	]
+	quest.158107CCCC2D0C53.title: "&dIndustrial Foregoing"
+	quest.158107CCCC2D0C53.quest_desc: [
+		"&dBig convenient machines: plant gatherers, mob crushers and more. Pure quality of life."
+	]
+	chapter.3B9E422282678A9E.title: "&bQuality of Life"
+	chapter.3B9E422282678A9E.chapter_subtitle: [
+		"&7The little things. Unlocked from the start."
+	]
+	quest.56EE4878F9837133.title: "&b&lFTB Chunks"
+	quest.56EE4878F9837133.quest_desc: [
+		"&bPress M for the map. Claim chunks so nothing griefs your base, and force-load chunks to keep machines running."
+	]
+	quest.11B7A4CD70FAB467.title: "&bNever Lost"
+	quest.11B7A4CD70FAB467.quest_desc: [
+		"&b/sethome, /home, /setwarp, /warp, /back, /spawn and /tpa. Getting home is never a problem."
+	]
+	quest.76CD34DDD7A4814F.title: "&bGraves"
+	quest.76CD34DDD7A4814F.quest_desc: [
+		"&bDie and your items go into a grave where you fell. Nobody touches it but you."
+	]
+	quest.61CB0456376B49D3.title: "&bLittle Helpers"
+	quest.61CB0456376B49D3.quest_desc: [
+		"&bTrash cans for junk, magnets for pickup, elevators for going up, Clumps for XP lag, Mouse Tweaks for your sanity."
+	]
+	chapter.3E61167BE0C765ED.title: "&eThe Market"
+	chapter.3E61167BE0C765ED.chapter_subtitle: [
+		"&7How selling works."
+	]
+	quest.1C042D7CD598C7E2.title: "&eSelling"
+	quest.1C042D7CD598C7E2.quest_desc: [
+		"&ePut goods in the Market Crate. Use the side slot to sell one stack or all of an item, or Sell everything."
+		""
+		"Auto-sell sells a chunk every half second, starting the moment it is on and the moment goods arrive. Chunks are 2 items at tier 0 and double every tier (4, 8, 16, 32) up to a full stack at tier 5."
+	]
+	quest.3DBF1A4FA0E105D5.title: "&ePrices and Variety"
+	quest.3DBF1A4FA0E105D5.quest_desc: [
+		"&eEvery unit sold lowers that item's price a little, never below half. Selling a variety of other goods restores it."
+		""
+		"Later tiers need more variety and bigger batches to recover."
+	]
+	quest.32C4357E433329F2.title: "&eCoins"
+	quest.32C4357E433329F2.quest_desc: [
+		"&eClick a coin icon at the bottom of the crate panel to withdraw your balance as exactly that coin. Shift-click for a mix, largest first."
+		""
+		"Put coins back in the crate to deposit them. Deposit 20 emerald coins, withdraw 2 diamond coins: the crate doubles as a coin exchange."
+		""
+		"Copper 1, iron 10, gold 100, emerald 1,000, diamond 10,000, netherite 100,000."
+	]
+	quest.393337C441566A91.title: "&eSale Celebrations"
+	quest.393337C441566A91.quest_desc: [
+		"&eThe bigger the sale, the bigger the party. Eight tiers, from grey pocket change to MEGA SALE."
+	]
+	chapter.40F1226AC617893C.title: "&eThe Shop"
+	chapter.40F1226AC617893C.chapter_subtitle: [
+		"&7What is bought and what is crafted."
+	]
+	quest.1F1A17E6399B189B.title: "&eMachines Are Bought"
+	quest.1F1A17E6399B189B.quest_desc: [
+		"&eMachines that work on their own come only from the shop. Shafts, belts, pipes and cables are still crafted."
+	]
+	quest.2094BD3289679688.title: "&eBuy-Back"
+	quest.2094BD3289679688.quest_desc: [
+		"&eMachines sell back to the crate for 90% of their price at tiers 0 to 2, 85% at tiers 3 to 4 and 80% at tiers 5 to 6."
+	]
+	quest.2A8157A16C10160B.title: "&eSupplies"
+	quest.2A8157A16C10160B.quest_desc: [
+		"&eSeeds, meshes, compasses and other supplies cost about four times their sell price. Convenient, never profitable."
+	]
+	chapter.6CACEC9A476C61F3.title: "&eTiers and Gates"
+	chapter.6CACEC9A476C61F3.chapter_subtitle: [
+		"&7What each tier costs and unlocks."
+	]
+	quest.144B790722CDC294.title: "&eThe Tiers"
+	quest.144B790722CDC294.quest_desc: [
+		"&e0 Castaway: start"
+		"1 Tinkerer: 2,000 lifetime, 1,000 fee"
+		"2 Engineer: 12,000 lifetime, 5,000 fee"
+		"3 Pioneer (Frontier): 48,000 lifetime, 20,000 fee"
+		"4 Cultivator (Nether): 175,000 lifetime, 40,000 fee"
+		"5 Industrialist (Twilight, End): 525,000 lifetime, 75,000 fee"
+		"6 Tycoon: 1,400,000 lifetime, 150,000 fee"
+	]
+	chapter.57768E0CA966298E.title: "&eFAQ"
+	chapter.57768E0CA966298E.chapter_subtitle: [
+		"&7Questions everybody asks."
+	]
+	quest.1B3CAFD693A9220D.title: "&eWhy can't I craft this machine?"
+	quest.1B3CAFD693A9220D.quest_desc: [
+		"&eMachines are shop-only, and some items are locked until a later tier. JEI shows a lock on locked items."
+	]
+	quest.20EA56DB5FCF10A3.title: "&eWhy won't the crate take my item?"
+	quest.20EA56DB5FCF10A3.quest_desc: [
+		"&eNot everything sells. Hover over an item in the crate screen: if there is no price line, the market does not buy it."
+	]
+	quest.248E2B8FEDEBECFF.title: "&eWhere is lava?"
+	quest.248E2B8FEDEBECFF.quest_desc: [
+		"&eCrucible plus cobblestone plus heat. That is the only way, on purpose."
+	]
+	quest.103A23948724B8C6.title: "&eMy price is low, help!"
+	quest.103A23948724B8C6.quest_desc: [
+		"&eYou sold too much of one thing. Sell other goods for a while and it comes back. The tooltip says how many more."
+	]
+	quest.2E31BB9DBC378597.title: "&eCommands"
+	quest.2E31BB9DBC378597.quest_desc: [
+		"&e/home, /sethome, /warp, /setwarp, /back, /spawn, /tpa, /market balance, /market price <item>"
+	]
+	chapter_group.7CFA42324A508511.title: "&6&l★ Progression"
+	chapter_group.133B4BC19096A30B.title: "&b&l⚙ Mods: The Island"
+	chapter_group.7CB9FD9528918760.title: "&a&l⚙ Mods: The Frontier"
+	chapter_group.2D854B5F0194BFDC.title: "&d&l⚙ Mods: Endgame"
+	chapter_group.59BE11F6B5214E2E.title: "&e&l✎ Reference"
+}

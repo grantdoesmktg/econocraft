@@ -1,0 +1,203 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "tinkerer"
+	group: "7CFA42324A508511"
+	icon: { count: 1, id: "create:cogwheel" }
+	id: "29AEF0C2ECF02A94"
+	images: [ { x: 5.625d, y: -2.600d, width: 9.677d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/tinkerer.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			id: "38FBAC987499104A"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "ftbstuff:iron_cobblestone_generator" }
+			dependencies: ["5462EBF165FFB8C4"]
+			tasks: [
+				{ id: "1B22BA1BC08BD672", type: "item", item: { count: 1, id: "ftbstuff:iron_cobblestone_generator" }, count: 1L }
+			]
+			rewards: [
+				{ id: "3A406879B1C7AC01", type: "item", item: { count: 1, id: "lightmanscurrency:coin_gold" } }
+				{ id: "10C74B26F0804C0F", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "40E07552C343F9AB"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "ftbstuff:iron_auto_hammer" }
+			dependencies: ["38FBAC987499104A"]
+			tasks: [
+				{ id: "485C541A6973F4CA", type: "item", item: { count: 1, id: "ftbstuff:iron_auto_hammer" }, count: 1L }
+			]
+			rewards: [
+				{ id: "322927FC172F0DEA", type: "item", item: { count: 1, id: "lightmanscurrency:coin_gold" } }
+				{ id: "7D556AF0B7347409", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "3D80E183ED9378BD"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "exdeorum:iron_mesh" }
+			dependencies: ["40E07552C343F9AB"]
+			tasks: [
+				{ id: "612FF3E83D68FE6A", type: "item", item: { count: 1, id: "exdeorum:iron_mesh" }, count: 1L }
+			]
+			rewards: [
+				{ id: "1A88A030E15203B4", type: "item", item: { count: 1, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "68A0689763177667"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "create:water_wheel" }
+			dependencies: ["3D80E183ED9378BD"]
+			tasks: [
+				{ id: "1B35BE0D3D91B4FD", type: "item", item: { count: 1, id: "create:water_wheel" }, count: 1L }
+			]
+			rewards: [
+				{ id: "5731E60E05A2DCE3", type: "item", item: { count: 1, id: "lightmanscurrency:coin_gold" } }
+				{ id: "2DC2913CE1324618", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "29742D2519A79C04"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "create:crushing_wheel" }
+			dependencies: ["68A0689763177667"]
+			tasks: [
+				{ id: "344E62D75577FB44", type: "item", item: { count: 1, id: "create:crushing_wheel" }, count: 2L }
+			]
+			rewards: [
+				{ id: "23AFD14BFD50DD0D", type: "item", item: { count: 2, id: "lightmanscurrency:coin_gold" } }
+				{ id: "3D0F1A66A925E6BA", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "448EAEDEF88457A4"
+			x: 11.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "botanypots:terracotta_hopper_botany_pot" }
+			dependencies: ["29742D2519A79C04"]
+			tasks: [
+				{ id: "7A4999180AD68EF1", type: "item", item: { count: 1, id: "botanypots:terracotta_hopper_botany_pot" }, count: 1L }
+			]
+			rewards: [
+				{ id: "14F84534A75EE7D1", type: "item", item: { count: 1, id: "lightmanscurrency:coin_gold" } }
+				{ id: "7EB467CB8786A8C2", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "5DF2C3DF9A2283FC"
+			x: 11.25d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "fishermens_trap:fishtrap" }
+			dependencies: ["448EAEDEF88457A4"]
+			tasks: [
+				{ id: "26DCED1B9FBA7A14", type: "item", item: { count: 1, id: "fishermens_trap:fishtrap" }, count: 1L }
+			]
+			rewards: [
+				{ id: "7381082AF8993DA9", type: "item", item: { count: 1, id: "lightmanscurrency:coin_gold" } }
+				{ id: "44ECF5B16D0CB3B0", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "56A431162A3C835B"
+			x: 9.0d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "farmersdelight:beef_stew" }
+			dependencies: ["5DF2C3DF9A2283FC"]
+			tasks: [
+				{ id: "62DCD461B8A6E09D", type: "item", item: { count: 1, id: "farmersdelight:beef_stew" }, count: 1L }
+			]
+			rewards: [
+				{ id: "7FD020E8C6E1D780", type: "item", item: { count: 1, id: "lightmanscurrency:coin_gold" } }
+				{ id: "126EE3FD6931001A", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "2F71D538F5173387"
+			x: 6.75d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "create:zinc_ingot" }
+			dependencies: ["56A431162A3C835B"]
+			tasks: [
+				{ id: "1049AA61EFBECF03", type: "item", item: { count: 1, id: "create:zinc_ingot" }, count: 4L }
+			]
+			rewards: [
+				{ id: "73646E79CB6C9209", type: "item", item: { count: 1, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "62BA48700B324D75"
+			x: 4.5d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:hopper" }
+			dependencies: ["2F71D538F5173387"]
+			tasks: [
+				{ id: "476A1CFA5CFF4156", type: "advancement", advancement: "economy_core:autosell", criterion: "" }
+			]
+			rewards: [
+				{ id: "2DD763F530B877DE", type: "item", item: { count: 1, id: "lightmanscurrency:coin_gold" } }
+				{ id: "62F902CFEDFFA4DB", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "38340EB5D5690B5B"
+			x: 2.25d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:chest" }
+			dependencies: ["62BA48700B324D75"]
+			tasks: [
+				{ id: "104C9EC42303199F", type: "advancement", advancement: "economy_core:distinct/5", criterion: "" }
+			]
+			rewards: [
+				{ id: "27B0916C3697B505", type: "item", item: { count: 2, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "2C6E63373539679D"
+			x: 0.0d
+			y: 4.0d
+			shape: "gear"
+			size: 2.25d
+			icon: { count: 1, id: "cyclic:user" }
+			dependencies: ["38340EB5D5690B5B"]
+			tasks: [
+				{ id: "3B87FBAECD21C1C0", type: "advancement", advancement: "economy_core:earned/12000", criterion: "" }
+				{ id: "1CCD8C4CE7CCDDE0", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" }, count: 5L consume_items: true }
+			]
+			rewards: [
+				{ id: "4D044BF88AA17E40", type: "gamestage", stage: "economy:tier_2" }
+				{ id: "1ED8A868423EEDBB", type: "command", command: "/market tier set 2 @p", elevate_perms: true, silent: true }
+			]
+		}
+	]
+}

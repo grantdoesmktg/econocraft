@@ -1,0 +1,48 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "ref_shop"
+	group: "59BE11F6B5214E2E"
+	icon: { count: 1, id: "lightmanscurrency:coin_emerald" }
+	id: "40F1226AC617893C"
+	images: [ { x: 2.250d, y: -2.326d, width: 5.129d, height: 1.452d, rotation: 0.0d, image: "economypack:textures/quests/ref_shop.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 31
+	quest_links: [ ]
+	quests: [
+		{
+			id: "1F1A17E6399B189B"
+			x: 0.0d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "ftbstuff:iron_auto_hammer" }
+			tasks: [
+				{ id: "2EC9275363A9A250", type: "checkmark" }
+			]
+		}
+		{
+			id: "2094BD3289679688"
+			x: 2.25d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "economy_core:market_crate" }
+			dependencies: ["1F1A17E6399B189B"]
+			tasks: [
+				{ id: "2A94AA07AD5F6995", type: "checkmark" }
+			]
+		}
+		{
+			id: "2A8157A16C10160B"
+			x: 4.5d
+			y: 0.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "minecraft:wheat_seeds" }
+			dependencies: ["2094BD3289679688"]
+			tasks: [
+				{ id: "2F7CD97E14CE4526", type: "checkmark" }
+			]
+		}
+	]
+}

@@ -1,0 +1,87 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_mekanism"
+	group: "7CB9FD9528918760"
+	icon: { count: 1, id: "mekanism:enrichment_chamber" }
+	id: "3EB271D014BD1F67"
+	images: [ { x: 4.500d, y: -2.600d, width: 5.274d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_mekanism.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 21
+	quest_links: [ ]
+	quests: [
+		{
+			id: "232E63BC706F9E3A"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "mekanism:steel_casing" }
+			tasks: [
+				{ id: "402A54C27F08D8BD", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "68274DEB092F95C0", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "7B6843CBE75EACCC"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mekanism:enrichment_chamber" }
+			dependencies: ["232E63BC706F9E3A"]
+			tasks: [
+				{ id: "4E4882778B419AE4", type: "item", item: { count: 1, id: "mekanism:enrichment_chamber" }, count: 1L }
+			]
+			rewards: [
+				{ id: "2E315373BDF5F564", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "16658E9A1C410C45"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mekanism:purification_chamber" }
+			dependencies: ["7B6843CBE75EACCC"]
+			tasks: [
+				{ id: "2EE2386060E196D0", type: "item", item: { count: 1, id: "mekanism:purification_chamber" }, count: 1L }
+			]
+			rewards: [
+				{ id: "32F4BC3CC69E9152", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "321D9D10F7E9EEF0"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mekanism:chemical_injection_chamber" }
+			dependencies: ["16658E9A1C410C45"]
+			tasks: [
+				{ id: "1A5CA9DF628A6FDC", type: "item", item: { count: 1, id: "mekanism:chemical_injection_chamber" }, count: 1L }
+			]
+			rewards: [
+				{ id: "4E5F1ACAFC8C0613", type: "item", item: { count: 6, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "78B7A60BA71DA798"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mekanismgenerators:heat_generator" }
+			dependencies: ["321D9D10F7E9EEF0"]
+			tasks: [
+				{ id: "754D82948F9B5B0C", type: "item", item: { count: 1, id: "mekanismgenerators:heat_generator" }, count: 1L }
+			]
+			rewards: [
+				{ id: "7C74301B5C093E57", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

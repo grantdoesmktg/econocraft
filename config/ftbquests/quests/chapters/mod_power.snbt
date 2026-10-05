@@ -1,0 +1,57 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_power"
+	group: "7CB9FD9528918760"
+	icon: { count: 1, id: "powah:energy_cell_starter" }
+	id: "299B8171F67050BC"
+	images: [ { x: 2.250d, y: -2.600d, width: 5.274d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_power.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 22
+	quest_links: [ ]
+	quests: [
+		{
+			id: "4967784DBBC6EE5D"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "powah:furnator_starter" }
+			tasks: [
+				{ id: "381A421771C1F57C", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "3539CD181907C2B7", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "6BB18B2DA89DCC11"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "fluxnetworks:flux_point" }
+			dependencies: ["4967784DBBC6EE5D"]
+			tasks: [
+				{ id: "14091F33385A3FF8", type: "item", item: { count: 1, id: "fluxnetworks:flux_point" }, count: 1L }
+			]
+			rewards: [
+				{ id: "3125B27838238380", type: "item", item: { count: 3, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "3D4C9D2706683005"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "bigreactors:basic_reactorcasing" }
+			dependencies: ["6BB18B2DA89DCC11"]
+			tasks: [
+				{ id: "1DB69E39DF983936", type: "item", item: { count: 1, id: "bigreactors:basic_reactorcasing" }, count: 1L }
+			]
+			rewards: [
+				{ id: "2F5571DB27F2DCDB", type: "item", item: { count: 4, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

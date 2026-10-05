@@ -1,0 +1,72 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_qol"
+	group: "133B4BC19096A30B"
+	icon: { count: 1, id: "minecraft:filled_map" }
+	id: "3B9E422282678A9E"
+	images: [ { x: 3.375d, y: -2.600d, width: 8.710d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_qol.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 29
+	quest_links: [ ]
+	quests: [
+		{
+			id: "56EE4878F9837133"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "minecraft:map" }
+			tasks: [
+				{ id: "1205921BE7476755", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "6AD41C2EAF12A551", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "11B7A4CD70FAB467"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:compass" }
+			dependencies: ["56EE4878F9837133"]
+			tasks: [
+				{ id: "7BB6A832E07EC970", type: "item", item: { count: 1, id: "minecraft:compass" }, count: 1L }
+			]
+			rewards: [
+				{ id: "460B224C3E153EC0", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "76CD34DDD7A4814F"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "gravestone:gravestone" }
+			dependencies: ["11B7A4CD70FAB467"]
+			tasks: [
+				{ id: "542D845EC9FB1507", type: "item", item: { count: 1, id: "gravestone:gravestone" }, count: 1L }
+			]
+			rewards: [
+				{ id: "316809F5C5930788", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "61CB0456376B49D3"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "trashcans:item_trash_can" }
+			dependencies: ["76CD34DDD7A4814F"]
+			tasks: [
+				{ id: "44A790D22C27504B", type: "item", item: { count: 1, id: "trashcans:item_trash_can" }, count: 1L }
+			]
+			rewards: [
+				{ id: "39D84A00C04B090F", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

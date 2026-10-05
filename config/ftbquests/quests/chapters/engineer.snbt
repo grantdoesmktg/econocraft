@@ -1,0 +1,184 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "engineer"
+	group: "7CFA42324A508511"
+	icon: { count: 1, id: "cyclic:user" }
+	id: "6FA59F9CF29F754E"
+	images: [ { x: 5.625d, y: -2.554d, width: 12.000d, height: 1.908d, rotation: 0.0d, image: "economypack:textures/quests/engineer.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			id: "4CDB00FE96F950B5"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "ftbstuff:gold_auto_hammer" }
+			dependencies: ["2C6E63373539679D"]
+			tasks: [
+				{ id: "3A1910E5DD2E46BC", type: "item", item: { count: 1, id: "ftbstuff:gold_cobblestone_generator" }, count: 1L }
+				{ id: "2F488326C9B5B3F1", type: "item", item: { count: 1, id: "ftbstuff:gold_auto_hammer" }, count: 1L }
+			]
+			rewards: [
+				{ id: "740A69D6C66EB2EF", type: "item", item: { count: 4, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "12D9689424BF6DD6"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "excompressum:auto_sieve" }
+			dependencies: ["4CDB00FE96F950B5"]
+			tasks: [
+				{ id: "66C9101D78C639BA", type: "item", item: { count: 1, id: "excompressum:auto_sieve" }, count: 1L }
+			]
+			rewards: [
+				{ id: "265EC43700C3B8D1", type: "item", item: { count: 5, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "7A1020DA0CA9CB24"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "cyclic:user" }
+			dependencies: ["12D9689424BF6DD6"]
+			tasks: [
+				{ id: "679840C8E70F81F7", type: "item", item: { count: 1, id: "cyclic:user" }, count: 1L }
+			]
+			rewards: [
+				{ id: "57863924B88D5A6C", type: "item", item: { count: 5, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "661A41BF11DA0D42"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "cyclic:collector" }
+			dependencies: ["7A1020DA0CA9CB24"]
+			tasks: [
+				{ id: "1BB98CEF51854274", type: "item", item: { count: 1, id: "cyclic:collector" }, count: 1L }
+			]
+			rewards: [
+				{ id: "2E099EBAAC54A4E5", type: "item", item: { count: 3, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "6FB650D14A0AC3E7"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "cyclic:harvester" }
+			dependencies: ["661A41BF11DA0D42"]
+			tasks: [
+				{ id: "518B506CF13033F4", type: "item", item: { count: 1, id: "cyclic:harvester" }, count: 1L }
+			]
+			rewards: [
+				{ id: "6F38FDCD7CE7CA75", type: "item", item: { count: 5, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "4C5D5E7F3D865B96"
+			x: 11.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "create:precision_mechanism" }
+			dependencies: ["6FB650D14A0AC3E7"]
+			tasks: [
+				{ id: "253011A70E78D8BE", type: "item", item: { count: 1, id: "create:precision_mechanism" }, count: 1L }
+			]
+			rewards: [
+				{ id: "4C87FC0B686A1D58", type: "item", item: { count: 6, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "28F8AAA5DE0289BE"
+			x: 11.25d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mob_grinding_utils:dreadful_dirt" }
+			dependencies: ["4C5D5E7F3D865B96"]
+			tasks: [
+				{ id: "152D6C765A7B5ACC", type: "item", item: { count: 1, id: "mob_grinding_utils:dreadful_dirt" }, count: 1L }
+				{ id: "63A174D671FCF646", type: "item", item: { count: 1, id: "mob_grinding_utils:spikes" }, count: 1L }
+			]
+			rewards: [
+				{ id: "2B34C3E3C9562E46", type: "item", item: { count: 4, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "660B50601FE9FE58"
+			x: 11.25d
+			y: 6.0d
+			shape: "rsquare"
+			size: 1.0d
+			icon: { count: 1, id: "mob_grinding_utils:xp_tap" }
+			dependencies: ["28F8AAA5DE0289BE"]
+			optional: true
+			tasks: [
+				{ id: "5B98061B570BB054", type: "item", item: { count: 1, id: "mob_grinding_utils:xp_tap" }, count: 1L }
+			]
+			rewards: [
+				{ id: "3767A1184FD0588E", type: "item", item: { count: 3, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "6FAECB8B694590C0"
+			x: 9.0d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "storagedrawers:oak_full_drawers_1" }
+			dependencies: ["28F8AAA5DE0289BE"]
+			tasks: [
+				{ id: "69811870845E50AC", type: "item", item: { count: 1, id: "storagedrawers:oak_full_drawers_1" }, count: 1L }
+			]
+			rewards: [
+				{ id: "5CFC5A4063BC2E0A", type: "item", item: { count: 3, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "23CD4CA68E0FE96F"
+			x: 6.75d
+			y: 4.0d
+			shape: "diamond"
+			size: 1.5d
+			icon: { count: 1, id: "lightmanscurrency:coin_emerald" }
+			dependencies: ["6FAECB8B694590C0"]
+			tasks: [
+				{ id: "3B484AAF361517D5", type: "advancement", advancement: "economy_core:sale/1000", criterion: "" }
+			]
+			rewards: [
+				{ id: "1FA3F7B49459DFBD", type: "item", item: { count: 5, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "1AF0F9EA0014BD83"
+			x: 4.5d
+			y: 4.0d
+			shape: "gear"
+			size: 2.25d
+			icon: { count: 1, id: "economy_core:frontier_gateway" }
+			dependencies: ["23CD4CA68E0FE96F"]
+			tasks: [
+				{ id: "3ACA59380569F196", type: "advancement", advancement: "economy_core:earned/48000", criterion: "" }
+				{ id: "53EA9EC0C8EC8BA8", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" }, count: 2L consume_items: true }
+			]
+			rewards: [
+				{ id: "73B0374CC0FC8A13", type: "item", item: { count: 1, id: "economy_core:frontier_gateway" } team_reward: false }
+				{ id: "66AED689BDAC9B07", type: "gamestage", stage: "economy:tier_3" }
+				{ id: "32F53D9F8CCB7BE6", type: "command", command: "/market tier set 3 @p", elevate_perms: true, silent: true }
+			]
+		}
+	]
+}

@@ -1,0 +1,57 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "mod_botany"
+	group: "133B4BC19096A30B"
+	icon: { count: 1, id: "botanypots:terracotta_hopper_botany_pot" }
+	id: "3E27F5AF74DFE5F4"
+	images: [ { x: 2.250d, y: -2.600d, width: 6.871d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_botany.png", hover: [ ], click: "", dev: false, corner: false } ]
+	order_index: 11
+	quest_links: [ ]
+	quests: [
+		{
+			id: "31BF4998C410FAA0"
+			x: 0.0d
+			y: 0.0d
+			shape: "octagon"
+			size: 1.75d
+			icon: { count: 1, id: "botanypots:terracotta_botany_pot" }
+			tasks: [
+				{ id: "6AE74B3EF05B7CC4", type: "checkmark" }
+			]
+			rewards: [
+				{ id: "7C7E649177B26655", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "75B69F9074FA7080"
+			x: 2.25d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:bone_meal" }
+			dependencies: ["31BF4998C410FAA0"]
+			tasks: [
+				{ id: "54F1F74AE5781328", type: "item", item: { count: 1, id: "minecraft:bone_meal" }, count: 1L }
+			]
+			rewards: [
+				{ id: "43F398E5D0F3261A", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "6DF01E38175631DE"
+			x: 4.5d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "mysticalagriculture:inferium_seeds" }
+			dependencies: ["75B69F9074FA7080"]
+			tasks: [
+				{ id: "1BAB4CDC7CAAE291", type: "item", item: { count: 1, id: "mysticalagriculture:inferium_seeds" }, count: 1L }
+			]
+			rewards: [
+				{ id: "3628604E455F0145", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+	]
+}

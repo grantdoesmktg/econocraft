@@ -1,0 +1,13 @@
+name = "Skyblock Builder"
+filename = "SkyblockBuilder-21.1.37.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/por2AZc5/versions/NmXF6maO/SkyblockBuilder-21.1.37.jar"
+hash-format = "sha512"
+hash = "267af0122bc0151bb4c00259fe776d8d46d8b2f16e94298b4fdd4adc6249e7efbf4e28399f7de692156e03ea5e9aeef62cc2f90ef0f9f255201fde4125c2d41b"
+
+[update]
+[update.modrinth]
+mod-id = "por2AZc5"
+version = "NmXF6maO"

@@ -33,7 +33,7 @@ public class ShopScreen extends Screen {
     private static final int TIERS = 7;
     private static final String[] CATS = {"machines", "supplies"};
     /** Lifetime earnings and coin fee for each tier's gate quest (matches the quest book). */
-    private static final long[][] GATES = {{0, 0}, {2000, 1000}, {12000, 5000}, {48000, 20000}, {175000, 40000}, {525000, 75000}, {1400000, 150000}};
+    private static final long[][] GATES = {{0, 0}, {4000, 2000}, {24000, 10000}, {96000, 40000}, {350000, 80000}, {1050000, 150000}, {2800000, 300000}};
 
     // Wood-and-canvas palette.
     private static final int WOOD_DARK = 0xFF3B2716, WOOD = 0xFF6B4A2B;

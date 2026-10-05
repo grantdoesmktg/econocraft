@@ -6,7 +6,12 @@
 	default_reward_team: true
 	disable_gui: false
 	drop_loot_crates: false
-	emergency_items_cooldown: 300
+	emergency_items: [
+		{ count: 1, id: "minecraft:water_bucket" }
+		{ count: 1, id: "minecraft:spruce_sapling" }
+		{ count: 1, id: "minecraft:cooked_beef" }
+	]
+	emergency_items_cooldown: 600
 	grid_scale: 0.5d
 	lock_message: "Finish the quests before this one first."
 	pause_game: false

@@ -24,7 +24,12 @@ DATA_SNBT = """{
 \tdefault_reward_team: true
 \tdisable_gui: false
 \tdrop_loot_crates: false
-\temergency_items_cooldown: 300
+\temergency_items: [
+\t\t{ count: 1, id: "minecraft:water_bucket" }
+\t\t{ count: 1, id: "minecraft:spruce_sapling" }
+\t\t{ count: 1, id: "minecraft:cooked_beef" }
+\t]
+\temergency_items_cooldown: 600
 \tgrid_scale: 0.5d
 \tlock_message: "Finish the quests before this one first."
 \tpause_game: false
@@ -88,9 +93,23 @@ chapter('getting_started', P, 'Welcome Ashore', 'economy_core:market_crate',
      'text': ['Saplings, leaves and old food go into a &6barrel&r and come out as dirt.',
               '',
               'More dirt, more island. More island, more trees.']},
+    {'key': 'first_sale', 'title': 'Your First Paycheck', 'icon': 'lightmanscurrency:coin_copper',
+     'subtitle': 'Sell anything at the Market Crate',
+     'tasks': [('adv', 'economy_core:earned/1')], 'coins': 50,
+     'text': ['Next up is a cobble generator, and it costs &6300&r. Nobody is handing you 300. Here is how you earn it.',
+              '',
+              '&61. Sell what you have.&r String from your silkworm tree and spare logs both sell. Drop them in the &6Market Crate&r, put a stack in the side slot and hit &6Sell this stack&r. Hover anything in your inventory to see what it sells for.',
+              '',
+              '&62. Start a proper farm.&r Break grass for wheat seeds, or buy potato and carrot seeds at the &6Supply Market&r. Hoe dirt next to water. Out of water? The quest book has an &6Emergency Items&r button: a water bucket, a sapling and a steak, once every 10 minutes.',
+              '',
+              '&63. Fart on your crops.&r Crouch next to them over and over and they grow faster. It is called Squat Grow, it is installed, and nobody can see you.',
+              '',
+              '&64. Sell a mix.&r Every different good you sell pulls the others back up to full price. Ten kinds of crop beat a mountain of wheat.']},
     {'key': 'cobblegen', 'title': 'Cobble, Please', 'icon': 'ftbstuff:stone_cobblestone_generator',
      'tasks': [('item', 'ftbstuff:stone_cobblestone_generator', 1)], 'coins': 50,
      'text': ['The shop sells a &6stone cobblestone generator&r for 300. Infinite rock, no lava needed.',
+              '',
+              'Fair warning: cobble is the cheapest thing in the pack, and flooding the market with it drops it to a quarter of its price. It is filler money and hammer food, not a career.',
               '',
               'Speaking of lava: you will not find a lava bucket for sale. A &6crucible&r melts cobblestone into lava. That is the only lava you get. Treat it with respect.']},
     {'key': 'hammer', 'title': 'Smash It', 'icon': 'exdeorum:stone_hammer', 'tasks': [('item', 'minecraft:gravel', 16)], 'coins': 40,
@@ -102,13 +121,8 @@ chapter('getting_started', P, 'Welcome Ashore', 'economy_core:market_crate',
      'text': ['Put a &6string mesh&r in a &6sieve&r and feed it gravel. Out come iron, copper and gold chunks.',
               '',
               'Press &6U&r on the sieve in JEI to see every possible drop.']},
-    {'key': 'first_sale', 'title': 'Your First Sale', 'icon': 'lightmanscurrency:coin_copper',
-     'tasks': [('adv', 'economy_core:earned/1')], 'coins': 50,
-     'text': ['Drop goods in the &6Market Crate&r, put a stack in the side slot and hit &6Sell this stack&r.',
-              '',
-              'That little "+12" was your first paycheck. Frame it.']},
     {'key': 'diminishing', 'title': 'Diminishing Returns 101', 'icon': 'minecraft:cobblestone', 'tasks': [('adv', 'economy_core:diminished')], 'coins': 30,
-     'text': ['Completes the first time you sell something below 90% of its fair price.', '', 'Sell 64 of the same thing and the price slides toward half. It never goes below half.',
+     'text': ['Completes the first time you sell something below 90% of its fair price.', '', 'Sell 64 of the same thing and the price slides toward half. Island basics (cobble, gravel, sand, dust, logs) slide all the way to a quarter.',
               '',
               'Sell a &6variety&r of other goods and the price climbs back. The crate\'s tooltips tell you how many different goods you still need to sell.',
               '',

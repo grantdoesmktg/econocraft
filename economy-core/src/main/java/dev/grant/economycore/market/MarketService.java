@@ -176,6 +176,20 @@ public final class MarketService {
         }
     }
 
+    /**
+     * A player's first sale ever. Personal, not shared with the team: whoever pressed the button (or owns the
+     * auto-selling crate) gets the advancement and the celebration, once.
+     */
+    public static void firstSale(ServerPlayer player, long coins, net.minecraft.core.BlockPos pos) {
+        AdvancementHolder adv = player.server.getAdvancements()
+                .get(ResourceLocation.fromNamespaceAndPath("economy_core", "first_sale"));
+        if (adv == null || player.getAdvancements().getOrStartProgress(adv).isDone()) return;
+        award(player, "first_sale");
+        net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(player,
+                new dev.grant.economycore.network.MarketFxPayload(
+                        dev.grant.economycore.network.MarketFxPayload.KIND_FIRST_SALE, coins, 9, pos));
+    }
+
     /** Grant economy_core:<path> if it exists and isn't done yet. */
     public static void award(ServerPlayer player, String path) {
         AdvancementHolder adv = player.server.getAdvancements()

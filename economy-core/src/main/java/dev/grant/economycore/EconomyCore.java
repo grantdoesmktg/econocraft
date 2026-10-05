@@ -9,11 +9,11 @@ import dev.grant.economycore.network.MarketFxPayload;
 import dev.grant.economycore.network.MarketSyncPayload;
 import dev.grant.economycore.network.ShopBuyPayload;
 import dev.grant.economycore.network.BalancePayload;
+import dev.grant.economycore.network.PricesPayload;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import dev.grant.economycore.network.ShopSyncPayload;
 import dev.grant.economycore.shop.ShopCatalog;
-import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import dev.grant.economycore.market.MarketData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -46,7 +46,6 @@ public class EconomyCore {
         NeoForge.EVENT_BUS.addListener(this::onTagsUpdated);
         NeoForge.EVENT_BUS.addListener(this::onRegisterCommands);
         NeoForge.EVENT_BUS.addListener(this::onPlayerLogin);
-        NeoForge.EVENT_BUS.addListener(this::onTooltip);
         NeoForge.EVENT_BUS.addListener(this::onPlayerTick);
         NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.tick.ServerTickEvent.Post e) ->
                 dev.grant.economycore.market.IslandPartyLink.tick(e.getServer()));
@@ -75,6 +74,8 @@ public class EconomyCore {
                 (msg, ctx) -> dev.grant.economycore.client.ClientShopCache.handle(msg, ctx));
         r.playToClient(MarketFxPayload.TYPE, MarketFxPayload.CODEC,
                 (msg, ctx) -> dev.grant.economycore.client.SaleCelebrations.onPayload(msg));
+        r.playToClient(PricesPayload.TYPE, PricesPayload.CODEC,
+                (msg, ctx) -> dev.grant.economycore.client.ClientPriceCache.handle(msg));
     }
 
     private void addToCreativeTab(BuildCreativeModeTabContentsEvent event) {
@@ -101,26 +102,27 @@ public class EconomyCore {
     private void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof ServerPlayer sp) {
             lastBalanceSent.remove(sp.getUUID()); // resend on next tick
+            lastPricesSent.remove(sp.getUUID());
             MarketService.awardMilestones(sp, MarketData.get(sp.server).accountFor(sp.getUUID()).earned, 0);
         }
     }
 
     private final java.util.Map<java.util.UUID, Long> lastBalanceSent = new java.util.HashMap<>();
+    private final java.util.Map<java.util.UUID, Integer> lastPricesSent = new java.util.HashMap<>();
 
-    /** Push the team balance to each player's balance counter once a second, when it has changed. */
+    /**
+     * Push the team balance to each player's balance counter once a second, and the team's current prices
+     * (for item tooltips) every few seconds, each only when it has changed.
+     */
     private void onPlayerTick(PlayerTickEvent.Post event) {
         if (!(event.getEntity() instanceof ServerPlayer sp) || sp.tickCount % 20 != 0) return;
         long bal = MarketData.get(sp.server).accountFor(sp.getUUID()).balance;
         Long last = lastBalanceSent.put(sp.getUUID(), bal);
         if (last == null || last != bal) PacketDistributor.sendToPlayer(sp, new BalancePayload(bal));
-    }
-
-    /** Shop-bought machines show what they sell back for. */
-    private void onTooltip(ItemTooltipEvent event) {
-        Long tag = event.getItemStack().get(ModRegistry.PRICE_TAG.get());
-        if (tag != null) {
-            event.getToolTip().add(net.minecraft.network.chat.Component.translatable("tooltip.economy_core.price_tag",
-                    String.format("%,d", tag)).withStyle(net.minecraft.ChatFormatting.GOLD));
+        if (sp.tickCount % 60 == 0 || !lastPricesSent.containsKey(sp.getUUID())) {
+            PricesPayload prices = PricesPayload.build(sp);
+            Integer lastHash = lastPricesSent.put(sp.getUUID(), prices.entries().hashCode());
+            if (lastHash == null || lastHash != prices.entries().hashCode()) PacketDistributor.sendToPlayer(sp, prices);
         }
     }
 

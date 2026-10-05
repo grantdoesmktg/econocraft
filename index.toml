@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "config/economy_core/market.json"
-hash = "38ce209e65f8d54445fe544caf91875db8a99d7349c684829800c84ff3b748de"
+hash = "3ed83b9a01f5d68299407f77bb05716eaf6b9e306a5d1c396790bec46a3417f4"
 
 [[files]]
 file = "config/economy_core/shop.json"
@@ -26,7 +26,7 @@ hash = "66672adb0d2bafdc17620f2bc3d6f719d2352191028c6ff6d36eb296365069c2"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/getting_started.snbt"
-hash = "679c2c664ec57336f861a72a1a9342c6ba257787f0f86d28f9a69d22cd541cbc"
+hash = "b4a9876f84ecd8c2fd01e46d4daed2f3645b62cd11992fc2c28f4c63fb3e0f8d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/industrialist.snbt"
@@ -154,11 +154,11 @@ hash = "310ccedb757ede325edacbead6c11ece7bcb1aa99d57b0a7da6a9fc02cc1218d"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
-hash = "7dc7e19d785d9172d357d9b22471dc70652ea9f48d1dfa96c88230bb196183ad"
+hash = "afb63f36e0bfef8db18c62efe80a5747c393a25a15add3482f702b9f8f1d78ba"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "d12d5a2fa076625c860f84a355998c0ca2136a8ac5736abb8951e521cd2c5e2a"
+hash = "061ea311e355a4226be330f50209d3bccf3e0a20dcd7e5627aba4a327216a2c9"
 
 [[files]]
 file = "config/lightmanscurrency-common.txt"

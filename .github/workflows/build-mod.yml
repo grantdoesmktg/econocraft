@@ -1,0 +1,48 @@
+# Builds the Economy Core mod in the cloud and ships the jar into the pack.
+# Push a branch named mod-build/<anything>: this builds economy-core/, swaps the jar in mods/, runs
+# packwiz refresh and commits the result back to that branch. Merge the branch into main to ship it.
+name: Build Economy Core
+
+on:
+  push:
+    branches: ['mod-build/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[ci-built]')"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-go@v5
+        with:
+          go-version: stable
+      - name: Build the mod
+        working-directory: economy-core
+        run: |
+          chmod +x gradlew fetch_libs.sh
+          ./fetch_libs.sh
+          ./gradlew build --no-daemon
+      - name: Swap the jar into the pack
+        run: |
+          version=$(grep '^mod_version=' economy-core/gradle.properties | cut -d= -f2)
+          rm -f mods/economy_core-*.jar
+          cp "economy-core/build/libs/economy_core-${version}.jar" mods/
+          go install github.com/packwiz/packwiz@latest
+          ~/go/bin/packwiz refresh
+          echo "VERSION=${version}" >> "$GITHUB_ENV"
+      - name: Commit the built jar
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add -A mods index.toml pack.toml
+          git diff --cached --quiet && exit 0
+          git commit -m "Economy Core ${VERSION}: built jar [ci-built]"
+          git push

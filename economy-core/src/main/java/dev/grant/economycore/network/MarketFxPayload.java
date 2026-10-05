@@ -13,7 +13,9 @@ import net.minecraft.resources.ResourceLocation;
  * The server decides the tier (1..8, 0 = no celebration); the client does all the visuals and sounds.
  */
 public record MarketFxPayload(int kind, long amount, int tier, BlockPos pos) implements CustomPacketPayload {
-    public static final int KIND_SALE = 0, KIND_AUTOSELL = 1, KIND_DEPOSIT = 2, KIND_PREVIEW = 3;
+    public static final int KIND_SALE = 0, KIND_AUTOSELL = 1, KIND_DEPOSIT = 2, KIND_PREVIEW = 3,
+            /** A player's very first sale: the full, deeply unnecessary show. Sent to that player only. */
+            KIND_FIRST_SALE = 4;
 
     public static final Type<MarketFxPayload> TYPE =
             new Type<>(ResourceLocation.fromNamespaceAndPath(EconomyCore.MODID, "market_fx"));

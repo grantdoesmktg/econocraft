@@ -78,5 +78,13 @@
   "block.economy_core.power_exchange": "Power Exchange",
   "message.economy_core.power_exchange": "Team power: %s FE/t, earning %s coins/min (owner: %s)",
   "display.economy_core.power_exchange.coins": "%s coins/min",
-  "display.economy_core.power_exchange.fe": "%s FE/t"
+  "display.economy_core.power_exchange.fe": "%s FE/t",
+  "tooltip.economy_core.sells_for": "Sells for %s each",
+  "tooltip.economy_core.sells_for_now": "Sells for %s each right now (%s%% of %s)",
+  "tooltip.economy_core.stack_about": "This stack: about %s (less as the price slides)",
+  "advancement.economy_core.first_sale.title": "Capitalism, Achieved",
+  "advancement.economy_core.first_sale.description": "Sold something for the very first time. Economists are rewriting the textbooks.",
+  "celebration.economy_core.first_sale": "FIRST SALE!",
+  "celebration.economy_core.first_sale_line1": "You sold a thing. Alert the media.",
+  "celebration.economy_core.first_sale_line2": "+%s coins. Try not to spend it all at once."
 }

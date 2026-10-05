@@ -242,6 +242,8 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
                 ServerPlayer p = level.getServer().getPlayerList().getPlayer(member);
                 if (p != null) MarketService.award(p, "autosell");
             }
+            ServerPlayer ownerOnline = level.getServer().getPlayerList().getPlayer(owner);
+            if (ownerOnline != null) MarketService.firstSale(ownerOnline, sale.coins(), getBlockPos());
             return;
         }
         autosellRun.clear(); // crate empty: the next delivery starts a fresh run

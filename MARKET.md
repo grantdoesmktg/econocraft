@@ -60,7 +60,7 @@ Soft cap = units sold before the price is about two thirds of the way down to th
 | Dust (Ex Deorum) | `exdeorum:dust` | island | 1 | 1c | 0.25 | Hammered sand; feeds sieves |
 | Dust (FTB Stuff & Things) | `ftbstuff:dust` | island | 1 | 1c | 0.25 | Hammered sand; feeds sieves |
 | Flint | `minecraft:flint` | island | 2 | 2c | 0.5 | Sieve by-product |
-| Oak Log | `minecraft:oak_log` | island | 2 | 2c | 0.5 | Tree farm income |
+| Logs (any wood) | `minecraft:oak_log` | island | 2 | 2c | 0.5 | Tree farm income; sells by tag so spruce counts |
 | Charcoal | `minecraft:charcoal` | island | 3 | 3c | 0.75 | Smelted logs; processing pays |
 | Copper Ore Chunk | `exdeorum:copper_ore_chunk` | chunks | 6 | 6c | 3 | Sieving |
 | Iron Ore Chunk | `exdeorum:iron_ore_chunk` | chunks | 12 | 1i 2c | 6 | Sieving |

@@ -21,6 +21,9 @@ commit, push `main`, and tell Grant what to check in game. Add those checks to H
   - `pacing_sim.py`: time to each tier for three player types -> PACING-REPORT.md (keep POWER_BASE/EXP and GATES
     in sync with market_catalog.py and quest_content.py)
   - `analyze_progression.py`: tier skips, gaps and money loops -> PROGRESSION-REPORT.md
+- **Building the mod in the cloud**: cloud containers can't reach maven.neoforged.net, so push the change to a
+  branch named `mod-build/<version>`. GitHub Actions (.github/workflows/build-mod.yml) builds it, swaps the jar into
+  mods/, runs packwiz refresh and commits back to that branch; fetch it, check, then fast-forward main.
 - **Economy Core** (`economy-core/`): needs Java 21. `./fetch_libs.sh`, bump `mod_version`, `./gradlew build`, then
   replace `mods/economy_core-*.jar` with the new jar and `packwiz refresh`. Gate numbers also live in the mod
   (ShopScreen.GATES, MarketConfig defaults, data/economy_core/advancement/earned/).

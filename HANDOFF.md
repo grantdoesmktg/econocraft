@@ -28,6 +28,11 @@ MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
   ~/Modpacks/server-test is a local dedicated server for boot tests.
 
 ## Needs an in-game check (Grant)
+- Economy Core 0.9.7 (2026-10-05): hover any sellable item outside the crate and the tooltip says what it sells
+  for (and the stack's rough value); first sale ever by a player pops the "Capitalism, Achieved" challenge toast,
+  a FIRST SALE! screen, a coin totem pop and a firework barrage (only for that player, once).
+- Quest book: the Emergency Items button (water bucket, spruce sapling, steak, 10 minute cooldown); "Your First
+  Paycheck" now sits before the cobble generator quest; spruce logs sell (logs sell by tag).
 - Island price cut (2026-10-05): cobble 0.5, dirt 0.5, gravel/sand/dust 1, flint/log 2, charcoal 3, and the island
   category floors at 25% instead of 50%. Crops are up about a third (wheat/potato/carrot 4, pumpkin 11). Check that
   the crate shows halved prices, that spamming cobble bottoms out at a quarter, and that selling a mixed chest of

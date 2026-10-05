@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:story/root",
+  "display": {
+    "icon": {
+      "id": "lightmanscurrency:coin_copper"
+    },
+    "title": {
+      "translate": "advancement.economy_core.first_sale.title"
+    },
+    "description": {
+      "translate": "advancement.economy_core.first_sale.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

@@ -45,6 +45,7 @@ public record MarketActionPayload(int action, int slot) implements CustomPacketP
             case SELL_EVERYTHING -> {
                 long coins = crate.sellEverything(level);
                 if (coins > 0) {
+                    MarketService.firstSale(player, coins, crate.getBlockPos());
                     player.displayClientMessage(Component.translatable("message.economy_core.sold_everything",
                             String.format("%,d", coins)).withStyle(ChatFormatting.GOLD), true);
                     crate.notifyOwner(level, MarketFxPayload.KIND_SALE, coins);
@@ -66,5 +67,6 @@ public record MarketActionPayload(int action, int slot) implements CustomPacketP
         player.displayClientMessage(Component.translatable("message.economy_core.sold",
                 String.format("%,d", sale.coins()), sale.units(), sale.item().getDescription()).withStyle(ChatFormatting.GOLD), true);
         crate.notifyOwner(level, MarketFxPayload.KIND_SALE, sale.coins());
+        MarketService.firstSale(player, sale.coins(), crate.getBlockPos());
     }
 }

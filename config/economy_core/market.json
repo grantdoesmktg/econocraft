@@ -152,7 +152,7 @@
       "base": 2,
       "category": "island"
     },
-    "minecraft:oak_log": {
+    "#minecraft:logs_that_burn": {
       "base": 2,
       "category": "island"
     },

@@ -49,7 +49,7 @@ SELL = [
     ('exdeorum:dust', 'Dust (Ex Deorum)', 'island', 1, 0, 'Hammered sand; feeds sieves'),
     ('ftbstuff:dust', 'Dust (FTB Stuff & Things)', 'island', 1, 0, 'Hammered sand; feeds sieves'),
     ('minecraft:flint', 'Flint', 'island', 2, 0, 'Sieve by-product'),
-    ('minecraft:oak_log', 'Oak Log', 'island', 2, 0, 'Tree farm income'),
+    ('minecraft:oak_log', 'Logs (any wood)', 'island', 2, 0, 'Tree farm income; sells by tag so spruce counts'),
     ('minecraft:charcoal', 'Charcoal', 'island', 3, 0, 'Smelted logs; processing pays'),
     ('exdeorum:copper_ore_chunk', 'Copper Ore Chunk', 'chunks', 6, 0, 'Sieving'),
     ('exdeorum:iron_ore_chunk', 'Iron Ore Chunk', 'chunks', 12, 0, 'Sieving'),
@@ -483,6 +483,7 @@ def build_shop_json():
 
 # Ingots sell by tag so modded copies (e.g. Create, Mekanism) count too.
 SELL_AS_TAG = {
+    'minecraft:oak_log': '#minecraft:logs_that_burn',   # the island is spruce; every wood log sells
     'minecraft:copper_ingot': '#c:ingots/copper',
     'minecraft:iron_ingot': '#c:ingots/iron',
     'minecraft:gold_ingot': '#c:ingots/gold',

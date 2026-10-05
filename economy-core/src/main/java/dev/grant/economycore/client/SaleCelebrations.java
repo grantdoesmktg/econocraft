@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
@@ -43,10 +44,15 @@ public final class SaleCelebrations {
     private static final long BIG_COOLDOWN_MS = 4000;
     private static long lastBigMs;
 
-    //                                    tier: 0(dep)  1     2     3     4     5     6     7     8
-    private static final int[] DURATION_MS = {1400, 1000, 1300, 1500, 1800, 2200, 2600, 3200, 4500};
-    private static final float[] SCALE =     {0.9f, 0.9f, 1.0f, 1.15f, 1.4f, 1.8f, 2.2f, 2.8f, 2.6f};
-    private static final int[] SPARKS =      {0,    0,    0,    0,    4,    10,   18,   30,   60};
+    // Tier 9 is a player's first sale ever: the most excessive thing in this file, on purpose.
+    //                                    tier: 0(dep)  1     2     3     4     5     6     7     8     9
+    private static final int[] DURATION_MS = {1400, 1000, 1300, 1500, 1800, 2200, 2600, 3200, 4500, 7000};
+    private static final float[] SCALE =     {0.9f, 0.9f, 1.0f, 1.15f, 1.4f, 1.8f, 2.2f, 2.8f, 2.6f, 1.6f};
+    private static final int[] SPARKS =      {0,    0,    0,    0,    4,    10,   18,   30,   60,   140};
+
+    /** Firework bursts queued for later (the first-sale barrage), fired from render(). */
+    private record Burst(long atMs, double dx, double dy, double dz, int count, FireworkExplosion.Shape shape) {}
+    private static final List<Burst> BURSTS = new ArrayList<>();
 
     private SaleCelebrations() {}
 
@@ -83,6 +89,10 @@ public final class SaleCelebrations {
         if (msg.kind() == MarketFxPayload.KIND_DEPOSIT) {
             ACTIVE.add(new Effect(0, true, msg.amount()));
             play(mc, SoundEvents.UI_BUTTON_CLICK.value(), 1.6f, 0.25f);
+            return;
+        }
+        if (msg.kind() == MarketFxPayload.KIND_FIRST_SALE) {
+            firstSale(mc, msg.amount());
             return;
         }
         int tier = Mth.clamp(msg.tier(), 0, 8);
@@ -142,6 +152,43 @@ public final class SaleCelebrations {
         }
     }
 
+    /** First sale ever: screen-filling text, a coin totem pop, every sound we could find and a firework barrage. */
+    private static void firstSale(Minecraft mc, long amount) {
+        ACTIVE.add(new Effect(9, false, amount));
+        lastBigMs = Util.getMillis();
+        play(mc, SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
+        play(mc, SoundEvents.PLAYER_LEVELUP, 0.6f, 1.0f);
+        play(mc, SoundEvents.RAID_HORN.value(), 1.4f, 0.6f);
+        play(mc, SoundEvents.FIREWORK_ROCKET_LARGE_BLAST, 1.0f, 1.0f);
+        mc.gameRenderer.displayItemActivation(new ItemStack(coinItem("coin_copper")));
+        long now = Util.getMillis();
+        FireworkExplosion.Shape[] shapes = FireworkExplosion.Shape.values();
+        for (int i = 0; i < 16; i++) {
+            double angle = i * 0.9;
+            double dist = 2.5 + RNG.nextDouble() * 4;
+            BURSTS.add(new Burst(now + i * 380L + RNG.nextInt(150), Math.cos(angle) * dist, 3 + RNG.nextDouble() * 5,
+                    Math.sin(angle) * dist, 1 + RNG.nextInt(3), shapes[RNG.nextInt(shapes.length)]));
+        }
+        // Grand finale.
+        BURSTS.add(new Burst(now + 6400, 0, 7, 0, 6, FireworkExplosion.Shape.LARGE_BALL));
+    }
+
+    private static void fireQueuedBursts() {
+        if (BURSTS.isEmpty()) return;
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.level == null || mc.player == null) { BURSTS.clear(); return; }
+        long now = Util.getMillis();
+        Iterator<Burst> it = BURSTS.iterator();
+        while (it.hasNext()) {
+            Burst b = it.next();
+            if (b.atMs() > now) continue;
+            it.remove();
+            fireworks(mc.level, mc.player.getX() + b.dx(), mc.player.getY() + b.dy(), mc.player.getZ() + b.dz(),
+                    b.count(), b.shape());
+            if (RNG.nextInt(3) == 0) play(mc, SoundEvents.FIREWORK_ROCKET_TWINKLE, 0.8f + RNG.nextFloat() * 0.4f, 0.5f);
+        }
+    }
+
     /** Visual-only firework explosions (no entity, no damage). */
     private static void fireworks(ClientLevel level, double x, double y, double z, int count, FireworkExplosion.Shape shape) {
         List<FireworkExplosion> list = new ArrayList<>();
@@ -172,6 +219,7 @@ public final class SaleCelebrations {
      * tier 5+ celebrations play in the middle of the screen. Pass anchor -1 to use the HUD default.
      */
     public static void render(GuiGraphics g, int anchorX, int anchorY) {
+        fireQueuedBursts();
         if (ACTIVE.isEmpty()) return;
         Font font = Minecraft.getInstance().font;
         int w = g.guiWidth(), h = g.guiHeight();
@@ -195,17 +243,17 @@ public final class SaleCelebrations {
             if (e.tier >= 4) {
                 float p = Math.min(1f, (now - e.start) / 280f);
                 pop = 0.3f + 0.7f * easeOutBack(p);
-                if (e.tier >= 8) pop *= 1f + 0.06f * Mth.sin(age * 9f); // MEGA keeps pulsing
+                if (e.tier >= 8) pop *= 1f + 0.06f * Mth.sin(age * 9f); // MEGA (and first sale) keeps pulsing
             }
             // Shake for the top tiers.
             if (e.tier >= 7 && t < 0.4f) {
-                float s = (e.tier == 8 ? 3f : 1.5f) * (1f - t / 0.4f);
+                float s = (e.tier >= 8 ? 3f : 1.5f) * (1f - t / 0.4f);
                 cx += rnd(s);
                 cy += rnd(s);
             }
 
             // Screen flash.
-            if (e.tier == 8 && now - e.start < 450) {
+            if (e.tier >= 8 && now - e.start < 450) {
                 int a = (int) (170 * (1f - (now - e.start) / 450f));
                 g.fill(0, 0, w, h, (a << 24) | 0xFFFFFF);
             } else if (e.tier == 7 && now - e.start < 250) {
@@ -216,7 +264,12 @@ public final class SaleCelebrations {
             drawSparks(g, e, cx, cy, age, alpha);
 
             String amount = (e.deposit ? "Deposited " : "+") + String.format("%,d", e.amount);
-            if (e.tier == 8) {
+            if (e.tier == 9) {
+                drawText(g, font, I18n.get("celebration.economy_core.first_sale"), cx, cy - 30 * pop, 5.0f * pop, e.tier, age, alpha, true);
+                drawText(g, font, I18n.get("celebration.economy_core.first_sale_line1"), cx, cy + 10 * pop, SCALE[9], 6, age, alpha, true);
+                drawText(g, font, I18n.get("celebration.economy_core.first_sale_line2", String.format("%,d", e.amount)),
+                        cx, cy + 28 * pop, SCALE[9] * 0.8f, 5, age, alpha, false);
+            } else if (e.tier == 8) {
                 drawText(g, font, "MEGA SALE!", cx, cy - 26 * pop, 4.0f * pop, e.tier, age, alpha, true);
                 drawText(g, font, amount, cx, cy + 14 * pop, SCALE[8] * pop, e.tier, age, alpha, true);
             } else if (e.tier == 7) {
@@ -288,7 +341,7 @@ public final class SaleCelebrations {
                     float k = 0.5f + 0.5f * Mth.sin(age * 4f + i * 0.5f);
                     rgb = lerpColor(0xFFD700, 0x40E0D0, k);
                 } else {
-                    float hue = (age * (tier == 8 ? 0.9f : 0.6f) + i * 0.07f) % 1f;
+                    float hue = (age * (tier >= 8 ? 0.9f : 0.6f) + i * 0.07f) % 1f;
                     rgb = Mth.hsvToRgb(hue, 0.85f, 1f);
                 }
                 float bob = tier >= 7 ? Mth.sin(age * 8f + i * 0.6f) * 1.2f : 0f;

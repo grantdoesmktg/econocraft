@@ -96,6 +96,11 @@ public final class MarketPrices {
         return prices.get(item);
     }
 
+    /** Every item the market buys. */
+    public static java.util.Set<Item> all() {
+        return java.util.Collections.unmodifiableSet(prices.keySet());
+    }
+
     /** Value of one coin item, or 0 if the item isn't a configured coin. */
     public static long coinValue(ItemStack stack) {
         if (stack.isEmpty()) return 0;

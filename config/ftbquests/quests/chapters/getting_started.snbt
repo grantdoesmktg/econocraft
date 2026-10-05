@@ -101,13 +101,28 @@
 			]
 		}
 		{
-			id: "7CF251D95A29FD4D"
+			id: "7C049BDCEBFD44F3"
 			x: 11.25d
 			y: 4.0d
 			shape: "hexagon"
 			size: 1.25d
-			icon: { count: 1, id: "ftbstuff:stone_cobblestone_generator" }
+			icon: { count: 1, id: "lightmanscurrency:coin_copper" }
 			dependencies: ["79C9C13F40F1AEDE"]
+			tasks: [
+				{ id: "15094BF10FDFD2CE", type: "advancement", advancement: "economy_core:earned/1", criterion: "" }
+			]
+			rewards: [
+				{ id: "7F8E27B36A550CED", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "7CF251D95A29FD4D"
+			x: 9.0d
+			y: 4.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "ftbstuff:stone_cobblestone_generator" }
+			dependencies: ["7C049BDCEBFD44F3"]
 			tasks: [
 				{ id: "5EF42EB6132D7AA9", type: "item", item: { count: 1, id: "ftbstuff:stone_cobblestone_generator" }, count: 1L }
 			]
@@ -117,7 +132,7 @@
 		}
 		{
 			id: "27396F2F49E79713"
-			x: 9.0d
+			x: 6.75d
 			y: 4.0d
 			shape: "hexagon"
 			size: 1.25d
@@ -132,7 +147,7 @@
 		}
 		{
 			id: "1A573F74C828B425"
-			x: 6.75d
+			x: 4.5d
 			y: 4.0d
 			shape: "hexagon"
 			size: 1.25d
@@ -146,28 +161,13 @@
 			]
 		}
 		{
-			id: "7C049BDCEBFD44F3"
-			x: 4.5d
-			y: 4.0d
-			shape: "hexagon"
-			size: 1.25d
-			icon: { count: 1, id: "lightmanscurrency:coin_copper" }
-			dependencies: ["1A573F74C828B425"]
-			tasks: [
-				{ id: "15094BF10FDFD2CE", type: "advancement", advancement: "economy_core:earned/1", criterion: "" }
-			]
-			rewards: [
-				{ id: "7F8E27B36A550CED", type: "item", item: { count: 5, id: "lightmanscurrency:coin_iron" } }
-			]
-		}
-		{
 			id: "7634D6A6290AB83D"
 			x: 2.25d
 			y: 4.0d
 			shape: "hexagon"
 			size: 1.25d
 			icon: { count: 1, id: "minecraft:cobblestone" }
-			dependencies: ["7C049BDCEBFD44F3"]
+			dependencies: ["1A573F74C828B425"]
 			tasks: [
 				{ id: "312234B47729B279", type: "advancement", advancement: "economy_core:diminished", criterion: "" }
 			]

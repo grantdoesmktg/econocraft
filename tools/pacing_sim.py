@@ -47,6 +47,15 @@ def price_of(item):
     return SELL[item][3]
 
 
+# Price floor: fraction of fair value the price can drop to (1 - max_drop). Per-category overrides win.
+FLOOR_DEFAULT = 0.5
+FLOOR_BY_CAT = {}
+
+
+def max_drop(item):
+    return 1 - FLOOR_BY_CAT.get(SELL[item][2], FLOOR_DEFAULT)
+
+
 def sell_total(base, max_drop, soft_cap, s0, n):
     """Closed form of PriceMath.sell: total coins and end saturation for n units (n may be fractional)."""
     if n <= 0:
@@ -68,14 +77,14 @@ class Market:
         return s * max(0.0, 1 - len(self.since.get(item, ())) / v)
 
     def unit_price(self, item, tier):
-        return price_of(item) * (1 - 0.5 * self.eff(item, tier))
+        return price_of(item) * (1 - max_drop(item) * self.eff(item, tier))
 
     def sell(self, item, units, tier):
         if units <= 0:
             return 0.0
         _, min_units, min_value = VARIETY[min(tier, len(VARIETY) - 1)]
         cap = CATS[SELL[item][2]][0]
-        coins, end = sell_total(price_of(item), 0.5, cap, self.eff(item, tier), units)
+        coins, end = sell_total(price_of(item), max_drop(item), cap, self.eff(item, tier), units)
         self.sat[item] = end
         self.since[item] = set()
         if units >= min_units or coins >= min_value:

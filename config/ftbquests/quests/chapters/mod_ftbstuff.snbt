@@ -20,7 +20,7 @@
 				{ id: "2FC0950A33698CB8", type: "checkmark" }
 			]
 			rewards: [
-				{ id: "207AC7B18C7B53B4", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+				{ id: "207AC7B18C7B53B4", type: "item", item: { count: 2, id: "lightmanscurrency:coin_copper" } }
 			]
 		}
 		{

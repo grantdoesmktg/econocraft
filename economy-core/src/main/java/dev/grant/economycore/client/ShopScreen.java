@@ -293,19 +293,40 @@ public class ShopScreen extends Screen {
 
         int y = py + 60;
         if (e.tier() > ClientShopCache.tier) {
-            g.drawWordWrap(font, Component.translatable("gui.economy_core.shop_tier", e.tier(), tierName(e.tier())), px, y, 94, SOFT_RED);
+            // Locked: still show what it costs and what it's worth, so you know what you're saving for.
+            g.drawString(font, Component.translatable("gui.economy_core.shop_price", fmt(e.price() * lots)), px, y, SOFT, false);
+            g.drawWordWrap(font, Component.translatable("gui.economy_core.shop_tier", e.tier(), tierName(e.tier())), px, y + 11, 94, SOFT_RED);
         } else {
             long cost = e.price() * lots;
             g.drawString(font, Component.translatable("gui.economy_core.shop_price", fmt(cost)), px, y,
                     ClientShopCache.balance >= cost ? SOFT_GREEN : SOFT_RED, false);
-            if (e.buyback() > 0) {
-                g.drawString(font, Component.translatable("gui.economy_core.shop_buyback", fmt(e.buyback())), px, y + 11, CREAM, false);
-            } else {
-                g.drawString(font, Component.translatable("gui.economy_core.shop_no_buyback"), px, y + 11, SOFT, false);
-            }
+            Component worth = worthLine(e);
+            if (worth != null) g.drawString(font, worth, px, y + 11, CREAM, false);
         }
+
         // Quantity readout between the - and + buttons.
         g.drawCenteredString(font, "x" + lots + (e.count() > 1 ? " (" + e.count() * lots + ")" : ""), left + PANEL_X + 54, top + 142, 0xFFFFFF);
+    }
+
+    /** What you get back: the stamped sell-back for machines, else the Market Crate price if it sells there. */
+    private static Component worthLine(ShopSyncPayload.Entry e) {
+        if (e.buyback() > 0) return Component.translatable("gui.economy_core.shop_buyback", fmt(e.buyback()));
+        var market = ClientPriceCache.get(e.itemId());
+        if (market == null) return null;
+        double p = market.fair();
+        String s = p == Math.rint(p) ? fmt((long) p) : String.format("%.2f", p).replaceAll("0+$", "").replaceAll("\\.$", "");
+        return Component.translatable("gui.economy_core.shop_market_value", s);
+    }
+
+    /** E (or whatever opens your inventory) closes the shop too, unless you're typing in the search box. */
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if ((search == null || !search.isFocused()) && minecraft != null
+                && minecraft.options.keyInventory.matches(keyCode, scanCode)) {
+            onClose();
+            return true;
+        }
+        return super.keyPressed(keyCode, scanCode, modifiers);
     }
 
     private static Component tierName(int t) {
@@ -333,12 +354,12 @@ public class ShopScreen extends Screen {
         ShopSyncPayload.Entry e = ClientShopCache.entries.get(visible.get(cell));
         List<Component> lines = new ArrayList<>();
         lines.add(stackOf(e).getHoverName());
-        if (e.tier() > ClientShopCache.tier) {
-            lines.add(Component.translatable("gui.economy_core.shop_tier", e.tier(), tierName(e.tier())).withStyle(ChatFormatting.RED));
-        } else {
-            lines.add(Component.translatable("gui.economy_core.shop_price", fmt(e.price())).withStyle(ChatFormatting.GOLD));
-            if (e.buyback() > 0) lines.add(Component.translatable("gui.economy_core.shop_buyback", fmt(e.buyback())).withStyle(ChatFormatting.GRAY));
-        }
+        boolean locked = e.tier() > ClientShopCache.tier;
+        lines.add(Component.translatable("gui.economy_core.shop_price", fmt(e.price())).withStyle(locked ? ChatFormatting.GRAY : ChatFormatting.GOLD));
+        Component worth = worthLine(e);
+        if (worth != null) lines.add(worth.copy().withStyle(ChatFormatting.GRAY));
+        if (locked) lines.add(Component.translatable("gui.economy_core.shop_tier", e.tier(), tierName(e.tier())).withStyle(ChatFormatting.RED));
+        if (!e.note().isEmpty()) lines.add(Component.literal(e.note()).withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));
         if (searching()) lines.add(Component.translatable("gui.economy_core.shop_from_shelf", e.tier(), tierName(e.tier())).withStyle(ChatFormatting.DARK_GRAY));
         g.renderComponentTooltip(font, lines, mx, my);
     }

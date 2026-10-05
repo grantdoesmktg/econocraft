@@ -9,6 +9,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ScreenEvent;
@@ -28,7 +29,8 @@ public final class ClientGameEvents {
      * Every sellable item shows what the Market Crate pays for it, wherever you hover it.
      * Shop-bought machines show their sell-back value instead. The Market screen has its own, longer lines.
      */
-    @SubscribeEvent
+    // LOWEST so the price is added after ProgressiveStages rewrites a locked item's tooltip.
+    @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onTooltip(ItemTooltipEvent event) {
         ItemStack stack = event.getItemStack();
         if (stack.isEmpty()) return;

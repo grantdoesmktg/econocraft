@@ -15,11 +15,11 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | Tier | Rusher | Typical | Explorer | Target |
 |---|---|---|---|---|
 | 1 Tinkerer | 0.7 h | 1.2 h | 1.9 h | 1-2 h |
-| 2 Engineer | 2.8 h | 4.4 h | 6.4 h | 3-5 h |
-| 3 Pioneer | 6.7 h | 9.7 h | 12.9 h | 6-10 h |
-| 4 Cultivator | 10.2 h | 14.2 h | 18.0 h | 10-15 h |
-| 5 Industrialist | 18.4 h | 24.5 h | 29.4 h | 15-20 h |
-| 6 Tycoon | 23.8 h | 30.8 h | 36.2 h | 20-30 h |
+| 2 Engineer | 3.4 h | 5.2 h | 7.2 h | 3-5 h |
+| 3 Pioneer | 6.9 h | 9.7 h | 12.5 h | 6-10 h |
+| 4 Cultivator | 10.1 h | 13.8 h | 17.1 h | 10-15 h |
+| 5 Industrialist | 18.0 h | 23.6 h | 28.0 h | 15-20 h |
+| 6 Tycoon | 23.3 h | 29.9 h | 34.8 h | 20-30 h |
 
 ## Rusher
 
@@ -30,17 +30,17 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | 0 | farm crops by hand | 27 |
 | 0 | setting up machines | 16 |
 | 1 | farm crops by hand | 1 |
-| 1 | setting up machines | 28 |
-| 1 | sieve by hand | 96 |
+| 1 | setting up machines | 52 |
+| 1 | sieve by hand | 108 |
 | 2 | setting up machines | 52 |
-| 2 | sieve by hand | 182 |
-| 3 | mine the Frontier | 188 |
+| 2 | sieve by hand | 156 |
+| 3 | mine the Frontier | 171 |
 | 3 | setting up machines | 4 |
 | 3 | travel: opening a new area | 20 |
-| 4 | raid the Nether | 419 |
+| 4 | raid the Nether | 402 |
 | 4 | setting up machines | 32 |
 | 4 | travel: opening a new area | 40 |
-| 5 | hunt Twilight bosses | 236 |
+| 5 | hunt Twilight bosses | 234 |
 | 5 | setting up machines | 24 |
 | 5 | travel: opening a new area | 60 |
 | 6 | hunt Twilight bosses | 58 |
@@ -51,12 +51,12 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | Tier | Earned in tier | Setups |
 |---|---|---|
 | 0 | 4,048 | farm crops by hand 75%; cobble generator 25% |
-| 1 | 20,144 | sieve by hand 70%; cobble generator 19%; botany pot (potatoes) 11% |
-| 2 | 103,047 | sieve by hand 31%; Cyclic fuel generator 26%; mob farm 17%; precision mechanisms 8%; brass mixing 7%; cobble generator 7% |
-| 3 | 223,167 | mine the Frontier 43%; Cyclic fuel generator 17%; precision mechanisms 16%; mob farm 13%; iron golem farm 7%; cobble generator 3% |
-| 4 | 700,889 | raid the Nether 39%; auto-sieve 25%; Cyclic fuel generator 10%; mob farm 9%; Create windmill + alternator 8%; iron golem farm 6% |
-| 5 | 1,749,061 | Extreme Reactors reactor + turbine 38%; HNN twilight chamber 26%; hunt Twilight bosses 23%; auto-sieve 6%; mob farm 2% |
-| 6 | 543,233 | Reinforced reactor + turbine 45%; hunt Twilight bosses 18%; HNN twilight chamber 16%; Extreme Reactors reactor + turbine 14%; auto-sieve 4% |
+| 1 | 28,131 | sieve by hand 53%; fishermen's trap 19%; cobble generator 17%; botany pot (potatoes) 10% |
+| 2 | 103,282 | sieve by hand 26%; Cyclic fuel generator 26%; mob farm 13%; fishermen's trap 12%; precision mechanisms 7%; brass mixing 6% |
+| 3 | 215,002 | mine the Frontier 40%; Cyclic fuel generator 16%; precision mechanisms 15%; mob farm 13%; iron golem farm 6%; fishermen's trap 5% |
+| 4 | 700,449 | raid the Nether 38%; auto-sieve 24%; Cyclic fuel generator 10%; mob farm 9%; Create windmill + alternator 8%; iron golem farm 6% |
+| 5 | 1,754,807 | Extreme Reactors reactor + turbine 38%; HNN twilight chamber 26%; hunt Twilight bosses 23%; auto-sieve 6%; mob farm 2% |
+| 6 | 546,631 | Reinforced reactor + turbine 44%; hunt Twilight bosses 18%; HNN twilight chamber 16%; Extreme Reactors reactor + turbine 14%; auto-sieve 4% |
 
 ### Where the money came from (top 5 goods per tier)
 
@@ -67,32 +67,32 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | 0 | Sugar Cane | 577 | 14% |
 | 0 | Potato | 577 | 14% |
 | 0 | Carrot | 577 | 14% |
-| 1 | Iron Ingot | 4,671 | 23% |
-| 1 | Cobblestone | 3,750 | 19% |
-| 1 | Gold Ingot | 3,061 | 15% |
-| 1 | Lapis Lazuli | 2,799 | 14% |
-| 1 | Potato | 2,204 | 11% |
-| 2 | Power Exchange | 26,528 | 26% |
-| 2 | Iron Ingot | 11,902 | 12% |
-| 2 | Precision Mechanism | 8,061 | 8% |
-| 2 | Brass Ingot | 7,232 | 7% |
-| 2 | Cobblestone | 7,020 | 7% |
-| 3 | Diamond | 49,898 | 22% |
-| 3 | Iron Ingot | 44,858 | 20% |
-| 3 | Power Exchange | 38,035 | 17% |
-| 3 | Precision Mechanism | 35,205 | 16% |
-| 3 | Ender Pearl | 9,513 | 4% |
-| 4 | Nether Star | 137,836 | 20% |
-| 4 | Power Exchange | 126,648 | 18% |
-| 4 | Iron Ingot | 97,010 | 14% |
-| 4 | Netherite Scrap | 83,587 | 12% |
-| 4 | Gold Ingot | 51,088 | 7% |
-| 5 | Power Exchange | 692,547 | 40% |
-| 5 | Twilight Prediction | 456,135 | 26% |
-| 5 | Snow Queen Trophy | 78,130 | 4% |
-| 5 | Ur-Ghast Trophy | 65,108 | 4% |
-| 5 | Iron Ingot | 62,614 | 4% |
-| 6 | Power Exchange | 318,812 | 59% |
+| 1 | Cobblestone | 4,830 | 17% |
+| 1 | Iron Ingot | 4,793 | 17% |
+| 1 | Lapis Lazuli | 3,147 | 11% |
+| 1 | Gold Ingot | 3,135 | 11% |
+| 1 | Potato | 2,942 | 10% |
+| 2 | Power Exchange | 26,546 | 26% |
+| 2 | Iron Ingot | 10,201 | 10% |
+| 2 | Precision Mechanism | 7,418 | 7% |
+| 2 | Brass Ingot | 6,567 | 6% |
+| 2 | Cobblestone | 6,240 | 6% |
+| 3 | Diamond | 45,395 | 21% |
+| 3 | Iron Ingot | 40,875 | 19% |
+| 3 | Power Exchange | 34,985 | 16% |
+| 3 | Precision Mechanism | 32,023 | 15% |
+| 3 | Ender Pearl | 8,750 | 4% |
+| 4 | Nether Star | 132,244 | 19% |
+| 4 | Power Exchange | 122,261 | 17% |
+| 4 | Iron Ingot | 93,264 | 13% |
+| 4 | Netherite Scrap | 80,197 | 11% |
+| 4 | Gold Ingot | 48,938 | 7% |
+| 5 | Power Exchange | 688,183 | 39% |
+| 5 | Twilight Prediction | 453,265 | 26% |
+| 5 | Snow Queen Trophy | 77,468 | 4% |
+| 5 | Ur-Ghast Trophy | 64,557 | 4% |
+| 5 | Iron Ingot | 62,223 | 4% |
+| 6 | Power Exchange | 318,812 | 58% |
 | 6 | Twilight Prediction | 87,519 | 16% |
 | 6 | Snow Queen Trophy | 19,196 | 4% |
 | 6 | Ur-Ghast Trophy | 15,997 | 3% |
@@ -110,36 +110,39 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 - 0h46: Bought botany pot (potatoes) #1 (612, pays back in 173 min)
 - 0h53: Bought botany pot (potatoes) #2 (612, pays back in 162 min)
 - 1h06: Bought botany pot (potatoes) #4 (612, pays back in 169 min)
-- 1h58: Bought Create crushing wheels (ore x1.75) (6,200)
-- 2h48: **Tier 2 (Engineer)** reached; paid 10,000 gate fee
-- 3h04: Bought diamond mesh (4,000)
-- 3h23: Bought mob farm #1 (4,800, pays back in 112 min)
-- 3h43: Bought the Power Exchange (5,000)
-- 3h56: Bought Cyclic fuel generator #1 (3,000, pays back in 49 min)
-- 4h07: Bought Cyclic fuel generator #2 (3,000, pays back in 95 min)
-- 4h27: Bought Cyclic fuel generator #4 (3,000, pays back in 135 min)
-- 4h56: Bought mob farm #2 (4,800, pays back in 121 min)
-- 5h17: Bought mob farm #4 (4,800, pays back in 134 min)
-- 5h29: Bought brass mixing #1 (6,100, pays back in 20 min)
-- 5h48: Bought precision mechanisms #1 (10,800, pays back in 35 min)
-- 6h42: **Tier 3 (Pioneer)** reached; paid 40,000 gate fee
-- 6h42: scouting the Frontier (20 min)
-- 7h09: Bought iron golem farm #1 (15,000, pays back in 172 min)
-- 10h14: **Tier 4 (Cultivator)** reached; paid 80,000 gate fee
-- 10h14: Nether portal and finding a fortress (40 min)
-- 10h15: Bought Mekanism enrichment (ore x2) (70,000)
-- 10h15: Bought Create windmill + alternator #1 (13,000, pays back in 165 min)
-- 10h16: Bought auto-sieve #1 (10,450, pays back in 171 min)
-- 10h17: Bought auto-sieve #2 (10,450, pays back in 171 min)
-- 10h19: Bought auto-sieve #4 (10,450, pays back in 171 min)
-- 18h25: **Tier 5 (Industrialist)** reached; paid 150,000 gate fee
-- 18h25: Twilight portal, stronghold and the Ender Dragon (60 min)
-- 18h26: Bought HNN twilight chamber #1 (55,000, pays back in 122 min)
-- 18h27: Bought HNN twilight chamber #2 (55,000, pays back in 126 min)
-- 18h28: Bought Extreme Reactors reactor + turbine #1 (250,000, pays back in 130 min)
-- 18h30: Bought HNN twilight chamber #4 (55,000, pays back in 148 min)
-- 23h45: **Tier 6 (Tycoon)** reached; paid 300,000 gate fee
-- 23h46: Bought Reinforced reactor + turbine #1 (400,000, pays back in 133 min)
+- 1h30: Bought fishermen's trap #1 (1,400, pays back in 130 min)
+- 1h41: Bought fishermen's trap #2 (1,400, pays back in 132 min)
+- 2h00: Bought fishermen's trap #4 (1,400, pays back in 138 min)
+- 2h46: Bought Create crushing wheels (ore x1.75) (6,200)
+- 3h24: **Tier 2 (Engineer)** reached; paid 10,000 gate fee
+- 3h38: Bought diamond mesh (4,000)
+- 3h54: Bought the Power Exchange (5,000)
+- 4h07: Bought Cyclic fuel generator #1 (3,000, pays back in 49 min)
+- 4h17: Bought Cyclic fuel generator #2 (3,000, pays back in 95 min)
+- 4h36: Bought Cyclic fuel generator #4 (3,000, pays back in 135 min)
+- 5h04: Bought mob farm #1 (4,800, pays back in 112 min)
+- 5h15: Bought mob farm #2 (4,800, pays back in 121 min)
+- 5h34: Bought mob farm #4 (4,800, pays back in 134 min)
+- 5h45: Bought brass mixing #1 (6,100, pays back in 20 min)
+- 6h02: Bought precision mechanisms #1 (10,800, pays back in 35 min)
+- 6h52: **Tier 3 (Pioneer)** reached; paid 40,000 gate fee
+- 6h52: scouting the Frontier (20 min)
+- 7h18: Bought iron golem farm #1 (15,000, pays back in 171 min)
+- 10h07: **Tier 4 (Cultivator)** reached; paid 80,000 gate fee
+- 10h07: Nether portal and finding a fortress (40 min)
+- 10h08: Bought Mekanism enrichment (ore x2) (70,000)
+- 10h08: Bought Create windmill + alternator #1 (13,000, pays back in 165 min)
+- 10h09: Bought auto-sieve #1 (10,450, pays back in 171 min)
+- 10h10: Bought auto-sieve #2 (10,450, pays back in 171 min)
+- 10h14: Bought auto-sieve #4 (10,450, pays back in 171 min)
+- 18h01: **Tier 5 (Industrialist)** reached; paid 150,000 gate fee
+- 18h01: Twilight portal, stronghold and the Ender Dragon (60 min)
+- 18h02: Bought HNN twilight chamber #1 (55,000, pays back in 122 min)
+- 18h03: Bought HNN twilight chamber #2 (55,000, pays back in 126 min)
+- 18h04: Bought Extreme Reactors reactor + turbine #1 (250,000, pays back in 130 min)
+- 18h06: Bought HNN twilight chamber #4 (55,000, pays back in 148 min)
+- 23h19: **Tier 6 (Tycoon)** reached; paid 300,000 gate fee
+- 23h20: Bought Reinforced reactor + turbine #1 (400,000, pays back in 133 min)
 
 ## Typical
 
@@ -150,23 +153,23 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | 0 | exploring and building (no income) | 14 |
 | 0 | farm crops by hand | 28 |
 | 0 | setting up machines | 32 |
-| 1 | exploring and building (no income) | 38 |
+| 1 | exploring and building (no income) | 48 |
 | 1 | farm crops by hand | 1 |
-| 1 | setting up machines | 56 |
-| 1 | sieve by hand | 96 |
-| 2 | exploring and building (no income) | 64 |
+| 1 | setting up machines | 104 |
+| 1 | sieve by hand | 86 |
+| 2 | exploring and building (no income) | 54 |
 | 2 | setting up machines | 104 |
-| 2 | sieve by hand | 149 |
-| 3 | exploring and building (no income) | 54 |
-| 3 | mine the Frontier | 163 |
+| 2 | sieve by hand | 111 |
+| 3 | exploring and building (no income) | 49 |
+| 3 | mine the Frontier | 143 |
 | 3 | setting up machines | 24 |
 | 3 | travel: opening a new area | 30 |
-| 4 | exploring and building (no income) | 123 |
-| 4 | raid the Nether | 385 |
+| 4 | exploring and building (no income) | 118 |
+| 4 | raid the Nether | 364 |
 | 4 | setting up machines | 48 |
 | 4 | travel: opening a new area | 60 |
-| 5 | exploring and building (no income) | 76 |
-| 5 | hunt Twilight bosses | 165 |
+| 5 | exploring and building (no income) | 75 |
+| 5 | hunt Twilight bosses | 162 |
 | 5 | setting up machines | 48 |
 | 5 | travel: opening a new area | 90 |
 | 6 | exploring and building (no income) | 12 |
@@ -178,12 +181,12 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | Tier | Earned in tier | Setups |
 |---|---|---|
 | 0 | 4,075 | farm crops by hand 59%; cobble generator 41% |
-| 1 | 19,991 | sieve by hand 55%; cobble generator 29%; botany pot (potatoes) 16% |
-| 2 | 103,247 | mob farm 31%; Cyclic fuel generator 24%; sieve by hand 19%; cobble generator 9%; botany pot (potatoes) 6%; precision mechanisms 6% |
-| 3 | 223,518 | mine the Frontier 26%; Cyclic fuel generator 22%; mob farm 17%; auto-sieve 12%; precision mechanisms 10%; iron golem farm 8% |
-| 4 | 700,202 | auto-sieve 31%; raid the Nether 23%; Cyclic fuel generator 12%; mob farm 12%; Create windmill + alternator 10%; iron golem farm 7% |
-| 5 | 1,749,170 | Extreme Reactors reactor + turbine 46%; HNN twilight chamber 31%; hunt Twilight bosses 9%; auto-sieve 8%; mob farm 3% |
-| 6 | 483,450 | Reinforced reactor + turbine 50%; HNN twilight chamber 18%; Extreme Reactors reactor + turbine 15%; hunt Twilight bosses 8%; auto-sieve 4% |
+| 1 | 28,167 | sieve by hand 33%; fishermen's trap 26%; cobble generator 25%; botany pot (potatoes) 15% |
+| 2 | 103,588 | mob farm 27%; Cyclic fuel generator 22%; fishermen's trap 15%; sieve by hand 14%; cobble generator 8%; botany pot (potatoes) 5% |
+| 3 | 214,486 | mine the Frontier 24%; Cyclic fuel generator 21%; mob farm 16%; auto-sieve 11%; precision mechanisms 9%; iron golem farm 7% |
+| 4 | 700,503 | auto-sieve 29%; raid the Nether 22%; Cyclic fuel generator 12%; mob farm 11%; Create windmill + alternator 10%; iron golem farm 7% |
+| 5 | 1,750,214 | Extreme Reactors reactor + turbine 45%; HNN twilight chamber 31%; hunt Twilight bosses 9%; auto-sieve 7%; mob farm 3% |
+| 6 | 486,848 | Reinforced reactor + turbine 50%; HNN twilight chamber 18%; Extreme Reactors reactor + turbine 15%; hunt Twilight bosses 8%; auto-sieve 4% |
 
 ### Where the money came from (top 5 goods per tier)
 
@@ -194,32 +197,32 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | 0 | Sugar Cane | 461 | 11% |
 | 0 | Potato | 461 | 11% |
 | 0 | Carrot | 461 | 11% |
-| 1 | Cobblestone | 5,730 | 29% |
-| 1 | Iron Ingot | 3,631 | 18% |
-| 1 | Potato | 3,281 | 16% |
-| 1 | Gold Ingot | 2,370 | 12% |
-| 1 | Lapis Lazuli | 2,155 | 11% |
-| 2 | Power Exchange | 24,936 | 24% |
-| 2 | Ender Pearl | 10,316 | 10% |
-| 2 | Cobblestone | 9,510 | 9% |
-| 2 | Iron Ingot | 7,383 | 7% |
-| 2 | Potato | 6,334 | 6% |
-| 3 | Power Exchange | 48,620 | 22% |
-| 3 | Iron Ingot | 43,601 | 20% |
-| 3 | Diamond | 31,002 | 14% |
-| 3 | Precision Mechanism | 21,819 | 10% |
-| 3 | Ender Pearl | 12,159 | 5% |
-| 4 | Power Exchange | 158,911 | 23% |
-| 4 | Iron Ingot | 122,113 | 17% |
-| 4 | Nether Star | 81,528 | 12% |
-| 4 | Gold Ingot | 64,486 | 9% |
-| 4 | Netherite Scrap | 49,692 | 7% |
-| 5 | Power Exchange | 821,300 | 47% |
-| 5 | Twilight Prediction | 540,813 | 31% |
-| 5 | Iron Ingot | 74,156 | 4% |
-| 5 | Gold Ingot | 39,672 | 2% |
-| 5 | Snow Queen Trophy | 30,213 | 2% |
-| 6 | Power Exchange | 318,812 | 66% |
+| 1 | Cobblestone | 7,170 | 25% |
+| 1 | Potato | 4,265 | 15% |
+| 1 | Iron Ingot | 3,022 | 11% |
+| 1 | Raw Cod | 2,903 | 10% |
+| 1 | Raw Salmon | 2,061 | 7% |
+| 2 | Power Exchange | 22,705 | 22% |
+| 2 | Ender Pearl | 9,062 | 9% |
+| 2 | Cobblestone | 8,070 | 8% |
+| 2 | Raw Cod | 6,066 | 6% |
+| 2 | Iron Ingot | 5,501 | 5% |
+| 3 | Power Exchange | 44,134 | 21% |
+| 3 | Iron Ingot | 38,929 | 18% |
+| 3 | Diamond | 27,205 | 13% |
+| 3 | Precision Mechanism | 19,142 | 9% |
+| 3 | Ender Pearl | 11,038 | 5% |
+| 4 | Power Exchange | 152,200 | 22% |
+| 4 | Iron Ingot | 116,539 | 17% |
+| 4 | Nether Star | 77,082 | 11% |
+| 4 | Gold Ingot | 61,350 | 9% |
+| 4 | Netherite Scrap | 46,982 | 7% |
+| 5 | Power Exchange | 812,571 | 46% |
+| 5 | Twilight Prediction | 535,072 | 31% |
+| 5 | Iron Ingot | 73,373 | 4% |
+| 5 | Gold Ingot | 39,253 | 2% |
+| 5 | Snow Queen Trophy | 29,664 | 2% |
+| 6 | Power Exchange | 318,812 | 65% |
 | 6 | Twilight Prediction | 87,519 | 18% |
 | 6 | Iron Ingot | 11,941 | 2% |
 | 6 | Snow Queen Trophy | 7,689 | 2% |
@@ -237,36 +240,39 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 - 1h18: Bought botany pot (potatoes) #1 (612, pays back in 169 min)
 - 1h30: Bought botany pot (potatoes) #2 (612, pays back in 160 min)
 - 1h54: Bought botany pot (potatoes) #4 (612, pays back in 169 min)
-- 3h12: Bought Create crushing wheels (ore x1.75) (6,200)
-- 4h25: **Tier 2 (Engineer)** reached; paid 10,000 gate fee
-- 4h49: Bought diamond mesh (4,000)
-- 5h17: Bought mob farm #1 (4,800, pays back in 112 min)
-- 5h45: Bought mob farm #2 (4,800, pays back in 121 min)
-- 6h31: Bought mob farm #4 (4,800, pays back in 135 min)
-- 6h51: Bought the Power Exchange (5,000)
-- 7h04: Bought Cyclic fuel generator #1 (3,000, pays back in 49 min)
-- 7h16: Bought Cyclic fuel generator #2 (3,000, pays back in 95 min)
-- 7h36: Bought Cyclic fuel generator #4 (3,000, pays back in 135 min)
-- 8h09: Bought brass mixing #1 (6,100, pays back in 20 min)
-- 8h32: Bought precision mechanisms #1 (10,800, pays back in 36 min)
+- 2h34: Bought fishermen's trap #1 (1,400, pays back in 130 min)
+- 2h49: Bought fishermen's trap #2 (1,400, pays back in 133 min)
+- 3h18: Bought fishermen's trap #4 (1,400, pays back in 138 min)
+- 4h21: Bought Create crushing wheels (ore x1.75) (6,200)
+- 5h13: **Tier 2 (Engineer)** reached; paid 10,000 gate fee
+- 5h31: Bought diamond mesh (4,000)
+- 5h52: Bought mob farm #1 (4,800, pays back in 112 min)
+- 6h14: Bought mob farm #2 (4,800, pays back in 121 min)
+- 6h52: Bought mob farm #4 (4,800, pays back in 135 min)
+- 7h09: Bought the Power Exchange (5,000)
+- 7h20: Bought Cyclic fuel generator #1 (3,000, pays back in 49 min)
+- 7h29: Bought Cyclic fuel generator #2 (3,000, pays back in 95 min)
+- 7h46: Bought Cyclic fuel generator #4 (3,000, pays back in 135 min)
+- 8h16: Bought brass mixing #1 (6,100, pays back in 20 min)
+- 8h38: Bought precision mechanisms #1 (10,800, pays back in 36 min)
 - 9h42: **Tier 3 (Pioneer)** reached; paid 40,000 gate fee
 - 9h42: scouting the Frontier (30 min)
-- 10h09: Bought auto-sieve #1 (10,450, pays back in 176 min)
-- 10h32: Bought auto-sieve #2 (10,450, pays back in 177 min)
-- 10h53: Bought iron golem farm #1 (15,000, pays back in 170 min)
-- 14h13: **Tier 4 (Cultivator)** reached; paid 80,000 gate fee
-- 14h13: Nether portal and finding a fortress (60 min)
-- 14h14: Bought Mekanism enrichment (ore x2) (70,000)
-- 14h14: Bought Create windmill + alternator #1 (13,000, pays back in 165 min)
-- 14h16: Bought auto-sieve #4 (10,450, pays back in 172 min)
-- 24h29: **Tier 5 (Industrialist)** reached; paid 150,000 gate fee
-- 24h29: Twilight portal, stronghold and the Ender Dragon (90 min)
-- 24h30: Bought HNN twilight chamber #1 (55,000, pays back in 122 min)
-- 24h31: Bought HNN twilight chamber #2 (55,000, pays back in 126 min)
-- 24h32: Bought Extreme Reactors reactor + turbine #1 (250,000, pays back in 130 min)
-- 24h34: Bought HNN twilight chamber #4 (55,000, pays back in 148 min)
-- 30h48: **Tier 6 (Tycoon)** reached; paid 300,000 gate fee
-- 30h49: Bought Reinforced reactor + turbine #1 (400,000, pays back in 133 min)
+- 10h05: Bought auto-sieve #1 (10,450, pays back in 176 min)
+- 10h27: Bought auto-sieve #2 (10,450, pays back in 173 min)
+- 10h48: Bought iron golem farm #1 (15,000, pays back in 169 min)
+- 13h48: **Tier 4 (Cultivator)** reached; paid 80,000 gate fee
+- 13h48: Nether portal and finding a fortress (60 min)
+- 13h49: Bought Mekanism enrichment (ore x2) (70,000)
+- 13h49: Bought Create windmill + alternator #1 (13,000, pays back in 165 min)
+- 13h55: Bought auto-sieve #4 (10,450, pays back in 172 min)
+- 23h38: **Tier 5 (Industrialist)** reached; paid 150,000 gate fee
+- 23h38: Twilight portal, stronghold and the Ender Dragon (90 min)
+- 23h39: Bought HNN twilight chamber #1 (55,000, pays back in 122 min)
+- 23h40: Bought HNN twilight chamber #2 (55,000, pays back in 126 min)
+- 23h41: Bought Extreme Reactors reactor + turbine #1 (250,000, pays back in 130 min)
+- 23h43: Bought HNN twilight chamber #4 (55,000, pays back in 148 min)
+- 29h53: **Tier 6 (Tycoon)** reached; paid 300,000 gate fee
+- 29h54: Bought Reinforced reactor + turbine #1 (400,000, pays back in 133 min)
 
 ## Explorer
 
@@ -277,24 +283,24 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | 0 | exploring and building (no income) | 46 |
 | 0 | farm crops by hand | 21 |
 | 0 | setting up machines | 48 |
-| 1 | exploring and building (no income) | 107 |
+| 1 | exploring and building (no income) | 126 |
 | 1 | farm crops by hand | 1 |
-| 1 | setting up machines | 84 |
-| 1 | sieve by hand | 77 |
-| 2 | exploring and building (no income) | 156 |
+| 1 | setting up machines | 156 |
+| 1 | sieve by hand | 34 |
+| 2 | exploring and building (no income) | 128 |
 | 2 | setting up machines | 156 |
-| 2 | sieve by hand | 78 |
-| 3 | exploring and building (no income) | 122 |
-| 3 | mine the Frontier | 84 |
+| 2 | sieve by hand | 36 |
+| 3 | exploring and building (no income) | 111 |
+| 3 | mine the Frontier | 66 |
 | 3 | setting up machines | 60 |
 | 3 | travel: opening a new area | 40 |
-| 4 | exploring and building (no income) | 274 |
-| 4 | mine the Frontier | 137 |
-| 4 | raid the Nether | 145 |
+| 4 | exploring and building (no income) | 261 |
+| 4 | mine the Frontier | 128 |
+| 4 | raid the Nether | 136 |
 | 4 | setting up machines | 48 |
 | 4 | travel: opening a new area | 80 |
-| 5 | exploring and building (no income) | 163 |
-| 5 | hunt Twilight bosses | 53 |
+| 5 | exploring and building (no income) | 161 |
+| 5 | hunt Twilight bosses | 50 |
 | 5 | setting up machines | 72 |
 | 5 | travel: opening a new area | 120 |
 | 6 | exploring and building (no income) | 25 |
@@ -306,12 +312,12 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | Tier | Earned in tier | Setups |
 |---|---|---|
 | 0 | 4,004 | cobble generator 63%; farm crops by hand 37% |
-| 1 | 20,103 | cobble generator 40%; sieve by hand 36%; botany pot (potatoes) 23% |
-| 2 | 102,511 | mob farm 37%; Cyclic fuel generator 29%; cobble generator 11%; sieve by hand 9%; botany pot (potatoes) 8%; auto-sieve 5% |
-| 3 | 224,359 | Cyclic fuel generator 24%; auto-sieve 22%; mob farm 19%; iron golem farm 15%; mine the Frontier 10%; precision mechanisms 4% |
-| 4 | 699,250 | auto-sieve 28%; iron golem farm 15%; Cyclic fuel generator 14%; mob farm 13%; Create windmill + alternator 11%; raid the Nether 6% |
-| 5 | 1,753,184 | Extreme Reactors reactor + turbine 49%; HNN twilight chamber 33%; auto-sieve 7%; iron golem farm 4%; mob farm 3% |
-| 6 | 459,528 | Reinforced reactor + turbine 53%; HNN twilight chamber 19%; Extreme Reactors reactor + turbine 16%; auto-sieve 4%; hunt Twilight bosses 3%; iron golem farm 2% |
+| 1 | 28,153 | fishermen's trap 34%; cobble generator 34%; botany pot (potatoes) 20%; sieve by hand 12% |
+| 2 | 102,625 | Cyclic fuel generator 38%; mob farm 19%; fishermen's trap 18%; cobble generator 9%; botany pot (potatoes) 6%; auto-sieve 5% |
+| 3 | 215,342 | Cyclic fuel generator 23%; auto-sieve 20%; mob farm 18%; iron golem farm 14%; mine the Frontier 8%; fishermen's trap 7% |
+| 4 | 700,114 | auto-sieve 27%; iron golem farm 15%; Cyclic fuel generator 13%; mob farm 13%; Create windmill + alternator 10%; raid the Nether 6% |
+| 5 | 1,752,519 | Extreme Reactors reactor + turbine 48%; HNN twilight chamber 33%; auto-sieve 7%; iron golem farm 4%; mob farm 3% |
+| 6 | 462,926 | Reinforced reactor + turbine 52%; HNN twilight chamber 19%; Extreme Reactors reactor + turbine 16%; auto-sieve 4%; hunt Twilight bosses 3%; iron golem farm 2% |
 
 ### Where the money came from (top 5 goods per tier)
 
@@ -322,31 +328,31 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | 0 | Sugar Cane | 282 | 7% |
 | 0 | Potato | 282 | 7% |
 | 0 | Carrot | 282 | 7% |
-| 1 | Cobblestone | 8,070 | 40% |
-| 1 | Potato | 4,655 | 23% |
-| 1 | Iron Ingot | 2,472 | 12% |
-| 1 | Gold Ingot | 1,609 | 8% |
-| 1 | Lapis Lazuli | 1,407 | 7% |
-| 2 | Power Exchange | 29,396 | 29% |
-| 2 | Ender Pearl | 12,244 | 12% |
-| 2 | Cobblestone | 11,601 | 11% |
-| 2 | Potato | 7,792 | 8% |
-| 2 | Gunpowder | 7,375 | 7% |
-| 3 | Power Exchange | 54,899 | 24% |
-| 3 | Iron Ingot | 54,862 | 24% |
-| 3 | Ender Pearl | 13,730 | 6% |
-| 3 | Gold Ingot | 13,705 | 6% |
-| 3 | Diamond | 12,187 | 5% |
-| 4 | Iron Ingot | 180,632 | 26% |
-| 4 | Power Exchange | 176,462 | 25% |
-| 4 | Gold Ingot | 60,249 | 9% |
-| 4 | Lapis Lazuli | 36,377 | 5% |
-| 4 | Ender Pearl | 30,386 | 4% |
-| 5 | Power Exchange | 884,585 | 50% |
-| 5 | Twilight Prediction | 582,435 | 33% |
-| 5 | Iron Ingot | 100,615 | 6% |
-| 5 | Gold Ingot | 36,056 | 2% |
-| 5 | Lapis Lazuli | 20,069 | 1% |
+| 1 | Cobblestone | 9,510 | 34% |
+| 1 | Potato | 5,639 | 20% |
+| 1 | Raw Cod | 3,765 | 13% |
+| 1 | Raw Salmon | 2,673 | 9% |
+| 1 | Tropical Fish | 2,053 | 7% |
+| 2 | Power Exchange | 39,066 | 38% |
+| 2 | Cobblestone | 9,510 | 9% |
+| 2 | Raw Cod | 7,216 | 7% |
+| 2 | Potato | 6,394 | 6% |
+| 2 | Ender Pearl | 6,297 | 6% |
+| 3 | Power Exchange | 49,696 | 23% |
+| 3 | Iron Ingot | 48,978 | 23% |
+| 3 | Ender Pearl | 12,429 | 6% |
+| 3 | Gold Ingot | 12,413 | 6% |
+| 3 | Lapis Lazuli | 9,894 | 5% |
+| 4 | Iron Ingot | 172,379 | 25% |
+| 4 | Power Exchange | 165,628 | 24% |
+| 4 | Gold Ingot | 57,643 | 8% |
+| 4 | Lapis Lazuli | 34,745 | 5% |
+| 4 | Ender Pearl | 29,009 | 4% |
+| 5 | Power Exchange | 873,674 | 50% |
+| 5 | Twilight Prediction | 575,259 | 33% |
+| 5 | Iron Ingot | 99,382 | 6% |
+| 5 | Gold Ingot | 35,614 | 2% |
+| 5 | Lapis Lazuli | 19,823 | 1% |
 | 6 | Power Exchange | 318,812 | 69% |
 | 6 | Twilight Prediction | 87,519 | 19% |
 | 6 | Iron Ingot | 15,031 | 3% |
@@ -365,34 +371,37 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 - 2h00: Bought botany pot (potatoes) #1 (612, pays back in 166 min)
 - 2h18: Bought botany pot (potatoes) #2 (612, pays back in 159 min)
 - 2h49: Bought botany pot (potatoes) #4 (612, pays back in 169 min)
-- 4h42: Bought Create crushing wheels (ore x1.75) (6,200)
-- 6h24: **Tier 2 (Engineer)** reached; paid 10,000 gate fee
-- 6h56: Bought diamond mesh (4,000)
-- 7h34: Bought mob farm #1 (4,800, pays back in 112 min)
-- 8h12: Bought mob farm #2 (4,800, pays back in 121 min)
-- 9h11: Bought mob farm #4 (4,800, pays back in 135 min)
-- 9h36: Bought the Power Exchange (5,000)
-- 9h51: Bought Cyclic fuel generator #1 (3,000, pays back in 49 min)
-- 10h03: Bought Cyclic fuel generator #2 (3,000, pays back in 95 min)
-- 10h23: Bought Cyclic fuel generator #4 (3,000, pays back in 135 min)
-- 10h57: Bought brass mixing #1 (6,100, pays back in 20 min)
-- 11h26: Bought auto-sieve #1 (10,450, pays back in 174 min)
-- 12h54: **Tier 3 (Pioneer)** reached; paid 40,000 gate fee
-- 12h54: scouting the Frontier (40 min)
-- 13h18: Bought auto-sieve #2 (10,450, pays back in 172 min)
-- 14h00: Bought precision mechanisms #1 (10,800, pays back in 35 min)
-- 14h27: Bought iron golem farm #1 (15,000, pays back in 160 min)
-- 14h51: Bought iron golem farm #2 (15,000, pays back in 173 min)
-- 18h00: **Tier 4 (Cultivator)** reached; paid 80,000 gate fee
-- 18h00: Nether portal and finding a fortress (80 min)
-- 18h01: Bought Mekanism enrichment (ore x2) (70,000)
-- 18h01: Bought Create windmill + alternator #1 (13,000, pays back in 165 min)
-- 18h14: Bought auto-sieve #4 (10,450, pays back in 176 min)
-- 29h24: **Tier 5 (Industrialist)** reached; paid 150,000 gate fee
-- 29h24: Twilight portal, stronghold and the Ender Dragon (120 min)
-- 29h25: Bought HNN twilight chamber #1 (55,000, pays back in 122 min)
-- 29h26: Bought HNN twilight chamber #2 (55,000, pays back in 126 min)
-- 29h27: Bought Extreme Reactors reactor + turbine #1 (250,000, pays back in 130 min)
-- 29h29: Bought HNN twilight chamber #4 (55,000, pays back in 148 min)
-- 36h12: **Tier 6 (Tycoon)** reached; paid 300,000 gate fee
-- 36h13: Bought Reinforced reactor + turbine #1 (400,000, pays back in 133 min)
+- 3h44: Bought fishermen's trap #1 (1,400, pays back in 130 min)
+- 4h07: Bought fishermen's trap #2 (1,400, pays back in 133 min)
+- 4h44: Bought fishermen's trap #4 (1,400, pays back in 138 min)
+- 6h07: Bought Create crushing wheels (ore x1.75) (6,200)
+- 7h12: **Tier 2 (Engineer)** reached; paid 10,000 gate fee
+- 7h35: Bought diamond mesh (4,000)
+- 8h02: Bought the Power Exchange (5,000)
+- 8h27: Bought Cyclic fuel generator #1 (3,000, pays back in 49 min)
+- 8h45: Bought Cyclic fuel generator #2 (3,000, pays back in 95 min)
+- 9h13: Bought Cyclic fuel generator #4 (3,000, pays back in 135 min)
+- 9h53: Bought mob farm #1 (4,800, pays back in 112 min)
+- 10h08: Bought mob farm #2 (4,800, pays back in 121 min)
+- 10h33: Bought mob farm #4 (4,800, pays back in 134 min)
+- 10h47: Bought brass mixing #1 (6,100, pays back in 20 min)
+- 11h12: Bought auto-sieve #1 (10,450, pays back in 174 min)
+- 12h32: **Tier 3 (Pioneer)** reached; paid 40,000 gate fee
+- 12h32: scouting the Frontier (40 min)
+- 12h54: Bought auto-sieve #2 (10,450, pays back in 172 min)
+- 13h31: Bought precision mechanisms #1 (10,800, pays back in 35 min)
+- 13h56: Bought iron golem farm #1 (15,000, pays back in 160 min)
+- 14h18: Bought iron golem farm #2 (15,000, pays back in 173 min)
+- 17h09: **Tier 4 (Cultivator)** reached; paid 80,000 gate fee
+- 17h09: Nether portal and finding a fortress (80 min)
+- 17h10: Bought Mekanism enrichment (ore x2) (70,000)
+- 17h18: Bought auto-sieve #4 (10,450, pays back in 176 min)
+- 17h46: Bought Create windmill + alternator #1 (13,000, pays back in 165 min)
+- 28h02: **Tier 5 (Industrialist)** reached; paid 150,000 gate fee
+- 28h02: Twilight portal, stronghold and the Ender Dragon (120 min)
+- 28h03: Bought HNN twilight chamber #1 (55,000, pays back in 122 min)
+- 28h04: Bought HNN twilight chamber #2 (55,000, pays back in 126 min)
+- 28h05: Bought Extreme Reactors reactor + turbine #1 (250,000, pays back in 130 min)
+- 28h07: Bought HNN twilight chamber #4 (55,000, pays back in 148 min)
+- 34h45: **Tier 6 (Tycoon)** reached; paid 300,000 gate fee
+- 34h46: Bought Reinforced reactor + turbine #1 (400,000, pays back in 133 min)

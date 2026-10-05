@@ -39,7 +39,7 @@ public final class ShopService {
     public static void sync(ServerPlayer player, boolean open) {
         List<ShopSyncPayload.Entry> list = new ArrayList<>();
         for (ShopCatalog.Entry e : ShopCatalog.entries()) {
-            list.add(new ShopSyncPayload.Entry(e.itemId(), e.count(), e.price(), e.tier(), e.category(), e.buyback()));
+            list.add(new ShopSyncPayload.Entry(e.itemId(), e.count(), e.price(), e.tier(), e.category(), e.buyback(), e.note()));
         }
         long balance = MarketData.get(player.server).accountFor(player.getUUID()).balance;
         int tier = MarketService.getTier(player.server, player.getUUID());

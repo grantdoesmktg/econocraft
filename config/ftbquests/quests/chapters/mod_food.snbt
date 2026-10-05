@@ -20,7 +20,7 @@
 				{ id: "5616E438E8073850", type: "item", item: { count: 1, id: "farmersdelight:cooking_pot" }, count: 1L }
 			]
 			rewards: [
-				{ id: "3D82AA2B6C0D5533", type: "item", item: { count: 2, id: "lightmanscurrency:coin_iron" } }
+				{ id: "3D82AA2B6C0D5533", type: "item", item: { count: 2, id: "lightmanscurrency:coin_copper" } }
 			]
 		}
 		{

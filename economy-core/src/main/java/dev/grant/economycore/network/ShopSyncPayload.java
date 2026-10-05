@@ -14,15 +14,22 @@ public record ShopSyncPayload(long balance, int tier, boolean open, List<Entry> 
     public static final Type<ShopSyncPayload> TYPE =
             new Type<>(ResourceLocation.fromNamespaceAndPath(EconomyCore.MODID, "shop_sync"));
 
-    public record Entry(String itemId, int count, long price, int tier, String category, long buyback) {
-        public static final StreamCodec<ByteBuf, Entry> CODEC = StreamCodec.composite(
-                ByteBufCodecs.STRING_UTF8, Entry::itemId,
-                ByteBufCodecs.VAR_INT, Entry::count,
-                ByteBufCodecs.VAR_LONG, Entry::price,
-                ByteBufCodecs.VAR_INT, Entry::tier,
-                ByteBufCodecs.STRING_UTF8, Entry::category,
-                ByteBufCodecs.VAR_LONG, Entry::buyback,
-                Entry::new);
+    /** note = an optional one-liner shown under the item in the shop (a tagline). */
+    public record Entry(String itemId, int count, long price, int tier, String category, long buyback, String note) {
+        public static final StreamCodec<ByteBuf, Entry> CODEC = StreamCodec.of(
+                (buf, e) -> {
+                    ByteBufCodecs.STRING_UTF8.encode(buf, e.itemId());
+                    ByteBufCodecs.VAR_INT.encode(buf, e.count());
+                    ByteBufCodecs.VAR_LONG.encode(buf, e.price());
+                    ByteBufCodecs.VAR_INT.encode(buf, e.tier());
+                    ByteBufCodecs.STRING_UTF8.encode(buf, e.category());
+                    ByteBufCodecs.VAR_LONG.encode(buf, e.buyback());
+                    ByteBufCodecs.STRING_UTF8.encode(buf, e.note());
+                },
+                buf -> new Entry(ByteBufCodecs.STRING_UTF8.decode(buf), ByteBufCodecs.VAR_INT.decode(buf),
+                        ByteBufCodecs.VAR_LONG.decode(buf), ByteBufCodecs.VAR_INT.decode(buf),
+                        ByteBufCodecs.STRING_UTF8.decode(buf), ByteBufCodecs.VAR_LONG.decode(buf),
+                        ByteBufCodecs.STRING_UTF8.decode(buf)));
     }
 
     public static final StreamCodec<ByteBuf, ShopSyncPayload> CODEC = StreamCodec.composite(

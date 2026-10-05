@@ -27,7 +27,7 @@ SELL_CATEGORIES = {
     'chunks':   (32, 'Ore chunks from Ex Deorum sieves'),
     'crops':    (64, 'Field and Botany Pot crops'),
     'food':     (24, "Cooked food (Farmer's Delight); processing pays"),
-    'fish':     (32, "Fishing and Fishermen's Traps; Aquaculture species after the Frontier"),
+    'fish':     (32, "Fishing and Fishermen's Traps; Aquaculture species after the Frontier. Hand-caught fish pay well"),
     'mob':      (48, 'Mob farms (Mob Grinding Utils) and Hostile Neural Networks'),
     'metals':   (32, 'Smelted and processed metals'),
     'gems':     (16, 'Gems and rare minerals; diamond and emerald are Frontier-only'),
@@ -77,10 +77,10 @@ SELL = [
     ('farmersdelight:beef_stew', 'Beef Stew', 'food', 60, 1, 'Cooking chain'),
     ('farmersdelight:pasta_with_meatballs', 'Pasta with Meatballs', 'food', 80, 1, 'Cooking chain'),
     ('farmersdelight:pasta_with_mutton_chop', 'Pasta with Mutton Chop', 'food', 80, 1, 'Cooking chain'),
-    ('minecraft:cod', 'Raw Cod', 'fish', 6, 0, "Fishing / Fishermen's Trap"),
-    ('minecraft:salmon', 'Raw Salmon', 'fish', 8, 0, "Fishing / Fishermen's Trap"),
-    ('minecraft:tropical_fish', 'Tropical Fish', 'fish', 15, 0, "Fishing / Fishermen's Trap"),
-    ('minecraft:pufferfish', 'Pufferfish', 'fish', 15, 0, "Fishing / Fishermen's Trap"),
+    ('minecraft:cod', 'Raw Cod', 'fish', 9, 0, "Fishing / Fishermen's Trap"),
+    ('minecraft:salmon', 'Raw Salmon', 'fish', 12, 0, "Fishing / Fishermen's Trap"),
+    ('minecraft:tropical_fish', 'Tropical Fish', 'fish', 22, 0, "Fishing / Fishermen's Trap"),
+    ('minecraft:pufferfish', 'Pufferfish', 'fish', 22, 0, "Fishing / Fishermen's Trap"),
     ('create:zinc_ingot', 'Zinc Ingot', 'metals', 40, 1, 'Smelted zinc chunks'),
     ('create:andesite_alloy', 'Andesite Alloy', 'metals', 15, 1, 'Create processing'),
     ('minecraft:quartz', 'Nether Quartz', 'gems', 20, 0, 'Sieving (crushed netherrack)'),
@@ -100,24 +100,24 @@ SELL = [
     # Emerald stays cheap: villagers pay 1 emerald for a few logs' worth of sticks, and villagers can be cured on the island.
     ('minecraft:emerald', 'Emerald', 'gems', 40, 3, 'Frontier mining and trading (removed from sieves)'),
     ('minecraft:diamond', 'Diamond', 'gems', 800, 3, 'Frontier mining (removed from sieves)'),
-    ('aquaculture:atlantic_cod', 'Atlantic Cod', 'fish', 20, 3, 'Aquaculture, Frontier oceans'),
-    ('aquaculture:atlantic_herring', 'Atlantic Herring', 'fish', 20, 3, 'Aquaculture, Frontier oceans'),
-    ('aquaculture:pollock', 'Pollock', 'fish', 20, 3, 'Aquaculture, Frontier oceans'),
-    ('aquaculture:bluegill', 'Bluegill', 'fish', 20, 3, 'Aquaculture, Frontier rivers'),
-    ('aquaculture:perch', 'Perch', 'fish', 25, 3, 'Aquaculture, Frontier rivers'),
-    ('aquaculture:brown_trout', 'Brown Trout', 'fish', 25, 3, 'Aquaculture, Frontier rivers'),
-    ('aquaculture:carp', 'Carp', 'fish', 25, 3, 'Aquaculture, Frontier rivers'),
-    ('aquaculture:smallmouth_bass', 'Smallmouth Bass', 'fish', 30, 3, 'Aquaculture, Frontier rivers'),
-    ('aquaculture:rainbow_trout', 'Rainbow Trout', 'fish', 30, 3, 'Aquaculture, Frontier mountains'),
-    ('aquaculture:catfish', 'Catfish', 'fish', 35, 3, 'Aquaculture, Frontier swamps'),
-    ('aquaculture:gar', 'Gar', 'fish', 35, 3, 'Aquaculture, Frontier swamps'),
-    ('aquaculture:atlantic_halibut', 'Atlantic Halibut', 'fish', 40, 3, 'Aquaculture, Frontier oceans'),
-    ('aquaculture:pacific_halibut', 'Pacific Halibut', 'fish', 40, 3, 'Aquaculture, Frontier oceans'),
-    ('aquaculture:muskellunge', 'Muskellunge', 'fish', 45, 3, 'Aquaculture, Frontier rivers'),
-    ('aquaculture:tuna', 'Tuna', 'fish', 50, 3, 'Aquaculture, Frontier oceans'),
-    ('aquaculture:piranha', 'Piranha', 'fish', 50, 3, 'Aquaculture, Frontier jungles'),
-    ('aquaculture:tambaqui', 'Tambaqui', 'fish', 50, 3, 'Aquaculture, Frontier jungles'),
-    ('aquaculture:arapaima', 'Arapaima', 'fish', 60, 3, 'Aquaculture, Frontier jungles'),
+    ('aquaculture:atlantic_cod', 'Atlantic Cod', 'fish', 30, 3, 'Aquaculture, Frontier oceans'),
+    ('aquaculture:atlantic_herring', 'Atlantic Herring', 'fish', 30, 3, 'Aquaculture, Frontier oceans'),
+    ('aquaculture:pollock', 'Pollock', 'fish', 30, 3, 'Aquaculture, Frontier oceans'),
+    ('aquaculture:bluegill', 'Bluegill', 'fish', 30, 3, 'Aquaculture, Frontier rivers'),
+    ('aquaculture:perch', 'Perch', 'fish', 38, 3, 'Aquaculture, Frontier rivers'),
+    ('aquaculture:brown_trout', 'Brown Trout', 'fish', 38, 3, 'Aquaculture, Frontier rivers'),
+    ('aquaculture:carp', 'Carp', 'fish', 38, 3, 'Aquaculture, Frontier rivers'),
+    ('aquaculture:smallmouth_bass', 'Smallmouth Bass', 'fish', 45, 3, 'Aquaculture, Frontier rivers'),
+    ('aquaculture:rainbow_trout', 'Rainbow Trout', 'fish', 45, 3, 'Aquaculture, Frontier mountains'),
+    ('aquaculture:catfish', 'Catfish', 'fish', 52, 3, 'Aquaculture, Frontier swamps'),
+    ('aquaculture:gar', 'Gar', 'fish', 52, 3, 'Aquaculture, Frontier swamps'),
+    ('aquaculture:atlantic_halibut', 'Atlantic Halibut', 'fish', 60, 3, 'Aquaculture, Frontier oceans'),
+    ('aquaculture:pacific_halibut', 'Pacific Halibut', 'fish', 60, 3, 'Aquaculture, Frontier oceans'),
+    ('aquaculture:muskellunge', 'Muskellunge', 'fish', 68, 3, 'Aquaculture, Frontier rivers'),
+    ('aquaculture:tuna', 'Tuna', 'fish', 75, 3, 'Aquaculture, Frontier oceans'),
+    ('aquaculture:piranha', 'Piranha', 'fish', 75, 3, 'Aquaculture, Frontier jungles'),
+    ('aquaculture:tambaqui', 'Tambaqui', 'fish', 75, 3, 'Aquaculture, Frontier jungles'),
+    ('aquaculture:arapaima', 'Arapaima', 'fish', 90, 3, 'Aquaculture, Frontier jungles'),
     # Frontier goods: things the island can't make, priced to make buying the overworld pay off.
     ('minecraft:cocoa_beans', 'Cocoa Beans', 'frontier', 8, 3, 'Jungle biomes'),
     ('minecraft:honeycomb', 'Honeycomb', 'frontier', 15, 3, 'Bee nests (Cyclic can multiply it, so keep it modest)'),
@@ -302,6 +302,7 @@ SUPPLIES = [
     ('minecraft:pumpkin_seeds', 'Pumpkin Seeds', 10, 0, 'Starting crops'),
     ('minecraft:sugar_cane', 'Sugar Cane (seed)', 12, 0, 'Starting crops'),
     ('exdeorum:string_mesh', 'String Mesh', 40, 0, 'Sieve mesh'),
+    ('constructionstick:netherite_stick', 'Netherite Construction Stick', 100, 0, 'Building helper; buy-only'),
     ('minecraft:bone_meal', 'Bone Meal', 8, 0, 'Growth boost'),
     ('exdeorum:flint_mesh', 'Flint Mesh', 150, 1, 'Better sieve mesh'),
     ('exdeorum:iron_mesh', 'Iron Mesh', 600, 1, 'Better sieve mesh'),
@@ -469,6 +470,12 @@ def check_ids():
     return missing, dupes
 
 
+# One-liners shown in the shop tooltip (the Broker's commentary).
+SHOP_NOTES = {
+    'constructionstick:netherite_stick': 'Wow, netherite, huh? Nobody should be punished for wanting to build stuff.',
+}
+
+
 def build_shop_json():
     """config/economy_core/shop.json for the Supply Market: machines (stamped, sell back) and supplies."""
     import json
@@ -477,7 +484,10 @@ def build_shop_json():
         entries.append({'item': iid, 'count': 1, 'price': price, 'tier': tier, 'category': 'machines',
                         'buyback': round(price * BUYBACK[tier])})
     for iid, name, price, tier, purpose in SUPPLIES:
-        entries.append({'item': iid, 'count': 1, 'price': price, 'tier': tier, 'category': 'supplies', 'buyback': 0})
+        e = {'item': iid, 'count': 1, 'price': price, 'tier': tier, 'category': 'supplies', 'buyback': 0}
+        if iid in SHOP_NOTES:
+            e['note'] = SHOP_NOTES[iid]
+        entries.append(e)
     return json.dumps({'_comment': 'Generated by tools/market_catalog.py; edit that file instead.', 'entries': entries}, indent=2)
 
 

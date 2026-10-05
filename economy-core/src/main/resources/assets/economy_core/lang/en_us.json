@@ -49,7 +49,6 @@
   "gui.economy_core.shop_tier": "Locked until Tier %s (%s)",
   "gui.economy_core.shop_price": "Price: %s",
   "gui.economy_core.shop_buyback": "Sells back: %s each",
-  "gui.economy_core.shop_no_buyback": "Can't be sold back",
   "message.economy_core.shop_locked": "That unlocks at market tier %s.",
   "message.economy_core.shop_broke": "That costs %s, you have %s. Sell something!",
   "message.economy_core.shop_bought": "Bought %s %s for %s coins",
@@ -86,5 +85,6 @@
   "advancement.economy_core.first_sale.description": "Sold something for the very first time. Economists are rewriting the textbooks.",
   "celebration.economy_core.first_sale": "FIRST SALE!",
   "celebration.economy_core.first_sale_line1": "You sold a thing. Alert the media.",
-  "celebration.economy_core.first_sale_line2": "+%s coins. Try not to spend it all at once."
+  "celebration.economy_core.first_sale_line2": "+%s coins. Try not to spend it all at once.",
+  "gui.economy_core.shop_market_value": "Sells at the Market: %s each"
 }

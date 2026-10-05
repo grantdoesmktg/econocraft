@@ -261,19 +261,19 @@
       "category": "food"
     },
     "minecraft:cod": {
-      "base": 6,
+      "base": 9,
       "category": "fish"
     },
     "minecraft:salmon": {
-      "base": 8,
+      "base": 12,
       "category": "fish"
     },
     "minecraft:tropical_fish": {
-      "base": 15,
+      "base": 22,
       "category": "fish"
     },
     "minecraft:pufferfish": {
-      "base": 15,
+      "base": 22,
       "category": "fish"
     },
     "create:zinc_ingot": {
@@ -341,75 +341,75 @@
       "category": "gems"
     },
     "aquaculture:atlantic_cod": {
-      "base": 20,
+      "base": 30,
       "category": "fish"
     },
     "aquaculture:atlantic_herring": {
-      "base": 20,
+      "base": 30,
       "category": "fish"
     },
     "aquaculture:pollock": {
-      "base": 20,
+      "base": 30,
       "category": "fish"
     },
     "aquaculture:bluegill": {
-      "base": 20,
+      "base": 30,
       "category": "fish"
     },
     "aquaculture:perch": {
-      "base": 25,
+      "base": 38,
       "category": "fish"
     },
     "aquaculture:brown_trout": {
-      "base": 25,
+      "base": 38,
       "category": "fish"
     },
     "aquaculture:carp": {
-      "base": 25,
+      "base": 38,
       "category": "fish"
     },
     "aquaculture:smallmouth_bass": {
-      "base": 30,
-      "category": "fish"
-    },
-    "aquaculture:rainbow_trout": {
-      "base": 30,
-      "category": "fish"
-    },
-    "aquaculture:catfish": {
-      "base": 35,
-      "category": "fish"
-    },
-    "aquaculture:gar": {
-      "base": 35,
-      "category": "fish"
-    },
-    "aquaculture:atlantic_halibut": {
-      "base": 40,
-      "category": "fish"
-    },
-    "aquaculture:pacific_halibut": {
-      "base": 40,
-      "category": "fish"
-    },
-    "aquaculture:muskellunge": {
       "base": 45,
       "category": "fish"
     },
+    "aquaculture:rainbow_trout": {
+      "base": 45,
+      "category": "fish"
+    },
+    "aquaculture:catfish": {
+      "base": 52,
+      "category": "fish"
+    },
+    "aquaculture:gar": {
+      "base": 52,
+      "category": "fish"
+    },
+    "aquaculture:atlantic_halibut": {
+      "base": 60,
+      "category": "fish"
+    },
+    "aquaculture:pacific_halibut": {
+      "base": 60,
+      "category": "fish"
+    },
+    "aquaculture:muskellunge": {
+      "base": 68,
+      "category": "fish"
+    },
     "aquaculture:tuna": {
-      "base": 50,
+      "base": 75,
       "category": "fish"
     },
     "aquaculture:piranha": {
-      "base": 50,
+      "base": 75,
       "category": "fish"
     },
     "aquaculture:tambaqui": {
-      "base": 50,
+      "base": 75,
       "category": "fish"
     },
     "aquaculture:arapaima": {
-      "base": 60,
+      "base": 90,
       "category": "fish"
     },
     "minecraft:cocoa_beans": {

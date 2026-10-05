@@ -1,6 +1,8 @@
 # Builds the Economy Core mod in the cloud and ships the jar into the pack.
 # Push a branch named mod-build/<anything>: this builds economy-core/, swaps the jar in mods/, runs
 # packwiz refresh and commits the result back to that branch. Merge the branch into main to ship it.
+# It also adds any mods listed in .github/packwiz-add.txt (one per line: "curseforge <slug>" or "modrinth <slug>"),
+# because cloud sessions can't reach the CurseForge or Modrinth APIs. The list file is deleted once added.
 name: Build Economy Core
 
 on:
@@ -24,6 +26,17 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: stable
+      - name: Install packwiz
+        run: go install github.com/packwiz/packwiz@latest
+      - name: Add listed mods
+        run: |
+          if [ -f .github/packwiz-add.txt ]; then
+            while read -r source slug; do
+              [ -z "$source" ] && continue
+              ~/go/bin/packwiz "$source" add "$slug" -y < /dev/null
+            done < .github/packwiz-add.txt
+            git rm -q .github/packwiz-add.txt
+          fi
       - name: Build the mod
         working-directory: economy-core
         run: |
@@ -35,14 +48,13 @@ jobs:
           version=$(grep '^mod_version=' economy-core/gradle.properties | cut -d= -f2)
           rm -f mods/economy_core-*.jar
           cp "economy-core/build/libs/economy_core-${version}.jar" mods/
-          go install github.com/packwiz/packwiz@latest
           ~/go/bin/packwiz refresh
           echo "VERSION=${version}" >> "$GITHUB_ENV"
       - name: Commit the built jar
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git add -A mods index.toml pack.toml
+          git add -A mods index.toml pack.toml .github
           git diff --cached --quiet && exit 0
-          git commit -m "Economy Core ${VERSION}: built jar [ci-built]"
+          git commit -m "Economy Core ${VERSION}: built jar and listed mods [ci-built]"
           git push

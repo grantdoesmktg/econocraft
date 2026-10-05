@@ -2,11 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = "config/economy_core/market.json"
-hash = "3ed83b9a01f5d68299407f77bb05716eaf6b9e306a5d1c396790bec46a3417f4"
+hash = "9d25b29b0ff2f3f3de207729ff95bc7fe8140a7212db758f809698ac315a1227"
 
 [[files]]
 file = "config/economy_core/shop.json"
-hash = "13b1965959071635358bbda688b77d982425b2bf32d076c0a2396e4a0c267da8"
+hash = "e94151b1424a007f8e5a1fe20eaf2fee86c9d2038f65bc41ba9a0e92ff41d905"
 
 [[files]]
 file = "config/ftbessentials.snbt"
@@ -18,115 +18,115 @@ hash = "2a25f08e63134d270e5373e91d5942c48c7fede4c96628d2c615fa7580cf7b9d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/cultivator.snbt"
-hash = "8167e7b1984f004c5a861633656fa17725d7066b35d900b320fa8d23448d933b"
+hash = "95a5d30925f7a07319e968679bcbd95e2d14af1f9369fb1b1c6319efd518b150"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/engineer.snbt"
-hash = "66672adb0d2bafdc17620f2bc3d6f719d2352191028c6ff6d36eb296365069c2"
+hash = "729d15f403ee87d13cf63051f79fa250a79afd042837bcc8d36e11ac0f547ac2"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/getting_started.snbt"
-hash = "b4a9876f84ecd8c2fd01e46d4daed2f3645b62cd11992fc2c28f4c63fb3e0f8d"
+hash = "fe534cfb3bb4a336820102a17e2c90dfb37f13ec48b8f5d81005794104f48fd6"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/industrialist.snbt"
-hash = "5ff77f8150c56691e70e433bb008165f2fc3fb73c8b5996b018c74e6c791717c"
+hash = "a65c535c7fe863368c1a31c79ed5ce7f52ccf4d529c48f6470d359a44f8106f8"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_ae2_if.snbt"
-hash = "43e6e21de4906fb531919f7fba8d94ed9a000699b3295d72f89e3ac166e4b197"
+hash = "2a524fc82a55bafccb92b4efc3d6ca9987a40469172cab1a0411391120af3020"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_botany.snbt"
-hash = "e7a3a7077de6b5a1757a3387b8126a7351d0b4f4d28a9277ddf821f4882a1404"
+hash = "d18fe19964c38e35fa4a9052914fe4863816960ac88002f914d6e4fbcdc74e60"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_create.snbt"
-hash = "a81a3e16fe6b2b541bba5b0d303253f005d55f7b56b482e025bf4f9664ee2547"
+hash = "1f258a4b522821fdcb631de57afad962440fe964c4bec0d43700db603580c357"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_create_addons.snbt"
-hash = "dbf50605c936539e98c91c0f185974e79b0e3053fd037884c862b97969075dad"
+hash = "5eb2ef0af1445676e4adc60f3d7c7aa387f1864277f97447c16b2d506e80c361"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_cyclic.snbt"
-hash = "121b2db09c22ea51df38fe2fda88b89faac104277fbcbd5f1c68db4bc30f209f"
+hash = "c541390fd056f45f62a06b24d0ed148a3f2be0eb2eea020b90e914dd57c725dd"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_end.snbt"
-hash = "53a62086ac65e15d586fa50699751e6937b027058bb73952d63aaf49bf7dd13e"
+hash = "1e7fa91d1e8797b4861380e06e02c4205f2d8662b3cebd0eb5c8b688ad5d7988"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_endgame.snbt"
-hash = "7583ca164723462b3b8511c437092f97a031a2b50274de25ab5525edd2bb1d67"
+hash = "ba736afce9438378d04235c2bb5aff4eadad621af26bf97d3307f4ae7e86dfda"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_excompressum.snbt"
-hash = "3c32325f4b6f9e23fb549a2ae3aa6c0f283f44285395673b4de670dae29e7a7a"
+hash = "f5a7112b28dc99d74e508c26e09f1dc97bb60389d12c1dda897d98f980bce81d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_exdeorum.snbt"
-hash = "9c141fc047c25e6e938c54fd4fb8d6f38bc0aae0c0113c3a2adf783f4f279aba"
+hash = "301562df69be40b9346dbfab01cda0e3a12a710a71855ca05d62287fb07c43b7"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_explore.snbt"
-hash = "2739ab14b4eafbf8f14bba91939c0f14e80ddffed16c811ea1b076336cb4952f"
+hash = "2233364526976515f59c49b0a3ea06b50402573dcbafe4da61a2727212f01cdb"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_fishing.snbt"
-hash = "67f7c3fcaa8f60efd3a437479ea116e3cc8a4df779e13be9633471ada302f5a5"
+hash = "65fb088604699f7c340e601d68679be054e0121667d03b1bc617ae8a33dc9188"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_food.snbt"
-hash = "325651582591cc9bfe14b6feec6d5664a7a8e682685fcfd1cf3868b9afee769e"
+hash = "48b18087d50f3e3be96e7a1d01b515960c69c9c0545f5ef5b236e8cbd905b706"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_ftbstuff.snbt"
-hash = "71825aff0c82454cf57758ec32ee6b2a5fddac007cdeea6d88addfe6b2f0b21e"
+hash = "a5d86d5a0a599586b81a2ddbc98865887648a92512c85ea6c2ae228a5a0f50be"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_hnn.snbt"
-hash = "76a4730320ef696b69007f20e73b6318c561f589ce404bbf4b2eb089d1023ef3"
+hash = "89b10ec4e80700d3c78ffa8b485e060242119be125a91274dc020f18233ef27e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_mekanism.snbt"
-hash = "aea6582b0e614607456a45c4629b7d1be4ea735ab8bcc0d03f841f9d41ccc7ad"
+hash = "67387cd0a4dc37e4115085ab6ee1452cb9effa51582dc987c4f252f28dcd7e04"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_mobs.snbt"
-hash = "12f88b2b1bfb9478661b250113435fcfba499d1a0f6f98d0fb6a6d5835f05299"
+hash = "729f99e511fc5eb09aa1704da8f964b9b52319c61da995e61f0ce79bb6dd90a3"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_mystical.snbt"
-hash = "16615aa2fddd90f564032782ddd1a0ebedf0fe3d4043e54858e29ad1020dd12f"
+hash = "b0f1b694c5b6c8880a6daa3bb3ac5f11fae0af267cebccec9535ad81ce397ade"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_nether.snbt"
-hash = "d3141cb2a2bc431d4ed88974b3204d6ad5023dde83787666102ad29f40bdd642"
+hash = "be3e0dd1523812a6561e3366720f6d6a24191dc2d8be023cd15b0b65c9249f7d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_power.snbt"
-hash = "45dcf2851d35f3cd21d49bc02d69934e1c1da02b59289209ef8dfdb38b900dce"
+hash = "23652eb8758a52b8330a7ddc685bfa0e16fbb028a40598d1857f43e5381ecbd6"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_qol.snbt"
-hash = "ea7b38e3afe9e96755858394dd9542267fb494edccacda8e35eaa71f2157ece0"
+hash = "ab81ccfa293af26a0743cd85cb59d6b62b8ce4aa3e598efde3ba95c0e9435d4f"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_storage.snbt"
-hash = "046240fe063e84a747fa87cae5c721a1045dc661be1fe7859a3867ad778a101d"
+hash = "d860b6db232063242c5a39ed2b5275d52ed8f69db0b4b5ef9477d8c92b9047e2"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_tools.snbt"
-hash = "98a528a85aa3373673b2c7fae842ee93db9507c935ad245fea1cefd38f741ffe"
+hash = "639f9793ad15b81498c1ce1648094d3f4387c40410b4a72de723ff67f4a66dac"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_twilight.snbt"
-hash = "6ffb01dd03d0abeccd6684bbf5ce1123c6f45c3a891cc17339e8fbe82ce14a43"
+hash = "96e8a03401d4d786c534ed06fcdf492ee27864b7eaf18ec578df49e57d6628cd"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/pioneer.snbt"
-hash = "6cd296f0840b4aee90a78b004fb91db07adfac4b3d7f61310f954a20ff25b586"
+hash = "b9589d45bb88e949b49f83f88e65e9ae25c0a09284f1ffbd8f21fd43b81c1dd0"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/ref_faq.snbt"
@@ -146,7 +146,7 @@ hash = "8f702f048febf787036a0df1d53e84930f60165a2f8eba38bdd12396c90a5511"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/tinkerer.snbt"
-hash = "86cda06a0d61f2dbdc28a7cad6a8616b2ec4845581a67579f556a402cde1c688"
+hash = "ab91898421afc3277dd2565c49bcf2140a0e77f8366093ca0c188de129f51926"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/tycoon.snbt"
@@ -158,7 +158,7 @@ hash = "afb63f36e0bfef8db18c62efe80a5747c393a25a15add3482f702b9f8f1d78ba"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "061ea311e355a4226be330f50209d3bccf3e0a20dcd7e5627aba4a327216a2c9"
+hash = "bed403845224c207162072f39fc4380c4add2aeae06ce1c3e99e01299eeffa54"
 
 [[files]]
 file = "config/lightmanscurrency-common.txt"
@@ -178,7 +178,7 @@ hash = "4f9e9eb0e76e5048132abff6825eeca4247eaa6df938c25e78ac4f161af609d3"
 
 [[files]]
 file = "config/progressivestages/stages/tier_2/rules.toml"
-hash = "8baf896b96c8fc10cb2bfcb09ecac064052c443fc0ace0dea2d9f9562f46c6d1"
+hash = "84cdba8f6a6a912d726c56c3db63b5160bbe981304a82c893f12b087ea406512"
 
 [[files]]
 file = "config/progressivestages/stages/tier_2/stage.toml"
@@ -386,11 +386,11 @@ hash = "38daf15d33fc2e35a1b13fba0f51cfcd7a5a30f05e0d1c5aa286426d90281229"
 
 [[files]]
 file = "kubejs/server_scripts/economy_locks.js"
-hash = "5c8ff407304de73bb17a313adcebd23c753e7656a0525ada1dc00535fc9bf6e0"
+hash = "6d70d6f7c109bc31bbaae0d3b2973a5c65730d9581a61c67c0824c7433af1ac6"
 
 [[files]]
 file = "kubejs/server_scripts/economy_sieve.js"
-hash = "3b6cf5e9e3c5d58a11450a26df558213ea3103433838e9b2d7009120150fde93"
+hash = "4cf3320385788cddc966320fcd9d483ca17ce42c37282987c767aa02e0df9f78"
 
 [[files]]
 file = "mods/ae2.pw.toml"

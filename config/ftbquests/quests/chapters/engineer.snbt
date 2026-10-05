@@ -191,8 +191,7 @@
 			]
 			rewards: [
 				{ id: "73B0374CC0FC8A13", type: "item", item: { count: 1, id: "economy_core:frontier_gateway" } team_reward: false }
-				{ id: "66AED689BDAC9B07", type: "gamestage", stage: "economy:tier_3" }
-				{ id: "32F53D9F8CCB7BE6", type: "command", command: "/market tier set 3 @p", elevate_perms: true, silent: true }
+				{ id: "32F53D9F8CCB7BE6", type: "command", icon: { count: 1, id: "economy_core:frontier_gateway" }, command: "/market tier set 3 @p", elevate_perms: true, silent: true }
 			]
 		}
 	]

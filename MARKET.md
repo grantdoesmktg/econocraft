@@ -26,7 +26,7 @@ Every item the market buys from players and every item the shop sells, by tier. 
 
 - Income goods: 143
 - Automation machines: 81
-- Supplies: 37
+- Supplies: 38
 
 ## Selling: what the Market Crate buys (Income)
 
@@ -38,7 +38,7 @@ Soft cap = units sold before the price is about two thirds of the way down to th
 | chunks | 32 | 50% | Ore chunks from Ex Deorum sieves |
 | crops | 64 | 50% | Field and Botany Pot crops |
 | food | 24 | 50% | Cooked food (Farmer's Delight); processing pays |
-| fish | 32 | 50% | Fishing and Fishermen's Traps; Aquaculture species after the Frontier |
+| fish | 32 | 50% | Fishing and Fishermen's Traps; Aquaculture species after the Frontier. Hand-caught fish pay well |
 | mob | 48 | 50% | Mob farms (Mob Grinding Utils) and Hostile Neural Networks |
 | metals | 32 | 50% | Smelted and processed metals |
 | gems | 16 | 50% | Gems and rare minerals; diamond and emerald are Frontier-only |
@@ -80,10 +80,10 @@ Soft cap = units sold before the price is about two thirds of the way down to th
 | Redstone | `minecraft:redstone` | gems | 15 | 1i 5c | 7.5 | Sieving |
 | Lapis Lazuli | `minecraft:lapis_lazuli` | gems | 30 | 3i | 15 | Sieving |
 | Zinc Ore Chunk | `exdeorum:zinc_ore_chunk` | chunks | 10 | 1i | 5 | Sieving (Create zinc) |
-| Raw Cod | `minecraft:cod` | fish | 6 | 6c | 3 | Fishing / Fishermen's Trap |
-| Raw Salmon | `minecraft:salmon` | fish | 8 | 8c | 4 | Fishing / Fishermen's Trap |
-| Tropical Fish | `minecraft:tropical_fish` | fish | 15 | 1i 5c | 7.5 | Fishing / Fishermen's Trap |
-| Pufferfish | `minecraft:pufferfish` | fish | 15 | 1i 5c | 7.5 | Fishing / Fishermen's Trap |
+| Raw Cod | `minecraft:cod` | fish | 9 | 9c | 4.5 | Fishing / Fishermen's Trap |
+| Raw Salmon | `minecraft:salmon` | fish | 12 | 1i 2c | 6 | Fishing / Fishermen's Trap |
+| Tropical Fish | `minecraft:tropical_fish` | fish | 22 | 2i 2c | 11 | Fishing / Fishermen's Trap |
+| Pufferfish | `minecraft:pufferfish` | fish | 22 | 2i 2c | 11 | Fishing / Fishermen's Trap |
 | Nether Quartz | `minecraft:quartz` | gems | 20 | 2i | 10 | Sieving (crushed netherrack) |
 | Amethyst Shard | `minecraft:amethyst_shard` | gems | 25 | 2i 5c | 12.5 | Sieving |
 | Rotten Flesh | `minecraft:rotten_flesh` | mob | 1 | 1c | 0.5 | Mob farm (dreadful dirt pad) |
@@ -117,24 +117,24 @@ Soft cap = units sold before the price is about two thirds of the way down to th
 |---|---|---|---|---|---|---|
 | Emerald | `minecraft:emerald` | gems | 40 | 4i | 20 | Frontier mining and trading (removed from sieves) |
 | Diamond | `minecraft:diamond` | gems | 800 | 8g | 400 | Frontier mining (removed from sieves) |
-| Atlantic Cod | `aquaculture:atlantic_cod` | fish | 20 | 2i | 10 | Aquaculture, Frontier oceans |
-| Atlantic Herring | `aquaculture:atlantic_herring` | fish | 20 | 2i | 10 | Aquaculture, Frontier oceans |
-| Pollock | `aquaculture:pollock` | fish | 20 | 2i | 10 | Aquaculture, Frontier oceans |
-| Bluegill | `aquaculture:bluegill` | fish | 20 | 2i | 10 | Aquaculture, Frontier rivers |
-| Perch | `aquaculture:perch` | fish | 25 | 2i 5c | 12.5 | Aquaculture, Frontier rivers |
-| Brown Trout | `aquaculture:brown_trout` | fish | 25 | 2i 5c | 12.5 | Aquaculture, Frontier rivers |
-| Carp | `aquaculture:carp` | fish | 25 | 2i 5c | 12.5 | Aquaculture, Frontier rivers |
-| Smallmouth Bass | `aquaculture:smallmouth_bass` | fish | 30 | 3i | 15 | Aquaculture, Frontier rivers |
-| Rainbow Trout | `aquaculture:rainbow_trout` | fish | 30 | 3i | 15 | Aquaculture, Frontier mountains |
-| Catfish | `aquaculture:catfish` | fish | 35 | 3i 5c | 17.5 | Aquaculture, Frontier swamps |
-| Gar | `aquaculture:gar` | fish | 35 | 3i 5c | 17.5 | Aquaculture, Frontier swamps |
-| Atlantic Halibut | `aquaculture:atlantic_halibut` | fish | 40 | 4i | 20 | Aquaculture, Frontier oceans |
-| Pacific Halibut | `aquaculture:pacific_halibut` | fish | 40 | 4i | 20 | Aquaculture, Frontier oceans |
-| Muskellunge | `aquaculture:muskellunge` | fish | 45 | 4i 5c | 22.5 | Aquaculture, Frontier rivers |
-| Tuna | `aquaculture:tuna` | fish | 50 | 5i | 25 | Aquaculture, Frontier oceans |
-| Piranha | `aquaculture:piranha` | fish | 50 | 5i | 25 | Aquaculture, Frontier jungles |
-| Tambaqui | `aquaculture:tambaqui` | fish | 50 | 5i | 25 | Aquaculture, Frontier jungles |
-| Arapaima | `aquaculture:arapaima` | fish | 60 | 6i | 30 | Aquaculture, Frontier jungles |
+| Atlantic Cod | `aquaculture:atlantic_cod` | fish | 30 | 3i | 15 | Aquaculture, Frontier oceans |
+| Atlantic Herring | `aquaculture:atlantic_herring` | fish | 30 | 3i | 15 | Aquaculture, Frontier oceans |
+| Pollock | `aquaculture:pollock` | fish | 30 | 3i | 15 | Aquaculture, Frontier oceans |
+| Bluegill | `aquaculture:bluegill` | fish | 30 | 3i | 15 | Aquaculture, Frontier rivers |
+| Perch | `aquaculture:perch` | fish | 38 | 3i 8c | 19 | Aquaculture, Frontier rivers |
+| Brown Trout | `aquaculture:brown_trout` | fish | 38 | 3i 8c | 19 | Aquaculture, Frontier rivers |
+| Carp | `aquaculture:carp` | fish | 38 | 3i 8c | 19 | Aquaculture, Frontier rivers |
+| Smallmouth Bass | `aquaculture:smallmouth_bass` | fish | 45 | 4i 5c | 22.5 | Aquaculture, Frontier rivers |
+| Rainbow Trout | `aquaculture:rainbow_trout` | fish | 45 | 4i 5c | 22.5 | Aquaculture, Frontier mountains |
+| Catfish | `aquaculture:catfish` | fish | 52 | 5i 2c | 26 | Aquaculture, Frontier swamps |
+| Gar | `aquaculture:gar` | fish | 52 | 5i 2c | 26 | Aquaculture, Frontier swamps |
+| Atlantic Halibut | `aquaculture:atlantic_halibut` | fish | 60 | 6i | 30 | Aquaculture, Frontier oceans |
+| Pacific Halibut | `aquaculture:pacific_halibut` | fish | 60 | 6i | 30 | Aquaculture, Frontier oceans |
+| Muskellunge | `aquaculture:muskellunge` | fish | 68 | 6i 8c | 34 | Aquaculture, Frontier rivers |
+| Tuna | `aquaculture:tuna` | fish | 75 | 7i 5c | 37.5 | Aquaculture, Frontier oceans |
+| Piranha | `aquaculture:piranha` | fish | 75 | 7i 5c | 37.5 | Aquaculture, Frontier jungles |
+| Tambaqui | `aquaculture:tambaqui` | fish | 75 | 7i 5c | 37.5 | Aquaculture, Frontier jungles |
+| Arapaima | `aquaculture:arapaima` | fish | 90 | 9i | 45 | Aquaculture, Frontier jungles |
 | Cocoa Beans | `minecraft:cocoa_beans` | frontier | 8 | 8c | 4 | Jungle biomes |
 | Honeycomb | `minecraft:honeycomb` | frontier | 15 | 1i 5c | 7.5 | Bee nests (Cyclic can multiply it, so keep it modest) |
 | Rabbit's Foot | `minecraft:rabbit_foot` | frontier | 60 | 6i | 30 | Rabbits (deserts, taigas, snowy biomes) |
@@ -364,6 +364,7 @@ Sells back for 80% of the price.
 | Pumpkin Seeds | `minecraft:pumpkin_seeds` | 10 | 1i | Starting crops |
 | Sugar Cane (seed) | `minecraft:sugar_cane` | 12 | 1i 2c | Starting crops |
 | String Mesh | `exdeorum:string_mesh` | 40 | 4i | Sieve mesh |
+| Netherite Construction Stick | `constructionstick:netherite_stick` | 100 | 1g | Building helper; buy-only |
 | Bone Meal | `minecraft:bone_meal` | 8 | 8c | Growth boost |
 
 ### Tier 1: Tinkerer

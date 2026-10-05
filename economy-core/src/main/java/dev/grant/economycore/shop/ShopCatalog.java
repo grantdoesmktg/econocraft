@@ -23,7 +23,7 @@ import java.util.List;
 public final class ShopCatalog {
     private static final Logger LOG = LogUtils.getLogger();
 
-    public record Entry(Item item, String itemId, int count, long price, int tier, String category, long buyback) {}
+    public record Entry(Item item, String itemId, int count, long price, int tier, String category, long buyback, String note) {}
 
     private static List<Entry> entries = List.of();
 
@@ -55,7 +55,8 @@ public final class ShopCatalog {
                             o.get("price").getAsLong(),
                             o.has("tier") ? o.get("tier").getAsInt() : 0,
                             o.has("category") ? o.get("category").getAsString() : "supplies",
-                            o.has("buyback") ? o.get("buyback").getAsLong() : 0));
+                            o.has("buyback") ? o.get("buyback").getAsLong() : 0,
+                            o.has("note") ? o.get("note").getAsString() : ""));
                 }
             }
         } catch (Exception e) {

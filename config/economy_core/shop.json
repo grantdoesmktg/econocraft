@@ -722,6 +722,15 @@
       "buyback": 0
     },
     {
+      "item": "constructionstick:netherite_stick",
+      "count": 1,
+      "price": 100,
+      "tier": 0,
+      "category": "supplies",
+      "buyback": 0,
+      "note": "Wow, netherite, huh? Nobody should be punished for wanting to build stuff."
+    },
+    {
       "item": "minecraft:bone_meal",
       "count": 1,
       "price": 8,

@@ -28,6 +28,11 @@ MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
   ~/Modpacks/server-test is a local dedicated server for boot tests.
 
 ## Needs an in-game check (Grant)
+- 0.9.8 round (2026-10-05): click an item in a quest -> JEI recipes (FTB XMod Compat added); Supply Market shows
+  "Sells at the Market: N" instead of "Can't be sold back", locked shelf items show price, E closes it, netherite
+  construction stick for 100 with its tagline on hover; gravel/deepslate/nether sieves drop no pebbles (dirt still
+  does); tier gate reward is the tier icon + a cheer; auto-sell sells the best-priced good first; locked items
+  (ProgressiveStages "Unknown Item") still show their sell price; fish pay more; mod-tab intro quests pay 2 coins.
 - Economy Core 0.9.7 (2026-10-05): hover any sellable item outside the crate and the tooltip says what it sells
   for (and the stack's rough value); first sale ever by a player pops the "Capitalism, Achieved" challenge toast,
   a FIRST SALE! screen, a coin totem pop and a firework barrage (only for that player, once).

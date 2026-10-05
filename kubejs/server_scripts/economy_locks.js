@@ -84,6 +84,7 @@ const BUY_ONLY = [
   'industrialforegoing:plant_gatherer',
   'industrialforegoing:mob_crusher',
   'industrialforegoing:fermentation_station',
+  'constructionstick:netherite_stick',
 ]
 
 ServerEvents.recipes(event => {

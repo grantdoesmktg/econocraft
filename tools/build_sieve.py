@@ -15,6 +15,10 @@ PACK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 import paths  # noqa: E402
 EXPORT = paths.export_dir()
 SNAPSHOT = os.path.join(os.path.dirname(__file__), 'sieve_base_odds.json')
+# Pebble drops removed from every sieve except dirt (Grant, 2026-10-05: they clog the output). Dirt keeps its pebbles:
+# they're the only cobblestone before the first cobble generator. Snapshotted like the odds so a later export (which
+# won't contain the removed recipes) can't shrink the list.
+PEBBLE_SNAPSHOT = os.path.join(os.path.dirname(__file__), 'sieve_pebbles.json')
 
 # Multiplier on the drop chance of each good, for every mesh and input block (gravel, crushed deepslate) on both
 # the normal and compressed sieves. Grant, 2026-10-05: first x0.5/x0.6 with gates x2, then steeper (x0.35/x0.45)
@@ -45,6 +49,23 @@ def snapshot():
     return out
 
 
+def pebble_recipes():
+    """Recipe ids of every sieve pebble drop, except from dirt."""
+    if os.path.exists(PEBBLE_SNAPSHOT):
+        return json.load(open(PEBBLE_SNAPSHOT))
+    base = os.path.join(EXPORT, 'recipes', 'exdeorum')
+    out = []
+    for kind in ('sieve', 'compressed_sieve'):
+        for f in glob.glob(os.path.join(base, kind, '**', '*.json'), recursive=True):
+            rid = 'exdeorum:' + os.path.relpath(f, base)[:-5].replace(os.sep, '/')
+            d = json.load(open(f))
+            if d.get('result', {}).get('id', '').endswith('_pebble') and '/dirt/' not in rid:
+                out.append(rid)
+    out.sort()
+    json.dump(out, open(PEBBLE_SNAPSHOT, 'w'), indent=1)
+    return out
+
+
 def scaled(recipe):
     d = json.loads(json.dumps(recipe))
     a = d['result_amount']
@@ -69,16 +90,20 @@ def main():
              'const SIEVE_NERF = [']
     for rid in sorted(recipes):
         lines.append(f'  [{json.dumps(rid)}, {json.dumps(scaled(recipes[rid]), sort_keys=True)}],')
+    pebbles = pebble_recipes()
+    lines += [']', '', '// Pebble drops removed from every sieve except dirt.', 'const NO_PEBBLES = [']
+    lines += [f'  {json.dumps(rid)},' for rid in pebbles]
     lines += [']', '',
               'ServerEvents.recipes(event => {',
               '  SIEVE_NERF.forEach(([id, json]) => {',
               '    event.remove({ id: id })',
               "    event.custom(json).id(id.replace('exdeorum:', 'economy_core:balanced_'))",
               '  })',
+              '  NO_PEBBLES.forEach(id => event.remove({ id: id }))',
               '})', '']
     js = os.path.join(PACK, 'kubejs', 'server_scripts', 'economy_sieve.js')
     open(js, 'w').write('\n'.join(lines))
-    print(f'{len(recipes)} sieve recipes rescaled -> {js}')
+    print(f'{len(recipes)} sieve recipes rescaled, {len(pebbles)} pebble drops removed -> {js}')
 
 
 if __name__ == '__main__':

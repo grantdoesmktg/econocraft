@@ -195,8 +195,7 @@
 				{ id: "1CCD8C4CE7CCDDE0", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" }, count: 1L consume_items: true }
 			]
 			rewards: [
-				{ id: "4D044BF88AA17E40", type: "gamestage", stage: "economy:tier_2" }
-				{ id: "1ED8A868423EEDBB", type: "command", command: "/market tier set 2 @p", elevate_perms: true, silent: true }
+				{ id: "1ED8A868423EEDBB", type: "command", icon: { count: 1, id: "cyclic:user" }, command: "/market tier set 2 @p", elevate_perms: true, silent: true }
 			]
 		}
 	]

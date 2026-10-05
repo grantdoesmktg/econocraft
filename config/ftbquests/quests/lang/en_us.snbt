@@ -166,7 +166,7 @@
 	quest.62BA48700B324D75.quest_desc: [
 		"&eHopper into crate, flip &6Auto-sell&r on, walk away. Passive income!"
 		""
-		"One warning: auto-selling a single item all day caps out fast. Feed the crate a mix."
+		"One warning: auto-selling a single item all day caps out fast. Feed the crate a mix: it always sells whatever pays best right now, so a mixed crate quietly earns more."
 	]
 	quest.38340EB5D5690B5B.title: "&eFive Streams"
 	quest.38340EB5D5690B5B.quest_desc: [
@@ -1052,4 +1052,10 @@
 	chapter_group.7CB9FD9528918760.title: "&a&l⚙ Mods: The Frontier"
 	chapter_group.2D854B5F0194BFDC.title: "&d&l⚙ Mods: Endgame"
 	chapter_group.59BE11F6B5214E2E.title: "&e&l✎ Reference"
+	reward.17AB248F599EB8E5.title: "&6&lTier 1, Tinkerer! You own gears now. Try not to let it go to your head."
+	reward.1ED8A868423EEDBB.title: "&6&lTier 2, Engineer! Machines that make machines money. Very fancy."
+	reward.32F53D9F8CCB7BE6.title: "&6&lTier 3, Pioneer! You bought an entire overworld. Go look at it."
+	reward.5918AFE63AA23060.title: "&6&lTier 4, Cultivator! The Nether is open. Bring a fire resistance potion and low expectations."
+	reward.247CC2615DC2986B.title: "&6&lTier 5, Industrialist! Twilight Forest and the End await. So do the bosses."
+	reward.539A244CE3C04169.title: "&6&lTier 6, Tycoon! You are the economy now. Everyone else is just shopping."
 }

@@ -209,8 +209,7 @@
 				{ id: "6325D43F8C51EC26", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" }, count: 5L consume_items: true }
 			]
 			rewards: [
-				{ id: "66D95F4DC8439D7C", type: "gamestage", stage: "economy:tier_5" }
-				{ id: "247CC2615DC2986B", type: "command", command: "/market tier set 5 @p", elevate_perms: true, silent: true }
+				{ id: "247CC2615DC2986B", type: "command", icon: { count: 1, id: "twilightforest:naga_trophy" }, command: "/market tier set 5 @p", elevate_perms: true, silent: true }
 			]
 		}
 	]

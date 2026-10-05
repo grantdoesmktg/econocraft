@@ -189,7 +189,6 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
 
     private long pendingFxCoins;
     private int fxCounter;
-    private int nextSlot;
     /** Units of each item auto-sold in the current run, so small chunks still count toward price recovery. */
     private final java.util.Map<Item, Integer> autosellRun = new java.util.HashMap<>();
 
@@ -214,22 +213,39 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     /**
-     * Sell one chunk: up to N units of the next item in the crate, round-robin across slots so a mix of goods
-     * gets sold (and recovers prices) instead of draining one item first. N = 2 at tier 0, x2 per tier, max 64.
+     * Sell one chunk: up to N units of whichever good in the crate currently fetches the best share of its fair
+     * price. Selling a good lowers its price, so the crate moves on to the next-best one, which both spreads sales
+     * across everything in the crate and lets the flooded goods recover through variety before they're sold again.
+     * N = 2 at tier 0, x2 per tier, max 64. Shop-bought machines sell back straight away.
      */
     private void sellChunk(ServerLevel level) {
         int tier = MarketService.getTier(level.getServer(), owner);
         int chunk = MarketService.autosellChunk(tier);
-        for (int tries = 0; tries < SLOTS; tries++) {
-            int slot = (nextSlot + tries) % SLOTS;
+        int best = -1;
+        double bestRatio = -1, bestPrice = -1;
+        java.util.Map<Item, MarketService.Quote> quotes = new java.util.HashMap<>();
+        for (int slot = 0; slot < SLOTS; slot++) {
             ItemStack s = items.getStackInSlot(slot);
             if (MarketService.priceTag(s) > 0) {
                 ItemStack taken = items.extractItem(slot, s.getCount(), false);
                 pendingFxCoins += MarketService.sellBack(level.getServer(), owner, taken).coins();
-                nextSlot = slot + 1;
                 return;
             }
             if (!MarketPrices.isSellable(s)) continue;
+            MarketService.Quote q = quotes.computeIfAbsent(s.getItem(),
+                    i -> MarketService.quote(level.getServer(), owner, ownerName, i));
+            if (q == null || q.fairPrice() <= 0) continue;
+            double ratio = q.unitPrice() / q.fairPrice();
+            // Prefer the least flooded good; between equals (within 1%), the more valuable one.
+            if (ratio > bestRatio + 0.01 || (Math.abs(ratio - bestRatio) <= 0.01 && q.unitPrice() > bestPrice)) {
+                best = slot;
+                bestRatio = ratio;
+                bestPrice = q.unitPrice();
+            }
+        }
+        if (best >= 0) {
+            int slot = best;
+            ItemStack s = items.getStackInSlot(slot);
             Item item = s.getItem();
             int units = Math.min(chunk, s.getCount());
             items.extractItem(slot, units, false);
@@ -237,7 +253,6 @@ public class MarketCrateBlockEntity extends BlockEntity implements MenuProvider 
             MarketService.Sale sale = MarketService.sell(level.getServer(), owner, ownerName, item, units, run);
             if (run >= 64) autosellRun.remove(item);
             pendingFxCoins += sale.coins();
-            nextSlot = items.getStackInSlot(slot).isEmpty() ? slot + 1 : slot + 1;
             for (UUID member : TeamHelper.members(owner)) {
                 ServerPlayer p = level.getServer().getPlayerList().getPlayer(member);
                 if (p != null) MarketService.award(p, "autosell");

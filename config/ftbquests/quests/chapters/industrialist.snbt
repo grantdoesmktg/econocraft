@@ -173,8 +173,7 @@
 				{ id: "2D5F678818C1F2E8", type: "item", item: { count: 1, id: "lightmanscurrency:coin_netherite" }, count: 3L consume_items: true }
 			]
 			rewards: [
-				{ id: "77CCF089C0E413DC", type: "gamestage", stage: "economy:tier_6" }
-				{ id: "539A244CE3C04169", type: "command", command: "/market tier set 6 @p", elevate_perms: true, silent: true }
+				{ id: "539A244CE3C04169", type: "command", icon: { count: 1, id: "minecraft:nether_star" }, command: "/market tier set 6 @p", elevate_perms: true, silent: true }
 			]
 		}
 	]

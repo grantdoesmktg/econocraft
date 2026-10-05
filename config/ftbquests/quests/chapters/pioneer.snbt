@@ -159,8 +159,7 @@
 				{ id: "3C048B9F059B2F19", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" }, count: 8L consume_items: true }
 			]
 			rewards: [
-				{ id: "42D63F4DFDD601A9", type: "gamestage", stage: "economy:tier_4" }
-				{ id: "5918AFE63AA23060", type: "command", command: "/market tier set 4 @p", elevate_perms: true, silent: true }
+				{ id: "5918AFE63AA23060", type: "command", icon: { count: 1, id: "minecraft:blaze_rod" }, command: "/market tier set 4 @p", elevate_perms: true, silent: true }
 			]
 		}
 	]

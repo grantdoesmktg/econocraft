@@ -109,6 +109,19 @@ def tasks_for(qkey, q, group, index):
     return [task_snbt(f'{qkey}/task/{i}', t) for i, t in enumerate(tasks)]
 
 
+# What the gate quest's reward card says when you unlock a tier (shown with the tier's own icon).
+TIER_CHEERS = {
+    1: 'Tier 1, Tinkerer! You own gears now. Try not to let it go to your head.',
+    2: 'Tier 2, Engineer! Machines that make machines money. Very fancy.',
+    3: 'Tier 3, Pioneer! You bought an entire overworld. Go look at it.',
+    4: 'Tier 4, Cultivator! The Nether is open. Bring a fire resistance potion and low expectations.',
+    5: 'Tier 5, Industrialist! Twilight Forest and the End await. So do the bosses.',
+    6: 'Tier 6, Tycoon! You are the economy now. Everyone else is just shopping.',
+}
+REWARD_LANG = {}
+INTRO_COINS = 2   # copper coins for reading a mod tab's intro page (Grant, 2026-10-05)
+
+
 def rewards_for(qkey, q):
     out = []
     for i, (item, n) in enumerate(coin_split(q.get('coins', 0))):
@@ -117,10 +130,13 @@ def rewards_for(qkey, q):
     for i, (item, n) in enumerate(q.get('items', [])):
         out.append(f'{{ id: {s(qid(f"{qkey}/item/{i}"))}, type: "item", item: {item_snbt(item, n)}{personal} }}')
     if q.get('gate'):
+        # One reward card: the tier's icon and a cheer. The command sets the market tier and grants the
+        # ProgressiveStages stages in order (see MarketCommand), so no separate gamestage reward is needed.
         tier = q['gate'][0]
-        out.append(f'{{ id: {s(qid(f"{qkey}/stage"))}, type: "gamestage", stage: "economy:tier_{tier}" }}')
-        out.append(f'{{ id: {s(qid(f"{qkey}/tiercmd"))}, type: "command", command: "/market tier set {tier} @p", '
-                   f'elevate_perms: true, silent: true }}')
+        rid = qid(f"{qkey}/tiercmd")
+        REWARD_LANG[f'reward.{rid}.title'] = f'&6&l{TIER_CHEERS[tier]}'
+        out.append(f'{{ id: {s(rid)}, type: "command", icon: {item_snbt(q["icon"])}, '
+                   f'command: "/market tier set {tier} @p", elevate_perms: true, silent: true }}')
     return out
 
 
@@ -194,6 +210,7 @@ def banner_image(ch, pos):
 
 def build():
     lang = {}
+    REWARD_LANG.clear()
     chapter_files = {}
     group_ids = {g['key']: qid(f'group/{g["key"]}') for g in C.GROUPS}
     key_to_id = {}
@@ -249,6 +266,9 @@ def build():
                 fields.append('optional: true')
             tasks = tasks_for(full, q, ch['group'], index)
             fields.append('tasks: [' + ('\n\t\t\t\t' + '\n\t\t\t\t'.join(tasks) + '\n\t\t\t' if tasks else ' ') + ']')
+            if ch['group'] != 'progression' and index == 0 and q.get('coins'):
+                # Mod-tab intro pages are a checkmark read; pay pennies so reading the book isn't a tier's income.
+                q = dict(q, coins=INTRO_COINS)
             rw = rewards_for(full, q)
             if rw:
                 fields.append('rewards: [\n\t\t\t\t' + '\n\t\t\t\t'.join(rw) + '\n\t\t\t]')
@@ -288,6 +308,7 @@ def build():
     open(os.path.join(OUT, 'chapter_groups.snbt'), 'w').write('{\n\tchapter_groups: [\n' + '\n'.join(groups) + '\n\t]\n}\n')
     open(os.path.join(OUT, 'data.snbt'), 'w').write(C.DATA_SNBT)
 
+    lang.update(REWARD_LANG)
     lines = ['{']
     for k, v in lang.items():
         if isinstance(v, list):

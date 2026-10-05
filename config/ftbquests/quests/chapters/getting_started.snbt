@@ -219,8 +219,7 @@
 				{ id: "5FAD1A7E7634B87C", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" }, count: 2L consume_items: true }
 			]
 			rewards: [
-				{ id: "1B8F4EDCDF70E1EE", type: "gamestage", stage: "economy:tier_1" }
-				{ id: "17AB248F599EB8E5", type: "command", command: "/market tier set 1 @p", elevate_perms: true, silent: true }
+				{ id: "17AB248F599EB8E5", type: "command", icon: { count: 1, id: "create:cogwheel" }, command: "/market tier set 1 @p", elevate_perms: true, silent: true }
 			]
 		}
 	]

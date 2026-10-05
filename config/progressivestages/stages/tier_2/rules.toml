@@ -6,7 +6,7 @@ id = "economy:tier_2_mods"
 effect = "lock"
 action = "access"
 priority = 900
-targets.items = ["mod:cyclic", "mod:mob_grinding_utils", "mod:excompressum", "mod:waystones", "mod:toms_storage", "mod:buildinggadgets2", "mod:constructionstick"]
+targets.items = ["mod:cyclic", "mod:mob_grinding_utils", "mod:excompressum", "mod:waystones", "mod:toms_storage", "mod:buildinggadgets2"]
 
 [[rules]]
 id = "economy:tier_2_items"

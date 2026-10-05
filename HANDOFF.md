@@ -122,6 +122,11 @@ MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
    which isn't OK to redistribute publicly.
    Release flow: bump pack.toml version, packwiz refresh, commit, push, `git tag vX` + push tag, `gh release create`.
    Grant's Prism instance still points at localhost:8080 (packwiz serve) for dev.
-9. Ideas not started:
+9. Built 2026-10-05: tools/pacing_sim.py -> PACING-REPORT.md. Minute-by-minute efficient player using real prices,
+   PriceMath drop-off/variety recovery, shop costs, gates, Ex Deorum sieve odds and FTB/ExCompressum speeds. Hand rates
+   and machine outputs are estimates in tables at the top. First run (current numbers): tier 6 at ~10 h (12 h with slow
+   hands) vs target 20-30 h; tier 1 in ~20 min. Iron/gold ingots from sieving carry tiers 1-5; cobble gens carry tier 0;
+   HNN twilight predictions top tier 5. Gates x2.5 -> tier 6 ~18-21 h. Waiting on Grant to pick a tuning lever.
+10. Ideas not started:
    - balancing pass after real playtesting
    - pack version bump and release workflow (Grant said skip GitHub for now)

@@ -7,7 +7,8 @@ MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
 ## Working agreement with Grant
 - Run terminal steps myself. Don't hand Grant commands to run (see memory).
 - Ask before anything destructive, any sudo, or edits outside ~/Modpacks and the Prism instance folder.
-- No git push or publishing. economy-core is a local git repo; economy-pack is **not** a git repo.
+- economy-pack is a git repo pushed to https://github.com/grantdoesmktg/econocraft (public, branch main). Grant shared it
+  2026-10-05 for releases. economy-core is a local git repo only (no remote). Ask before other publishing.
 - Report back to Grant through the project thread when a request is done.
 
 ## Layout
@@ -112,6 +113,13 @@ MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
 7. Dedicated server test: ~/Modpacks/server-test (NeoForge 21.1.252 server + `packwiz-installer-bootstrap.jar -g -s server
    http://localhost:8080/pack.toml`, port 25599, 6 GB). Boots in ~35 s. Only harmless mod recipe/advancement parse errors.
    Stop it with `stop` on its console or kill the java PID (killing run.sh alone leaves java running).
-8. Ideas not started:
+8. Released 2026-10-05: v1.0.0-beta.1 (pack.toml version), GitHub prerelease, no files attached. Players install with
+   packwiz-installer from https://raw.githubusercontent.com/grantdoesmktg/econocraft/main/pack.toml (README has steps,
+   verified with a clean client and server install). Pushing to main updates every player on next launch, so test first.
+   No .mrpack: `packwiz mr export` bundles 24 CurseForge-only jars (FTB mods, Twilight Forest...) into overrides,
+   which isn't OK to redistribute publicly.
+   Release flow: bump pack.toml version, packwiz refresh, commit, push, `git tag vX` + push tag, `gh release create`.
+   Grant's Prism instance still points at localhost:8080 (packwiz serve) for dev.
+9. Ideas not started:
    - balancing pass after real playtesting
    - pack version bump and release workflow (Grant said skip GitHub for now)

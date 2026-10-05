@@ -11,7 +11,7 @@ to Tycoon. On the way you buy access to the real overworld (the Frontier), the N
 
 ## Play it
 
-### Option A: Prism Launcher with auto-updates (recommended)
+### Prism Launcher (auto-updates)
 1. Install [Prism Launcher](https://prismlauncher.org/) and Java 21.
 2. Create an instance: **Minecraft 1.21.1**, loader **NeoForge 21.1.252**.
 3. Download [packwiz-installer-bootstrap.jar](https://github.com/packwiz/packwiz-installer-bootstrap/releases/latest)
@@ -21,10 +21,6 @@ to Tycoon. On the way you buy access to the real overworld (the Frontier), the N
    "$INST_JAVA" -jar packwiz-installer-bootstrap.jar https://raw.githubusercontent.com/grantdoesmktg/econocraft/main/pack.toml
    ```
 5. Give it at least 6 GB of memory (Settings > Java), then launch. Every launch pulls the latest pack.
-
-### Option B: one-off install
-Download the `.mrpack` from the [latest release](https://github.com/grantdoesmktg/econocraft/releases) and import it
-into Prism, Modrinth App or ATLauncher. This doesn't auto-update.
 
 ### Shaders
 Options > Video Settings > Shader Packs (or press **O**):

@@ -26,6 +26,11 @@ public final class ClientSetup {
     }
 
     @SubscribeEvent
+    public static void registerRenderers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(ModRegistry.POWER_EXCHANGE_BE.get(), PowerExchangeRenderer::new);
+    }
+
+    @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(ModRegistry.MARKET_MENU.get(), MarketScreen::new);
     }

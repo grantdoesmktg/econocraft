@@ -136,6 +136,24 @@ public final class MarketService {
         return new Sale(item, units, coins);
     }
 
+    /**
+     * Income that isn't a sale (the Power Exchange): adds to the team balance and lifetime earnings and awards
+     * earnings milestones, but has no price drop-off and doesn't touch item prices.
+     */
+    public static void creditIncome(MinecraftServer server, UUID owner, long coins) {
+        if (coins <= 0) return;
+        MarketData data = MarketData.get(server);
+        MarketData.Account acc = data.accountFor(owner);
+        acc.balance += coins;
+        acc.earned += coins;
+        data.setDirty();
+        for (UUID member : TeamHelper.members(owner)) {
+            setScore(server, TeamHelper.nameOf(server, member), EARNED_OBJECTIVE, (int) Math.min(Integer.MAX_VALUE, acc.earned));
+            ServerPlayer online = server.getPlayerList().getPlayer(member);
+            if (online != null) awardMilestones(online, acc.earned, 0);
+        }
+    }
+
     private static int maxVariety() {
         int max = 0;
         for (MarketConfig.Tier t : MarketPrices.config().tiers) max = Math.max(max, t.variety);

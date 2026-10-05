@@ -74,5 +74,9 @@
   "gui.economy_core.shop_blurb_3": "Frontier gear: gateways, villager blocks and the Mystical Agriculture altar.",
   "gui.economy_core.shop_blurb_4": "Power, Mekanism and machines that eat electricity for breakfast.",
   "gui.economy_core.shop_blurb_5": "Reactors, big generators and serious hardware. Mind the bill.",
-  "gui.economy_core.shop_blurb_6": "The fancy stuff. You've earned it. Probably."
+  "gui.economy_core.shop_blurb_6": "The fancy stuff. You've earned it. Probably.",
+  "block.economy_core.power_exchange": "Power Exchange",
+  "message.economy_core.power_exchange": "Team power: %s FE/t, earning %s coins/min (owner: %s)",
+  "display.economy_core.power_exchange.coins": "%s coins/min",
+  "display.economy_core.power_exchange.fe": "%s FE/t"
 }

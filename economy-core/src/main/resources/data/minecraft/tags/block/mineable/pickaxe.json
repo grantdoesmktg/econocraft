@@ -1,5 +1,6 @@
 {
   "values": [
-    "economy_core:frontier_gateway"
+    "economy_core:frontier_gateway",
+    "economy_core:power_exchange"
   ]
 }

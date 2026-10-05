@@ -46,6 +46,13 @@ public class MarketConfig {
     public List<Long> earningsMilestones = new ArrayList<>(List.of(1L, 4000L, 24000L, 96000L, 350000L, 1050000L, 2800000L, 8000000L));
 
     /** Single-sale milestones: a sale worth at least this grants economy_core:sale/<amount>. */
+    /** Power Exchange: coins per minute = power_base * (team FE per tick / 100) ^ power_exponent. */
+    @SerializedName("power_base")
+    public double powerBase = 70.0;
+
+    @SerializedName("power_exponent")
+    public double powerExponent = 0.6;
+
     @SerializedName("sale_milestones")
     public List<Long> saleMilestones = new ArrayList<>(List.of(1000L, 150000L));
 

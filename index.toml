@@ -573,8 +573,8 @@ hash = "d629988991e4e0c461a5031b8c774c184ef409f5b57187211c3abe5b1a21fc3c"
 metafile = true
 
 [[files]]
-file = "mods/economy_core-0.9.6.jar"
-hash = "a25a66eafc27084abee384c528b0c4ba4c695e17664e35b6c7ea338a0e5cd381"
+file = "mods/economy_core-0.9.7.jar"
+hash = "723189fea80a2b51433613c93fe54add9611547de054c7b0f785879374f9935c"
 
 [[files]]
 file = "mods/effortless-building.pw.toml"

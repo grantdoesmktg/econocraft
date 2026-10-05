@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "config/economy_core/market.json"
-hash = "e07b4fbe3aca2df33b0a4d8706f86af75349b5d36859ff216e959e6a94f35f26"
+hash = "38ce209e65f8d54445fe544caf91875db8a99d7349c684829800c84ff3b748de"
 
 [[files]]
 file = "config/economy_core/shop.json"

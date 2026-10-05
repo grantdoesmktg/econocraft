@@ -192,6 +192,14 @@
 		""
 		"The &6User&r clicks things for you: harvest, place, use items. Mods: Cyclic has the useful tricks."
 	]
+	quest.1AA5DF59F91715C1.title: "&bPower to the People"
+	quest.1AA5DF59F91715C1.quest_desc: [
+		"&bThe &6Power Exchange&r buys electricity. Pipe FE into it from any generator and your team earns coins every second."
+		""
+		"It pays on a curve: 100 FE/t earns about 70 coins a minute, and every 10x more power pays about 4x more. All your team's exchanges share one curve, so build a bigger power plant, not more exchanges."
+		""
+		"Your first power is a Cyclic generator. By the late game, reactors turn into serious money."
+	]
 	quest.661A41BF11DA0D42.title: "&bVacuum Cleaner"
 	quest.661A41BF11DA0D42.quest_desc: [
 		"&bSucks up items in an area. Pair it with anything that drops stuff on the floor."
@@ -206,7 +214,7 @@
 	quest.4C5D5E7F3D865B96.quest_desc: [
 		"&bMix copper and zinc into brass, then build a &6precision mechanism&r."
 		""
-		"They sell for 900 and unlock fancier Create machines. Worth the sequenced-assembly headache. Probably."
+		"They sell for 450 and unlock fancier Create machines. Worth the sequenced-assembly headache. Probably."
 	]
 	quest.28F8AAA5DE0289BE.title: "&bMob Squad"
 	quest.28F8AAA5DE0289BE.quest_desc: [

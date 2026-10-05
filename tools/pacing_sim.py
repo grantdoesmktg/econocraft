@@ -189,6 +189,28 @@ LINES = {
     'Mystical Ag pot (supremium)': (5, 600 + 25000, 12, {'mysticalagriculture:supremium_essence': 0.4}),
     'HNN twilight chamber': (5, 30000 + 5000 + 20000, 8, {'hostilenetworks:twilight_prediction': 3}),
 }
+# Power Exchange (Economy Core): team-wide FE/t in, coins out. coins/min = BASE * (FE_per_tick / 100) ** EXP.
+POWER_BASE, POWER_EXP = 70.0, 0.6   # keep in sync with market_catalog.py (market.json)
+EXCHANGE = ('Power Exchange', 2, 5000)
+
+
+def exchange_coins(fe_per_tick):
+    return POWER_BASE * (fe_per_tick / 100) ** POWER_EXP if fe_per_tick > 0 else 0.0
+
+
+# Generators: (tier, cost incl. fuel automation, cap, {'FE': FE per tick}). Fuel is assumed self-sustaining.
+POWER_LINES = {
+    'Cyclic fuel generator': (2, 3000, 6, {'FE': 80}),
+    'Mekanism heat generator': (4, 15000 + 3000, 8, {'FE': 80}),
+    'Powah furnator + energy cell': (4, 6000 + 3000, 8, {'FE': 60}),
+    'Create windmill + alternator': (4, 5000 + 8000, 6, {'FE': 400}),
+    'Mekanism gas-burning generator': (5, 80000 + 20000, 4, {'FE': 4000}),
+    'Extreme Reactors passive reactor': (5, 60000 + 60000, 2, {'FE': 8000}),
+    'Extreme Reactors reactor + turbine': (5, 60000 + 50000 + 140000, 2, {'FE': 30000}),
+    'Reinforced reactor + turbine': (6, 200000 + 200000, 2, {'FE': 100000}),
+}
+LINES.update(POWER_LINES)
+
 ONE_OFFS = {'Create crushing wheels (ore x1.75)': (1, 2 * 2000 + 2 * 800 + 600, 1.75),
             'Mekanism enrichment (ore x2)': (4, 25000 + 30000 + 15000, 2.0)}
 PAYBACK_LIMIT = 180   # only buy a line that pays for itself within this many minutes
@@ -206,6 +228,7 @@ def run(hours, hand=1.0, travel=1.0, roses=0.0, setup=SETUP_MIN, payback=None, *
     one_offs = set()
     busy = 0
     busy_trip = [0]
+    has_exchange = [False]
     roses_acc = 0.0
     log, tier_times, sources = [], {0: 0}, {}
     window = []
@@ -265,10 +288,18 @@ def run(hours, hand=1.0, travel=1.0, roses=0.0, setup=SETUP_MIN, payback=None, *
                 ore_mult = max(ore_mult, mult)
                 busy += setup
                 log.append((minute, f'Bought {name} ({cost:,})'))
+        if (not has_exchange[0] and tier >= EXCHANGE[1] and balance >= EXCHANGE[2] and not saving_for_gate
+                and earned > EXCHANGE[2] * 2):
+            balance -= EXCHANGE[2]
+            has_exchange[0] = True
+            busy += setup
+            log.append((minute, f'Bought the {EXCHANGE[0]} ({EXCHANGE[2]:,})'))
         if not saving_for_gate:
             best, best_payback = None, payback
             for name, (t, cost, cap, flow) in LINES.items():
                 if t > tier or owned[name] >= cap or cost > balance:
+                    continue
+                if name in POWER_LINES and not has_exchange[0]:
                     continue
                 gain = line_gain(name, flow, owned, value, sieve_yield)
                 if gain > 0 and cost / gain < best_payback:
@@ -332,8 +363,16 @@ def run(hours, hand=1.0, travel=1.0, roses=0.0, setup=SETUP_MIN, payback=None, *
         share.pop('sieve_ops', None)
         for item, n in sieve_yield(pool.pop('sieve_ops', 0)).items():
             add(item, n, 'auto-sieve')
-        # 4. Sell everything sellable.
+        # 4. Sell everything sellable, and cash in power at the exchange.
         got = 0.0
+        fe = pool.pop('FE', 0) if has_exchange[0] else 0
+        if fe:
+            c = exchange_coins(fe)
+            got += c
+            by_item[(tier, 'power')] = by_item.get((tier, 'power'), 0) + c
+            for src, u in share.pop('FE', {}).items():
+                by_source[(tier, src)] = by_source.get((tier, src), 0) + c * u / fe
+        pool.pop('FE', None)
         for item, n in pool.items():
             if item in SELL and n > 0:
                 c = mk.sell(item, n, tier)
@@ -355,6 +394,9 @@ def run(hours, hand=1.0, travel=1.0, roses=0.0, setup=SETUP_MIN, payback=None, *
 
 def line_gain(name, flow, owned, value, sieve_yield):
     """Coins per minute one more copy of this line would add, at current prices."""
+    if 'FE' in flow:
+        fe = sum(LINES[n][3].get('FE', 0) * k for n, k in owned.items())
+        return exchange_coins(fe + flow['FE']) - exchange_coins(fe)
     if name == 'auto-sieve':
         cobble = owned['cobble generator'] * COBBLE_GEN - owned[name] * AUTO_SIEVE_OPS
         if cobble < AUTO_SIEVE_OPS:
@@ -417,7 +459,7 @@ def write_report(results, hours):
             rows = sorted(((c, i) for (tt_, i), c in r['by_item'].items() if tt_ == t), reverse=True)
             total = sum(c for c, _ in rows) or 1
             for c, i in rows[:5]:
-                L.append(f'| {t} | {SELL[i][1]} | {c:,.0f} | {100 * c / total:.0f}% |')
+                L.append(f'| {t} | {SELL[i][1] if i in SELL else "Power Exchange"} | {c:,.0f} | {100 * c / total:.0f}% |')
         L += ['', '### Timeline', '']
         L += [f'- {m // 60}h{m % 60:02d}: {e}' for m, e in r['log']]
     L.append('')

@@ -6,19 +6,34 @@ activity that produced it, for three players: a **Rusher** (progression only), a
 These are model results: machine outputs and hand speeds are estimates, and only the setups listed in the
 script can earn.
 
-## Tier by tier
+## Tier by tier (after the 2026-10-05 rebalance: sieves cut to x0.35 ore / x0.45 gems, Power Exchange added)
 
-| Tier | What pays (Typical player) | Range across players |
+| Tier | What pays (Typical player) | Notes across players |
 |---|---|---|
-| 0 Castaway | Cobblestone generators selling raw cobble 94%, hand sieving 6% | cobble 64-97% |
-| 1 Tinkerer | Cobble generators 49%, hand sieving 40%, precision mechanisms 10% | hand sieving 22-52% |
-| 2 Engineer | A mix: cobble 23%, mob farm 22%, auto-sieves 17%, precision mechanisms 17%, hand sieving 14% | the most varied tier |
-| 3 Pioneer | **Auto-sieves 70%**, mob farm 14%, Frontier mining 6% | auto-sieves 54-77%; Frontier mining 0-21% |
-| 4 Cultivator | **Auto-sieves 71%**, Nether raids 17%, mob farm 8% | auto-sieves 60-81%; Nether 6-30% |
-| 5 Industrialist | **HNN twilight simulation chambers 48%**, auto-sieves 32%, Twilight bosses 14% | bosses 5-31% |
-| 6 Tycoon | HNN chambers 44%, auto-sieves 27%, Twilight bosses 24% | bosses 13-42% |
+| 0 Castaway | Cobblestone generators 95%, hand farming 5% | the same for everyone |
+| 1 Tinkerer | Cobble generators 56%, hand sieving 35%, precision mechanisms 9% | Rusher sieves more by hand (47%) |
+| 2 Engineer | Cobble 30%, **Cyclic generators into the Power Exchange 28%**, mob farm 18%, precision mechanisms 11% | power 23-38% |
+| 3 Pioneer | **Frontier mining 26%**, Cyclic power 20%, mob farm 16%, iron golem farm 15% | Frontier mining 12-40% |
+| 4 Cultivator | **Nether raids 24%**, auto-sieves 17%, iron golem farm 14%, power 13%, mob farm 12% | the most varied tier |
+| 5 Industrialist | **Reactor + turbine 46%**, HNN chambers 31%, Twilight bosses 9% | bosses 0-23% |
+| 6 Tycoon | **Reinforced reactor 50%**, HNN 18%, reactors 16%, bosses 8% | power 60-70% |
 
-## What that means
+Auto-sieves now earn 4-21% from tier 4 on (they were 54-81%). Time to tier 6: Rusher 21.7 h, Typical 27.6 h,
+Explorer 31.8 h.
+
+## Before the rebalance (gates x2, sieves x0.5)
+
+| Tier | What paid (Typical player) |
+|---|---|
+| 0 | Cobblestone generators 94%, hand sieving 6% |
+| 1 | Cobble generators 49%, hand sieving 40%, precision mechanisms 10% |
+| 2 | Cobble 23%, mob farm 22%, auto-sieves 17%, precision mechanisms 17%, hand sieving 14% |
+| 3 | **Auto-sieves 70%**, mob farm 14%, Frontier mining 6% |
+| 4 | **Auto-sieves 71%**, Nether raids 17%, mob farm 8% |
+| 5 | HNN twilight chambers 48%, auto-sieves 32%, Twilight bosses 14% |
+| 6 | HNN chambers 44%, auto-sieves 27%, Twilight bosses 24% |
+
+## What the old numbers meant (fixed by the rebalance)
 
 1. **The real engine is one setup copied many times.** From the Frontier on, a row of 16 auto-sieves fed by
    cobble generators earns most of the money, even after the sieve cut. The economy rewards scale more than variety.
@@ -33,24 +48,20 @@ script can earn.
    precision mechanisms and brass, and the Mekanism ore ladder (a small boost on top of sieving). AE2 and
    Industrial Foregoing are quality of life by design.
 
-## Power: not rewarded today
+## Power: the Power Exchange (Economy Core 0.9.6)
 
-Generators are a pure cost. Nothing turns energy into coins except indirectly (HNN chambers and Mekanism need power,
-but the simulator doesn't even count it). A big reactor build earns exactly as much as no reactor.
+A block sold in the Supply Market at tier 2 for 5,000. Pipe FE in from any mod and the team earns coins every second,
+counted as lifetime earnings. All of a team's exchanges share one curve, so more blocks don't pay more:
 
-**The cleanest way to reward power is Powah's Energizing Orb.** Its recipes state their energy cost, and the orb's
-throughput is capped by the energizing rods, so it can't run away:
+coins per minute = 70 x (team FE per tick / 100) ^ 0.6  (power_base and power_exponent in market.json)
 
-| Item | Inputs | Energy |
-|---|---|---|
-| Charged Snowball | 1 snowball (snow golems make them for free) | 500,000 FE |
-| Blazing Crystal | 1 blaze rod | 120,000 FE |
-| Niotic Crystal | 1 diamond | 300,000 FE |
-| Spirited Crystal | 1 emerald | 1,000,000 FE |
-| Nitro Crystal (x16) | nether star, 2 redstone blocks, blazing crystal block | 20,000,000 FE |
+| Team power | Coins per minute |
+|---|---|
+| 100 FE/t (one Cyclic generator) | ~70 |
+| 1,000 FE/t | ~280 |
+| 10,000 FE/t | ~1,100 |
+| 100,000 FE/t (big reactor) | ~4,400 |
+| 1,000,000 FE/t (Draconic) | ~17,600 |
 
-Price each one at its inputs plus a fixed rate per FE, in a new "power" sell category with its own price drop-off.
-The charged snowball becomes pure power-to-coins (a snow golem farm feeding an orb), and the crystals give a reason to
-build bigger reactors. Mekanism antimatter pellets could be a top-end extra. The coins-per-FE rate is the key number
-and needs care, because late-game generators make enormous amounts of energy; I'd add power setups to the simulator
-and pick the rate there before shipping.
+Every 10x more power pays about 4x more. The Powah Energizing Orb idea (pricing charged snowballs and crystals) is
+no longer needed for this, but still works as a later extra.

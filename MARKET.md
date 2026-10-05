@@ -25,7 +25,7 @@ Every item the market buys from players and every item the shop sells, by tier. 
 ## Totals
 
 - Income goods: 143
-- Automation machines: 80
+- Automation machines: 81
 - Supplies: 37
 
 ## Selling: what the Market Crate buys (Income)
@@ -253,6 +253,7 @@ Sells back for 90% of the price.
 | Machine | ID | Price | Coins | Sells back for | Purpose |
 |---|---|---|---|---|---|
 | Auto-Sieve | `excompressum:auto_sieve` | 10,000 | 1d | 9,000 | Automatic sieving |
+| Power Exchange | `economy_core:power_exchange` | 5,000 | 5e | 4,500 | Pipe in power (FE), earn coins. One payout curve per team |
 | Mechanical Harvester | `create:mechanical_harvester` | 2,000 | 2e | 1,800 | Create crop harvesting |
 | Blaze Burner (with blaze) | `create:blaze_burner` | 3,000 | 3e | 2,700 | Heat for Create mixing (brass) without a trip to the Nether |
 | Mechanical Arm | `create:mechanical_arm` | 3,000 | 3e | 2,700 | Create item handling |

@@ -208,6 +208,7 @@ MACHINES = [
     ('fishermens_trap:fishtrap', "Fishermen's Trap", 1200, 1, 'Automatic fishing'),
     # Tier 2
     ('excompressum:auto_sieve', 'Auto-Sieve', 10000, 2, 'Automatic sieving'),
+    ('economy_core:power_exchange', 'Power Exchange', 5000, 2, 'Pipe in power (FE), earn coins. One payout curve per team'),
     ('create:mechanical_harvester', 'Mechanical Harvester', 2000, 2, 'Create crop harvesting'),
     ('create:blaze_burner', 'Blaze Burner (with blaze)', 3000, 2, 'Heat for Create mixing (brass) without a trip to the Nether'),
     ('create:mechanical_arm', 'Mechanical Arm', 3000, 2, 'Create item handling'),
@@ -505,6 +506,9 @@ def build_market_json():
         'celebrations': [50, 200, 600, 2000, 7500, 30000, 150000],
         'earnings_milestones': [1, 4000, 24000, 96000, 350000, 1050000, 2800000, 8000000],
         'sale_milestones': [1000, 150000],
+        # Power Exchange: coins/min = power_base * (team FE per tick / 100) ** power_exponent (keep pacing_sim in sync)
+        'power_base': 70.0,
+        'power_exponent': 0.6,
         'tiers': [{'variety': v, 'min_units': u, 'min_value': m} for v, u, m in MARKET_TIERS],
         'categories': {c: {'soft_cap': cap, 'max_drop': 0.5} for c, (cap, _) in SELL_CATEGORIES.items()},
         'items': items,

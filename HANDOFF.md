@@ -18,7 +18,7 @@ MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
   - Served with `packwiz serve` at http://localhost:8080/pack.toml.
   - Prism instance "Economy Test" runs packwiz-installer as a pre-launch step, so relaunching Prism updates it.
   - After changing files: `packwiz refresh`.
-- `~/Modpacks/economy-core`: our NeoForge mod (Economy Core), currently **0.9.5**.
+- `~/Modpacks/economy-core`: our NeoForge mod (Economy Core), currently **0.9.6**.
   - Build: `./gradlew build`. Bump `mod_version` in gradle.properties first.
   - Ship: delete the old `economy-pack/mods/economy_core-*.jar` (use `setopt nullglob` in zsh), copy in
     `build/libs/economy_core-<ver>.jar`, run `packwiz refresh`, and commit in economy-core.
@@ -141,6 +141,14 @@ MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
    and Twilight/End open) and three profiles: Rusher 19.9 h, Typical 25.3 h, Explorer 29.3 h to tier 6.
    Tier 4 -> 5 is the longest stretch for everyone (6-8 h). Explorer's 40% non-earning play only adds ~50% time
    because machines keep running.
-12. Ideas not started:
+12. Done 2026-10-05 (beta.3): sieve cut steepened to ore x0.35, lapis/amethyst x0.45 (build_sieve.SCALE), and the
+   **Power Exchange** (Economy Core 0.9.6, economy_core:power_exchange, shop tier 2 at 5,000, quest
+   engineer/power_exchange). Accepts unlimited FE from any side once it has an owner (placer, or first right-click);
+   PowerExchangeService pays each team once a second: coins/min = power_base * (FE/t / 100) ^ power_exponent
+   (70, 0.6 in market.json; pacing_sim POWER_BASE/EXP must match). Credits balance + lifetime earnings + milestones,
+   no price drop-off. Floating coins/min + FE/t label (PowerExchangeRenderer), right-click shows the same.
+   Sim: Rusher 21.7 h, Typical 27.6 h, Explorer 31.8 h; auto-sieves now 4-21% of income from tier 4 on; power 13-28%
+   early, 50-70% late. NOT yet tested in game with real FE (only boots clean on the server). ECONOMY-BREAKDOWN.md updated.
+13. Ideas not started:
    - balancing pass after real playtesting
    - pack version bump and release workflow (Grant said skip GitHub for now)

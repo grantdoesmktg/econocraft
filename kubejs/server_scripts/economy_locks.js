@@ -17,6 +17,7 @@ const BUY_ONLY = [
   'botanypots:terracotta_botany_pot',
   'fishermens_trap:fishtrap',
   'excompressum:auto_sieve',
+  'economy_core:power_exchange',
   'create:mechanical_harvester',
   'create:blaze_burner',
   'create:mechanical_arm',

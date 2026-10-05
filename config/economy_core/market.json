@@ -26,6 +26,8 @@
     1000,
     150000
   ],
+  "power_base": 70.0,
+  "power_exponent": 0.6,
   "tiers": [
     {
       "variety": 4,

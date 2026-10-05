@@ -106,6 +106,14 @@
       "buyback": 9000
     },
     {
+      "item": "economy_core:power_exchange",
+      "count": 1,
+      "price": 5000,
+      "tier": 2,
+      "category": "machines",
+      "buyback": 4500
+    },
+    {
       "item": "create:mechanical_harvester",
       "count": 1,
       "price": 2000,

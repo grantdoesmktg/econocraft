@@ -16,14 +16,15 @@ EXPORT = os.path.expanduser('~/Library/Application Support/PrismLauncher/instanc
 SNAPSHOT = os.path.join(os.path.dirname(__file__), 'sieve_base_odds.json')
 
 # Multiplier on the drop chance of each good, for every mesh and input block (gravel, crushed deepslate) on both
-# the normal and compressed sieves. Grant, 2026-10-05: halve ore, cut gems, gates x2 (see PACING-REPORT.md).
+# the normal and compressed sieves. Grant, 2026-10-05: first x0.5/x0.6 with gates x2, then steeper (x0.35/x0.45)
+# alongside the Power Exchange so sieves help the early tiers without driving the late game (see PACING-REPORT.md).
 SCALE = {
-    'exdeorum:iron_ore_chunk': 0.5,
-    'exdeorum:gold_ore_chunk': 0.5,
-    'exdeorum:copper_ore_chunk': 0.5,
-    'exdeorum:zinc_ore_chunk': 0.5,
-    'minecraft:lapis_lazuli': 0.6,
-    'minecraft:amethyst_shard': 0.6,
+    'exdeorum:iron_ore_chunk': 0.35,
+    'exdeorum:gold_ore_chunk': 0.35,
+    'exdeorum:copper_ore_chunk': 0.35,
+    'exdeorum:zinc_ore_chunk': 0.35,
+    'minecraft:lapis_lazuli': 0.45,
+    'minecraft:amethyst_shard': 0.45,
 }
 
 

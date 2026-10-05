@@ -2,11 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = "config/economy_core/market.json"
-hash = "a34e5a86cc3b2ace968dc62971d3a510f80c8591f6c8bb393fa16f5109d393b2"
+hash = "e07b4fbe3aca2df33b0a4d8706f86af75349b5d36859ff216e959e6a94f35f26"
 
 [[files]]
 file = "config/economy_core/shop.json"
-hash = "af6def507578a10efc5430c5040b1e0eafc0c71af67e05221d68922db743e468"
+hash = "13b1965959071635358bbda688b77d982425b2bf32d076c0a2396e4a0c267da8"
 
 [[files]]
 file = "config/ftbessentials.snbt"
@@ -22,7 +22,7 @@ hash = "8167e7b1984f004c5a861633656fa17725d7066b35d900b320fa8d23448d933b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/engineer.snbt"
-hash = "f6a343ef0c3c21cc28ab2e96ae9ab09c46fa413306365cd9d531f692dbb6f9fb"
+hash = "66672adb0d2bafdc17620f2bc3d6f719d2352191028c6ff6d36eb296365069c2"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/getting_started.snbt"
@@ -158,7 +158,7 @@ hash = "7dc7e19d785d9172d357d9b22471dc70652ea9f48d1dfa96c88230bb196183ad"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "ad9f744098169afac81e2ce8c331699c2a6ca0b847d26978520162714b297625"
+hash = "d12d5a2fa076625c860f84a355998c0ca2136a8ac5736abb8951e521cd2c5e2a"
 
 [[files]]
 file = "config/lightmanscurrency-common.txt"
@@ -386,11 +386,11 @@ hash = "38daf15d33fc2e35a1b13fba0f51cfcd7a5a30f05e0d1c5aa286426d90281229"
 
 [[files]]
 file = "kubejs/server_scripts/economy_locks.js"
-hash = "ac821d4c75b8b6807346594a01ddc06547e9cec54ef34e7696325de553bf7477"
+hash = "5c8ff407304de73bb17a313adcebd23c753e7656a0525ada1dc00535fc9bf6e0"
 
 [[files]]
 file = "kubejs/server_scripts/economy_sieve.js"
-hash = "fd42f8dbdc0260516c69523a814cf8330e387b19ad60736cd5b2ba7303202aa0"
+hash = "3b6cf5e9e3c5d58a11450a26df558213ea3103433838e9b2d7009120150fde93"
 
 [[files]]
 file = "mods/ae2.pw.toml"
@@ -573,8 +573,8 @@ hash = "d629988991e4e0c461a5031b8c774c184ef409f5b57187211c3abe5b1a21fc3c"
 metafile = true
 
 [[files]]
-file = "mods/economy_core-0.9.5.jar"
-hash = "0c5795c6159784166683c4c02fb6cdd62c6e6e6daf77f09ef983ec88fa005e2c"
+file = "mods/economy_core-0.9.6.jar"
+hash = "a25a66eafc27084abee384c528b0c4ba4c695e17664e35b6c7ea338a0e5cd381"
 
 [[files]]
 file = "mods/effortless-building.pw.toml"

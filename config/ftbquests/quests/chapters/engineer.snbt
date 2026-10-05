@@ -56,13 +56,28 @@
 			]
 		}
 		{
-			id: "661A41BF11DA0D42"
+			id: "1AA5DF59F91715C1"
 			x: 6.75d
 			y: 0.0d
 			shape: "hexagon"
 			size: 1.25d
-			icon: { count: 1, id: "cyclic:collector" }
+			icon: { count: 1, id: "economy_core:power_exchange" }
 			dependencies: ["7A1020DA0CA9CB24"]
+			tasks: [
+				{ id: "66E358CF702CD012", type: "item", item: { count: 1, id: "economy_core:power_exchange" }, count: 1L }
+			]
+			rewards: [
+				{ id: "6235C905B4333CF2", type: "item", item: { count: 5, id: "lightmanscurrency:coin_gold" } }
+			]
+		}
+		{
+			id: "661A41BF11DA0D42"
+			x: 9.0d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "cyclic:collector" }
+			dependencies: ["1AA5DF59F91715C1"]
 			tasks: [
 				{ id: "1BB98CEF51854274", type: "item", item: { count: 1, id: "cyclic:collector" }, count: 1L }
 			]
@@ -72,7 +87,7 @@
 		}
 		{
 			id: "6FB650D14A0AC3E7"
-			x: 9.0d
+			x: 11.25d
 			y: 0.0d
 			shape: "hexagon"
 			size: 1.25d
@@ -88,7 +103,7 @@
 		{
 			id: "4C5D5E7F3D865B96"
 			x: 11.25d
-			y: 0.0d
+			y: 4.0d
 			shape: "hexagon"
 			size: 1.25d
 			icon: { count: 1, id: "create:precision_mechanism" }
@@ -102,7 +117,7 @@
 		}
 		{
 			id: "28F8AAA5DE0289BE"
-			x: 11.25d
+			x: 9.0d
 			y: 4.0d
 			shape: "hexagon"
 			size: 1.25d
@@ -118,7 +133,7 @@
 		}
 		{
 			id: "660B50601FE9FE58"
-			x: 11.25d
+			x: 9.0d
 			y: 6.0d
 			shape: "rsquare"
 			size: 1.0d
@@ -134,7 +149,7 @@
 		}
 		{
 			id: "6FAECB8B694590C0"
-			x: 9.0d
+			x: 6.75d
 			y: 4.0d
 			shape: "hexagon"
 			size: 1.25d
@@ -149,7 +164,7 @@
 		}
 		{
 			id: "23CD4CA68E0FE96F"
-			x: 6.75d
+			x: 4.5d
 			y: 4.0d
 			shape: "diamond"
 			size: 1.5d
@@ -164,7 +179,7 @@
 		}
 		{
 			id: "1AF0F9EA0014BD83"
-			x: 4.5d
+			x: 2.25d
 			y: 4.0d
 			shape: "gear"
 			size: 2.25d

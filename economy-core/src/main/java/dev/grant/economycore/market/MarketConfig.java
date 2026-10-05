@@ -43,7 +43,7 @@ public class MarketConfig {
      * which quest gates check. Keep in sync with data/economy_core/advancement/earned/.
      */
     @SerializedName("earnings_milestones")
-    public List<Long> earningsMilestones = new ArrayList<>(List.of(1L, 2000L, 12000L, 48000L, 175000L, 525000L, 1400000L, 4000000L));
+    public List<Long> earningsMilestones = new ArrayList<>(List.of(1L, 4000L, 24000L, 96000L, 350000L, 1050000L, 2800000L, 8000000L));
 
     /** Single-sale milestones: a sale worth at least this grants economy_core:sale/<amount>. */
     @SerializedName("sale_milestones")

@@ -145,7 +145,7 @@ public class MarketConfig {
         c.tiers.add(new Tier(9, 96, 6000));
         c.tiers.add(new Tier(10, 128, 15000));
 
-        c.categories.put("island", new Category(64, 0.5));
+        c.categories.put("island", new Category(64, 0.75));  // island basics floor at 25%
         c.categories.put("crops", new Category(64, 0.5));
         c.categories.put("fish", new Category(32, 0.5));
         c.categories.put("mob_drops", new Category(48, 0.5));

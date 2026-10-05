@@ -13,7 +13,15 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 
 # --------------------------------------------------------------------------- selling (Market Crate buys these)
-# Each category has a soft cap: how many units sold before the price is ~2/3 of the way to the 50% floor.
+# Each category has a soft cap: how many units sold before the price is ~2/3 of the way down to its floor.
+# The floor is the fraction of fair value a flooded price can drop to. Island basics (cobble, gravel, sand, dust)
+# fall to 25% so spamming one block can't carry a tier; everything else stops at 50%.
+FLOOR_DEFAULT = 0.5
+FLOORS = {'island': 0.25}
+
+
+def floor_of(category):
+    return FLOORS.get(category, FLOOR_DEFAULT)
 SELL_CATEGORIES = {
     'island':   (64, 'Island basics from cobble generators, hammers and trees'),
     'chunks':   (32, 'Ore chunks from Ex Deorum sieves'),
@@ -34,25 +42,25 @@ SELL_CATEGORIES = {
 # (item id, name, category, fair price, tier, purpose / stream)
 SELL = [
     # Tier 0: island start
-    ('minecraft:cobblestone', 'Cobblestone', 'island', 1, 0, 'Filler income; mainly feeds hammers'),
-    ('minecraft:dirt', 'Dirt', 'island', 1, 0, 'Filler income'),
-    ('minecraft:gravel', 'Gravel', 'island', 2, 0, 'Hammered cobble; feeds sieves'),
-    ('minecraft:sand', 'Sand', 'island', 2, 0, 'Hammered gravel; feeds sieves'),
-    ('exdeorum:dust', 'Dust (Ex Deorum)', 'island', 2, 0, 'Hammered sand; feeds sieves'),
-    ('ftbstuff:dust', 'Dust (FTB Stuff & Things)', 'island', 2, 0, 'Hammered sand; feeds sieves'),
-    ('minecraft:flint', 'Flint', 'island', 4, 0, 'Sieve by-product'),
-    ('minecraft:oak_log', 'Oak Log', 'island', 4, 0, 'Tree farm income'),
-    ('minecraft:charcoal', 'Charcoal', 'island', 6, 0, 'Smelted logs; processing pays'),
+    ('minecraft:cobblestone', 'Cobblestone', 'island', 0.5, 0, 'Filler income; mainly feeds hammers'),
+    ('minecraft:dirt', 'Dirt', 'island', 0.5, 0, 'Filler income'),
+    ('minecraft:gravel', 'Gravel', 'island', 1, 0, 'Hammered cobble; feeds sieves'),
+    ('minecraft:sand', 'Sand', 'island', 1, 0, 'Hammered gravel; feeds sieves'),
+    ('exdeorum:dust', 'Dust (Ex Deorum)', 'island', 1, 0, 'Hammered sand; feeds sieves'),
+    ('ftbstuff:dust', 'Dust (FTB Stuff & Things)', 'island', 1, 0, 'Hammered sand; feeds sieves'),
+    ('minecraft:flint', 'Flint', 'island', 2, 0, 'Sieve by-product'),
+    ('minecraft:oak_log', 'Oak Log', 'island', 2, 0, 'Tree farm income'),
+    ('minecraft:charcoal', 'Charcoal', 'island', 3, 0, 'Smelted logs; processing pays'),
     ('exdeorum:copper_ore_chunk', 'Copper Ore Chunk', 'chunks', 6, 0, 'Sieving'),
     ('exdeorum:iron_ore_chunk', 'Iron Ore Chunk', 'chunks', 12, 0, 'Sieving'),
     ('exdeorum:gold_ore_chunk', 'Gold Ore Chunk', 'chunks', 20, 0, 'Sieving'),
-    ('minecraft:melon_slice', 'Melon Slice', 'crops', 2, 0, 'Farming'),
-    ('minecraft:wheat', 'Wheat', 'crops', 3, 0, 'Farming'),
-    ('minecraft:potato', 'Potato', 'crops', 3, 0, 'Farming'),
-    ('minecraft:carrot', 'Carrot', 'crops', 3, 0, 'Farming'),
-    ('minecraft:sugar_cane', 'Sugar Cane', 'crops', 3, 0, 'Farming'),
-    ('minecraft:beetroot', 'Beetroot', 'crops', 4, 0, 'Farming'),
-    ('minecraft:pumpkin', 'Pumpkin', 'crops', 8, 0, 'Farming'),
+    ('minecraft:melon_slice', 'Melon Slice', 'crops', 3, 0, 'Farming'),
+    ('minecraft:wheat', 'Wheat', 'crops', 4, 0, 'Farming'),
+    ('minecraft:potato', 'Potato', 'crops', 4, 0, 'Farming'),
+    ('minecraft:carrot', 'Carrot', 'crops', 4, 0, 'Farming'),
+    ('minecraft:sugar_cane', 'Sugar Cane', 'crops', 4, 0, 'Farming'),
+    ('minecraft:beetroot', 'Beetroot', 'crops', 5, 0, 'Farming'),
+    ('minecraft:pumpkin', 'Pumpkin', 'crops', 11, 0, 'Farming'),
     ('minecraft:baked_potato', 'Baked Potato', 'food', 5, 0, 'Cooking; processing pays'),
     ('minecraft:bread', 'Bread', 'food', 10, 0, 'Cooking; processing pays'),
     ('minecraft:copper_ingot', 'Copper Ingot', 'metals', 20, 0, 'Smelted chunks (any copper ingot counts)'),
@@ -62,10 +70,10 @@ SELL = [
     ('minecraft:lapis_lazuli', 'Lapis Lazuli', 'gems', 30, 0, 'Sieving'),
     # Tier 1
     ('exdeorum:zinc_ore_chunk', 'Zinc Ore Chunk', 'chunks', 10, 0, 'Sieving (Create zinc)'),
-    ('farmersdelight:tomato', 'Tomato', 'crops', 4, 1, "Farmer's Delight crops"),
-    ('farmersdelight:cabbage', 'Cabbage', 'crops', 4, 1, "Farmer's Delight crops"),
-    ('farmersdelight:onion', 'Onion', 'crops', 3, 1, "Farmer's Delight crops"),
-    ('farmersdelight:rice', 'Rice', 'crops', 3, 1, "Farmer's Delight crops"),
+    ('farmersdelight:tomato', 'Tomato', 'crops', 5, 1, "Farmer's Delight crops"),
+    ('farmersdelight:cabbage', 'Cabbage', 'crops', 5, 1, "Farmer's Delight crops"),
+    ('farmersdelight:onion', 'Onion', 'crops', 4, 1, "Farmer's Delight crops"),
+    ('farmersdelight:rice', 'Rice', 'crops', 4, 1, "Farmer's Delight crops"),
     ('farmersdelight:beef_stew', 'Beef Stew', 'food', 60, 1, 'Cooking chain'),
     ('farmersdelight:pasta_with_meatballs', 'Pasta with Meatballs', 'food', 80, 1, 'Cooking chain'),
     ('farmersdelight:pasta_with_mutton_chop', 'Pasta with Mutton Chop', 'food', 80, 1, 'Cooking chain'),
@@ -388,13 +396,13 @@ def build_md():
 
     w('## Selling: what the Market Crate buys (Income)')
     w('')
-    w('Soft cap = units sold before the price is about two thirds of the way down to the 50% floor. '
-      'Smaller soft cap = price drops faster.')
+    w('Soft cap = units sold before the price is about two thirds of the way down to the floor. '
+      'Smaller soft cap = price drops faster. Floor = the lowest a flooded price can go.')
     w('')
-    w('| Category | Soft cap | What it covers |')
-    w('|---|---|---|')
+    w('| Category | Soft cap | Floor | What it covers |')
+    w('|---|---|---|---|')
     for k, (cap, desc) in SELL_CATEGORIES.items():
-        w(f'| {k} | {cap} | {desc} |')
+        w(f'| {k} | {cap} | {floor_of(k) * 100:.0f}% | {desc} |')
     w('')
     for t in TIERS:
         rows = [r for r in SELL if r[4] == t]
@@ -402,10 +410,12 @@ def build_md():
             continue
         w(f'### Tier {t}: {TIERS[t][0]}')
         w('')
-        w('| Item | ID | Category | Fair price | Coins | Floor (50%) | Purpose / stream |')
+        w('| Item | ID | Category | Fair price | Coins | Floor | Purpose / stream |')
         w('|---|---|---|---|---|---|---|')
         for iid, name, cat, price, _, purpose in rows:
-            w(f'| {name} | `{iid}` | {cat} | {fmt(price)} | {coins(price)} | {fmt(price / 2) if price % 2 else fmt(price // 2)} | {purpose} |')
+            flo = price * floor_of(cat)
+            w(f'| {name} | `{iid}` | {cat} | {fmt(price)} | {coins(price)} | {fmt(int(flo) if flo == int(flo) else flo)} '
+              f'| {purpose} |')
         w('')
 
     w('## Buying: Automation (buy-only, fixed price, 80-90% sell-back)')
@@ -510,7 +520,8 @@ def build_market_json():
         'power_base': 70.0,
         'power_exponent': 0.6,
         'tiers': [{'variety': v, 'min_units': u, 'min_value': m} for v, u, m in MARKET_TIERS],
-        'categories': {c: {'soft_cap': cap, 'max_drop': 0.5} for c, (cap, _) in SELL_CATEGORIES.items()},
+        'categories': {c: {'soft_cap': cap, 'max_drop': round(1 - floor_of(c), 4)}
+                       for c, (cap, _) in SELL_CATEGORIES.items()},
         'items': items,
         'coins': COINS,
     }, indent=2)

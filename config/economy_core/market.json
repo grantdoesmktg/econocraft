@@ -68,7 +68,7 @@
   "categories": {
     "island": {
       "soft_cap": 64,
-      "max_drop": 0.5
+      "max_drop": 0.75
     },
     "chunks": {
       "soft_cap": 32,
@@ -125,39 +125,39 @@
   },
   "items": {
     "minecraft:cobblestone": {
-      "base": 1,
+      "base": 0.5,
       "category": "island"
     },
     "minecraft:dirt": {
-      "base": 1,
+      "base": 0.5,
       "category": "island"
     },
     "minecraft:gravel": {
-      "base": 2,
+      "base": 1,
       "category": "island"
     },
     "minecraft:sand": {
-      "base": 2,
+      "base": 1,
       "category": "island"
     },
     "exdeorum:dust": {
-      "base": 2,
+      "base": 1,
       "category": "island"
     },
     "ftbstuff:dust": {
-      "base": 2,
+      "base": 1,
       "category": "island"
     },
     "minecraft:flint": {
-      "base": 4,
+      "base": 2,
       "category": "island"
     },
     "minecraft:oak_log": {
-      "base": 4,
+      "base": 2,
       "category": "island"
     },
     "minecraft:charcoal": {
-      "base": 6,
+      "base": 3,
       "category": "island"
     },
     "exdeorum:copper_ore_chunk": {
@@ -173,31 +173,31 @@
       "category": "chunks"
     },
     "minecraft:melon_slice": {
-      "base": 2,
+      "base": 3,
       "category": "crops"
     },
     "minecraft:wheat": {
-      "base": 3,
-      "category": "crops"
-    },
-    "minecraft:potato": {
-      "base": 3,
-      "category": "crops"
-    },
-    "minecraft:carrot": {
-      "base": 3,
-      "category": "crops"
-    },
-    "minecraft:sugar_cane": {
-      "base": 3,
-      "category": "crops"
-    },
-    "minecraft:beetroot": {
       "base": 4,
       "category": "crops"
     },
+    "minecraft:potato": {
+      "base": 4,
+      "category": "crops"
+    },
+    "minecraft:carrot": {
+      "base": 4,
+      "category": "crops"
+    },
+    "minecraft:sugar_cane": {
+      "base": 4,
+      "category": "crops"
+    },
+    "minecraft:beetroot": {
+      "base": 5,
+      "category": "crops"
+    },
     "minecraft:pumpkin": {
-      "base": 8,
+      "base": 11,
       "category": "crops"
     },
     "minecraft:baked_potato": {
@@ -233,19 +233,19 @@
       "category": "chunks"
     },
     "farmersdelight:tomato": {
-      "base": 4,
+      "base": 5,
       "category": "crops"
     },
     "farmersdelight:cabbage": {
-      "base": 4,
+      "base": 5,
       "category": "crops"
     },
     "farmersdelight:onion": {
-      "base": 3,
+      "base": 4,
       "category": "crops"
     },
     "farmersdelight:rice": {
-      "base": 3,
+      "base": 4,
       "category": "crops"
     },
     "farmersdelight:beef_stew": {

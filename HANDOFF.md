@@ -1,6 +1,6 @@
 # Economy Pack: handoff / current status
 
-Last updated 2026-10-04. Read this first in a new session. It isn't shipped in the pack (it's in .packwizignore).
+Last updated 2026-10-05. Read this first in a new session. It isn't shipped in the pack (it's in .packwizignore).
 Related docs: DESIGN-NOTES.md (decisions), MARKET.md (prices, generated), QUEST-BOOK-PLAN.md,
 MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
 
@@ -28,6 +28,10 @@ MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
   ~/Modpacks/server-test is a local dedicated server for boot tests.
 
 ## Needs an in-game check (Grant)
+- Island price cut (2026-10-05): cobble 0.5, dirt 0.5, gravel/sand/dust 1, flint/log 2, charcoal 3, and the island
+  category floors at 25% instead of 50%. Crops are up about a third (wheat/potato/carrot 4, pumpkin 11). Check that
+  the crate shows halved prices, that spamming cobble bottoms out at a quarter, and that selling a mixed chest of
+  crops still pays near full. Config only (market.json); no mod rebuild needed.
 - Power Exchange (0.9.6): pipe a Cyclic generator in; label shows coins/min; balance rises; works for a teammate.
 - Sieve odds (beta.3): sifting gravel feels noticeably leaner on ore; auto-sieves still worth placing.
 - Gate quests show the doubled numbers; shop tier tabs show the same gate costs.

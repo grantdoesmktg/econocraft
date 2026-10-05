@@ -30,48 +30,48 @@ Every item the market buys from players and every item the shop sells, by tier. 
 
 ## Selling: what the Market Crate buys (Income)
 
-Soft cap = units sold before the price is about two thirds of the way down to the 50% floor. Smaller soft cap = price drops faster.
+Soft cap = units sold before the price is about two thirds of the way down to the floor. Smaller soft cap = price drops faster. Floor = the lowest a flooded price can go.
 
-| Category | Soft cap | What it covers |
-|---|---|---|
-| island | 64 | Island basics from cobble generators, hammers and trees |
-| chunks | 32 | Ore chunks from Ex Deorum sieves |
-| crops | 64 | Field and Botany Pot crops |
-| food | 24 | Cooked food (Farmer's Delight); processing pays |
-| fish | 32 | Fishing and Fishermen's Traps; Aquaculture species after the Frontier |
-| mob | 48 | Mob farms (Mob Grinding Utils) and Hostile Neural Networks |
-| metals | 32 | Smelted and processed metals |
-| gems | 16 | Gems and rare minerals; diamond and emerald are Frontier-only |
-| create | 24 | Create crafted components |
-| essence | 64 | Mystical Agriculture essence (sells for ~20% of what it crafts) |
-| exotic | 16 | Twilight Forest materials |
-| bosses | 8 | Boss trophies and boss drops: the big payout for fighting |
-| treasure | 16 | Rare loot from exploring and the End |
-| frontier | 24 | Frontier-only goods: biome crops, overworld mob drops and structure loot |
+| Category | Soft cap | Floor | What it covers |
+|---|---|---|---|
+| island | 64 | 25% | Island basics from cobble generators, hammers and trees |
+| chunks | 32 | 50% | Ore chunks from Ex Deorum sieves |
+| crops | 64 | 50% | Field and Botany Pot crops |
+| food | 24 | 50% | Cooked food (Farmer's Delight); processing pays |
+| fish | 32 | 50% | Fishing and Fishermen's Traps; Aquaculture species after the Frontier |
+| mob | 48 | 50% | Mob farms (Mob Grinding Utils) and Hostile Neural Networks |
+| metals | 32 | 50% | Smelted and processed metals |
+| gems | 16 | 50% | Gems and rare minerals; diamond and emerald are Frontier-only |
+| create | 24 | 50% | Create crafted components |
+| essence | 64 | 50% | Mystical Agriculture essence (sells for ~20% of what it crafts) |
+| exotic | 16 | 50% | Twilight Forest materials |
+| bosses | 8 | 50% | Boss trophies and boss drops: the big payout for fighting |
+| treasure | 16 | 50% | Rare loot from exploring and the End |
+| frontier | 24 | 50% | Frontier-only goods: biome crops, overworld mob drops and structure loot |
 
 ### Tier 0: Castaway
 
-| Item | ID | Category | Fair price | Coins | Floor (50%) | Purpose / stream |
+| Item | ID | Category | Fair price | Coins | Floor | Purpose / stream |
 |---|---|---|---|---|---|---|
-| Cobblestone | `minecraft:cobblestone` | island | 1 | 1c | 0.5 | Filler income; mainly feeds hammers |
-| Dirt | `minecraft:dirt` | island | 1 | 1c | 0.5 | Filler income |
-| Gravel | `minecraft:gravel` | island | 2 | 2c | 1 | Hammered cobble; feeds sieves |
-| Sand | `minecraft:sand` | island | 2 | 2c | 1 | Hammered gravel; feeds sieves |
-| Dust (Ex Deorum) | `exdeorum:dust` | island | 2 | 2c | 1 | Hammered sand; feeds sieves |
-| Dust (FTB Stuff & Things) | `ftbstuff:dust` | island | 2 | 2c | 1 | Hammered sand; feeds sieves |
-| Flint | `minecraft:flint` | island | 4 | 4c | 2 | Sieve by-product |
-| Oak Log | `minecraft:oak_log` | island | 4 | 4c | 2 | Tree farm income |
-| Charcoal | `minecraft:charcoal` | island | 6 | 6c | 3 | Smelted logs; processing pays |
+| Cobblestone | `minecraft:cobblestone` | island | 0.5 | 0c | 0.125 | Filler income; mainly feeds hammers |
+| Dirt | `minecraft:dirt` | island | 0.5 | 0c | 0.125 | Filler income |
+| Gravel | `minecraft:gravel` | island | 1 | 1c | 0.25 | Hammered cobble; feeds sieves |
+| Sand | `minecraft:sand` | island | 1 | 1c | 0.25 | Hammered gravel; feeds sieves |
+| Dust (Ex Deorum) | `exdeorum:dust` | island | 1 | 1c | 0.25 | Hammered sand; feeds sieves |
+| Dust (FTB Stuff & Things) | `ftbstuff:dust` | island | 1 | 1c | 0.25 | Hammered sand; feeds sieves |
+| Flint | `minecraft:flint` | island | 2 | 2c | 0.5 | Sieve by-product |
+| Oak Log | `minecraft:oak_log` | island | 2 | 2c | 0.5 | Tree farm income |
+| Charcoal | `minecraft:charcoal` | island | 3 | 3c | 0.75 | Smelted logs; processing pays |
 | Copper Ore Chunk | `exdeorum:copper_ore_chunk` | chunks | 6 | 6c | 3 | Sieving |
 | Iron Ore Chunk | `exdeorum:iron_ore_chunk` | chunks | 12 | 1i 2c | 6 | Sieving |
 | Gold Ore Chunk | `exdeorum:gold_ore_chunk` | chunks | 20 | 2i | 10 | Sieving |
-| Melon Slice | `minecraft:melon_slice` | crops | 2 | 2c | 1 | Farming |
-| Wheat | `minecraft:wheat` | crops | 3 | 3c | 1.5 | Farming |
-| Potato | `minecraft:potato` | crops | 3 | 3c | 1.5 | Farming |
-| Carrot | `minecraft:carrot` | crops | 3 | 3c | 1.5 | Farming |
-| Sugar Cane | `minecraft:sugar_cane` | crops | 3 | 3c | 1.5 | Farming |
-| Beetroot | `minecraft:beetroot` | crops | 4 | 4c | 2 | Farming |
-| Pumpkin | `minecraft:pumpkin` | crops | 8 | 8c | 4 | Farming |
+| Melon Slice | `minecraft:melon_slice` | crops | 3 | 3c | 1.5 | Farming |
+| Wheat | `minecraft:wheat` | crops | 4 | 4c | 2 | Farming |
+| Potato | `minecraft:potato` | crops | 4 | 4c | 2 | Farming |
+| Carrot | `minecraft:carrot` | crops | 4 | 4c | 2 | Farming |
+| Sugar Cane | `minecraft:sugar_cane` | crops | 4 | 4c | 2 | Farming |
+| Beetroot | `minecraft:beetroot` | crops | 5 | 5c | 2.5 | Farming |
+| Pumpkin | `minecraft:pumpkin` | crops | 11 | 1i 1c | 5.5 | Farming |
 | Baked Potato | `minecraft:baked_potato` | food | 5 | 5c | 2.5 | Cooking; processing pays |
 | Bread | `minecraft:bread` | food | 10 | 1i | 5 | Cooking; processing pays |
 | Copper Ingot | `minecraft:copper_ingot` | metals | 20 | 2i | 10 | Smelted chunks (any copper ingot counts) |
@@ -96,12 +96,12 @@ Soft cap = units sold before the price is about two thirds of the way down to th
 
 ### Tier 1: Tinkerer
 
-| Item | ID | Category | Fair price | Coins | Floor (50%) | Purpose / stream |
+| Item | ID | Category | Fair price | Coins | Floor | Purpose / stream |
 |---|---|---|---|---|---|---|
-| Tomato | `farmersdelight:tomato` | crops | 4 | 4c | 2 | Farmer's Delight crops |
-| Cabbage | `farmersdelight:cabbage` | crops | 4 | 4c | 2 | Farmer's Delight crops |
-| Onion | `farmersdelight:onion` | crops | 3 | 3c | 1.5 | Farmer's Delight crops |
-| Rice | `farmersdelight:rice` | crops | 3 | 3c | 1.5 | Farmer's Delight crops |
+| Tomato | `farmersdelight:tomato` | crops | 5 | 5c | 2.5 | Farmer's Delight crops |
+| Cabbage | `farmersdelight:cabbage` | crops | 5 | 5c | 2.5 | Farmer's Delight crops |
+| Onion | `farmersdelight:onion` | crops | 4 | 4c | 2 | Farmer's Delight crops |
+| Rice | `farmersdelight:rice` | crops | 4 | 4c | 2 | Farmer's Delight crops |
 | Beef Stew | `farmersdelight:beef_stew` | food | 60 | 6i | 30 | Cooking chain |
 | Pasta with Meatballs | `farmersdelight:pasta_with_meatballs` | food | 80 | 8i | 40 | Cooking chain |
 | Pasta with Mutton Chop | `farmersdelight:pasta_with_mutton_chop` | food | 80 | 8i | 40 | Cooking chain |
@@ -113,7 +113,7 @@ Soft cap = units sold before the price is about two thirds of the way down to th
 
 ### Tier 3: Pioneer
 
-| Item | ID | Category | Fair price | Coins | Floor (50%) | Purpose / stream |
+| Item | ID | Category | Fair price | Coins | Floor | Purpose / stream |
 |---|---|---|---|---|---|---|
 | Emerald | `minecraft:emerald` | gems | 40 | 4i | 20 | Frontier mining and trading (removed from sieves) |
 | Diamond | `minecraft:diamond` | gems | 800 | 8g | 400 | Frontier mining (removed from sieves) |
@@ -157,7 +157,7 @@ Soft cap = units sold before the price is about two thirds of the way down to th
 
 ### Tier 4: Cultivator
 
-| Item | ID | Category | Fair price | Coins | Floor (50%) | Purpose / stream |
+| Item | ID | Category | Fair price | Coins | Floor | Purpose / stream |
 |---|---|---|---|---|---|---|
 | Blaze Rod | `minecraft:blaze_rod` | mob | 60 | 6i | 30 | Nether mob farm / HNN |
 | Ghast Tear | `minecraft:ghast_tear` | mob | 120 | 1g 2i | 60 | Nether / HNN |
@@ -180,7 +180,7 @@ Soft cap = units sold before the price is about two thirds of the way down to th
 
 ### Tier 5: Industrialist
 
-| Item | ID | Category | Fair price | Coins | Floor (50%) | Purpose / stream |
+| Item | ID | Category | Fair price | Coins | Floor | Purpose / stream |
 |---|---|---|---|---|---|---|
 | Supremium Essence | `mysticalagriculture:supremium_essence` | essence | 260 | 2g 6i | 130 | Mystical Agriculture |
 | Twilight Prediction | `hostilenetworks:twilight_prediction` | mob | 150 | 1g 5i | 75 | Hostile Neural Networks output |

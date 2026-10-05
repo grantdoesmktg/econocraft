@@ -47,13 +47,9 @@ def price_of(item):
     return SELL[item][3]
 
 
-# Price floor: fraction of fair value the price can drop to (1 - max_drop). Per-category overrides win.
-FLOOR_DEFAULT = 0.5
-FLOOR_BY_CAT = {}
-
-
 def max_drop(item):
-    return 1 - FLOOR_BY_CAT.get(SELL[item][2], FLOOR_DEFAULT)
+    """How far below fair value a flooded price can fall; floors come from market_catalog."""
+    return 1 - M.floor_of(SELL[item][2])
 
 
 def sell_total(base, max_drop, soft_cap, s0, n):

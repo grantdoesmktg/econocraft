@@ -12,7 +12,8 @@ import json
 import os
 
 PACK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EXPORT = os.path.expanduser('~/Library/Application Support/PrismLauncher/instances/Economy Test/minecraft/local/kubejs/export')
+import paths  # noqa: E402
+EXPORT = paths.export_dir()
 SNAPSHOT = os.path.join(os.path.dirname(__file__), 'sieve_base_odds.json')
 
 # Multiplier on the drop chance of each good, for every mesh and input block (gravel, crushed deepslate) on both

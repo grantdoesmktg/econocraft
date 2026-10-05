@@ -28,7 +28,8 @@ import market_catalog as M  # noqa: E402
 import quest_content as Q  # noqa: E402
 
 PACK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EXPORT = os.path.expanduser('~/Library/Application Support/PrismLauncher/instances/Economy Test/minecraft/local/kubejs/export')
+import paths  # noqa: E402
+EXPORT = paths.export_dir()
 TIERS = range(7)
 
 # ------------------------------------------------------------------ world sources (hand-written model)

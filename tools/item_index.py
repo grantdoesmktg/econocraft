@@ -2,8 +2,16 @@
 Used to check that MARKET.md / market.json only reference real items."""
 import glob, json, os, re, zipfile
 
+DATA_IDS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'item_ids.txt')
+PACK_JARS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'mods', '*.jar')
+
+
 def build_index(jar_globs):
+    """Item ids from the given jars, the pack's own jars (Economy Core) and the committed snapshot (for cloud sessions)."""
     ids = set()
+    if os.path.exists(DATA_IDS):
+        ids.update(l.strip() for l in open(DATA_IDS) if l.strip())
+    jar_globs = list(jar_globs) + [PACK_JARS]
     for pattern in jar_globs:
         for jar in glob.glob(os.path.expanduser(pattern)):
             try:
@@ -30,7 +38,6 @@ JARS = [
     '~/Library/Application Support/PrismLauncher/instances/Economy Test/minecraft/mods/*.jar',
     '~/Library/Application Support/PrismLauncher/libraries/com/mojang/minecraft/*/*.jar',
     '~/Library/Application Support/PrismLauncher/libraries/net/minecraft/client/*/*.jar',
-    '/private/tmp/claude-501/-Users-mystuff-Modpacks/*/scratchpad/**/*.jar',
 ]
 
 if __name__ == '__main__':

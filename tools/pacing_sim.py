@@ -27,7 +27,8 @@ import build_sieve  # noqa: E402
 import market_catalog as M  # noqa: E402
 
 PACK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EXPORT = os.path.expanduser('~/Library/Application Support/PrismLauncher/instances/Economy Test/minecraft/local/kubejs/export')
+import paths  # noqa: E402
+EXPORT = paths.export_dir()
 
 # Target pace: cumulative play hours to reach each tier (low, high). Outside this range gets flagged.
 TARGET_HOURS = {1: (1, 2), 2: (3, 5), 3: (6, 10), 4: (10, 15), 5: (15, 20), 6: (20, 30)}

@@ -155,8 +155,8 @@
 			icon: { count: 1, id: "minecraft:blaze_rod" }
 			dependencies: ["248EC1599BDB1540"]
 			tasks: [
-				{ id: "5A678604C6C07E32", type: "advancement", advancement: "economy_core:earned/175000", criterion: "" }
-				{ id: "3C048B9F059B2F19", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" }, count: 4L consume_items: true }
+				{ id: "5A678604C6C07E32", type: "advancement", advancement: "economy_core:earned/350000", criterion: "" }
+				{ id: "3C048B9F059B2F19", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" }, count: 8L consume_items: true }
 			]
 			rewards: [
 				{ id: "42D63F4DFDD601A9", type: "gamestage", stage: "economy:tier_4" }

@@ -8,85 +8,96 @@ of the script). Play time only; machines are assumed off while nobody is online.
 
 | Tier | Reached at (play hours) | Time in previous tier | Target | Verdict |
 |---|---|---|---|---|
-| 1 Tinkerer | 0.3 | 0.3 h | 1-2 h | too fast |
-| 2 Engineer | 0.7 | 0.4 h | 3-5 h | too fast |
-| 3 Pioneer | 2.2 | 1.5 h | 6-10 h | too fast |
-| 4 Cultivator | 4.2 | 1.9 h | 10-15 h | too fast |
-| 5 Industrialist | 6.4 | 2.2 h | 15-20 h | too fast |
-| 6 Tycoon | 9.7 | 3.2 h | 20-30 h | too fast |
+| 1 Tinkerer | 0.5 | 0.5 h | 1-2 h | too fast |
+| 2 Engineer | 1.8 | 1.3 h | 3-5 h | too fast |
+| 3 Pioneer | 4.2 | 2.4 h | 6-10 h | too fast |
+| 4 Cultivator | 6.8 | 2.6 h | 10-15 h | too fast |
+| 5 Industrialist | 12.8 | 6.0 h | 15-20 h | too fast |
+| 6 Tycoon | 19.3 | 6.5 h | 20-30 h | too fast |
 
 ## Income rate
 
 | Play hour | Coins earned that hour |
 |---|---|
-| 0 | 18,612 |
-| 1 | 30,422 |
-| 2 | 53,747 |
-| 3 | 82,410 |
-| 4 | 116,855 |
-| 5 | 156,018 |
-| 6 | 205,604 |
-| 7 | 279,513 |
-| 8 | 279,501 |
-| 9 | 266,597 |
-| 10 | 156,830 |
+| 0 | 12,757 |
+| 1 | 24,506 |
+| 2 | 30,984 |
+| 3 | 51,671 |
+| 4 | 64,829 |
+| 5 | 80,512 |
+| 6 | 112,558 |
+| 7 | 113,231 |
+| 8 | 117,871 |
+| 9 | 117,844 |
+| 10 | 117,843 |
+| 11 | 117,843 |
+| 12 | 130,992 |
+| 13 | 259,367 |
+| 14 | 275,240 |
+| 15 | 275,239 |
+| 16 | 275,239 |
+| 17 | 275,239 |
+| 18 | 275,239 |
+| 19 | 245,619 |
+| 20 | 67,886 |
 
 ## Where the money came from (top 5 goods per tier)
 
 | Tier | Good | Coins | Share |
 |---|---|---|---|
-| 0 | Cobblestone | 1,480 | 72% |
-| 0 | Iron Ingot | 224 | 11% |
-| 0 | Gold Ingot | 102 | 5% |
-| 0 | Lapis Lazuli | 80 | 4% |
-| 0 | Flint | 69 | 3% |
-| 1 | Cobblestone | 3,006 | 29% |
-| 1 | Iron Ingot | 2,436 | 24% |
-| 1 | Gold Ingot | 1,581 | 15% |
-| 1 | Lapis Lazuli | 1,411 | 14% |
-| 1 | Amethyst Shard | 624 | 6% |
-| 2 | Cobblestone | 10,920 | 21% |
-| 2 | Iron Ingot | 8,809 | 17% |
-| 2 | Gold Ingot | 7,361 | 14% |
-| 2 | Brass Ingot | 5,732 | 11% |
-| 2 | Lapis Lazuli | 4,915 | 10% |
-| 3 | Iron Ingot | 33,794 | 23% |
-| 3 | Diamond | 20,617 | 14% |
-| 3 | Gold Ingot | 20,446 | 14% |
-| 3 | Precision Mechanism | 13,966 | 10% |
-| 3 | Lapis Lazuli | 12,211 | 8% |
-| 4 | Iron Ingot | 82,948 | 26% |
-| 4 | Gold Ingot | 73,385 | 23% |
-| 4 | Lapis Lazuli | 33,223 | 11% |
-| 4 | Netherite Scrap | 23,618 | 7% |
-| 4 | Zinc Ingot | 19,569 | 6% |
-| 5 | Twilight Prediction | 176,363 | 20% |
-| 5 | Iron Ingot | 132,220 | 15% |
-| 5 | Gold Ingot | 117,456 | 13% |
-| 5 | Lapis Lazuli | 51,104 | 6% |
-| 5 | Snow Queen Trophy | 33,770 | 4% |
-| 6 | Twilight Prediction | 43,124 | 18% |
-| 6 | Iron Ingot | 33,832 | 14% |
-| 6 | Gold Ingot | 27,662 | 11% |
-| 6 | Lapis Lazuli | 14,746 | 6% |
+| 0 | Cobblestone | 2,702 | 64% |
+| 0 | Iron Ingot | 521 | 12% |
+| 0 | Flint | 303 | 7% |
+| 0 | Gold Ingot | 237 | 6% |
+| 0 | Lapis Lazuli | 221 | 5% |
+| 1 | Cobblestone | 9,482 | 35% |
+| 1 | Iron Ingot | 5,105 | 19% |
+| 1 | Precision Mechanism | 3,482 | 13% |
+| 1 | Lapis Lazuli | 2,666 | 10% |
+| 1 | Gold Ingot | 2,176 | 8% |
+| 2 | Precision Mechanism | 24,874 | 25% |
+| 2 | Cobblestone | 16,543 | 16% |
+| 2 | Iron Ingot | 14,480 | 14% |
+| 2 | Brass Ingot | 10,609 | 11% |
+| 2 | Lapis Lazuli | 7,305 | 7% |
+| 3 | Iron Ingot | 52,654 | 24% |
+| 3 | Gold Ingot | 33,914 | 15% |
+| 3 | Diamond | 27,278 | 12% |
+| 3 | Lapis Lazuli | 22,129 | 10% |
+| 3 | Precision Mechanism | 21,800 | 10% |
+| 4 | Iron Ingot | 169,425 | 24% |
+| 4 | Gold Ingot | 123,300 | 18% |
+| 4 | Lapis Lazuli | 68,833 | 10% |
+| 4 | Diamond | 68,670 | 10% |
+| 4 | Precision Mechanism | 55,088 | 8% |
+| 5 | Twilight Prediction | 651,227 | 37% |
+| 5 | Iron Ingot | 149,553 | 9% |
+| 5 | Gold Ingot | 133,068 | 8% |
+| 5 | Snow Queen Trophy | 68,095 | 4% |
+| 5 | Hydra Trophy | 68,058 | 4% |
+| 6 | Twilight Prediction | 84,414 | 35% |
+| 6 | Iron Ingot | 17,352 | 7% |
+| 6 | Gold Ingot | 14,706 | 6% |
 | 6 | Snow Queen Trophy | 11,457 | 5% |
+| 6 | Hydra Trophy | 11,428 | 5% |
 
 ## What the player spent time on
 
 | Tier | Activity | Minutes |
 |---|---|---|
 | 0 | setting up machines | 16 |
-| 0 | sieve by hand | 3 |
-| 1 | sieve by hand | 25 |
-| 2 | setting up machines | 24 |
-| 2 | sieve by hand | 67 |
-| 3 | mine the Frontier | 77 |
-| 3 | setting up machines | 40 |
-| 4 | mine the Frontier | 6 |
+| 0 | sieve by hand | 14 |
+| 1 | setting up machines | 8 |
+| 1 | sieve by hand | 70 |
+| 2 | setting up machines | 32 |
+| 2 | sieve by hand | 112 |
+| 3 | mine the Frontier | 102 |
+| 3 | setting up machines | 52 |
+| 4 | mine the Frontier | 260 |
 | 4 | raid the Nether | 95 |
-| 4 | setting up machines | 32 |
-| 5 | hunt Twilight bosses | 182 |
-| 5 | setting up machines | 12 |
+| 4 | setting up machines | 4 |
+| 5 | hunt Twilight bosses | 367 |
+| 5 | setting up machines | 24 |
 | 6 | hunt Twilight bosses | 62 |
 
 ## Machines owned at the end
@@ -96,35 +107,36 @@ of the script). Play time only; machines are assumed off while nobody is online.
 - 4x mob farm
 - 16x auto-sieve
 - 1x brass mixing
-- 3x HNN twilight chamber
+- 6x HNN twilight chamber
 
 ## Timeline
 
 - 0h00: Bought string mesh (40)
 - 0h01: Bought cobble generator #1 (300, pays back in 5 min)
-- 0h06: Bought cobble generator #2 (300, pays back in 8 min)
-- 0h12: Bought cobble generator #4 (300, pays back in 10 min)
-- 0h19: **Tier 1 (Tinkerer)** reached; paid 1,000 gate fee
-- 0h20: Bought flint mesh (150)
-- 0h22: Bought iron mesh (600)
-- 0h44: **Tier 2 (Engineer)** reached; paid 5,000 gate fee
-- 0h45: Bought diamond mesh (4,000)
-- 0h54: Bought mob farm #1 (4,800, pays back in 112 min)
-- 1h06: Bought mob farm #2 (4,800, pays back in 121 min)
-- 1h28: Bought mob farm #4 (4,800, pays back in 134 min)
-- 1h41: Bought Create crushing wheels (ore x1.75) (6,200)
-- 1h52: Bought brass mixing #1 (6,100, pays back in 20 min)
-- 2h15: **Tier 3 (Pioneer)** reached; paid 20,000 gate fee
-- 2h27: Bought precision mechanisms #1 (10,800, pays back in 35 min)
-- 2h40: Bought auto-sieve #1 (10,450, pays back in 73 min)
-- 2h52: Bought auto-sieve #2 (10,450, pays back in 73 min)
-- 3h12: Bought auto-sieve #4 (10,450, pays back in 78 min)
-- 3h44: Bought auto-sieve #8 (10,450, pays back in 87 min)
-- 4h12: **Tier 4 (Cultivator)** reached; paid 40,000 gate fee
-- 4h30: Bought auto-sieve #12 (10,450, pays back in 94 min)
-- 4h51: Bought auto-sieve #16 (10,450, pays back in 99 min)
-- 5h20: Bought Mekanism enrichment (ore x2) (70,000)
-- 6h25: **Tier 5 (Industrialist)** reached; paid 75,000 gate fee
-- 6h26: Bought HNN twilight chamber #1 (55,000, pays back in 122 min)
-- 6h29: Bought HNN twilight chamber #2 (55,000, pays back in 132 min)
-- 9h39: **Tier 6 (Tycoon)** reached; paid 150,000 gate fee
+- 0h06: Bought cobble generator #2 (300, pays back in 10 min)
+- 0h13: Bought cobble generator #4 (300, pays back in 10 min)
+- 0h30: **Tier 1 (Tinkerer)** reached; paid 2,000 gate fee
+- 0h31: Bought flint mesh (150)
+- 0h31: Bought iron mesh (600)
+- 0h59: Bought Create crushing wheels (ore x1.75) (6,200)
+- 1h24: Bought precision mechanisms #1 (10,800, pays back in 35 min)
+- 1h48: **Tier 2 (Engineer)** reached; paid 10,000 gate fee
+- 1h56: Bought diamond mesh (4,000)
+- 2h05: Bought mob farm #1 (4,800, pays back in 112 min)
+- 2h16: Bought mob farm #2 (4,800, pays back in 121 min)
+- 2h36: Bought mob farm #4 (4,800, pays back in 134 min)
+- 2h48: Bought brass mixing #1 (6,100, pays back in 20 min)
+- 3h03: Bought auto-sieve #1 (10,450, pays back in 135 min)
+- 3h17: Bought auto-sieve #2 (10,450, pays back in 137 min)
+- 4h12: **Tier 3 (Pioneer)** reached; paid 40,000 gate fee
+- 4h20: Bought auto-sieve #4 (10,450, pays back in 147 min)
+- 4h59: Bought auto-sieve #8 (10,450, pays back in 157 min)
+- 5h32: Bought auto-sieve #12 (10,450, pays back in 166 min)
+- 6h02: Bought auto-sieve #16 (10,450, pays back in 174 min)
+- 6h46: **Tier 4 (Cultivator)** reached; paid 80,000 gate fee
+- 7h21: Bought Mekanism enrichment (ore x2) (70,000)
+- 12h45: **Tier 5 (Industrialist)** reached; paid 150,000 gate fee
+- 12h46: Bought HNN twilight chamber #1 (55,000, pays back in 122 min)
+- 12h47: Bought HNN twilight chamber #2 (55,000, pays back in 126 min)
+- 12h49: Bought HNN twilight chamber #4 (55,000, pays back in 143 min)
+- 19h16: **Tier 6 (Tycoon)** reached; paid 300,000 gate fee

@@ -109,7 +109,7 @@
 			icon: { count: 1, id: "lightmanscurrency:coin_netherite" }
 			dependencies: ["44523AC427BA2D71"]
 			tasks: [
-				{ id: "1487511BEA7B8B31", type: "advancement", advancement: "economy_core:earned/4000000", criterion: "" }
+				{ id: "1487511BEA7B8B31", type: "advancement", advancement: "economy_core:earned/8000000", criterion: "" }
 			]
 			rewards: [
 				{ id: "2CE41DF63AF0311C", type: "item", item: { count: 5, id: "lightmanscurrency:coin_diamond" } }

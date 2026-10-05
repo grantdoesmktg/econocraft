@@ -214,7 +214,6 @@ MACHINES = [
     ('cyclic:collector', 'Item Collector (vacuum)', 4000, 2, 'Vacuum hopper'),
     ('cyclic:user', 'User (auto-clicker)', 6000, 2, 'Automatic right/left click'),
     ('cyclic:harvester', 'Harvester', 8000, 2, 'Area crop harvesting'),
-    ('cyclic:planter', 'Planter', 2500, 2, 'Automatic replanting'),
     ('cyclic:breaker', 'Block Breaker', 2000, 2, 'Automatic block breaking'),
     ('cyclic:placer', 'Block Placer', 2000, 2, 'Automatic block placing'),
     ('mob_grinding_utils:dreadful_dirt', 'Dreadful Dirt', 1500, 2, 'Hostile mob spawning pad'),
@@ -326,12 +325,12 @@ SUPPLIES = [
 
 TIERS = {
     0: ('Castaway', 'Island', 'start'),
-    1: ('Tinkerer', 'Island', '2,000 lifetime / 1,000 fee'),
-    2: ('Engineer', 'Island', '12,000 / 5,000'),
-    3: ('Pioneer', 'Frontier', '48,000 / 20,000'),
-    4: ('Cultivator', 'Frontier + Nether', '175,000 / 40,000'),
-    5: ('Industrialist', '+ Twilight Forest', '525,000 / 75,000'),
-    6: ('Tycoon', 'Everything', '1,400,000 / 150,000'),
+    1: ('Tinkerer', 'Island', '4,000 lifetime / 2,000 fee'),
+    2: ('Engineer', 'Island', '24,000 / 10,000'),
+    3: ('Pioneer', 'Frontier', '96,000 / 40,000'),
+    4: ('Cultivator', 'Frontier + Nether', '350,000 / 80,000'),
+    5: ('Industrialist', '+ Twilight Forest', '1,050,000 / 150,000'),
+    6: ('Tycoon', 'Everything', '2,800,000 / 300,000'),
 }
 
 
@@ -504,7 +503,7 @@ def build_market_json():
         'autosell_interval_ticks': 100,
         'celebrations_enabled': True,
         'celebrations': [50, 200, 600, 2000, 7500, 30000, 150000],
-        'earnings_milestones': [1, 2000, 12000, 48000, 175000, 525000, 1400000, 4000000],
+        'earnings_milestones': [1, 4000, 24000, 96000, 350000, 1050000, 2800000, 8000000],
         'sale_milestones': [1000, 150000],
         'tiers': [{'variety': v, 'min_units': u, 'min_value': m} for v, u, m in MARKET_TIERS],
         'categories': {c: {'soft_cap': cap, 'max_drop': 0.5} for c, (cap, _) in SELL_CATEGORIES.items()},

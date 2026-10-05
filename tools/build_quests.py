@@ -130,7 +130,7 @@ def style(q, ch, index):
     """Shape, size and title colour by role: start, main, side, milestone, gate, reference."""
     theme = ch['theme']
     tasks = q.get('tasks', [])
-    is_milestone = any(t[0] == 'adv' and ('sale/' in t[1] or 'earned/4' in t[1]) for t in tasks)
+    is_milestone = any(t[0] == 'adv' and ('sale/' in t[1] or t[1].endswith('earned/8000000')) for t in tasks)
     if q.get('gate'):
         return 'gear', 2.25, f'&6&l{q["title"]}'
     if ch['group'] == 'reference':

@@ -1,12 +1,12 @@
 name = "Economy Pack"
 author = "Grant"
-version = "1.0.0-beta.1"
+version = "1.0.0-beta.2"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "1129334adc119dccc9076821de9ff74ed3bb2ac9b14fcf33690e8627e26f9625"
+hash = "2ebc225b04d7318d08e2bb75816998227f3eda2d18cf84a56609ae5b0d653b05"
 
 [versions]
 minecraft = "1.21.1"

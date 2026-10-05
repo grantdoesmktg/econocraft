@@ -204,9 +204,9 @@
 			icon: { count: 1, id: "twilightforest:naga_trophy" }
 			dependencies: ["70261257E54A7DB1"]
 			tasks: [
-				{ id: "1B82A96133D0FAA3", type: "advancement", advancement: "economy_core:earned/525000", criterion: "" }
-				{ id: "422BCAD86E4B743E", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" }, count: 7L consume_items: true }
-				{ id: "6325D43F8C51EC26", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" }, count: 5L consume_items: true }
+				{ id: "1B82A96133D0FAA3", type: "advancement", advancement: "economy_core:earned/1050000", criterion: "" }
+				{ id: "422BCAD86E4B743E", type: "item", item: { count: 1, id: "lightmanscurrency:coin_netherite" }, count: 1L consume_items: true }
+				{ id: "6325D43F8C51EC26", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" }, count: 5L consume_items: true }
 			]
 			rewards: [
 				{ id: "66D95F4DC8439D7C", type: "gamestage", stage: "economy:tier_5" }

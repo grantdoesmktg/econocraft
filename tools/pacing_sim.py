@@ -23,6 +23,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
+import build_sieve  # noqa: E402
 import market_catalog as M  # noqa: E402
 
 PACK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,8 +32,8 @@ EXPORT = os.path.expanduser('~/Library/Application Support/PrismLauncher/instanc
 # Target pace: cumulative play hours to reach each tier (low, high). Outside this range gets flagged.
 TARGET_HOURS = {1: (1, 2), 2: (3, 5), 3: (6, 10), 4: (10, 15), 5: (15, 20), 6: (20, 30)}
 
-GATES = {1: (2_000, 1_000), 2: (12_000, 5_000), 3: (48_000, 20_000), 4: (175_000, 40_000),
-         5: (525_000, 75_000), 6: (1_400_000, 150_000)}
+GATES = {1: (4_000, 2_000), 2: (24_000, 10_000), 3: (96_000, 40_000), 4: (350_000, 80_000),
+         5: (1_050_000, 150_000), 6: (2_800_000, 300_000)}
 
 # ------------------------------------------------------------------ prices (mirror of Economy Core PriceMath)
 
@@ -96,6 +97,10 @@ def sieve_odds(block, mesh):
         a = d['result_amount']
         n = a['n'] * a['p'] if isinstance(a, dict) and 'p' in a else (a.get('value', 1) if isinstance(a, dict) else a)
         out[d['result']['id']] = out.get(d['result']['id'], 0) + n * d['result'].get('count', 1)
+    # Goods rescaled by tools/build_sieve.py: use the snapshot x scale, whatever state the export is in.
+    for item in build_sieve.SCALE:
+        out.pop(item, None)
+    out.update(build_sieve.base_odds(block, mesh))
     return out
 
 

@@ -191,8 +191,8 @@
 			icon: { count: 1, id: "cyclic:user" }
 			dependencies: ["38340EB5D5690B5B"]
 			tasks: [
-				{ id: "3B87FBAECD21C1C0", type: "advancement", advancement: "economy_core:earned/12000", criterion: "" }
-				{ id: "1CCD8C4CE7CCDDE0", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" }, count: 5L consume_items: true }
+				{ id: "3B87FBAECD21C1C0", type: "advancement", advancement: "economy_core:earned/24000", criterion: "" }
+				{ id: "1CCD8C4CE7CCDDE0", type: "item", item: { count: 1, id: "lightmanscurrency:coin_diamond" }, count: 1L consume_items: true }
 			]
 			rewards: [
 				{ id: "4D044BF88AA17E40", type: "gamestage", stage: "economy:tier_2" }

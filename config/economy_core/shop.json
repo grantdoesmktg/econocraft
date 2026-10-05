@@ -154,14 +154,6 @@
       "buyback": 7200
     },
     {
-      "item": "cyclic:planter",
-      "count": 1,
-      "price": 2500,
-      "tier": 2,
-      "category": "machines",
-      "buyback": 2250
-    },
-    {
       "item": "cyclic:breaker",
       "count": 1,
       "price": 2000,

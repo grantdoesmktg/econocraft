@@ -215,8 +215,8 @@
 			icon: { count: 1, id: "create:cogwheel" }
 			dependencies: ["7CFB75310BA4E29E"]
 			tasks: [
-				{ id: "299CB567D63D390E", type: "advancement", advancement: "economy_core:earned/2000", criterion: "" }
-				{ id: "5FAD1A7E7634B87C", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" }, count: 1L consume_items: true }
+				{ id: "299CB567D63D390E", type: "advancement", advancement: "economy_core:earned/4000", criterion: "" }
+				{ id: "5FAD1A7E7634B87C", type: "item", item: { count: 1, id: "lightmanscurrency:coin_emerald" }, count: 2L consume_items: true }
 			]
 			rewards: [
 				{ id: "1B8F4EDCDF70E1EE", type: "gamestage", stage: "economy:tier_1" }

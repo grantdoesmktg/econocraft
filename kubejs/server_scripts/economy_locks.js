@@ -23,7 +23,6 @@ const BUY_ONLY = [
   'cyclic:collector',
   'cyclic:user',
   'cyclic:harvester',
-  'cyclic:planter',
   'cyclic:breaker',
   'cyclic:placer',
   'mob_grinding_utils:dreadful_dirt',

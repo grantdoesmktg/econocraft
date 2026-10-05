@@ -89,11 +89,11 @@
 		"It is there so you never grind for something you have already earned. Spend it on slow things."
 	]
 	quest.5462EBF165FFB8C4.title: "&6&lGate: Tinkerer"
-	quest.5462EBF165FFB8C4.quest_subtitle: "&7Earn 2,000 lifetime, hand in 1,000 in coins"
+	quest.5462EBF165FFB8C4.quest_subtitle: "&7Earn 4,000 lifetime, hand in 2,000 in coins"
 	quest.5462EBF165FFB8C4.quest_desc: [
-		"&aYou need &62,000 lifetime earnings&r, and you hand in &61,000 in coins&r as the fee."
+		"&aYou need &64,000 lifetime earnings&r, and you hand in &62,000 in coins&r as the fee."
 		""
-		"Withdraw coins from the Market Crate and submit them here (it wants one &6emerald coin&r). Yes, it is a fee. Welcome to capitalism."
+		"Withdraw coins from the Market Crate and submit them here (it wants two &6emerald coins&r). Yes, it is a fee. Welcome to capitalism."
 		""
 		"Unlocks tier 1: iron cobble line, Create, Botany Pots and fish traps."
 	]
@@ -166,11 +166,11 @@
 		"Five steady streams beat one giant one, every time. Completes once you have sold five different goods."
 	]
 	quest.2C6E63373539679D.title: "&6&lGate: Engineer"
-	quest.2C6E63373539679D.quest_subtitle: "&7Earn 12,000 lifetime, hand in 5,000 in coins"
+	quest.2C6E63373539679D.quest_subtitle: "&7Earn 24,000 lifetime, hand in 10,000 in coins"
 	quest.2C6E63373539679D.quest_desc: [
 		"&eYou built a factory out of gears and a fish trap. That is basically engineering."
 		""
-		"Hand in &65 emerald coins&r and have &612,000 lifetime earnings&r."
+		"Hand in &61 diamond coin&r and have &624,000 lifetime earnings&r."
 		""
 		"Unlocks tier 2: auto-sieves, Cyclic, mob farms and better storage."
 	]
@@ -231,11 +231,11 @@
 		"Feel the sparkle? That is a tier 4 celebration. They get much, much bigger."
 	]
 	quest.1AF0F9EA0014BD83.title: "&6&lGate: Buy the Frontier"
-	quest.1AF0F9EA0014BD83.quest_subtitle: "&7Earn 48,000 lifetime, hand in 20,000 in coins"
+	quest.1AF0F9EA0014BD83.quest_subtitle: "&7Earn 96,000 lifetime, hand in 40,000 in coins"
 	quest.1AF0F9EA0014BD83.quest_desc: [
 		"&bOut there is a whole overworld: villages, diamonds, dungeons and Mystical Agriculture. The best purchase you will ever make. Pack a lunch."
 		""
-		"Hand in &62 diamond coins&r and have &648,000 lifetime earnings&r."
+		"Hand in &64 diamond coins&r and have &696,000 lifetime earnings&r."
 		""
 		"Unlocks tier 3: the Frontier, Mystical Agriculture, villages, diamonds and structures. Everyone on the team gets a &6Frontier Gateway&r."
 	]
@@ -296,11 +296,11 @@
 		"&6Easy Villagers&r puts them in a block if you would rather not deal with their attitude."
 	]
 	quest.246398E6FB2DF2C8.title: "&6&lGate: Cultivator"
-	quest.246398E6FB2DF2C8.quest_subtitle: "&7Earn 175,000 lifetime, hand in 40,000 in coins"
+	quest.246398E6FB2DF2C8.quest_subtitle: "&7Earn 350,000 lifetime, hand in 80,000 in coins"
 	quest.246398E6FB2DF2C8.quest_desc: [
 		"&2Turn the heat up."
 		""
-		"Hand in &64 diamond coins&r and have &6175,000 lifetime earnings&r."
+		"Hand in &68 diamond coins&r and have &6350,000 lifetime earnings&r."
 		""
 		"Unlocks tier 4: the Nether, Mekanism, power and Hostile Neural Networks."
 	]
@@ -369,11 +369,11 @@
 		"&cPower-hungry toys that save hours. Charge them."
 	]
 	quest.66E945EC5518C5FE.title: "&6&lGate: Industrialist"
-	quest.66E945EC5518C5FE.quest_subtitle: "&7Earn 525,000 lifetime, hand in 75,000 in coins"
+	quest.66E945EC5518C5FE.quest_subtitle: "&7Earn 1,050,000 lifetime, hand in 150,000 in coins"
 	quest.66E945EC5518C5FE.quest_desc: [
 		"&cFrom fish traps to factories. Look at you."
 		""
-		"Hand in &67 diamond and 5 emerald coins&r and have &6525,000 lifetime earnings&r."
+		"Hand in &61 netherite and 5 diamond coins&r and have &61,050,000 lifetime earnings&r."
 		""
 		"Unlocks tier 5: the Twilight Forest, the End and the Mekanism ore ladder."
 	]
@@ -428,11 +428,11 @@
 		"Elytra from end ships sell for 50,000 each. Nullscape makes the End much prettier."
 	]
 	quest.35CD2BEB74D76338.title: "&6&lGate: Tycoon"
-	quest.35CD2BEB74D76338.quest_subtitle: "&7Earn 1,400,000 lifetime, hand in 150,000 in coins"
+	quest.35CD2BEB74D76338.quest_subtitle: "&7Earn 2,800,000 lifetime, hand in 300,000 in coins"
 	quest.35CD2BEB74D76338.quest_desc: [
 		"&5You are rich. Let us make you lazy."
 		""
-		"Hand in &61 netherite and 5 diamond coins&r and have &61,400,000 lifetime earnings&r."
+		"Hand in &63 netherite coins&r and have &62,800,000 lifetime earnings&r."
 		""
 		"Unlocks tier 6: AE2, Industrial Foregoing and the endgame toys."
 	]
@@ -468,9 +468,9 @@
 		""
 		"Fireworks, the totem animation, the works. You did it."
 	]
-	quest.2BC16691343EE39D.title: "&d&lFour Million"
+	quest.2BC16691343EE39D.title: "&d&lEight Million"
 	quest.2BC16691343EE39D.quest_desc: [
-		"&6Reach 4,000,000 lifetime earnings. The end goal."
+		"&6Reach 8,000,000 lifetime earnings. The end goal."
 		""
 		"Congratulations, Tycoon. Now go build something ridiculous."
 	]
@@ -999,12 +999,12 @@
 	quest.144B790722CDC294.title: "&eThe Tiers"
 	quest.144B790722CDC294.quest_desc: [
 		"&e0 Castaway: start"
-		"1 Tinkerer: 2,000 lifetime, 1,000 fee"
-		"2 Engineer: 12,000 lifetime, 5,000 fee"
-		"3 Pioneer (Frontier): 48,000 lifetime, 20,000 fee"
-		"4 Cultivator (Nether): 175,000 lifetime, 40,000 fee"
-		"5 Industrialist (Twilight, End): 525,000 lifetime, 75,000 fee"
-		"6 Tycoon: 1,400,000 lifetime, 150,000 fee"
+		"1 Tinkerer: 4,000 lifetime, 2,000 fee"
+		"2 Engineer: 24,000 lifetime, 10,000 fee"
+		"3 Pioneer (Frontier): 96,000 lifetime, 40,000 fee"
+		"4 Cultivator (Nether): 350,000 lifetime, 80,000 fee"
+		"5 Industrialist (Twilight, End): 1,050,000 lifetime, 150,000 fee"
+		"6 Tycoon: 2,800,000 lifetime, 300,000 fee"
 	]
 	chapter.57768E0CA966298E.title: "&eFAQ"
 	chapter.57768E0CA966298E.chapter_subtitle: [

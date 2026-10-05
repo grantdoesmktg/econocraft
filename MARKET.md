@@ -15,17 +15,17 @@ Every item the market buys from players and every item the shop sells, by tier. 
 | Tier | Name | Where | Gate to enter (lifetime earnings / fee in coins) |
 |---|---|---|---|
 | 0 | Castaway | Island | start |
-| 1 | Tinkerer | Island | 2,000 lifetime / 1,000 fee |
-| 2 | Engineer | Island | 12,000 / 5,000 |
-| 3 | Pioneer | Frontier | 48,000 / 20,000 |
-| 4 | Cultivator | Frontier + Nether | 175,000 / 40,000 |
-| 5 | Industrialist | + Twilight Forest | 525,000 / 75,000 |
-| 6 | Tycoon | Everything | 1,400,000 / 150,000 |
+| 1 | Tinkerer | Island | 4,000 lifetime / 2,000 fee |
+| 2 | Engineer | Island | 24,000 / 10,000 |
+| 3 | Pioneer | Frontier | 96,000 / 40,000 |
+| 4 | Cultivator | Frontier + Nether | 350,000 / 80,000 |
+| 5 | Industrialist | + Twilight Forest | 1,050,000 / 150,000 |
+| 6 | Tycoon | Everything | 2,800,000 / 300,000 |
 
 ## Totals
 
 - Income goods: 143
-- Automation machines: 81
+- Automation machines: 80
 - Supplies: 37
 
 ## Selling: what the Market Crate buys (Income)
@@ -259,7 +259,6 @@ Sells back for 90% of the price.
 | Item Collector (vacuum) | `cyclic:collector` | 4,000 | 4e | 3,600 | Vacuum hopper |
 | User (auto-clicker) | `cyclic:user` | 6,000 | 6e | 5,400 | Automatic right/left click |
 | Harvester | `cyclic:harvester` | 8,000 | 8e | 7,200 | Area crop harvesting |
-| Planter | `cyclic:planter` | 2,500 | 2e 5g | 2,250 | Automatic replanting |
 | Block Breaker | `cyclic:breaker` | 2,000 | 2e | 1,800 | Automatic block breaking |
 | Block Placer | `cyclic:placer` | 2,000 | 2e | 1,800 | Automatic block placing |
 | Dreadful Dirt | `mob_grinding_utils:dreadful_dirt` | 1,500 | 1e 5g | 1,350 | Hostile mob spawning pad |

@@ -2,11 +2,11 @@ hash-format = "sha256"
 
 [[files]]
 file = "config/economy_core/market.json"
-hash = "6b3ba0b8be58bb9ae5e41b079ec39a8581ab1fdd99c89421b8bb4fe0bee8c152"
+hash = "a34e5a86cc3b2ace968dc62971d3a510f80c8591f6c8bb393fa16f5109d393b2"
 
 [[files]]
 file = "config/economy_core/shop.json"
-hash = "55e5249a68573a9c2d3afb3a39fd2318d428381a01a4cde0656a8d39c358633d"
+hash = "af6def507578a10efc5430c5040b1e0eafc0c71af67e05221d68922db743e468"
 
 [[files]]
 file = "config/ftbessentials.snbt"
@@ -18,19 +18,19 @@ hash = "2a25f08e63134d270e5373e91d5942c48c7fede4c96628d2c615fa7580cf7b9d"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/cultivator.snbt"
-hash = "9f1a7976a9b153bf3917cade5ca5b1b92d5fec35edf2637584f06fb3818b8069"
+hash = "8167e7b1984f004c5a861633656fa17725d7066b35d900b320fa8d23448d933b"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/engineer.snbt"
-hash = "359cb19599f7a213aa978cbb3bfc26366931e44ee1550b6c144877a0170f06ee"
+hash = "f6a343ef0c3c21cc28ab2e96ae9ab09c46fa413306365cd9d531f692dbb6f9fb"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/getting_started.snbt"
-hash = "4399e6bf02594fb3dd7b643010c70b027370de5d68b8d1f819aa6340fbb1c751"
+hash = "679c2c664ec57336f861a72a1a9342c6ba257787f0f86d28f9a69d22cd541cbc"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/industrialist.snbt"
-hash = "adb8f759ab369abbda22827790a9d5e5e4ebc8aa4f624e19654fdb1810a4b482"
+hash = "5ff77f8150c56691e70e433bb008165f2fc3fb73c8b5996b018c74e6c791717c"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_ae2_if.snbt"
@@ -126,7 +126,7 @@ hash = "6ffb01dd03d0abeccd6684bbf5ce1123c6f45c3a891cc17339e8fbe82ce14a43"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/pioneer.snbt"
-hash = "fc50b611f1f5147c352d375c8a3ca1c76ef8bdf70e3812b9ccacae0815730197"
+hash = "6cd296f0840b4aee90a78b004fb91db07adfac4b3d7f61310f954a20ff25b586"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/ref_faq.snbt"
@@ -146,11 +146,11 @@ hash = "8f702f048febf787036a0df1d53e84930f60165a2f8eba38bdd12396c90a5511"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/tinkerer.snbt"
-hash = "e78a900a98fee4af556e25d46bd3d0af664ea54acb85dee2e4d16e10d24157a4"
+hash = "86cda06a0d61f2dbdc28a7cad6a8616b2ec4845581a67579f556a402cde1c688"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/tycoon.snbt"
-hash = "74bc4a584f5a6c8abcae31195ee6fcf277bf945b3bcdeffe3919fc5179ac1d8c"
+hash = "310ccedb757ede325edacbead6c11ece7bcb1aa99d57b0a7da6a9fc02cc1218d"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
@@ -158,7 +158,7 @@ hash = "7dc7e19d785d9172d357d9b22471dc70652ea9f48d1dfa96c88230bb196183ad"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "3296a8ee770258b743b2eca0a592e025c2d641ec41463a3c1fb8c72b1f7c4ea9"
+hash = "ad9f744098169afac81e2ce8c331699c2a6ca0b847d26978520162714b297625"
 
 [[files]]
 file = "config/lightmanscurrency-common.txt"
@@ -386,7 +386,11 @@ hash = "38daf15d33fc2e35a1b13fba0f51cfcd7a5a30f05e0d1c5aa286426d90281229"
 
 [[files]]
 file = "kubejs/server_scripts/economy_locks.js"
-hash = "e1b3ffa0d3f172caeab60fc24cbf59d31a4d251345e85cb3e6bdbb1749b50696"
+hash = "ac821d4c75b8b6807346594a01ddc06547e9cec54ef34e7696325de553bf7477"
+
+[[files]]
+file = "kubejs/server_scripts/economy_sieve.js"
+hash = "fd42f8dbdc0260516c69523a814cf8330e387b19ad60736cd5b2ba7303202aa0"
 
 [[files]]
 file = "mods/ae2.pw.toml"
@@ -569,8 +573,8 @@ hash = "d629988991e4e0c461a5031b8c774c184ef409f5b57187211c3abe5b1a21fc3c"
 metafile = true
 
 [[files]]
-file = "mods/economy_core-0.9.4.jar"
-hash = "9a8f1156127fab78d287184916b4e785503a536d6541e591787698086b89aacc"
+file = "mods/economy_core-0.9.5.jar"
+hash = "0c5795c6159784166683c4c02fb6cdd62c6e6e6daf77f09ef983ec88fa005e2c"
 
 [[files]]
 file = "mods/effortless-building.pw.toml"

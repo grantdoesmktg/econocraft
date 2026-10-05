@@ -55,4 +55,7 @@ This repo is a [packwiz](https://packwiz.infra.link/) pack.
   (`build_quests.py`) and a progression checker (`analyze_progression.py`). Generated files say so at the top; edit the
   generator, not the output.
 - Design decisions are in `DESIGN-NOTES.md`; current status is in `HANDOFF.md`.
-- The Economy Core mod's source is maintained separately; its built jar ships in `mods/`.
+- `economy-core/` is the source of the Economy Core mod (NeoForge, Java 21); its built jar ships in `mods/`.
+  Before building, put these four jars from the pack into `economy-core/libs/` (compile-only APIs):
+  ftb-teams-neoforge-2101.1.11, ftb-library-neoforge-2101.1.37, SkyblockBuilder-21.1.37 and LibX-1.21.1-6.0.15.
+  Then run `./gradlew build`.

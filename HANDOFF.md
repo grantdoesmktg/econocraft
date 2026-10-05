@@ -8,7 +8,9 @@ MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
 - Run terminal steps myself. Don't hand Grant commands to run (see memory).
 - Ask before anything destructive, any sudo, or edits outside ~/Modpacks and the Prism instance folder.
 - economy-pack is a git repo pushed to https://github.com/grantdoesmktg/econocraft (public, branch main). Grant shared it
-  2026-10-05 for releases. economy-core is a local git repo only (no remote). Ask before other publishing.
+  2026-10-05 for releases. The mod source is in the repo as `economy-core/` (git subtree, history kept, packwizignored).
+  ~/Modpacks/economy-core stays the dev repo (branch master). After committing there, sync with
+  `git subtree pull --prefix=economy-core ~/Modpacks/economy-core master` in economy-pack, then push.
 - Report back to Grant through the project thread when a request is done.
 
 ## Layout

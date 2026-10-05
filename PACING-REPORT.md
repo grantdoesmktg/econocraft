@@ -44,7 +44,19 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | 5 | travel: opening a new area | 60 |
 | 6 | hunt Twilight bosses | 62 |
 
-### Where the money came from (top 5 per tier)
+### Which setups made the money (share of each tier's earnings)
+
+| Tier | Earned in tier | Setups |
+|---|---|---|
+| 0 | 4,204 | cobble generator 64%; sieve by hand 36% |
+| 1 | 26,996 | sieve by hand 52%; cobble generator 35%; precision mechanisms 13% |
+| 2 | 101,011 | precision mechanisms 25%; sieve by hand 20%; cobble generator 16%; mob farm 16%; auto-sieve 13%; brass mixing 11% |
+| 3 | 218,915 | auto-sieve 54%; mine the Frontier 21%; mob farm 11%; precision mechanisms 8%; cobble generator 6% |
+| 4 | 699,583 | auto-sieve 60%; raid the Nether 30%; mob farm 7%; cobble generator 3% |
+| 5 | 1,751,902 | HNN twilight chamber 38%; hunt Twilight bosses 31%; auto-sieve 26%; mob farm 3% |
+| 6 | 250,194 | hunt Twilight bosses 42%; HNN twilight chamber 34%; auto-sieve 21%; mob farm 2% |
+
+### Where the money came from (top 5 goods per tier)
 
 | Tier | Good | Coins | Share |
 |---|---|---|---|
@@ -149,7 +161,19 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | 6 | exploring and building (no income) | 13 |
 | 6 | hunt Twilight bosses | 49 |
 
-### Where the money came from (top 5 per tier)
+### Which setups made the money (share of each tier's earnings)
+
+| Tier | Earned in tier | Setups |
+|---|---|---|
+| 0 | 4,149 | cobble generator 94%; sieve by hand 6% |
+| 1 | 26,820 | cobble generator 49%; sieve by hand 40%; precision mechanisms 10% |
+| 2 | 101,064 | cobble generator 23%; mob farm 22%; auto-sieve 17%; precision mechanisms 17%; sieve by hand 14%; brass mixing 7% |
+| 3 | 218,914 | auto-sieve 70%; mob farm 14%; cobble generator 7%; mine the Frontier 6%; precision mechanisms 2% |
+| 4 | 700,360 | auto-sieve 71%; raid the Nether 17%; mob farm 8%; cobble generator 3% |
+| 5 | 1,751,665 | HNN twilight chamber 48%; auto-sieve 32%; hunt Twilight bosses 14%; mob farm 4% |
+| 6 | 191,546 | HNN twilight chamber 44%; auto-sieve 27%; hunt Twilight bosses 24%; mob farm 3% |
+
+### Where the money came from (top 5 goods per tier)
 
 | Tier | Good | Coins | Share |
 |---|---|---|---|
@@ -252,7 +276,19 @@ drop-off, shop costs, tier gates and sieve odds. Hand speeds, travel and machine
 | 6 | exploring and building (no income) | 25 |
 | 6 | hunt Twilight bosses | 37 |
 
-### Where the money came from (top 5 per tier)
+### Which setups made the money (share of each tier's earnings)
+
+| Tier | Earned in tier | Setups |
+|---|---|---|
+| 0 | 4,065 | cobble generator 97%; sieve by hand 3% |
+| 1 | 26,698 | cobble generator 71%; sieve by hand 22%; precision mechanisms 7% |
+| 2 | 100,813 | cobble generator 31%; mob farm 28%; auto-sieve 22%; precision mechanisms 9%; sieve by hand 7%; brass mixing 4% |
+| 3 | 219,255 | auto-sieve 77%; mob farm 15%; cobble generator 8% |
+| 4 | 700,387 | auto-sieve 81%; mob farm 10%; raid the Nether 6%; cobble generator 3% |
+| 5 | 1,749,971 | HNN twilight chamber 53%; auto-sieve 36%; hunt Twilight bosses 5%; mob farm 4% |
+| 6 | 167,459 | HNN twilight chamber 50%; auto-sieve 31%; hunt Twilight bosses 13%; mob farm 4% |
+
+### Where the money came from (top 5 goods per tier)
 
 | Tier | Good | Coins | Share |
 |---|---|---|---|

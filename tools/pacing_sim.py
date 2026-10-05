@@ -210,6 +210,7 @@ def run(hours, hand=1.0, travel=1.0, roses=0.0, setup=SETUP_MIN, payback=None, *
     log, tier_times, sources = [], {0: 0}, {}
     window = []
     by_item = {}
+    by_source = {}
 
     def sieve_yield(ops):
         out = {}
@@ -281,6 +282,20 @@ def run(hours, hand=1.0, travel=1.0, roses=0.0, setup=SETUP_MIN, payback=None, *
 
         # 3. Production this minute: raw lines, hand work, then converters (cobble -> gravel -> sieves, gold -> mechanisms).
         pool = {}
+        share = {}   # item -> {source: units}, to credit sales to the setup that made them
+
+        def add(item, n, src):
+            pool[item] = pool.get(item, 0) + n
+            if n > 0:
+                share.setdefault(item, {})
+                share[item][src] = share[item].get(src, 0) + n
+
+        def take(item, n):
+            have = pool.get(item, 0)
+            pool[item] = have - n
+            if have > 0 and item in share:
+                keep = max(0.0, 1 - n / have)
+                share[item] = {k: v * keep for k, v in share[item].items()}
 
         def is_converter(name):
             return any(r < 0 and i in SELL for i, r in LINES[name][3].items())
@@ -288,7 +303,7 @@ def run(hours, hand=1.0, travel=1.0, roses=0.0, setup=SETUP_MIN, payback=None, *
         for name, n in owned.items():
             if n and not is_converter(name):
                 for item, rate in LINES[name][3].items():
-                    pool[item] = pool.get(item, 0) + rate * n
+                    add(item, rate * n, name)
         roses_acc += roses
         if busy_trip[0] > 0:
             busy_trip[0] -= 1
@@ -302,7 +317,7 @@ def run(hours, hand=1.0, travel=1.0, roses=0.0, setup=SETUP_MIN, payback=None, *
         else:
             activity, flow = best_activity()
             for item, n in flow.items():
-                pool[item] = pool.get(item, 0) + n
+                add(item, n, activity)
         for name, n in owned.items():
             if not n or not is_converter(name):
                 continue
@@ -310,12 +325,13 @@ def run(hours, hand=1.0, travel=1.0, roses=0.0, setup=SETUP_MIN, payback=None, *
             ins = {i: -r * n for i, r in flow.items() if r < 0}
             frac = min(1.0, *(pool.get(i, 0) / need for i, need in ins.items()))
             for i, need in ins.items():
-                pool[i] = pool.get(i, 0) - need * frac
+                take(i, need * frac)
             for i, r in flow.items():
                 if r > 0:
-                    pool[i] = pool.get(i, 0) + r * n * frac
+                    add(i, r * n * frac, name)
+        share.pop('sieve_ops', None)
         for item, n in sieve_yield(pool.pop('sieve_ops', 0)).items():
-            pool[item] = pool.get(item, 0) + n
+            add(item, n, 'auto-sieve')
         # 4. Sell everything sellable.
         got = 0.0
         for item, n in pool.items():
@@ -323,6 +339,10 @@ def run(hours, hand=1.0, travel=1.0, roses=0.0, setup=SETUP_MIN, payback=None, *
                 c = mk.sell(item, n, tier)
                 got += c
                 by_item[(tier, item)] = by_item.get((tier, item), 0) + c
+                srcs = share.get(item, {})
+                tot = sum(srcs.values()) or 1
+                for src, u in srcs.items():
+                    by_source[(tier, src)] = by_source.get((tier, src), 0) + c * u / tot
         balance += got
         earned += got
         sources[(tier, activity)] = sources.get((tier, activity), 0) + 1
@@ -330,7 +350,7 @@ def run(hours, hand=1.0, travel=1.0, roses=0.0, setup=SETUP_MIN, payback=None, *
         if tier == 6 and minute - tier_times[6] > 60:
             break
     return dict(log=log, tier_times=tier_times, owned=owned, earned=earned, sources=sources, window=window,
-                mesh=mesh, minutes=minute + 1, by_item=by_item)
+                mesh=mesh, minutes=minute + 1, by_item=by_item, by_source=by_source)
 
 
 def line_gain(name, flow, owned, value, sieve_yield):
@@ -386,7 +406,13 @@ def write_report(results, hours):
         L += ['', f'## {name}', '', '### Where the time went', '', '| Tier | Activity | Minutes |', '|---|---|---|']
         for (t, a), n in sorted(r['sources'].items()):
             L.append(f'| {t} | {a} | {n} |')
-        L += ['', '### Where the money came from (top 5 per tier)', '', '| Tier | Good | Coins | Share |', '|---|---|---|---|']
+        L += ['', '### Which setups made the money (share of each tier\'s earnings)', '', '| Tier | Earned in tier | Setups |', '|---|---|---|']
+        for t in range(7):
+            rows = sorted(((c, src) for (tt_, src), c in r['by_source'].items() if tt_ == t), reverse=True)
+            total = sum(c for c, _ in rows)
+            if total:
+                L.append(f'| {t} | {total:,.0f} | ' + '; '.join(f'{src} {100 * c / total:.0f}%' for c, src in rows[:6] if c / total >= 0.02) + ' |')
+        L += ['', '### Where the money came from (top 5 goods per tier)', '', '| Tier | Good | Coins | Share |', '|---|---|---|---|']
         for t in range(7):
             rows = sorted(((c, i) for (tt_, i), c in r['by_item'].items() if tt_ == t), reverse=True)
             total = sum(c for c, _ in rows) or 1

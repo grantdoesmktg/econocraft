@@ -23,7 +23,10 @@ import java.util.Map;
 public final class MarketPrices {
     private static final Logger LOG = LogUtils.getLogger();
 
-    public record Pricing(double base, double softCap, double maxDrop, String category) {}
+    /** rarity: 0 = none, 1 common, 2 uncommon, 3 rare, 4 legendary. */
+    public record Pricing(double base, double softCap, double maxDrop, String category, int rarity) {}
+
+    public static final int RARE = 3, LEGENDARY = 4;
 
     private static MarketConfig config = MarketConfig.defaults();
     private static Map<Item, Pricing> prices = new HashMap<>();
@@ -89,7 +92,24 @@ public final class MarketPrices {
     private static Pricing pricingFor(MarketConfig.ItemEntry entry) {
         MarketConfig.Category cat = config.categories.getOrDefault(entry.category, new MarketConfig.Category());
         double maxDrop = cat.maxDrop != null ? cat.maxDrop : (1.0 - config.floorDefault);
-        return new Pricing(entry.base, cat.softCap, maxDrop, entry.category);
+        return new Pricing(entry.base, cat.softCap, maxDrop, entry.category, rarityLevel(entry.rarity));
+    }
+
+    private static int rarityLevel(String rarity) {
+        if (rarity == null) return 0;
+        return switch (rarity.toLowerCase(java.util.Locale.ROOT)) {
+            case "common" -> 1;
+            case "uncommon" -> 2;
+            case "rare" -> RARE;
+            case "legendary" -> LEGENDARY;
+            default -> 0;
+        };
+    }
+
+    /** 0 = no rarity, 1..4 = common..legendary. */
+    public static int rarity(Item item) {
+        Pricing p = prices.get(item);
+        return p == null ? 0 : p.rarity();
     }
 
     public static Pricing get(Item item) {

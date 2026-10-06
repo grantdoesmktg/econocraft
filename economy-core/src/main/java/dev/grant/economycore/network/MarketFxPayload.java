@@ -15,7 +15,9 @@ import net.minecraft.resources.ResourceLocation;
 public record MarketFxPayload(int kind, long amount, int tier, BlockPos pos) implements CustomPacketPayload {
     public static final int KIND_SALE = 0, KIND_AUTOSELL = 1, KIND_DEPOSIT = 2, KIND_PREVIEW = 3,
             /** A player's very first sale: the full, deeply unnecessary show. Sent to that player only. */
-            KIND_FIRST_SALE = 4;
+            KIND_FIRST_SALE = 4,
+            /** A rare (tier 3) or legendary (tier 4) fish on the line. amount = the fish's item registry id. */
+            KIND_RARE_CATCH = 5;
 
     public static final Type<MarketFxPayload> TYPE =
             new Type<>(ResourceLocation.fromNamespaceAndPath(EconomyCore.MODID, "market_fx"));

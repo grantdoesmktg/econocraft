@@ -22,11 +22,13 @@ public record PricesPayload(List<Entry> entries) implements CustomPacketPayload 
     public static final Type<PricesPayload> TYPE =
             new Type<>(ResourceLocation.fromNamespaceAndPath(EconomyCore.MODID, "prices"));
 
-    public record Entry(String itemId, double price, double fair) {
+    /** rarity: 0 = none, 1..4 = common..legendary (fish). */
+    public record Entry(String itemId, double price, double fair, int rarity) {
         public static final StreamCodec<ByteBuf, Entry> CODEC = StreamCodec.composite(
                 ByteBufCodecs.STRING_UTF8, Entry::itemId,
                 ByteBufCodecs.DOUBLE, Entry::price,
                 ByteBufCodecs.DOUBLE, Entry::fair,
+                ByteBufCodecs.VAR_INT, Entry::rarity,
                 Entry::new);
     }
 
@@ -47,7 +49,7 @@ public record PricesPayload(List<Entry> entries) implements CustomPacketPayload 
             MarketService.Quote q = MarketService.quote(sp.server, sp.getUUID(), name, item);
             if (q == null) continue;
             list.add(new Entry(BuiltInRegistries.ITEM.getKey(item).toString(),
-                    Math.round(q.unitPrice() * 100) / 100.0, q.fairPrice()));
+                    Math.round(q.unitPrice() * 100) / 100.0, q.fairPrice(), MarketPrices.rarity(item)));
         }
         return new PricesPayload(list);
     }

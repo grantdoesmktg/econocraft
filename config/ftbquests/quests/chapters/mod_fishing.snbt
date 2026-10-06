@@ -5,7 +5,7 @@
 	group: "133B4BC19096A30B"
 	icon: { count: 1, id: "fishermens_trap:fishtrap" }
 	id: "12608768EF0006A4"
-	images: [ { x: 2.250d, y: -2.600d, width: 5.274d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_fishing.png", hover: [ ], click: "", dev: false, corner: false } ]
+	images: [ { x: 3.375d, y: -2.600d, width: 5.274d, height: 2.000d, rotation: 0.0d, image: "economypack:textures/quests/mod_fishing.png", hover: [ ], click: "", dev: false, corner: false } ]
 	order_index: 13
 	quest_links: [ ]
 	quests: [
@@ -39,13 +39,28 @@
 			]
 		}
 		{
-			id: "4F4B28FDC52E4DBC"
+			id: "264626EFB427D5B7"
 			x: 4.5d
 			y: 0.0d
 			shape: "hexagon"
 			size: 1.25d
-			icon: { count: 1, id: "minecraft:lava_bucket" }
+			icon: { count: 1, id: "aquaculture:catfish" }
 			dependencies: ["2417462566415E50"]
+			tasks: [
+				{ id: "1415D49D212B38EA", type: "item", item: { count: 1, id: "aquaculture:catfish" }, count: 1L }
+			]
+			rewards: [
+				{ id: "71F6E6DCF53055BC", type: "item", item: { count: 1, id: "lightmanscurrency:coin_iron" } }
+			]
+		}
+		{
+			id: "4F4B28FDC52E4DBC"
+			x: 6.75d
+			y: 0.0d
+			shape: "hexagon"
+			size: 1.25d
+			icon: { count: 1, id: "minecraft:lava_bucket" }
+			dependencies: ["264626EFB427D5B7"]
 			tasks: [
 				{ id: "6B414D66CBF234F8", type: "item", item: { count: 1, id: "minecraft:lava_bucket" }, count: 1L }
 			]

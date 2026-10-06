@@ -47,6 +47,7 @@ public class EconomyCore {
         NeoForge.EVENT_BUS.addListener(this::onRegisterCommands);
         NeoForge.EVENT_BUS.addListener(this::onPlayerLogin);
         NeoForge.EVENT_BUS.addListener(this::onPlayerTick);
+        NeoForge.EVENT_BUS.addListener(this::onItemFished);
         NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.tick.ServerTickEvent.Post e) ->
                 dev.grant.economycore.market.IslandPartyLink.tick(e.getServer()));
         NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.tick.ServerTickEvent.Post e) ->
@@ -123,6 +124,32 @@ public class EconomyCore {
             PricesPayload prices = PricesPayload.build(sp);
             Integer lastHash = lastPricesSent.put(sp.getUUID(), prices.entries().hashCode());
             if (lastHash == null || lastHash != prices.entries().hashCode()) PacketDistributor.sendToPlayer(sp, prices);
+        }
+    }
+
+    /**
+     * Rare fish get a moment: a rare one tells the angler and pops a few fireworks; a legendary one is announced
+     * to the whole server and gets the big show.
+     */
+    private void onItemFished(net.neoforged.neoforge.event.entity.player.ItemFishedEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer sp)) return;
+        for (var stack : event.getDrops()) {
+            int rarity = MarketPrices.rarity(stack.getItem());
+            if (rarity < MarketPrices.RARE) continue;
+            MarketService.Quote q = MarketService.quote(sp.server, sp.getUUID(), sp.getGameProfile().getName(), stack.getItem());
+            String worth = q == null ? "?" : String.format("%,d", Math.round(q.fairPrice()));
+            if (rarity >= MarketPrices.LEGENDARY) {
+                sp.server.getPlayerList().broadcastSystemMessage(net.minecraft.network.chat.Component.translatable(
+                        "message.economy_core.legendary_catch", sp.getDisplayName(), stack.getHoverName(), worth)
+                        .withStyle(net.minecraft.ChatFormatting.GOLD), false);
+            } else {
+                sp.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
+                        "message.economy_core.rare_catch", stack.getHoverName(), worth)
+                        .withStyle(net.minecraft.ChatFormatting.AQUA));
+            }
+            PacketDistributor.sendToPlayer(sp, new MarketFxPayload(MarketFxPayload.KIND_RARE_CATCH,
+                    net.minecraft.core.registries.BuiltInRegistries.ITEM.getId(stack.getItem()), rarity, sp.blockPosition()));
+            break;
         }
     }
 

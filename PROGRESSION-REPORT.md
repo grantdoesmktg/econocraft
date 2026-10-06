@@ -51,10 +51,10 @@ Outputs of sieves, hammers, crushers and harvest machines that the market does n
 
 ## Items obtainable by tier (cumulative model)
 
-- Tier 0: 1,461 items
-- Tier 1: 2,674 items
-- Tier 2: 3,086 items
-- Tier 3: 4,764 items
-- Tier 4: 5,666 items
-- Tier 5: 6,464 items
-- Tier 6: 6,942 items
+- Tier 0: 1,470 items
+- Tier 1: 2,683 items
+- Tier 2: 3,095 items
+- Tier 3: 4,779 items
+- Tier 4: 5,681 items
+- Tier 5: 6,480 items
+- Tier 6: 6,958 items

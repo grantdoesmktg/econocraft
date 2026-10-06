@@ -20,6 +20,10 @@ import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 public final class ClientGameEvents {
     private ClientGameEvents() {}
 
+    /** Index = rarity level: common gray, uncommon green, rare aqua, legendary gold. */
+    private static final ChatFormatting[] RARITY_COLORS =
+            {ChatFormatting.GRAY, ChatFormatting.GRAY, ChatFormatting.GREEN, ChatFormatting.AQUA, ChatFormatting.GOLD};
+
     @SubscribeEvent
     public static void onScreenRender(ScreenEvent.Render.Post event) {
         BalanceHud.render(event.getGuiGraphics());
@@ -40,9 +44,13 @@ public final class ClientGameEvents {
                     String.format("%,d", tag)).withStyle(ChatFormatting.GOLD));
             return;
         }
-        if (Minecraft.getInstance().screen instanceof MarketScreen) return;
         PricesPayload.Entry e = ClientPriceCache.get(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString());
         if (e == null) return;
+        if (e.rarity() > 0 && e.rarity() < RARITY_COLORS.length) {
+            event.getToolTip().add(Component.translatable("tooltip.economy_core.rarity." + e.rarity())
+                    .withStyle(RARITY_COLORS[e.rarity()]));
+        }
+        if (Minecraft.getInstance().screen instanceof MarketScreen) return;
         int pct = e.fair() > 0 ? (int) Math.round(100 * e.price() / e.fair()) : 100;
         Component line;
         if (pct >= 98) {

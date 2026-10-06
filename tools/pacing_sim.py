@@ -145,9 +145,14 @@ ACTIVITIES = {
                                         'minecraft:trident': 0.006, 'minecraft:echo_shard': 0.03, 'minecraft:sniffer_egg': 0.005,
                                         'minecraft:heavy_core': 0.003, 'minecraft:breeze_rod': 0.5, 'minecraft:goat_horn': 0.015,
                                         'minecraft:wet_sponge': 0.03, 'minecraft:turtle_scute': 0.03, 'minecraft:diamond': 0.15}, 0.6),
-    'fish the Frontier (Aquaculture)': (3, {'aquaculture:tuna': 0.3, 'aquaculture:atlantic_halibut': 0.3, 'aquaculture:arapaima': 0.2,
-                                            'aquaculture:catfish': 0.3, 'aquaculture:smallmouth_bass': 0.3,
-                                            'minecraft:heart_of_the_sea': 0.002}, 0.1),
+    # Rod fishing: ~2.5 fish a minute, split by Aquaculture's catch weights for the biome. The Isles are plains, so
+    # an island pond gets the river pool from tier 0. On the Frontier, oceans pay best (Tuna).
+    'fish an island pond': (0, {f'aquaculture:{f}': 2.5 * w / 300 for f, w in (
+        ('bluegill', 60), ('perch', 60), ('minnow', 55), ('smallmouth_bass', 30), ('brown_trout', 30), ('carp', 30),
+        ('gar', 20), ('muskellunge', 10), ('catfish', 5))}, 0),
+    'fish Frontier oceans': (3, {**{f'aquaculture:{f}': 2.5 * w / 123 for f, w in (
+        ('atlantic_herring', 60), ('jellyfish', 30), ('red_grouper', 20), ('atlantic_halibut', 8), ('tuna', 5))},
+        'minecraft:heart_of_the_sea': 0.002}, 0.1),
     # wither skulls get turned into Wither fights: 3 skulls -> 1 nether star (fight time folded into the rate)
     'raid the Nether': (4, {'minecraft:netherite_scrap': 0.12, 'minecraft:blaze_rod': 1.5, 'minecraft:ghast_tear': 0.2,
                             'minecraft:nether_star': 0.012, 'minecraft:quartz': 6}, 0.5),

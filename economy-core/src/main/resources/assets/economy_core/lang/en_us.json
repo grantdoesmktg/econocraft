@@ -86,5 +86,11 @@
   "celebration.economy_core.first_sale": "FIRST SALE!",
   "celebration.economy_core.first_sale_line1": "You sold a thing. Alert the media.",
   "celebration.economy_core.first_sale_line2": "+%s coins. Try not to spend it all at once.",
-  "gui.economy_core.shop_market_value": "Sells at the Market: %s each"
+  "gui.economy_core.shop_market_value": "Sells at the Market: %s each",
+  "tooltip.economy_core.rarity.1": "Common catch",
+  "tooltip.economy_core.rarity.2": "Uncommon catch",
+  "tooltip.economy_core.rarity.3": "★ Rare catch",
+  "tooltip.economy_core.rarity.4": "★★ Legendary catch",
+  "message.economy_core.rare_catch": "★ Rare catch! %s, worth %s coins. Nice cast.",
+  "message.economy_core.legendary_catch": "★★ %s just reeled in a LEGENDARY %s, worth %s coins. Everyone else, back to your cobblestone."
 }

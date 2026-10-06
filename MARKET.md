@@ -24,7 +24,7 @@ Every item the market buys from players and every item the shop sells, by tier. 
 
 ## Totals
 
-- Income goods: 143
+- Income goods: 158
 - Automation machines: 81
 - Supplies: 38
 
@@ -38,7 +38,7 @@ Soft cap = units sold before the price is about two thirds of the way down to th
 | chunks | 32 | 50% | Ore chunks from Ex Deorum sieves |
 | crops | 64 | 50% | Field and Botany Pot crops |
 | food | 24 | 50% | Cooked food (Farmer's Delight); processing pays |
-| fish | 32 | 50% | Fishing and Fishermen's Traps; Aquaculture species after the Frontier. Hand-caught fish pay well |
+| fish | 32 | 50% | Fishing and Fishermen's Traps; Aquaculture species by biome. Rare catches pay hundreds |
 | mob | 48 | 50% | Mob farms (Mob Grinding Utils) and Hostile Neural Networks |
 | metals | 32 | 50% | Smelted and processed metals |
 | gems | 16 | 50% | Gems and rare minerals; diamond and emerald are Frontier-only |
@@ -93,6 +93,15 @@ Soft cap = units sold before the price is about two thirds of the way down to th
 | Gunpowder | `minecraft:gunpowder` | mob | 8 | 8c | 4 | Mob farm |
 | Slimeball | `minecraft:slime_ball` | mob | 12 | 1i 2c | 6 | Mob farm |
 | Ender Pearl | `minecraft:ender_pearl` | mob | 40 | 4i | 20 | Mob farm |
+| Bluegill | `aquaculture:bluegill` | fish | 15 | 1i 5c | 7.5 | Aquaculture, rivers, lakes and island ponds |
+| Perch | `aquaculture:perch` | fish | 15 | 1i 5c | 7.5 | Aquaculture, rivers, lakes and island ponds |
+| Minnow | `aquaculture:minnow` | fish | 6 | 6c | 3 | Aquaculture, rivers, lakes and island ponds (bait) |
+| Smallmouth Bass | `aquaculture:smallmouth_bass` | fish | 40 | 4i | 20 | Aquaculture, rivers, lakes and island ponds |
+| Brown Trout | `aquaculture:brown_trout` | fish | 40 | 4i | 20 | Aquaculture, rivers, lakes and island ponds |
+| Carp | `aquaculture:carp` | fish | 35 | 3i 5c | 17.5 | Aquaculture, rivers, lakes and island ponds |
+| Gar | `aquaculture:gar` | fish | 45 | 4i 5c | 22.5 | Aquaculture, rivers, lakes and island ponds |
+| Muskellunge | `aquaculture:muskellunge` | fish | 150 | 1g 5i | 75 | Aquaculture, rivers, lakes and island ponds |
+| Catfish | `aquaculture:catfish` | fish | 300 | 3g | 150 | Aquaculture, rivers, lakes and island ponds |
 
 ### Tier 1: Tinkerer
 
@@ -117,24 +126,29 @@ Soft cap = units sold before the price is about two thirds of the way down to th
 |---|---|---|---|---|---|---|
 | Emerald | `minecraft:emerald` | gems | 40 | 4i | 20 | Frontier mining and trading (removed from sieves) |
 | Diamond | `minecraft:diamond` | gems | 800 | 8g | 400 | Frontier mining (removed from sieves) |
-| Atlantic Cod | `aquaculture:atlantic_cod` | fish | 30 | 3i | 15 | Aquaculture, Frontier oceans |
-| Atlantic Herring | `aquaculture:atlantic_herring` | fish | 30 | 3i | 15 | Aquaculture, Frontier oceans |
-| Pollock | `aquaculture:pollock` | fish | 30 | 3i | 15 | Aquaculture, Frontier oceans |
-| Bluegill | `aquaculture:bluegill` | fish | 30 | 3i | 15 | Aquaculture, Frontier rivers |
-| Perch | `aquaculture:perch` | fish | 38 | 3i 8c | 19 | Aquaculture, Frontier rivers |
-| Brown Trout | `aquaculture:brown_trout` | fish | 38 | 3i 8c | 19 | Aquaculture, Frontier rivers |
-| Carp | `aquaculture:carp` | fish | 38 | 3i 8c | 19 | Aquaculture, Frontier rivers |
-| Smallmouth Bass | `aquaculture:smallmouth_bass` | fish | 45 | 4i 5c | 22.5 | Aquaculture, Frontier rivers |
-| Rainbow Trout | `aquaculture:rainbow_trout` | fish | 45 | 4i 5c | 22.5 | Aquaculture, Frontier mountains |
-| Catfish | `aquaculture:catfish` | fish | 52 | 5i 2c | 26 | Aquaculture, Frontier swamps |
-| Gar | `aquaculture:gar` | fish | 52 | 5i 2c | 26 | Aquaculture, Frontier swamps |
-| Atlantic Halibut | `aquaculture:atlantic_halibut` | fish | 60 | 6i | 30 | Aquaculture, Frontier oceans |
-| Pacific Halibut | `aquaculture:pacific_halibut` | fish | 60 | 6i | 30 | Aquaculture, Frontier oceans |
-| Muskellunge | `aquaculture:muskellunge` | fish | 68 | 6i 8c | 34 | Aquaculture, Frontier rivers |
-| Tuna | `aquaculture:tuna` | fish | 75 | 7i 5c | 37.5 | Aquaculture, Frontier oceans |
-| Piranha | `aquaculture:piranha` | fish | 75 | 7i 5c | 37.5 | Aquaculture, Frontier jungles |
-| Tambaqui | `aquaculture:tambaqui` | fish | 75 | 7i 5c | 37.5 | Aquaculture, Frontier jungles |
-| Arapaima | `aquaculture:arapaima` | fish | 90 | 9i | 45 | Aquaculture, Frontier jungles |
+| Atlantic Herring | `aquaculture:atlantic_herring` | fish | 15 | 1i 5c | 7.5 | Aquaculture, oceans |
+| Jellyfish | `aquaculture:jellyfish` | fish | 35 | 3i 5c | 17.5 | Aquaculture, oceans |
+| Red Grouper | `aquaculture:red_grouper` | fish | 45 | 4i 5c | 22.5 | Aquaculture, oceans |
+| Atlantic Halibut | `aquaculture:atlantic_halibut` | fish | 140 | 1g 4i | 70 | Aquaculture, oceans |
+| Tuna | `aquaculture:tuna` | fish | 350 | 3g 5i | 175 | Aquaculture, oceans |
+| Blackfish | `aquaculture:blackfish` | fish | 15 | 1i 5c | 7.5 | Aquaculture, cold oceans |
+| Atlantic Cod | `aquaculture:atlantic_cod` | fish | 35 | 3i 5c | 17.5 | Aquaculture, cold oceans |
+| Pollock | `aquaculture:pollock` | fish | 35 | 3i 5c | 17.5 | Aquaculture, cold oceans |
+| Pink Salmon | `aquaculture:pink_salmon` | fish | 40 | 4i | 20 | Aquaculture, cold oceans and beaches |
+| Rainbow Trout | `aquaculture:rainbow_trout` | fish | 40 | 4i | 20 | Aquaculture, cold oceans and rivers |
+| Pacific Halibut | `aquaculture:pacific_halibut` | fish | 130 | 1g 3i | 65 | Aquaculture, cold oceans |
+| Piranha | `aquaculture:piranha` | fish | 18 | 1i 8c | 9 | Aquaculture, jungles |
+| Tambaqui | `aquaculture:tambaqui` | fish | 50 | 5i | 25 | Aquaculture, jungles |
+| Arapaima | `aquaculture:arapaima` | fish | 180 | 1g 8i | 90 | Aquaculture, jungles |
+| Arrau Turtle | `aquaculture:arrau_turtle` | fish | 160 | 1g 6i | 80 | Aquaculture, jungles |
+| Synodontis | `aquaculture:synodontis` | fish | 15 | 1i 5c | 7.5 | Aquaculture, deserts and savannas |
+| Boulti | `aquaculture:boulti` | fish | 35 | 3i 5c | 17.5 | Aquaculture, deserts and savannas |
+| Bayad | `aquaculture:bayad` | fish | 40 | 4i | 20 | Aquaculture, deserts and savannas |
+| Capitaine | `aquaculture:capitaine` | fish | 350 | 3g 5i | 175 | Aquaculture, deserts and savannas |
+| Leech | `aquaculture:leech` | fish | 6 | 6c | 3 | Aquaculture, swamps (bait) |
+| Box Turtle | `aquaculture:box_turtle` | fish | 300 | 3g | 150 | Aquaculture, swamps |
+| Red Shrooma | `aquaculture:red_shrooma` | fish | 25 | 2i 5c | 12.5 | Aquaculture, mushroom islands |
+| Brown Shrooma | `aquaculture:brown_shrooma` | fish | 25 | 2i 5c | 12.5 | Aquaculture, mushroom islands |
 | Cocoa Beans | `minecraft:cocoa_beans` | frontier | 8 | 8c | 4 | Jungle biomes |
 | Honeycomb | `minecraft:honeycomb` | frontier | 15 | 1i 5c | 7.5 | Bee nests (Cyclic can multiply it, so keep it modest) |
 | Rabbit's Foot | `minecraft:rabbit_foot` | frontier | 60 | 6i | 30 | Rabbits (deserts, taigas, snowy biomes) |
@@ -182,6 +196,7 @@ Soft cap = units sold before the price is about two thirds of the way down to th
 
 | Item | ID | Category | Fair price | Coins | Floor | Purpose / stream |
 |---|---|---|---|---|---|---|
+| Starshell Turtle | `aquaculture:starshell_turtle` | fish | 450 | 4g 5i | 225 | Aquaculture, Twilight Forest |
 | Supremium Essence | `mysticalagriculture:supremium_essence` | essence | 260 | 2g 6i | 130 | Mystical Agriculture |
 | Twilight Prediction | `hostilenetworks:twilight_prediction` | mob | 150 | 1g 5i | 75 | Hostile Neural Networks output |
 | Steeleaf | `twilightforest:steeleaf_ingot` | exotic | 150 | 1g 5i | 75 | Twilight Forest |

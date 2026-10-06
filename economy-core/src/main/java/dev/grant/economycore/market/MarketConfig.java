@@ -105,6 +105,8 @@ public class MarketConfig {
     public static class ItemEntry {
         public double base;
         public String category = "misc";
+        /** Fish only: common, uncommon, rare or legendary. Shown on tooltips; rare and up get a catch shout-out. */
+        public String rarity;
 
         public ItemEntry() {}
 

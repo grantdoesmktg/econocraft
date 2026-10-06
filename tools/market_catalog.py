@@ -27,7 +27,7 @@ SELL_CATEGORIES = {
     'chunks':   (32, 'Ore chunks from Ex Deorum sieves'),
     'crops':    (64, 'Field and Botany Pot crops'),
     'food':     (24, "Cooked food (Farmer's Delight); processing pays"),
-    'fish':     (32, "Fishing and Fishermen's Traps; Aquaculture species after the Frontier. Hand-caught fish pay well"),
+    'fish':     (32, "Fishing and Fishermen's Traps; Aquaculture species by biome. Rare catches pay hundreds"),
     'mob':      (48, 'Mob farms (Mob Grinding Utils) and Hostile Neural Networks'),
     'metals':   (32, 'Smelted and processed metals'),
     'gems':     (16, 'Gems and rare minerals; diamond and emerald are Frontier-only'),
@@ -100,24 +100,41 @@ SELL = [
     # Emerald stays cheap: villagers pay 1 emerald for a few logs' worth of sticks, and villagers can be cured on the island.
     ('minecraft:emerald', 'Emerald', 'gems', 40, 3, 'Frontier mining and trading (removed from sieves)'),
     ('minecraft:diamond', 'Diamond', 'gems', 800, 3, 'Frontier mining (removed from sieves)'),
-    ('aquaculture:atlantic_cod', 'Atlantic Cod', 'fish', 30, 3, 'Aquaculture, Frontier oceans'),
-    ('aquaculture:atlantic_herring', 'Atlantic Herring', 'fish', 30, 3, 'Aquaculture, Frontier oceans'),
-    ('aquaculture:pollock', 'Pollock', 'fish', 30, 3, 'Aquaculture, Frontier oceans'),
-    ('aquaculture:bluegill', 'Bluegill', 'fish', 30, 3, 'Aquaculture, Frontier rivers'),
-    ('aquaculture:perch', 'Perch', 'fish', 38, 3, 'Aquaculture, Frontier rivers'),
-    ('aquaculture:brown_trout', 'Brown Trout', 'fish', 38, 3, 'Aquaculture, Frontier rivers'),
-    ('aquaculture:carp', 'Carp', 'fish', 38, 3, 'Aquaculture, Frontier rivers'),
-    ('aquaculture:smallmouth_bass', 'Smallmouth Bass', 'fish', 45, 3, 'Aquaculture, Frontier rivers'),
-    ('aquaculture:rainbow_trout', 'Rainbow Trout', 'fish', 45, 3, 'Aquaculture, Frontier mountains'),
-    ('aquaculture:catfish', 'Catfish', 'fish', 52, 3, 'Aquaculture, Frontier swamps'),
-    ('aquaculture:gar', 'Gar', 'fish', 52, 3, 'Aquaculture, Frontier swamps'),
-    ('aquaculture:atlantic_halibut', 'Atlantic Halibut', 'fish', 60, 3, 'Aquaculture, Frontier oceans'),
-    ('aquaculture:pacific_halibut', 'Pacific Halibut', 'fish', 60, 3, 'Aquaculture, Frontier oceans'),
-    ('aquaculture:muskellunge', 'Muskellunge', 'fish', 68, 3, 'Aquaculture, Frontier rivers'),
-    ('aquaculture:tuna', 'Tuna', 'fish', 75, 3, 'Aquaculture, Frontier oceans'),
-    ('aquaculture:piranha', 'Piranha', 'fish', 75, 3, 'Aquaculture, Frontier jungles'),
-    ('aquaculture:tambaqui', 'Tambaqui', 'fish', 75, 3, 'Aquaculture, Frontier jungles'),
-    ('aquaculture:arapaima', 'Arapaima', 'fish', 90, 3, 'Aquaculture, Frontier jungles'),
+    # Aquaculture: what bites depends on the biome. Prices follow the odds of the catch (see FISH_RARITY), so a
+    # legendary is worth a few hundred commons. The Isles count as plains, so river fish bite in island ponds too.
+    ('aquaculture:bluegill', 'Bluegill', 'fish', 15, 0, 'Aquaculture, rivers, lakes and island ponds'),
+    ('aquaculture:perch', 'Perch', 'fish', 15, 0, 'Aquaculture, rivers, lakes and island ponds'),
+    ('aquaculture:minnow', 'Minnow', 'fish', 6, 0, 'Aquaculture, rivers, lakes and island ponds (bait)'),
+    ('aquaculture:smallmouth_bass', 'Smallmouth Bass', 'fish', 40, 0, 'Aquaculture, rivers, lakes and island ponds'),
+    ('aquaculture:brown_trout', 'Brown Trout', 'fish', 40, 0, 'Aquaculture, rivers, lakes and island ponds'),
+    ('aquaculture:carp', 'Carp', 'fish', 35, 0, 'Aquaculture, rivers, lakes and island ponds'),
+    ('aquaculture:gar', 'Gar', 'fish', 45, 0, 'Aquaculture, rivers, lakes and island ponds'),
+    ('aquaculture:muskellunge', 'Muskellunge', 'fish', 150, 0, 'Aquaculture, rivers, lakes and island ponds'),
+    ('aquaculture:catfish', 'Catfish', 'fish', 300, 0, 'Aquaculture, rivers, lakes and island ponds'),
+    ('aquaculture:atlantic_herring', 'Atlantic Herring', 'fish', 15, 3, 'Aquaculture, oceans'),
+    ('aquaculture:jellyfish', 'Jellyfish', 'fish', 35, 3, 'Aquaculture, oceans'),
+    ('aquaculture:red_grouper', 'Red Grouper', 'fish', 45, 3, 'Aquaculture, oceans'),
+    ('aquaculture:atlantic_halibut', 'Atlantic Halibut', 'fish', 140, 3, 'Aquaculture, oceans'),
+    ('aquaculture:tuna', 'Tuna', 'fish', 350, 3, 'Aquaculture, oceans'),
+    ('aquaculture:blackfish', 'Blackfish', 'fish', 15, 3, 'Aquaculture, cold oceans'),
+    ('aquaculture:atlantic_cod', 'Atlantic Cod', 'fish', 35, 3, 'Aquaculture, cold oceans'),
+    ('aquaculture:pollock', 'Pollock', 'fish', 35, 3, 'Aquaculture, cold oceans'),
+    ('aquaculture:pink_salmon', 'Pink Salmon', 'fish', 40, 3, 'Aquaculture, cold oceans and beaches'),
+    ('aquaculture:rainbow_trout', 'Rainbow Trout', 'fish', 40, 3, 'Aquaculture, cold oceans and rivers'),
+    ('aquaculture:pacific_halibut', 'Pacific Halibut', 'fish', 130, 3, 'Aquaculture, cold oceans'),
+    ('aquaculture:piranha', 'Piranha', 'fish', 18, 3, 'Aquaculture, jungles'),
+    ('aquaculture:tambaqui', 'Tambaqui', 'fish', 50, 3, 'Aquaculture, jungles'),
+    ('aquaculture:arapaima', 'Arapaima', 'fish', 180, 3, 'Aquaculture, jungles'),
+    ('aquaculture:arrau_turtle', 'Arrau Turtle', 'fish', 160, 3, 'Aquaculture, jungles'),
+    ('aquaculture:synodontis', 'Synodontis', 'fish', 15, 3, 'Aquaculture, deserts and savannas'),
+    ('aquaculture:boulti', 'Boulti', 'fish', 35, 3, 'Aquaculture, deserts and savannas'),
+    ('aquaculture:bayad', 'Bayad', 'fish', 40, 3, 'Aquaculture, deserts and savannas'),
+    ('aquaculture:capitaine', 'Capitaine', 'fish', 350, 3, 'Aquaculture, deserts and savannas'),
+    ('aquaculture:leech', 'Leech', 'fish', 6, 3, 'Aquaculture, swamps (bait)'),
+    ('aquaculture:box_turtle', 'Box Turtle', 'fish', 300, 3, 'Aquaculture, swamps'),
+    ('aquaculture:red_shrooma', 'Red Shrooma', 'fish', 25, 3, 'Aquaculture, mushroom islands'),
+    ('aquaculture:brown_shrooma', 'Brown Shrooma', 'fish', 25, 3, 'Aquaculture, mushroom islands'),
+    ('aquaculture:starshell_turtle', 'Starshell Turtle', 'fish', 450, 5, 'Aquaculture, Twilight Forest'),
     # Frontier goods: things the island can't make, priced to make buying the overworld pay off.
     ('minecraft:cocoa_beans', 'Cocoa Beans', 'frontier', 8, 3, 'Jungle biomes'),
     ('minecraft:honeycomb', 'Honeycomb', 'frontier', 15, 3, 'Bee nests (Cyclic can multiply it, so keep it modest)'),
@@ -513,12 +530,35 @@ COINS = {
 }
 
 
+# Fish rarity, shown on every fish tooltip and used for rare-catch shout-outs. Follows Aquaculture's catch weights:
+# legendary is about 1 catch in 50 or rarer where it lives, rare about 1 in 15-20, uncommon 1 in 5-10, common the rest.
+FISH_RARITY = {
+    'legendary': ['aquaculture:catfish', 'aquaculture:tuna', 'aquaculture:capitaine', 'aquaculture:box_turtle',
+                  'aquaculture:starshell_turtle'],
+    'rare': ['aquaculture:muskellunge', 'aquaculture:atlantic_halibut', 'aquaculture:pacific_halibut',
+             'aquaculture:arapaima', 'aquaculture:arrau_turtle'],
+    'uncommon': ['minecraft:tropical_fish', 'minecraft:pufferfish', 'aquaculture:smallmouth_bass', 'aquaculture:brown_trout',
+                 'aquaculture:carp', 'aquaculture:gar', 'aquaculture:jellyfish', 'aquaculture:red_grouper',
+                 'aquaculture:atlantic_cod', 'aquaculture:pollock', 'aquaculture:pink_salmon', 'aquaculture:rainbow_trout',
+                 'aquaculture:tambaqui', 'aquaculture:boulti', 'aquaculture:bayad'],
+}
+
+
+def rarity_of(item):
+    for r, ids in FISH_RARITY.items():
+        if item in ids:
+            return r
+    return 'common'
+
+
 def build_market_json():
     """config/economy_core/market.json for the Market Crate: every sell price, category and coin value."""
     import json
     items = {}
     for iid, name, cat, price, tier, purpose in SELL:
         items[SELL_AS_TAG.get(iid, iid)] = {'base': price, 'category': cat}
+        if cat == 'fish':
+            items[iid]['rarity'] = rarity_of(iid)
     return json.dumps({
         '_comment': 'Generated by tools/market_catalog.py; edit that file instead.',
         'floor_default': 0.5,

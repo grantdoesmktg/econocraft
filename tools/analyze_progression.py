@@ -327,7 +327,9 @@ def extra_sources():
             out.append((item, 5, 'Twilight Forest (bosses, loot, mobs)'))
     for s_ in M.SELL:
         if s_[0].startswith('aquaculture:'):
-            out.append((s_[0], 3, 'Aquaculture fishing in Frontier biomes'))
+            # The catalog tier is where the fish lives: 0 = river fish (the Isles are plains, so island ponds count),
+            # 3 = Frontier biomes, 5 = Twilight Forest.
+            out.append((s_[0], s_[4], 'Aquaculture fishing (island ponds, Frontier or Twilight biomes)'))
         if s_[0].startswith('hostilenetworks:') and s_[0].endswith('_prediction'):
             out.append((s_[0], s_[4], 'Hostile Neural Networks simulation chamber'))
     chapter_tier = {'getting_started': 0, 'tinkerer': 1, 'engineer': 2, 'pioneer': 3, 'cultivator': 4, 'industrialist': 5, 'tycoon': 6}

@@ -304,7 +304,7 @@
 	]
 	quest.2FCCB4B22E493225.title: "&2Fish of the Frontier"
 	quest.2FCCB4B22E493225.quest_desc: [
-		"&2Different biomes, different fish. Some sell for 60 each. Tuna lives in the ocean."
+		"&2Different biomes, different fish. Tuna lives in the ocean and is legendary: about 1 cast in 25, worth 350."
 	]
 	quest.248EC1599BDB1540.title: "&2Village People"
 	quest.248EC1599BDB1540.quest_desc: [
@@ -657,7 +657,20 @@
 	]
 	quest.2417462566415E50.title: "&bAquaculture"
 	quest.2417462566415E50.quest_desc: [
-		"&bBetter rods, hooks and bait. From the Frontier on, every biome has its own fish, and some sell for 60."
+		"&bBetter rods, hooks and bait. Every biome has its own fish, and the rare ones sell for hundreds."
+	]
+	quest.264626EFB427D5B7.title: "&bWhere the Fish Are"
+	quest.264626EFB427D5B7.quest_desc: [
+		"&bHover any fish to see its rarity. Legendary catches get announced to the whole server."
+		""
+		"&bIsland ponds, rivers, lakes:&r perch, bass, trout. Rare &dMuskellunge&r, legendary &6Catfish&r."
+		"&bOceans:&r herring, grouper. Rare &dHalibut&r, legendary &6Tuna&r."
+		"&bCold oceans:&r cod, pollock, pink salmon."
+		"&bJungles:&r piranha. Rare &dArapaima&r and &dArrau Turtle&r."
+		"&bDeserts and savannas:&r legendary &6Capitaine&r."
+		"&bSwamps:&r leeches, legendary &6Box Turtle&r."
+		"&bMushroom islands:&r Shroomas. Yes, mushroom fish."
+		"&bTwilight Forest:&r legendary &6Starshell Turtle&r."
 	]
 	quest.4F4B28FDC52E4DBC.title: "&bLava Fishing"
 	quest.4F4B28FDC52E4DBC.quest_desc: [

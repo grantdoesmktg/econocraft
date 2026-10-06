@@ -95,6 +95,10 @@ public final class SaleCelebrations {
             firstSale(mc, msg.amount());
             return;
         }
+        if (msg.kind() == MarketFxPayload.KIND_RARE_CATCH) {
+            rareCatch(mc, msg.tier(), (int) msg.amount());
+            return;
+        }
         int tier = Mth.clamp(msg.tier(), 0, 8);
         if (tier == 0) return; // celebrations disabled on the server
         long now = Util.getMillis();
@@ -171,6 +175,33 @@ public final class SaleCelebrations {
         }
         // Grand finale.
         BURSTS.add(new Burst(now + 6400, 0, 7, 0, 6, FireworkExplosion.Shape.LARGE_BALL));
+    }
+
+    /** A rare fish: a chime and a few fireworks. A legendary one: the fish pops up like a totem and the sky lights up. */
+    private static void rareCatch(Minecraft mc, int rarity, int itemRawId) {
+        long now = Util.getMillis();
+        FireworkExplosion.Shape[] shapes = FireworkExplosion.Shape.values();
+        if (rarity >= 4) {
+            Item fish = BuiltInRegistries.ITEM.byId(itemRawId);
+            play(mc, SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.2f, 0.8f);
+            play(mc, SoundEvents.PLAYER_LEVELUP, 0.8f, 0.8f);
+            play(mc, SoundEvents.FIREWORK_ROCKET_LARGE_BLAST, 1.0f, 0.8f);
+            if (fish != Items.AIR) mc.gameRenderer.displayItemActivation(new ItemStack(fish));
+            for (int i = 0; i < 8; i++) {
+                double angle = i * 0.8;
+                double dist = 2 + RNG.nextDouble() * 3;
+                BURSTS.add(new Burst(now + i * 350L + RNG.nextInt(120), Math.cos(angle) * dist, 3 + RNG.nextDouble() * 4,
+                        Math.sin(angle) * dist, 1 + RNG.nextInt(2), shapes[RNG.nextInt(shapes.length)]));
+            }
+            BURSTS.add(new Burst(now + 3200, 0, 6, 0, 3, FireworkExplosion.Shape.LARGE_BALL));
+        } else {
+            play(mc, SoundEvents.AMETHYST_BLOCK_CHIME, 1.2f, 1.0f);
+            play(mc, SoundEvents.EXPERIENCE_ORB_PICKUP, 1.0f, 0.6f);
+            for (int i = 0; i < 3; i++) {
+                BURSTS.add(new Burst(now + i * 400L, rnd(2.5), 3 + RNG.nextDouble() * 2, rnd(2.5), 1,
+                        FireworkExplosion.Shape.SMALL_BALL));
+            }
+        }
     }
 
     private static void fireQueuedBursts() {

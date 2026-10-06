@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = "config/economy_core/market.json"
-hash = "9d25b29b0ff2f3f3de207729ff95bc7fe8140a7212db758f809698ac315a1227"
+hash = "96f76ec76cacc50e25b6bb6452f74c962bb035a333b84fc1976371b81043e604"
 
 [[files]]
 file = "config/economy_core/shop.json"
@@ -74,7 +74,7 @@ hash = "2233364526976515f59c49b0a3ea06b50402573dcbafe4da61a2727212f01cdb"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_fishing.snbt"
-hash = "65fb088604699f7c340e601d68679be054e0121667d03b1bc617ae8a33dc9188"
+hash = "7bdfbff9d868b4c1cdeeae84c89b2c6654e2399ed8e2e9f09bfd335b1859e566"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/mod_food.snbt"
@@ -158,7 +158,7 @@ hash = "afb63f36e0bfef8db18c62efe80a5747c393a25a15add3482f702b9f8f1d78ba"
 
 [[files]]
 file = "config/ftbquests/quests/lang/en_us.snbt"
-hash = "bed403845224c207162072f39fc4380c4add2aeae06ce1c3e99e01299eeffa54"
+hash = "63b143b47a85e3db45334751716572409387176199d54ec37cf97a9ed4a6ec0d"
 
 [[files]]
 file = "config/lightmanscurrency-common.txt"

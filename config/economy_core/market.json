@@ -262,19 +262,23 @@
     },
     "minecraft:cod": {
       "base": 9,
-      "category": "fish"
+      "category": "fish",
+      "rarity": "common"
     },
     "minecraft:salmon": {
       "base": 12,
-      "category": "fish"
+      "category": "fish",
+      "rarity": "common"
     },
     "minecraft:tropical_fish": {
       "base": 22,
-      "category": "fish"
+      "category": "fish",
+      "rarity": "uncommon"
     },
     "minecraft:pufferfish": {
       "base": 22,
-      "category": "fish"
+      "category": "fish",
+      "rarity": "uncommon"
     },
     "create:zinc_ingot": {
       "base": 40,
@@ -340,77 +344,170 @@
       "base": 800,
       "category": "gems"
     },
-    "aquaculture:atlantic_cod": {
-      "base": 30,
-      "category": "fish"
-    },
-    "aquaculture:atlantic_herring": {
-      "base": 30,
-      "category": "fish"
-    },
-    "aquaculture:pollock": {
-      "base": 30,
-      "category": "fish"
-    },
     "aquaculture:bluegill": {
-      "base": 30,
-      "category": "fish"
+      "base": 15,
+      "category": "fish",
+      "rarity": "common"
     },
     "aquaculture:perch": {
-      "base": 38,
-      "category": "fish"
+      "base": 15,
+      "category": "fish",
+      "rarity": "common"
     },
-    "aquaculture:brown_trout": {
-      "base": 38,
-      "category": "fish"
-    },
-    "aquaculture:carp": {
-      "base": 38,
-      "category": "fish"
+    "aquaculture:minnow": {
+      "base": 6,
+      "category": "fish",
+      "rarity": "common"
     },
     "aquaculture:smallmouth_bass": {
-      "base": 45,
-      "category": "fish"
+      "base": 40,
+      "category": "fish",
+      "rarity": "uncommon"
     },
-    "aquaculture:rainbow_trout": {
-      "base": 45,
-      "category": "fish"
+    "aquaculture:brown_trout": {
+      "base": 40,
+      "category": "fish",
+      "rarity": "uncommon"
     },
-    "aquaculture:catfish": {
-      "base": 52,
-      "category": "fish"
+    "aquaculture:carp": {
+      "base": 35,
+      "category": "fish",
+      "rarity": "uncommon"
     },
     "aquaculture:gar": {
-      "base": 52,
-      "category": "fish"
-    },
-    "aquaculture:atlantic_halibut": {
-      "base": 60,
-      "category": "fish"
-    },
-    "aquaculture:pacific_halibut": {
-      "base": 60,
-      "category": "fish"
+      "base": 45,
+      "category": "fish",
+      "rarity": "uncommon"
     },
     "aquaculture:muskellunge": {
-      "base": 68,
-      "category": "fish"
+      "base": 150,
+      "category": "fish",
+      "rarity": "rare"
+    },
+    "aquaculture:catfish": {
+      "base": 300,
+      "category": "fish",
+      "rarity": "legendary"
+    },
+    "aquaculture:atlantic_herring": {
+      "base": 15,
+      "category": "fish",
+      "rarity": "common"
+    },
+    "aquaculture:jellyfish": {
+      "base": 35,
+      "category": "fish",
+      "rarity": "uncommon"
+    },
+    "aquaculture:red_grouper": {
+      "base": 45,
+      "category": "fish",
+      "rarity": "uncommon"
+    },
+    "aquaculture:atlantic_halibut": {
+      "base": 140,
+      "category": "fish",
+      "rarity": "rare"
     },
     "aquaculture:tuna": {
-      "base": 75,
-      "category": "fish"
+      "base": 350,
+      "category": "fish",
+      "rarity": "legendary"
+    },
+    "aquaculture:blackfish": {
+      "base": 15,
+      "category": "fish",
+      "rarity": "common"
+    },
+    "aquaculture:atlantic_cod": {
+      "base": 35,
+      "category": "fish",
+      "rarity": "uncommon"
+    },
+    "aquaculture:pollock": {
+      "base": 35,
+      "category": "fish",
+      "rarity": "uncommon"
+    },
+    "aquaculture:pink_salmon": {
+      "base": 40,
+      "category": "fish",
+      "rarity": "uncommon"
+    },
+    "aquaculture:rainbow_trout": {
+      "base": 40,
+      "category": "fish",
+      "rarity": "uncommon"
+    },
+    "aquaculture:pacific_halibut": {
+      "base": 130,
+      "category": "fish",
+      "rarity": "rare"
     },
     "aquaculture:piranha": {
-      "base": 75,
-      "category": "fish"
+      "base": 18,
+      "category": "fish",
+      "rarity": "common"
     },
     "aquaculture:tambaqui": {
-      "base": 75,
-      "category": "fish"
+      "base": 50,
+      "category": "fish",
+      "rarity": "uncommon"
     },
     "aquaculture:arapaima": {
-      "base": 90,
-      "category": "fish"
+      "base": 180,
+      "category": "fish",
+      "rarity": "rare"
+    },
+    "aquaculture:arrau_turtle": {
+      "base": 160,
+      "category": "fish",
+      "rarity": "rare"
+    },
+    "aquaculture:synodontis": {
+      "base": 15,
+      "category": "fish",
+      "rarity": "common"
+    },
+    "aquaculture:boulti": {
+      "base": 35,
+      "category": "fish",
+      "rarity": "uncommon"
+    },
+    "aquaculture:bayad": {
+      "base": 40,
+      "category": "fish",
+      "rarity": "uncommon"
+    },
+    "aquaculture:capitaine": {
+      "base": 350,
+      "category": "fish",
+      "rarity": "legendary"
+    },
+    "aquaculture:leech": {
+      "base": 6,
+      "category": "fish",
+      "rarity": "common"
+    },
+    "aquaculture:box_turtle": {
+      "base": 300,
+      "category": "fish",
+      "rarity": "legendary"
+    },
+    "aquaculture:red_shrooma": {
+      "base": 25,
+      "category": "fish",
+      "rarity": "common"
+    },
+    "aquaculture:brown_shrooma": {
+      "base": 25,
+      "category": "fish",
+      "rarity": "common"
+    },
+    "aquaculture:starshell_turtle": {
+      "base": 450,
+      "category": "fish",
+      "rarity": "legendary"
     },
     "minecraft:cocoa_beans": {
       "base": 8,

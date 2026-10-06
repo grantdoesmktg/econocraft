@@ -28,6 +28,11 @@ MOD-CANDIDATES.md, PROGRESSION-REPORT.md (generated).
   ~/Modpacks/server-test is a local dedicated server for boot tests.
 
 ## Needs an in-game check (Grant)
+- 0.9.9 fish rarity (2026-10-06): fish tooltips show Common/Uncommon/Rare/Legendary; a rare catch gives a chat line,
+  chime and a few fireworks; a legendary one (Catfish, Tuna, Capitaine, Box/Starshell Turtle) is announced to the
+  server with the fish popping up like a totem. Quick test: fish a pond on the island until a Muskellunge (rare) or
+  Catfish (legendary) bites. Also confirm Aquaculture fish really bite in island ponds (the Isles are plains, so the
+  river pool should apply). Fishing quest "Where the Fish Are" in the Fishing tab.
 - 0.9.8 round (2026-10-05): click an item in a quest -> JEI recipes (FTB XMod Compat added); Supply Market shows
   "Sells at the Market: N" instead of "Can't be sold back", locked shelf items show price, E closes it, netherite
   construction stick for 100 with its tagline on hover; gravel/deepslate/nether sieves drop no pebbles (dirt still
